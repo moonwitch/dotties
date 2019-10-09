@@ -1,0 +1,26 @@
+;=====================================================
+;     File Includes
+;=====================================================
+
+[section/base]
+include-file = $HOME/.config/polybar/leafy.ini
+
+;=====================================================
+;     Openbox Bars
+;=====================================================
+
+;[bar/openbox-bar]
+;inherit = bar/master
+
+; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
+monitor =
+monitor-fallback =
+
+;tray-position = center
+;tray-padding =
+;tray-transparent = true
+;tray-background = #0063ff
+
+;modules-left   = manjaro workspaces
+;modules-center =  window_switch clock spotify
+;modules-right  = system-usb-mount gmail alsa pkg wired-network memory coreuse

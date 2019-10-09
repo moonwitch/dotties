@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Custom Rofi Script
+# Launch Rofi
+MENU="$(rofi -no-lazy-grab -sep "|" -dmenu -i -p 'System :' \
+-hide-scrollbar true \
+-bw 0 \
+-lines 5 \
+-padding 5 \
+-width 15 \
+-font "Droid Sans Bold 9" \
+-xoffset -10 -yoffset 10 \
+-location 3 \
+-columns 1 \
+-color-enabled true \
+<<< "  Lock|  Logout|  Hibernate|  Reboot|  Shutdown")"
+case "$MENU" in
+  *Lock) i3lock-fancy ;;
+  *Logout) openbox --exit;;
+  *Hibernate) systemctl hibernate;;
+  *Reboot) systemctl reboot ;;
+  *Shutdown) systemctl -i poweroff
+esac
