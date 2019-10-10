@@ -59,21 +59,17 @@ x XF86MonBrightnessUp	xbacklight +10
 x XF86MonBrightnessDown	xbacklight -10
 x Print           	scrot 'screenshot_%Y%m%d-%H%M%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; xviewer $$(xdg-user-dir PICTURES)/$f'
 x A-Print         	scrot -d 5 'screenshot_%Y%m%d-%H%M%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; xviewer $$(xdg-user-dir PICTURES)/$f'
-x W-f             	exo-open --launch FileManager
+x W-e             	exo-open --launch FileManager
 x W-t             	exo-open --launch TerminalEmulator
 x W-w             	exo-open --launch WebBrowser
-x W-e             	xed
-x C-A-m           	xfce4-settings-manager
-x W-m             	deadbeef
-x W-v             	pavucontrol
-x W-s             	skippy-xd
+x W-t             	xed
 x W-Return        	exo-open --launch TerminalEmulator
 x C-Escape        	lockscreen -- scrot
 o W-S-Escape      	Exit
 o C-S-BackSpace   	Restart
 o C-S-Return      	Reconfigure
 x W-Escape        	xkill
-x A-F1            	jgmenu_run
+x A-F1            	rofr.sh -r
 x A-F2            	rofr.sh -r
 o A-F4            	Close
 o A-F5            	Iconify

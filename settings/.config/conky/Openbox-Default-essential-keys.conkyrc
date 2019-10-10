@@ -1,12 +1,12 @@
 conky.config = {
-	alignment = 'bottom_left',
+	alignment = 'bottom_right',
 	background = true,
 	color2 = 'e0e2e3',
 	cpu_avg_samples = 2,
 	default_color = 'FCD997',
 	double_buffer = true,
-	font = 'Cascadia-Code:size=10',
-	draw_shades = false,
+	font = 'UbuntuMono Nerd Font:style=Regular:size=12',
+	draw_shades = true       ,
 	gap_x = 25,
 	gap_y = 45,
 	minimum_width = 250,
@@ -22,17 +22,14 @@ conky.text = [[
 ${alignc}S H O R T C U T    K E Y S
 ${hr}
 [PrtSc]${alignr}Screenshot
-[Super] + Space${alignr}Openbox Menu
-[Alt] + Space${alignr}Window Menu
-[Alt] + F1${alignr}JG Launcher
+[Win] + Space${alignr}Openbox Menu
+[Win] ${alignr}Rofi
 [Alt] + F2${alignr}Rofi Launcher
-[Super] + t${alignr}Terminal
-[Super] + e${alignr}Text Editor
-[Super] + f${alignr}File Manager
-[Super] + m${alignr}Music Player
-[Super] + w${alignr}Web Browser
-[Super] + v${alignr}Audio Control
-[Super] + s${alignr}Window Switcher
+[Win] + [Enter]${alignr}Terminal
+[Win] + t${alignr}Text Editor
+[Win] + e${alignr}File Manager
+[Win] + m${alignr}Spotify
+[Win] + w${alignr}Web Browser
 [Ctrl] + [Alt] + L${alignr}Lock
 [Ctrl] + [Alt] + [Delete]${alignr}Logout
 ]];

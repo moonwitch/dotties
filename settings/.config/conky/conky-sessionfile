@@ -1,3 +1,2 @@
 conky -c /home/kelly/.config/conky/Openbox-Default-essential-keys.conkyrc & sleep 0.5
-conky -c /home/kelly/.config/conky/Openbox-White.conkyrc & sleep 0.5
 conky -c /home/kelly/.config/conky/Openbox-Default-sysinfo.conkyrc & sleep 0.5
