@@ -94,5 +94,9 @@ alias ls="ls -h --color='auto'"
 alias cat="pygmentize -g" # Colorize cat
 alias g=git # lazzzy
 
+# Auto import my ssh key
+eval $(ssh-agent -s)
+ssh-add ~/.ssh/rsa_marburg
+
 # Work with my dotfiles repo
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/.dotfiles/'
