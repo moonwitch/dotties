@@ -1,0 +1,4 @@
+[submodule "powershell/.config/powershell/cmd-colors-solarized"]
+	path = powershell/.config/powershell/cmd-colors-solarized
+	url = https://github.com/andschwa/cmd-colors-solarized.git
+
