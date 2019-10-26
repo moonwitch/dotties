@@ -1,6 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -101,3 +102,8 @@ ssh-add ~/.ssh/rsa_marburg
 
 # Work with my dotfiles repo
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/.dotfiles/'
+
+# Ruby exports
+export GEM_HOME=$HOME/gems
+export PATH=$HOME/gems:$PATH
+
