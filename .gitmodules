@@ -1,4 +1,6 @@
-[submodule "powershell/.config/powershell/cmd-colors-solarized"]
-	path = powershell/.config/powershell/cmd-colors-solarized
-	url = https://github.com/andschwa/cmd-colors-solarized.git
-
+[submodule "settings/.config/nvim/plugged/ncm2"]
+	path = settings/.config/nvim/plugged/ncm2
+	url = https://github.com/ncm2/ncm2
+[submodule "settings/.config/nvim/plugged/nvim-yarp"]
+	path = settings/.config/nvim/plugged/nvim-yarp
+	url = https://github.com/roxma/nvim-yarp
