@@ -453,6 +453,12 @@
         <width>50%</width>
       </action>
     </keybind>
+    <!-- Key binding for locking the screen -->
+    <keybind key="Super_L-l">
+        <action name="Execute">
+            <command>/usr/bin/dm-tool lock</command>
+    </action>
+    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>4</dragThreshold>

@@ -41,4 +41,7 @@ xdg-user-dirs-gtk-update &
 
 ### enable numlock
 ### uncomment next line
-#numlockx &
+numlockx &
+
+### Enable Screenblanking after 5min
+xset s 300
