@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <openbox_menu>
-
 <menu id="screenshot" label="Screenshot">
 	<item label="Screenshot in 5">
 		<action name="Execute">
@@ -133,20 +132,15 @@
 	<separator/>
 	<menu id="help" label="Help and Info" execute="manjaro-help-pipemenu"/>
 	<separator/>
-	<item label="Switch Menu">
-		<action name="Execute">
-			<command>switchmenu -dynamic</command>
-		</action>
-	</item>
 	<separator/>
 	<item label="Lock Screen">
 		<action name="Execute">
-			<command>lockscreen -- scrot</command>
+			<command>/usr/bin/dm-tool lock</command>
 		</action>
 	</item>
 	<item label="Hibernate">
 		<action name="Execute">
-			<command>pm-hibernate</command>
+			<command>systemctl hibernate</command>
 		</action>
 	</item>
 	<item label="Exit Openbox">
