@@ -28,9 +28,12 @@ Plug 'plasticboy/vim-markdown'                 " Markdown syntax highlighting
 Plug 'rodjek/vim-puppet'                       " Puppet syntax highlighting
 
 " Colorschemes
-Plug 'altercation/vim-colors-solarized'
+Plug 'dylanaraps/wal.vim'
+
 
 call plug#end()
+
+colorscheme wal
 
 "----------------------------------------------
 " General settings
@@ -83,7 +86,6 @@ if (has("termguicolors"))
 endif
 
 set background=dark
-colorscheme solarized
 
 "----------------------------------------------
 " Navigation

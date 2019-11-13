@@ -3,7 +3,7 @@
 
 include "/home/kelly/.gtkrc-2.0.mine"
 gtk-theme-name="Shades-of-gray-Patina"
-gtk-icon-theme-name="Papirus-Maia"
+gtk-icon-theme-name="Papirus-Dark"
 gtk-font-name="Roboto 10"
 gtk-cursor-theme-name="xcursor-breeze"
 gtk-cursor-theme-size=24

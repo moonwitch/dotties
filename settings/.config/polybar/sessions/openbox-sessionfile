@@ -6,4 +6,3 @@
 # sleep 1; manjaro-polybar-session &
 
 /home/kelly/.config/polybar/cuberdon.conf top
-/home/kelly/.config/polybar/cuberdon.conf bottom

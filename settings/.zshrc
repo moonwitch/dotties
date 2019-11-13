@@ -107,20 +107,11 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/.dotfi
 export GEM_HOME=$HOME/gems
 export PATH=$HOME/gems:$PATH
 
-# VPN
-myvpn () {
-    local vpn_server="vpn.amlineurope.com"
-    local vpn_username="intamv\700320"
-    local vpn_password="password"
-    # try connect
-    while true; do
-        retry_time=$(($(date +%s) + 30))
-        sudo openconnect \
-            -u $vpn_username $vpn_server --non-inter --passwd-on-stdin <<< "$vpn_password"
-        current_time=`date +%s`
-        if [ $current_time -lt retry_time ]; then
-            sleep $(( $retry_time - $current_time ))
-        fi
-    done
-}
+# Import colorscheme from 'wal' asynchronously
+# &   # Run the process in the background.
+# ( ) # Hide shell job control messages.
+(cat ~/.cache/wal/sequences &)
+
+# To add support for TTYs this line can be optionally added.
+source ~/.cache/wal/colors-tty.sh
 
