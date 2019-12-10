@@ -1,4 +1,3 @@
-
 "----------------------------------------------
 " Plugin management
 "
@@ -6,34 +5,41 @@
 " instructions:
 " https://github.com/junegunn/vim-plug
 "----------------------------------------------
-call plug#begin('~/.vim/plugged')
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" Dependencies
-Plug 'Shougo/neocomplcache'        " Depenency for Shougo/neosnippet
-Plug 'godlygeek/tabular'           " This must come before plasticboy/vim-markdown
-Plug 'tpope/vim-rhubarb'           " Depenency for tpope/fugitive
+"Plugins
+call plug#begin()
+  " Dependencies
+  Plug 'Shougo/neocomplcache'        " Depenency for Shougo/neosnippet
+  Plug 'godlygeek/tabular'           " This must come before plasticboy/vim-markdown
+  Plug 'terryma/vim-multiple-cursors'
+  Plug 'bling/vim-airline'
 
-" General plugins
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'  " Default snippets for many languages
-Plug 'terryma/vim-multiple-cursors'
-Plug 'bling/vim-airline'
+  " General plugins
+  Plug 'scrooloose/nerdtree'
+  Plug 'terryma/vim-multiple-cursors'
+  Plug 'bling/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'tpope/vim-fugitive'
+  Plug 'mattn/emmet-vim'
 
+  " Syntax highlighting
+  Plug 'aklt/plantuml-syntax'                    " PlantUML syntax highlighting
+  Plug 'chr4/nginx.vim'                          " nginx syntax highlighting
+  Plug 'fishbullet/deoplete-ruby'                " Ruby auto completion
+  Plug 'plasticboy/vim-markdown'                 " Markdown syntax highlighting
+  Plug 'rodjek/vim-puppet'                       " Puppet syntax highlighting
 
-" Syntax highlighting
-Plug 'aklt/plantuml-syntax'                    " PlantUML syntax highlighting
-Plug 'chr4/nginx.vim'                          " nginx syntax highlighting
-Plug 'fishbullet/deoplete-ruby'                " Ruby auto completion
-Plug 'plasticboy/vim-markdown'                 " Markdown syntax highlighting
-Plug 'rodjek/vim-puppet'                       " Puppet syntax highlighting
-
-" Colorschemes
-Plug 'dylanaraps/wal.vim'
-
-
+  " Colorschemes
+  Plug 'dylanaraps/wal.vim'
+  Plug 'morhetz/gruvbox'
 call plug#end()
 
-colorscheme wal
+colorscheme gruvbox	"set colors
 
 "----------------------------------------------
 " General settings
@@ -111,6 +117,9 @@ let g:airline#extensions#tabline#show_tabs = 0
 
 " Enable powerline fonts.
 let g:airline_powerline_fonts = 0
+
+" theme for Airline
+let g:airline_theme='base16_gruvbox_dark_hard'
 
 " Explicitly define some symbols that did not work well for me in Linux.
 if !exists('g:airline_symbols')
