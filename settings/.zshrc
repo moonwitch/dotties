@@ -100,18 +100,7 @@ alias g=git # lazzzy
 eval $(ssh-agent -s)
 ssh-add ~/.ssh/rsa_marburg
 
-# Work with my dotfiles repo
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/.dotfiles/'
-
 # Ruby exports
 export GEM_HOME=$HOME/gems
 export PATH=$HOME/gems:$PATH
-
-# Import colorscheme from 'wal' asynchronously
-# &   # Run the process in the background.
-# ( ) # Hide shell job control messages.
-(cat ~/.cache/wal/sequences &)
-
-# To add support for TTYs this line can be optionally added.
-source ~/.cache/wal/colors-tty.sh
 
