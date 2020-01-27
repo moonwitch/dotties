@@ -23,7 +23,7 @@ xautolock -detectsleep -time 5 -locker "betterlockscreen --lock blur" -killtime 
 # Numlock
 numlockx &
 sxhkd   &
-feh --bg-fill ~/.config/wallpapers/background.png
+feh --bg-fill ~/.themes/.wallpapers/background.png
 picom -f --config ~/.config/picom.conf &
 nm-applet &
 
