@@ -40,6 +40,7 @@
 ; (gtk_accel_path "<Actions>/ThunarStandardView/duplicate" "")
 ; (gtk_accel_path "<Actions>/ThunarWindow/zoom-out" "<Primary>minus")
 ; (gtk_accel_path "<Actions>/ThunarLauncher/sendto-desktop" "")
+; (gtk_accel_path "<Actions>/ThunarBookmarks/7d52233cab3d6683f7f53698dcf11ae3" "")
 ; (gtk_accel_path "<Actions>/ThunarWindow/view-location-selector-toolbar" "")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/select-all-files" "")
 ; (gtk_accel_path "<Actions>/ThunarLauncher/open-with-other" "")
