@@ -1,14 +1,16 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+# export PATH=$(ruby -e 'puts Gem.user_dir')/bin:$HOME/bin:/usr/local/bin:$PATH
+export GEM_PATH="$HOME/.gem"
+export GEM_HOME="$HOME/.gem"
+export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH="/home/base/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
@@ -46,7 +48,7 @@ ZSH_THEME="agnoster"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -69,10 +71,9 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions rails ruby)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # User configuration
 
@@ -91,16 +92,11 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases
-alias ls="ls -h --color='auto'"
-alias cat="pygmentize -g" # Colorize cat
-alias g=git # lazzzy
-
-# Auto import my ssh key
-eval $(ssh-agent -s)
-ssh-add ~/.ssh/rsa_marburg
-
-# Ruby exports
-export GEM_HOME=$HOME/gems
-export PATH=$HOME/gems:$PATH
-
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"

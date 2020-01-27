@@ -2,6 +2,9 @@
 # ~/.bashrc
 #
 
+export GEM_HOME="$HOME/.gem"
+export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
+
 [[ $- != *i* ]] && return
 
 colors() {
@@ -137,6 +140,3 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
-
-# Aliassing
-alias config='/usr/bin/git --git-dir=/home/kelly/.config/ --work-tree=/home/kelly'

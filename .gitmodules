@@ -1,6 +1,6 @@
-[submodule "settings/.config/nvim/plugged/ncm2"]
-	path = settings/.config/nvim/plugged/ncm2
-	url = https://github.com/ncm2/ncm2
-[submodule "settings/.config/nvim/plugged/nvim-yarp"]
-	path = settings/.config/nvim/plugged/nvim-yarp
-	url = https://github.com/roxma/nvim-yarp
+[submodule "themes/.themes/Nordic-Polar"]
+	path = themes/.themes/Nordic-Polar
+	url = https://github.com/EliverLara/Nordic-Polar
+[submodule "themes/.icons/boston"]
+	path = themes/.icons/boston
+	url = https://github.com/tonylambiris/boston-icons

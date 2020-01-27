@@ -9,6 +9,8 @@ usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
+DEFAULT_SESSION='i3 --shmlog-size 0'
+
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
@@ -36,16 +38,10 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
     unset f
 fi
 
-if [ -f ~/.xprofile ]; then
-    . ~/.xprofile
+# numlock
+if [ -x /usr/bin/numlockx ]; then
+      /usr/bin/numlockx on
 fi
-
-# Keyring daemon
-gnome-keyring-daemon --start --components=pkcs11 &
-
-kbdrate -d 400 -r 50
-xset r rate 400 50
-xset s 3600 3600
 
 get_session(){
 	local dbus_args=(--sh-syntax --exit-with-session)
@@ -73,3 +69,7 @@ get_session(){
 }
 
 exec $(get_session)
+
+# Background
+#feh --bg-scale $WALLPAPER
+xset r rate 500 33

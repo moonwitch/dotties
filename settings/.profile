@@ -5,8 +5,12 @@ fi
 
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+export WALLPAPER=$HOME/.config/wallpapers/background.png
 
-export EDITOR=/usr/bin/nano
-export VISUAL=/usr/bin/nano
-export XDG_CONFIG_HOME="$HOME/.config"
-
+# Default Applications
+export EDITOR=/usr/bin/xed
+# fix "xdg-open fork-bomb" export your preferred browser from here
+export BROWSER=/usr/bin/chromium
+export PDFVIEWER=/usr/bin/zathura
+export FILEMAN=/usr/bin/thunar
+export TERMINAL=/usr/bin/urxvt
