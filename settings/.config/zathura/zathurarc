@@ -1,0 +1,16 @@
+#Set the Clipboard#
+set selection-clipboard clipboard
+
+#Status Bar#
+set statusbar-home-tilde true
+unmap t
+map t toggle_statusbar
+
+#Window Title Bar#
+set window-title-home-tilde true
+
+#Colors
+#set rcolor true
+#set default-bg "#D8DEE9"
+set recolor-darkcolor "#D8DEE9"
+set recolor-lightcolor "#2E3440"

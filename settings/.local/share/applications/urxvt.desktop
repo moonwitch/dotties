@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Urxvt
+Comment=Terminal emulator
+TryExec=urxvt
+Exec=urxvt
+Icon=utilities-terminal
+Type=Application
+Categories=GTK;TerminalEmulator;System;
+# This assumes the 'startup-notification' USE flag being enabled
+StartupNotify=true

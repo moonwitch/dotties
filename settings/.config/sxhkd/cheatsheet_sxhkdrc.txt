@@ -1,0 +1,43 @@
+In this document, the notation {h,j,k,l} means "any one among" the
+comma-separated items.  Whereas {1-4} denotes a range: 1,2,3,4.
+
+Getting started
+===============
+
+Super + {Shift +} Return        |-Open urxvt, st
+Super + {Shift +} q             |-Close focused window safely, Kill focused window
+Super + {Shift +} d             |-Rofi drun and run
+Super + Shift + {e,w,g}         |-Launch file manager, browser or code-oss
+Ctrl + Alt + {Home,End,Delete}  |-Lock,Logout,Suspend
+Print                           |-Screenshot of full screen, save to ~Pictures
+Ctrl + Print                    |-Screenshot of active window, save to ~Pictures
+Alt + Print                     |-Screenshot of selected screen, save to ~Pictures
+Super + {F1,Home}               |-Launch a floating window with this cheat sheet
+
+Focus motions
+==============
+super + {_,shift + }{left,down,up,right}	|-Change focus or swap focused
+super + bracket{left,right}                 |-Focus next desktop
+
+
+Window and desktop actions
+==========================
+
+Super + Space                   |-Toggle between tiled and floating states
+Super + m                       |-Toggle between tiled and monocle layout (monocle == maximised nodes)
+Super + {t, s, f}               |-Cycle tiled, pseudo_tiled,floating and full screen
+Super + {m, x, y, z}            |-Cycle marked, locked, sticky and private
+Alt + Tab                       |-Cycle through windows on the current desktop
+Alt + Shift + Tab               |-Cycle backwardly throug h windows on the current desktop
+
+Desktop operations
+==================
+
+Super + {Shift +} {0-9}         |-Switch or send to the designated desktop (workspace)
+Alt + Tab                       |-Cycle through desktops on the current monitor
+Super + r                       |-Rotate the node tree 90 degrees clockwise
+Super + Shift + r               |-Rotate the node tree 90 degrees counter-clockwise
+Super + Alt + r   	            |-Mirror/flip the node tree (top left becomes bottom right)
+Super + s ; {b,e}               |-Balance or equalise node splits (better try it to get an idea)
+Super + Shift + {[,]}           |-Incrementally decrease or increase the gaps between the tiled nodes
+Super + Shift + {y,u,i,o}       |-Change to gap presents {0,5,10,20}
