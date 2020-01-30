@@ -4,12 +4,9 @@
 [submodule "themes/.icons/boston"]
 	path = themes/.icons/boston
 	url = https://github.com/tonylambiris/boston-icons
-[submodule "themes/.themes/arc-theme"]
-	path = themes/.themes/arc-theme
-	url = https://github.com/horst3180/arc-theme
 [submodule "themes/.icons/arc-icon-theme"]
 	path = themes/.icons/arc-icon-theme
-	url = https://github.com/horst3180/arc-icon-theme
+	url = https://github.com/NicoHood/arc-icon-theme/tree/master/Arc
 [submodule "themes/.icons/paper-icon-theme"]
 	path = themes/.icons/paper-icon-theme
 	url = https://github.com/snwh/paper-icon-theme

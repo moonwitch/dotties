@@ -5,7 +5,7 @@ fi
 
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
-export WALLPAPER=$HOME/.config/wallpapers/background.png
+export WALLPAPER=$HOME/.wallpapers/background.png
 
 # Default Applications
 export EDITOR=/usr/bin/xed
