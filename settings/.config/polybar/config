@@ -47,6 +47,7 @@ font-1               = "Hack Nerd Font:style=Bold:pixelsize=21;1"
 font-2               = "FontAwesome:Style=Regular:pixelsize=21;1"
 wm-restack           = bspwm
 fixed-center         = true
+enable-ipc           = true
 
 [bar/topbar]
 inherit        = section/base
@@ -54,17 +55,17 @@ inherit        = section/base
 ; Position
 offset-x       = 10
 offset-y       = 10
-dpi            = 102
 
 ; Size
 width          = 99%
 height         = 25
 
 ; Modules
-modules-left   = i3 bspwm
+modules-left   = bspwm
 modules-center = xwindow
 modules-right  = updates gmail network power pulseaudio date
 
+; Tray
 tray-position = right
 tray-padding = 2
 ;tray-background = #0063ff
@@ -73,10 +74,17 @@ tray-padding = 2
 type = custom/script
 exec = ~/.config/polybar/scripts/gmail/launch.py
 tail = true
-click-left = xdg-open https://mail.google.com
+click-left = $BROWSER https://mail.google.com
 
 [module/bspwm]
 type                      = internal/bspwm
+enable-click              = true
+enable-scroll             = true
+reverse-scroll            = true
+pin-workspaces            = true
+
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
 
 format                    = <label-state><label-mode>
 
@@ -102,47 +110,6 @@ label-empty-padding       = 1
 label-empty-font          = 1
 label-empty-foreground    = ${colors.black1}
 label-empty-background    = ${colors.black}
-
-[module/i3]
-type                       = internal/i3
-index-sort                 = true
-format                     = <label-mode><label-state>
-
-; Modes
-label-mode                 = %mode%
-label-mode-padding         = 2
-label-mode-foreground      = ${colors.green}
-label-mode-overline        = ${colors.black1}
-label-mode-underline       = ${colors.black1}
-
-; Focused
-label-focused              = %index%
-label-focused-foreground   = ${colors.blue}
-label-focused-padding      = 2
-label-focused-overline     = ${colors.black1}
-label-focused-underline    = ${colors.black1}
-
-;Unfocused
-label-unfocused            = %index%
-label-unfocused-foreground = ${colors.white1}
-label-unfocused-padding    = 2
-label-unfocused-overline   = ${colors.black1}
-label-unfocused-underline  = ${colors.black1}
-
-;Visible
-label-visible              = %index%
-label-visible-padding      = 2
-
-;Urgent
-label-urgent               = "●●●"
-label-urgent-foreground    = ${colors.red}
-label-urgent-background    = ${colors.red1}
-label-urgent-padding       = 2
-label-urgent-overline      = ${colors.black1}
-label-urgent-underline     = ${colors.black1}
-
-;Icon for non indexed WS
-ws-icon-default            = ○
 
 [module/xwindow]
 type                   = internal/xwindow
@@ -239,6 +206,13 @@ type = custom/script
 exec = ~/.config/polybar/scripts/check_updates.sh
 tail = true
 interval = 5
+label = %output%
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-prefix = "  "
+format-prefix-foreground = #FFBB00
+format-underline = #FFBB00
+
 
 [module/spotify]
 type = custom/script

@@ -7,6 +7,6 @@
 [submodule "themes/.themes/arc-theme"]
 	path = themes/.themes/arc-theme
 	url = https://github.com/horst3180/arc-theme
-[submodule "themes/.icons/arc-icon-theme"]
-	path = themes/.icons/arc-icon-theme
-	url = https://github.com/horst3180/arc-icon-theme
+[submodule "themes/.icons/arc"]
+	path = themes/.icons/arc
+	url = https://github.com/horst3180/arc-icon-theme/tree/master/Arc

@@ -8,7 +8,7 @@
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 ! Color Scheme
-#include "$HOME/.config/colors/nord.dark"
+#include ".config/colors/nord.dark"
 
 ! URXVT Config
 URxvt.geometry:     72x18
