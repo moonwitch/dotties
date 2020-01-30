@@ -1,12 +1,15 @@
 [submodule "themes/.themes/Nordic-Polar"]
 	path = themes/.themes/Nordic-Polar
 	url = https://github.com/EliverLara/Nordic-Polar
+
 [submodule "themes/.icons/boston"]
 	path = themes/.icons/boston
 	url = https://github.com/tonylambiris/boston-icons
+
 [submodule "themes/.themes/arc-theme"]
 	path = themes/.themes/arc-theme
 	url = https://github.com/horst3180/arc-theme
+
 [submodule "themes/.icons/arc"]
 	path = themes/.icons/arc
 	url = https://github.com/horst3180/arc-icon-theme
