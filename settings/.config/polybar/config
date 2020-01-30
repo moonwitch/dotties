@@ -42,9 +42,9 @@ border-top-color     = ${colors.black1}
 border-bottom-color  = ${colors.black1}
 border-left-color    = ${colors.black1}
 border-right-color   = ${colors.black1}
-font-0               = "Hack Nerd Font:pixelsize=11;2"
-font-1               = "Hack Nerd Font:style=Bold:pixelsize=21;1"
-font-2               = "FontAwesome:Style=Regular:pixelsize=21;1"
+font-0               = "FantasqueSansMono Nerd Font Mono:style=Regular:pixelsize=12;2"
+font-1               = "FantasqueSansMono Nerd Font Mono:style=Regular:pixelsize=16;2"
+font-2               = "FontAwesome5Free:style=Regular:pixelsize=21;1"
 wm-restack           = bspwm
 fixed-center         = true
 enable-ipc           = true
