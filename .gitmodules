@@ -10,3 +10,6 @@
 [submodule "themes/.icons/arc"]
 	path = themes/.icons/arc
 	url = https://github.com/horst3180/arc-icon-theme/tree/master/Arc
+[submodule "paper-icon-theme"]
+	path = paper-icon-theme
+	url = https://github.com/snwh/paper-icon-theme
