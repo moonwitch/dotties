@@ -20,7 +20,7 @@ xset dpms 180 400 900 &
 # Lockscreen loading on inactivity
 xautolock -detectsleep -time 5 -locker "betterlockscreen --lock blur" -killtime 15 -killer "systemctl suspend" &
 
-# Numlock
+# Autostart some apps
 numlockx &
 sxhkd   &
 feh --bg-fill ~/.wallpapers/background.png

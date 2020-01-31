@@ -101,7 +101,10 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-
+nnoremap <C-y> "+y
+vnoremap <C-y> "+y
+nnoremap <C-p> "+gP
+vnoremap <C-p> "+gP
 "----------------------------------------------
 " Plugin: bling/vim-airline
 "----------------------------------------------
