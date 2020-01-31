@@ -1,12 +1,12 @@
-[submodule "themes/.themes/Nordic-Polar"]
-	path = themes/.themes/Nordic-Polar
-	url = https://github.com/EliverLara/Nordic-Polar
-[submodule "themes/.icons/boston"]
-	path = themes/.icons/boston
+[submodule "themes/.icons/boston-icons"]
+	path = themes/.icons/boston-icons
 	url = https://github.com/tonylambiris/boston-icons
-[submodule "themes/.icons/arc-icon-theme"]
-	path = themes/.icons/arc-icon-theme
-	url = https://github.com/NicoHood/arc-icon-theme/tree/master/Arc
 [submodule "themes/.icons/paper-icon-theme"]
 	path = themes/.icons/paper-icon-theme
 	url = https://github.com/snwh/paper-icon-theme
+[submodule "themes/.icons/Arc-icon-theme"]
+	path = themes/.icons/Arc-icon-theme
+	url = https://github.com/NicoHood/arc-icon-theme
+[submodule "themes/.themes/Nordic-Polar"]
+	path = themes/.themes/Nordic-Polar
+	url = https://github.com/EliverLara/Nordic-Polar

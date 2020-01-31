@@ -72,7 +72,7 @@ tray-padding = 2
 
 [module/gmail]
 type = custom/script
-exec = ~/.config/polybar/scripts/gmail/launch.py
+exec = ~/.local/bin/polybar_scripts/gmail/launch.py
 tail = true
 click-left = $BROWSER https://mail.google.com
 
@@ -203,7 +203,7 @@ margin-bottom = 1
 
 [module/updates]
 type = custom/script
-exec = ~/.config/polybar/scripts/check_updates.sh
+exec = ~/.local/bin/polybar_scripts/check_updates.sh
 tail = true
 interval = 5
 label = %output%
@@ -219,7 +219,7 @@ type = custom/script
 interval = 1
 format-prefix = " "
 format = <label>
-exec = python ~/.config/polybar/scripts/spotify/spotify_status.py -f '{play_pause} {song} - {artist}'
+exec = python ~~/.local/bin/polybar_scripts/spotify_status.py -f '{play_pause} {song} - {artist}'
 format-underline = #1db954
 
 ;; vim:ft=dosini
