@@ -203,6 +203,7 @@ format-prefix-foreground = #FFBB00
 
 [module/playerctl]
 type = custom/script
+exec-if = psgrep 'spotify'
 exec = echo "$(playerctl metadata artist) - $(playerctl metadata title)"
 format-prefix = " "
 format-prefix-foreground = ${colors.green1}
