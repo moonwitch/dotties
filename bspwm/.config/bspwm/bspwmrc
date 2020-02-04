@@ -33,7 +33,7 @@ $HOME/.config/polybar/scripts/spotify/spotify_status.py &
 # Visual Options
 ##############################################
 # Monitor Names
-bspc monitor -d Main Code Web Media Social
+bspc monitor -d Main Code Web Media Social Design
 
 # Decoration Stuff ##
 

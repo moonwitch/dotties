@@ -81,28 +81,37 @@ scroll-down = bspwm-deskprev
 
 format = <label-state><label-mode>
 
-label-focused = %name%
+label-focused = %icon%
 label-focused-padding = 1
 label-focused-font = 1
 label-focused-foreground = ${colors.black}
 label-focused-background = ${colors.blue1}
 
-label-occupied = %name%
+label-occupied = %icon%
 label-occupied-padding = 1
 label-occupied-font = 1
 label-occupied-foreground = ${colors.blue1}
 
-label-urgent = %name%
+label-urgent = %icon%
 label-urgent-padding = 2
 label-urgent-background = ${colors.red}
 label-urgent-foreground = ${colors.red1}
 label-urgent-font = 1
 
-label-empty = %name%
+label-empty = %icon%
 label-empty-padding = 1
 label-empty-font = 1
 label-empty-foreground = ${colors.black1}
 label-empty-background = ${colors.black}
+
+;order: house;</>;globe;music note;comment;palette
+ws-icon-0 = Main;
+ws-icon-1 = Code;
+ws-icon-2 = Web;
+ws-icon-3 = Media;
+ws-icon-4 = Social;
+ws-icon-5 = Design;
+ws-icon-default = 
 
 [module/xwindow]
 type = internal/xwindow

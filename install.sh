@@ -47,6 +47,9 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 # Generate my ssh key for github/bitbucket
 ssh-keygen -t rsa -b 4096 -C "kelly.crabbe@gmail.com" 
 
+# Get one more theme
+wget -qO- https://git.io/papirus-icon-theme-install | DESTDIR="$HOME/.icons" sh
+
 # Services
 systemctl --user start spotifyd.service
 systemctl --user enable spotifyd.service
