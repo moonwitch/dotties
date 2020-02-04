@@ -16,8 +16,7 @@ call plug#begin('~/.vim/plugged')
   " Dependencies
   Plug 'Shougo/neocomplcache'        " Depenency for Shougo/neosnippet
   Plug 'godlygeek/tabular'           " This must come before plasticboy/vim-markdown
-  Plug 'terryma/vim-multiple-cursors'
-  Plug 'bling/vim-airline'
+
 
   " General plugins
   Plug 'scrooloose/nerdtree'
@@ -26,6 +25,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline-themes'
   Plug 'tpope/vim-fugitive'
   Plug 'mattn/emmet-vim'
+  Plug 'Valloric/YouCompleteMe'
+
 
   " Syntax highlighting
   Plug 'aklt/plantuml-syntax'                    " PlantUML syntax highlighting
@@ -36,10 +37,11 @@ call plug#begin('~/.vim/plugged')
 
   " Colorschemes
   Plug 'dylanaraps/wal.vim'
-  Plug 'morhetz/gruvbox'
+  Plug 'arcticicestudio/nord-vim'
+  Plug 'chriskempson/base16-vim'
 call plug#end()
 
-colorscheme gruvbox	"set colors
+colorscheme nord
 
 "----------------------------------------------
 " General settings
@@ -47,7 +49,6 @@ colorscheme gruvbox	"set colors
 set autoindent              " indent a new line the same amount as the line just typed
 set smartindent             " enable smart indentation
 set autoread                " reload file if the file changes on the disk
-set cursorline              " highlight the current line for the cursor
 set expandtab               " expands tabs to spaces
 set noswapfile              " disable swapfile usage
 set tabstop=2               " number of columns occupied by a tab character
@@ -60,6 +61,7 @@ set hlsearch                " highlight search results
 set number                  " add line numbers
 set wildmode=longest,list   " get bash-like tab completions
 syntax on                   " syntax highlighting
+filetype plugin on
 
 " neovim specific settings
 if has('nvim')
@@ -77,23 +79,6 @@ if has('mouse')
 endif
 
 "----------------------------------------------
-" Colors
-"----------------------------------------------
-if (has("nvim"))
-  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
-
-"For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-"Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-" < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-if (has("termguicolors"))
-  set termguicolors
-endif
-
-set background=dark
-
-"----------------------------------------------
 " Navigation
 "----------------------------------------------
 " Disable arrow keys
@@ -105,6 +90,7 @@ nnoremap <C-y> "+y
 vnoremap <C-y> "+y
 nnoremap <C-p> "+gP
 vnoremap <C-p> "+gP
+
 "----------------------------------------------
 " Plugin: bling/vim-airline
 "----------------------------------------------
@@ -116,13 +102,13 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Disable showing tabs in the tabline. This will ensure that the buffers are
 " what is shown in the tabline at all times.
-let g:airline#extensions#tabline#show_tabs = 0
+let g:airline#extensions#tabline#show_tabs = 1
 
 " Enable powerline fonts.
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 
 " theme for Airline
-let g:airline_theme='base16_gruvbox_dark_hard'
+"let g:airline_theme='base16_gruvbox_dark_hard'
 
 " Explicitly define some symbols that did not work well for me in Linux.
 if !exists('g:airline_symbols')
@@ -145,3 +131,9 @@ let g:vim_markdown_toc_autofit = 1
 "----------------------------------------------
 let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_skip_key='<C-b>'
+
+"----------------------------------------------
+" Plugin: NerdTree
+"----------------------------------------------
+autocmd vimenter * NERDTree
+map <C-n> :NERDTreeToggle<CR>
