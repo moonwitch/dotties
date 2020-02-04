@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=WebeX
+GenericName=CiscoWebex
+Exec=/usr/bin/firefox http://msamlin.webex.com
+Icon=Cisco_Webex.png
+Type=Application
+Categories=Application;Network;
+StartupWMClass=Webex
+StartupNotify=true
