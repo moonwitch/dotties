@@ -76,6 +76,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
