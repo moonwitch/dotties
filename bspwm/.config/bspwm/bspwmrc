@@ -20,14 +20,14 @@ xautolock -detectsleep -time 5 -locker "betterlockscreen --lock blur" -killtime 
 # Autostart some apps
 numlockx &
 sxhkd   &
-feh --bg-fill ~/.wallpapers/background.png
+feh --bg-fill $WALLPAPER
 picom -f --config ~/.config/picom.conf &
 nm-applet &
+setxkbmap -layout us -variant alt-intl
 
 # Starting the bar
 killall polybar
 polybar topbar -r &
-$HOME/.config/polybar/scripts/spotify/spotify_status.py &
 
 ##############################################
 # Visual Options

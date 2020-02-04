@@ -77,6 +77,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
