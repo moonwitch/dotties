@@ -10,7 +10,15 @@ numlockx \
 dbus \
 mpris-ctl \
 playerctl \
-openconnect-networkmanager
+openconnect-networkmanager \
+
+# Install e-id stuff; this is Belgian users only
+
+baph --install --noview --noconfirm ccid pcsclite eid-mw acsccid
+sudo systemctl enable pcscd.socket 
+sudo systemctl start pcscd.socket 
+killall chromium && modutil -dbdir sql:.pki/nssdb/ -add "Belgium eID" -libfile /usr/lib/libbeidpkcs11.so
+
 
 # Install neovim plugin manager
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
