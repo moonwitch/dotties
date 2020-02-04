@@ -14,9 +14,6 @@ if hash udiskie > /dev/null 2>&1 ; then
     udiskie &
 fi
 
-# DPMS monitor setting (standby -> suspend -> off) (in seconds)
-xset dpms 180 400 900 &
-
 # Lockscreen loading on inactivity
 xautolock -detectsleep -time 5 -locker "betterlockscreen --lock blur" -killtime 15 -killer "systemctl suspend" &
 
@@ -36,13 +33,13 @@ $HOME/.config/polybar/scripts/spotify/spotify_status.py &
 # Visual Options
 ##############################################
 # Monitor Names
-bspc monitor -d I II III IV V VI
+bspc monitor -d Main Code Web Media Social
 
 # Decoration Stuff ##
 
 # Gaps and borders
 bspc config border_width          3
-bspc config window_gap            10
+bspc config window_gap            15
 bspc config borderless_monocle    true
 bspc config gapless_monocle       false
 
@@ -56,27 +53,27 @@ bspc config split_ratio           0.5
 # xprop | grep WM_CLASS | awk '{print $4}'
 ##############################################
 bspc rule -r *:*
-bspc rule -a Pamac-manager   state=floating
+bspc rule -a Pamac-manager state=floating
 
-#Chatting Applications
+#Desktop 1: Main
+bspc rule -a libreoffice-* desktop='^1' follow=on focus=on
+
+#Desktop 2: Code
+bspc rule -a atom desktop='^2' follow=on focus=on
+bspc rule -a code-oss desktop='^2' follow=on focus=on
+
+#Desktop 3: Web
+bspc rule -a Chromium-* desktop='^3' follow=on focus=on
+
+#Desktop 4: Media
+bspc rule -a Spotify desktop='^4' follow=on focus=on
+
+#Desktop 5: Chat
 bspc rule -a Caprine desktop='^5' follow=on focus=on
 bspc rule -a Mattermost desktop='^5' follow=on
 
-#Code Applications
-bspc rule -a atom desktop='^2' follow=on
-bspc rule -a code-oss desktop='^2' follow=on
-
-#Players
-bspc rule -a Spotify desktop='^4' follow=on focus=on
-
-#Utilities
 # bspc rule -a URxvt   state=floating center=true rectangle=800x600+0+0
-bspc rule -a Tilix   state=floating center=true rectangle=800x600+0+0
 bspc rule -a Zathura state=tiled
-
-# Rules binding apps to workspaces
-bspc rule -a libreoffice-* desktop=^3 follow=on focus=on
-
 
 # vim:filetype=sh
 bash "$HOME/.config/bspwm/bspwm_colors.sh" &
