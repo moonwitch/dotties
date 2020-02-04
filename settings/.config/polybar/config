@@ -138,6 +138,8 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 墳
 ramp-volume-3 = 
+use-ui-max = false
+click-right = pavucontrol &
 
 [module/network]
 type = internal/network
@@ -192,7 +194,8 @@ menu-0-4-foreground = ${colors.red}
 
 [module/updates]
 type = custom/script
-exec = ~/.local/bin/polybar_scripts/check_updates.sh
+;exec = ~/.local/bin/polybar_scripts/check_updates.sh
+exec = pacman -Qu | wc -l
 tail = true
 interval = 5
 label = %output%

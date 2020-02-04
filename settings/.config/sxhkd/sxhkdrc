@@ -61,7 +61,7 @@ super + shift + {e,w,g}
 # Screenshots (requires `scrot`).
 Print
     scrot $HOME/'Pictures/Screenshots/%Y-%m-%d_%H%M%S-$wx$h_scrot.png' && notify-send "Fullscreen view screenshot" "Saved image to $HOME/Pictures/Screenshots"
-    # maim -s | xclip -selection clipboard -t image/png
+    #maim -s | xclip -selection clipboard -t image/png
 
 control + Print
     maim -i $(xdotool getactivewindow) $HOME/'Pictures/Screenshots/%Y-%m-%d_%H%M%S-$wx$h_scrot.png' && notify-send "Active window snap saved to $HOME/Pictures/Screenshots" $$ xclip -selection clipboard -t image/png
