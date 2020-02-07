@@ -1,0 +1,28 @@
+!/bin/sh
+#
+# engrampa.tap - Wrapper script to create and extract archive files
+#                   in Thunar, via the thunar-archive-plugin, using the
+#                   engrampa archive manager.
+
+# determine the action and the folder, $@ then contains only the files
+action=$1; shift;
+folder=$1; shift;
+
+# check the action
+case $action in
+create)
+	exec engrampa "--default-dir=$folder" --add "$@"
+	;;
+
+extract-here)
+	exec engrampa "--extract-to=$(pwd)" --extract-here --force "$@"
+	;;
+
+extract-to)
+	exec engrampa "--default-dir=$folder" --extract "$@"
+	;;
+
+*)
+	echo "Unsupported action '$action'" >&2
+	exit 1
+esac

@@ -53,3 +53,7 @@ wget -qO- https://git.io/papirus-icon-theme-install | DESTDIR="$HOME/.icons" sh
 # Services
 systemctl --user start spotifyd.service
 systemctl --user enable spotifyd.service
+
+sudo mkdir -p /mnt/work/{home,buo,portimaprod,portimaqual,spotlight} 
+sudo mount.cifs -o username=intamv\\700320 //fci.fortis/amv/buo /mnt/work/buo
+sudo mount -t cifs -o username=intamv\\700320 //fci.fortis/acidfs01/brulthome/700320 /mnt/work/home

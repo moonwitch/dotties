@@ -27,20 +27,12 @@ ctransp = #00FFFFFF
 top = true
 padding = 0
 spacing = 0
-module-margin-left = 0
-module-margin-right = 0
-module-padding = 1
-border-top-size = 3
-border-left-size = 3
-border-right-size = 3
-border-bottom-size = 3
+module-margin = 0
+border-size = 3
 foreground = ${colors.foreground}
 background = ${colors.background}
-border-top-color = ${colors.black1}
-border-bottom-color = ${colors.black1}
-border-left-color = ${colors.black1}
-border-right-color = ${colors.black1}
-font-0 = "Fira Mono for Powerline:style=Regular:size=12:antialias=true;2"
+border-color = ${colors.black1}
+font-0 = "SauceCodePro Nerd Font:style=Regular:size=12:antialias=true;2"
 font-1 = "FantasqueSansMono Nerd Font Mono:style=Regular:size=20:antialias=true;5"
 font-2 = "Font Awesome 5 Free Regular:style=Regular:size=12:antialias=true;2"
 wm-restack = bspwm
@@ -58,16 +50,10 @@ offset-y = 10
 width = 99%
 height = 25
 modules-left = bspwm playerctl
-modules-center = xwindow
-modules-right = updates gmail network power pulseaudio date
+modules-center = 
+modules-right = gmail network pulseaudio updates date power
 tray-position = right
 tray-padding = 2
-
-[module/gmail]
-type = custom/script
-exec = ~/.local/bin/polybar_scripts/gmail/launch.py --nosound
-tail = true
-click-left = $BROWSER https://mail.google.com
 
 [module/bspwm]
 type = internal/bspwm
@@ -75,35 +61,28 @@ enable-click = true
 enable-scroll = true
 reverse-scroll = true
 pin-workspaces = true
-
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
-
 format = <label-state><label-mode>
-
 label-focused = %icon%
 label-focused-padding = 1
 label-focused-font = 1
 label-focused-foreground = ${colors.black}
 label-focused-background = ${colors.blue1}
-
 label-occupied = %icon%
 label-occupied-padding = 1
 label-occupied-font = 1
 label-occupied-foreground = ${colors.blue1}
-
 label-urgent = %icon%
 label-urgent-padding = 2
 label-urgent-background = ${colors.red}
 label-urgent-foreground = ${colors.red1}
 label-urgent-font = 1
-
 label-empty = %icon%
 label-empty-padding = 1
 label-empty-font = 1
 label-empty-foreground = ${colors.black1}
 label-empty-background = ${colors.black}
-
 ;order: house;</>;globe;music note;comment;palette
 ws-icon-0 = Main;
 ws-icon-1 = Code;
@@ -112,106 +91,6 @@ ws-icon-3 = Media;
 ws-icon-4 = Social;
 ws-icon-5 = Design;
 ws-icon-default = 
-
-[module/xwindow]
-type = internal/xwindow
-format = <label>
-label = %{A:rofi -show window&:} %title%%{A}
-label-empty = %{A:rofi -show drun&:}%{A}
-label-empty-foreground = ${colors.black1}
-label-padding = 1
-label-maxlen = 80
-label-ellipsis = true
-label-foreground = ${colors.blue}
-
-[module/date]
-type = internal/date
-interval = 5
-format = <label>
-format-padding = 1
-format-foreground = ${colors.yellow}
-label = %time% %date%
-date = "%a %B %d"
-time = "%H:%M"
-
-[module/pulseaudio]
-type = internal/pulseaudio
-format-muted-background = ${colors.red}
-format-volume-foreground = ${colors.green}
-format-volume = <ramp-volume> <label-volume>
-format-muted = <label-muted>
-format-volume-padding = 1
-format-muted-padding = 1
-label-muted = 婢 muted
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 墳
-ramp-volume-3 = 
-use-ui-max = false
-click-right = pavucontrol &
-
-[module/network]
-type = internal/network
-interface = enp3s0
-interval = 3.0
-format-connected = <label-connected>
-format-disconnected = <label-disconnected>
-format-connected-padding = 1
-format-disconnected-padding = 1
-label-connected = 囹 %{A:networkmanager_dmenu&:}%downspeed%
-label-connected-foreground = ${colors.cyan1}
-label-disconnected =  %{A:networkmanager_dmenu&:}%ifname% disconnected%{A}
-label-disconnected-foreground = ${colors.red1}
-click-left = networkmanager_dmenu &
-click-middle = networkmanager_dmenu &
-click-right = networkmanager_dmenu &
-
-[module/power]
-type = custom/menu
-
-format-foreground = ${colors.blue1}
-format-padding = 1
-
-label-open = ${env:USER}
-label-close-font = 1
-label-close = 
-label-close-foreground = ${colors.white1}
-label-separator = "|"
-label-separator-padding = 1
-label-separator-foreground = ${colors.black}
-
-; lock
-menu-0-0 =  Lock
-menu-0-0-exec = xautolock -locknow
-menu-0-0-foreground = ${colors.green}
-; suspend
-menu-0-1 =  Suspend
-menu-0-1-exec = systemctl suspend
-menu-0-1-foreground = ${colors.green}
-; exit
-menu-0-2 =  Logoff
-menu-0-2-exec = bspc quit
-menu-0-2-foreground = ${colors.yellow1}
-; shutdown
-menu-0-3 =  Reboot
-menu-0-3-exec = systemctl reboot
-menu-0-3-foreground = ${colors.yellow}
-; reboot
-menu-0-4 =  Shutdown
-menu-0-4-exec = systemctl poweroff
-menu-0-4-foreground = ${colors.red}
-
-[module/updates]
-type = custom/script
-;exec = ~/.local/bin/polybar_scripts/check_updates.sh
-exec = pacman -Qu | wc -l
-tail = true
-interval = 5
-label = %output%
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-format-prefix = " "
-format-prefix-foreground = #FFBB00
 
 [module/playerctl]
 type = custom/script
@@ -224,5 +103,91 @@ interval = 1
 double-click-left = playerctl previous &
 double-click-right = playerctl next &
 double-click-middle = playerctl play-pause &
+
+[module/gmail]
+type = custom/script
+exec = ~/.local/bin/polybar_scripts/gmail/launch.py --nosound
+tail = true
+click-left = $BROWSER https://mail.google.com
+
+[module/network]
+type = internal/network
+interface = enp3s0
+interval = 3.0
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+label-connected = 囹 %{A1:networkmanager_dmenu &:}%ifname%%{A}
+label-connected-foreground = ${colors.cyan1}
+label-connected-padding = 1
+label-disconnected =  %{A1:networkmanager_dmenu &:}%ifname% disconnected%{A}
+label-disconnected-foreground = ${colors.red1}
+label-disconnected-padding = 1
+
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume = <ramp-volume> <label-volume>
+format-volume-foreground = ${colors.green}
+format-volume-padding = 1
+format-muted = <label-muted>
+format-muted-background = ${colors.red}
+format-muted-padding = 1
+label-muted = 婢 muted
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 墳
+ramp-volume-3 = 
+click-right = pavucontrol &
+
+[module/updates]
+type = custom/script
+;exec = ~/.local/bin/polybar_scripts/check_updates.sh
+exec = pacman -Qu | wc -l
+tail = true
+interval = 5
+label = %output%
+label-padding = 1
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-prefix = ""
+format-prefix-foreground = #FFBB00
+
+[module/date]
+type = internal/date
+interval = 5
+format = <label>
+format-foreground = ${colors.yellow}
+format-padding = 1
+label = %date% %time%
+date = "%b %d"
+time = "%H:%M"
+
+[module/power]
+type = custom/text
+content = 襤
+content-padding = 1
+click-left = ~/.local/bin/power-menu
+
+;[module/power]
+;type = custom/menu
+;format-foreground = ${colors.blue1}
+;label-open = 襤
+;label-close-font = 1
+;label-close = 
+;label-close-foreground = ${colors.white1}
+;label-close-padding-left = 1
+;label-separator = "|"
+;label-separator-foreground = ${colors.blue1}
+;label-separator-padding = 1
+;menu-0-0 =  Lock
+;menu-0-0-exec = xautolock -locknow
+;menu-0-0-foreground = ${colors.yellow}
+;menu-0-1 =  Suspend
+;menu-0-1-exec = systemctl suspend
+;menu-0-1-foreground = ${colors.yellow}
+;menu-0-2 =  Logoff
+;menu-0-2-exec = bspc quit
+;menu-0-2-foreground = ${colors.black}
+;menu-0-2-background = ${colors.blue1}
+;menu-0-2-padding-right = 1
 
 ;; vim:ft=dosini

@@ -53,8 +53,8 @@ super + {F1,Home}
 super + {_,shift + }Return
 	{$TERMINAL, st}
 
-super + shift + {e,w,g}
-	{$FILEMAN, $BROWSER, code-oss }
+super + shift + {e,w,g,f}
+	{$FILEMAN, $BROWSER, code-oss,firefox }
 
 # Utilities
 # -------------
