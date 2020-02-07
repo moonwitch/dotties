@@ -75,8 +75,7 @@
     max_icon_size       = 32
 
     # icon folders #
-    icon_path           = ~/.icons/evolvere-icons-2/16x16/status/:~/.icons/evolvere-icons-2/16x16/devices/:/usr/share/icons/Papirus-Dark/16x16/status/:/usr/share/icons/Papirus-Dark/16x16/devices/:/usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
-
+    icon_path           = ~/.icons
     # position #
     icon_position       = left
 

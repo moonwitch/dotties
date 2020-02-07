@@ -50,7 +50,7 @@ offset-y = 10
 width = 99%
 height = 25
 modules-left = bspwm playerctl
-modules-center = 
+modules-center = weather
 modules-right = gmail network pulseaudio updates date power
 tray-position = right
 tray-padding = 2
@@ -72,7 +72,7 @@ label-focused-background = ${colors.blue1}
 label-occupied = %icon%
 label-occupied-padding = 1
 label-occupied-font = 1
-label-occupied-foreground = ${colors.blue1}
+label-occupied-foreground = ${colors.magenta}
 label-urgent = %icon%
 label-urgent-padding = 2
 label-urgent-background = ${colors.red}
@@ -109,6 +109,15 @@ type = custom/script
 exec = ~/.local/bin/polybar_scripts/gmail/launch.py --nosound
 tail = true
 click-left = $BROWSER https://mail.google.com
+
+[module/weather]
+type = custom/script
+exec = ~/.local/bin/polybar_scripts/weather.sh
+interval = 600
+label            = %output%
+label-foreground = ${colors.black}
+label-background = ${colors.cyan}
+label-padding    = 2
 
 [module/network]
 type = internal/network
