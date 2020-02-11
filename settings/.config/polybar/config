@@ -35,6 +35,7 @@ border-color = ${colors.black1}
 font-0 = "SauceCodePro Nerd Font:style=Regular:size=12:antialias=true;2"
 font-1 = "FantasqueSansMono Nerd Font Mono:style=Regular:size=20:antialias=true;5"
 font-2 = "Font Awesome 5 Free Regular:style=Regular:size=12:antialias=true;2"
+font-3 = "Weather Icons:style=Regular:size=12;5"
 wm-restack = bspwm
 fixed-center = true
 enable-ipc = true
@@ -51,7 +52,7 @@ width = 99%
 height = 25
 modules-left = bspwm playerctl
 modules-center = weather
-modules-right = gmail network pulseaudio updates date power
+modules-right = gmail vpn-status network pulseaudio updates date power
 tray-position = right
 tray-padding = 2
 
@@ -114,10 +115,16 @@ click-left = $BROWSER https://mail.google.com
 type = custom/script
 exec = ~/.local/bin/polybar_scripts/weather.sh
 interval = 600
-label            = %output%
-label-foreground = ${colors.black}
-label-background = ${colors.cyan}
-label-padding    = 2
+label-font = 4
+label-foreground = ${colors.cyan}
+label-padding = 2
+label = %output%
+
+[module/vpn-status]
+type = custom/script
+exec = ~/.local/bin/polybar_scripts/vpn-status.sh
+interval = 5
+label = %output%
 
 [module/network]
 type = internal/network
@@ -166,9 +173,10 @@ interval = 5
 format = <label>
 format-foreground = ${colors.yellow}
 format-padding = 1
-label = %date% %time%
+label = %{T3}%{T-} %date% %time%
 date = "%b %d"
 time = "%H:%M"
+click-left = ruby ~/projects/gopolycal/gopolycal.rb
 
 [module/power]
 type = custom/text
