@@ -41,7 +41,7 @@ polybar topbar -r &
 # ==========
 # Workspaces
 # ==========
-bspc monitor -d Main Code Web Media Social Design
+bspc monitor -d Main Code Web Media Social Design Work
 bspc config focus_follows_pointer true
 
 # =====
@@ -75,31 +75,35 @@ bspc rule --add yad state=floating
 bspc rule --add Zathura state=tiled
 
 # Desktop 1: Main
-bspc rule -a libreoffice-*  desktop='^1' follow=on focus=on
+bspc rule --add libreoffice-*   desktop='^1' follow=on focus=on
 
 # Desktop 2: Code
-bspc rule -a atom           desktop='^2' follow=on focus=on
-bspc rule -a code-oss       desktop='^2' follow=on focus=on
+bspc rule --add atom            desktop='^2' follow=on focus=on
+bspc rule --add code-oss        desktop='^2' follow=on focus=on
 
 # Desktop 3: Web
-bspc rule -a Chromium-*   desktop='^3' follow=on focus=on
+bspc rule --add Chromium-*      desktop='^3' follow=on focus=on
 
 # Desktop 4: Media
-bspc rule -a Spotify      desktop='^4' follow=on focus=on
+bspc rule --add Spotify         desktop='^4' follow=on focus=on
 
 # Desktop 5: Chat
-bspc rule -a Caprine      desktop='^5' follow=on focus=on
-bspc rule -a Mattermost   desktop='^5' follow=on
-bspc rule -a firefox      desktop='^5' follow=on focus=on #Used for Webex at work
+bspc rule --add Caprine         desktop='^5' follow=on focus=on
+bspc rule --add Mattermost      desktop='^5' follow=on
+bspc rule --add 'Cisco Webex Meetings - Mozilla Firefox'      desktop='^5' follow=on focus=on #Used for Webex at work
 
 # Desktop 6: Design
-bspc rule -a Darktable     desktop="^4"
-bspc rule -a Gimp          desktop="^4"
-bspc rule -a gimp          desktop="^4"
-bspc rule -a Inkscape      desktop="^4"
-bspc rule -a Rawtherapee   desktop="^4"
-bspc rule -a Digikam       desktop="^4"
-bspc rule -a Shotwell       desktop="^4"
+bspc rule --add Darktable       desktop="^6"
+bspc rule --add Gimp            desktop="^6"
+bspc rule --add gimp            desktop="^6"
+bspc rule --add Inkscape        desktop="^6"
+bspc rule --add Rawtherapee     desktop="^6"
+bspc rule --add Digikam         desktop="^6"
+bspc rule --add Shotwell        desktop="^6"
+
+# Desktop 7: Work
+bspc rule --add 'Mail - CRABBE Kelly - Outlook - Mozilla Firefox'      desktop='^7' follow=on focus=on #Webmail
+
 
 # vim:filetype=sh
 bash "$HOME/.config/bspwm/bspwm_colors.sh" &

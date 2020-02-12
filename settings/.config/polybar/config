@@ -157,9 +157,8 @@ click-right = pavucontrol &
 
 [module/updates]
 type = custom/script
-;exec = ~/.local/bin/polybar_scripts/check_updates.sh
 exec = pacman -Qu | wc -l
-tail = true
+tail = truet
 interval = 5
 label = %output%
 label-padding = 1
