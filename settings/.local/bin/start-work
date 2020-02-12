@@ -1,0 +1,52 @@
+#!/bin/bash
+
+## Declare my array
+declare -a arr=(
+  "/mnt/work/buo"
+  "/mnt/work/home"
+  "/mnt/work/portimaprod"
+  "/mnt/work/portimaqual"
+  "/mnt/work/InterfaceFiles"
+)
+
+IFACE=$(ifconfig | grep vpn0 | awk '{print $1}' | cut -d ':' -f1)
+
+function start-work {
+  nmcli --ask connection up Work
+
+  if [ "$IFACE" = vpn0 ]; then
+    for i in "${arr[@]}"
+    do
+      mount "$i"
+      echo "Mounting $i"
+      echo "file://$i" >> /home/kelly/.config/gtk-3.0/bookmarks
+    done
+    firefox "outlook.office365.com" &
+    firefox -new-tab "msamlin.webex.com" &
+    mattermost-desktop &
+  fi 
+}
+
+function stop-work {
+  nmcli connection down Work
+  for i in "${arr[@]}"
+    do
+      echo $i
+      sed -i '/$i/d' /home/kelly/.config/gtk3.0/bookmarks
+    done
+    umount -a -t cifs -l 
+}
+
+case $1 in
+  start)
+    start-work
+    ;;
+
+  stop)
+    stop-work
+    ;;
+
+  *)
+    echo "You must select an action; start or stop."
+    ;;
+esac

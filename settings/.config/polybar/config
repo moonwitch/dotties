@@ -124,6 +124,7 @@ label = %output%
 type = custom/script
 exec = ~/.local/bin/polybar_scripts/vpn-status.sh
 interval = 5
+label-padding = 2
 label = %output%
 
 [module/network]
