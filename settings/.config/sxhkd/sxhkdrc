@@ -42,23 +42,22 @@ super + {F1,Home}
 #Terminal and draw terminal
 
 super + {_,shift + }Return
-	{$TERMINAL, st}
+	{$TERMINAL, xterm}
 
 super + shift + {e,w,g,f}
 	{$FILEMAN, $BROWSER, code-oss,firefox }
 
 # Utilities
 # -------------
-# Screenshots (requires `scrot`).
+# Screenshots (requires `maim`).
 Print
-    scrot $HOME/'Pictures/Screenshots/%Y-%m-%d_%H%M%S-$wx$h_scrot.png' && notify-send "Fullscreen view screenshot" "Saved image to $HOME/Pictures/Screenshots"
-    #maim -s | xclip -selection clipboard -t image/png
+	maim -s $HOME/Pictures/Screenshots/$(date +%F-%T).png | xclip -selection clipboard -t image/png && notify-send "Screenshot saved to $HOME/Pictures/Screenshots"
 
 control + Print
-    maim -i $(xdotool getactivewindow) $HOME/'Pictures/Screenshots/%Y-%m-%d_%H%M%S-$wx$h_scrot.png' && notify-send "Active window snap saved to $HOME/Pictures/Screenshots" $$ xclip -selection clipboard -t image/png
+	maim -i $(xdotool getactivewindow) $HOME/Pictures/Screenshots/$(date +%F-%T).png | xclip -selection clipboard -t image/png && notify-send "Active window snap saved to $HOME/Pictures/Screenshots"
 
 alt + Print
-    scrot --select $HOME/'Pictures/Screenshots/%Y-%m-%d_%H%M%S-$wx$h_scrot.png' && notify-send "Selected window snap saved to $HOME/Pictures/Screenshots"
+	maim $HOME/Pictures/Screenshots/$(date +%F-%T).png | xclip -selection clipboard -t image/png && notify-send "Screenshot to $HOME/Pictures/Screenshots"
 
 # -------------
 # bspwm hotkeys
@@ -126,3 +125,28 @@ super + alt + {h,j,k,l}
 # contract a window by moving one of its side inward
 super + alt + shift + {h,j,k,l}
 	bspc node --resize {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+#
+# Media keys
+#
+
+XF86AudioPrev
+	playerctl previous &
+
+XF86AudioNext
+	playerctl next &
+
+XF86AudioPlay
+	playerctl play-pause &
+
+XF86AudioMute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+XF86AudioRaiseVolume
+	pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+XF86AudioLowerVolume
+	pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+XF86Sleep
+	systemctl suspend
