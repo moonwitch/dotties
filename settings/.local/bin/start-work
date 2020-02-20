@@ -12,12 +12,12 @@ declare -a arr=(
 IFACE=$(ifconfig | grep vpn0 | awk '{print $1}' | cut -d ':' -f1)
 
 function start-work {
-  nmcli --ask connection up Work
+  #nmcli --ask connection up Work
 
   if [ "$IFACE" = vpn0 ]; then
     for i in "${arr[@]}"
     do
-S      echo "Mounting $i"
+      echo "Mounting $i"
       #echo "file://$i" >> /home/kelly/.config/gtk-3.0/bookmarks
     done
     firefox "outlook.office365.com" &
@@ -32,7 +32,7 @@ function stop-work {
   #   do
   #     sed -i '/$i/d' /home/kelly/.config/gtk3.0/bookmarks
   #   done
-    umount -a -t cifs -l 
+  umount -a -t cifs -l 
 }
 
 case $1 in

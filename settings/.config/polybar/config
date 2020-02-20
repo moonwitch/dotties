@@ -34,7 +34,7 @@ background = ${colors.background}
 border-color = ${colors.black1}
 font-0 = "SauceCodePro Nerd Font:style=Regular:size=12:antialias=true;2"
 font-1 = "FantasqueSansMono Nerd Font Mono:style=Regular:size=20:antialias=true;5"
-font-2 = "Font Awesome 5 Free Regular:style=Regular:size=12:antialias=true;2"
+font-2 = "Font Awesome 5 Free Regular:style=Regular:size=15:antialias=true;2"
 font-3 = "Weather Icons:style=Regular:size=12;5"
 wm-restack = bspwm
 fixed-center = true
@@ -50,8 +50,8 @@ offset-x = 10
 offset-y = 10
 width = 99%
 height = 25
-modules-left = bspwm playerctl
-modules-center = weather
+modules-left = bspwm 
+modules-center = playerctl
 modules-right = gmail vpn-status network pulseaudio updates date power
 tray-position = right
 tray-padding = 2
@@ -67,21 +67,21 @@ scroll-down = bspwm-deskprev
 format = <label-state><label-mode>
 label-focused = %icon%
 label-focused-padding = 1
-label-focused-font = 1
+label-focused-font = 2
 label-focused-foreground = ${colors.black}
 label-focused-background = ${colors.blue1}
 label-occupied = %icon%
 label-occupied-padding = 1
-label-occupied-font = 1
+label-occupied-font = 2
 label-occupied-foreground = ${colors.magenta}
 label-urgent = %icon%
-label-urgent-padding = 2
+label-urgent-padding = 1
 label-urgent-background = ${colors.red}
 label-urgent-foreground = ${colors.red1}
-label-urgent-font = 1
+label-urgent-font = 2
 label-empty = %icon%
 label-empty-padding = 1
-label-empty-font = 1
+label-empty-font = 2
 label-empty-foreground = ${colors.black1}
 label-empty-background = ${colors.black}
 ;order: house;</>;globe;music note;comment;palette
@@ -95,7 +95,6 @@ ws-icon-default = 
 
 [module/playerctl]
 type = custom/script
-exec-if = psgrep 'spotify'
 exec = echo "$(playerctl metadata artist) - $(playerctl metadata title)"
 format-prefix = " "
 format-prefix-foreground = ${colors.green1}
@@ -110,15 +109,6 @@ type = custom/script
 exec = ~/.local/bin/polybar_scripts/gmail/launch.py --nosound
 tail = true
 click-left = $BROWSER https://mail.google.com
-
-[module/weather]
-type = custom/script
-exec = ~/.local/bin/polybar_scripts/weather.sh
-interval = 600
-label-font = 4
-label-foreground = ${colors.cyan}
-label-padding = 2
-label = %output%
 
 [module/vpn-status]
 type = custom/script

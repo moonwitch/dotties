@@ -149,4 +149,16 @@ XF86AudioLowerVolume
 	pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 XF86Sleep
-	systemctl suspend
+	xautolock -locknow
+
+XF86HomePage
+
+Menu
+
+XF86Back
+
+XF86Search
+	pamac-gui &
+
+XF86Calculator
+	gnome-calculator &

@@ -1,8 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$(ruby -e 'puts Gem.user_dir')/bin:$HOME/bin:/usr/local/bin:$PATH
-export GEM_PATH="$HOME/.gem"
-export GEM_HOME="$HOME/.gem"
-export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
+
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -19,7 +16,7 @@ DISABLE_MAGIC_FUNCTIONS=true
 COMPLETION_WAITING_DOTS="true"
 
 # Plugins
-plugins=(git)
+#plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -39,7 +36,3 @@ if [ -n "$DESKTOP_SESSION" ];then
 fi
 
 # Aliasses
-
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"

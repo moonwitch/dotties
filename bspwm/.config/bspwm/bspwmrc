@@ -14,7 +14,7 @@ if hash udiskie > /dev/null 2>&1 ; then
 fi
 
 # Lockscreen loading on inactivity
-xautolock -detectsleep -time 5 -locker "betterlockscreen --lock blur" -killtime 15 -killer "systemctl suspend" &
+xautolock -detectsleep -time 15 -locker "betterlockscreen --lock blur" -killtime 30 -killer "systemctl suspend" &
 
 # Enable Numlock
 numlockx &
@@ -63,7 +63,7 @@ bspc config split_ratio 0.5
 bspc config borderless_monocle false
 
 # Gap
-bspc config gapless_monocle true
+bspc config gapless_monocle false
 
 # ============
 # Window Rules-> Find WM_Class with
@@ -84,12 +84,13 @@ bspc rule --add code-oss        desktop='^2' follow=on focus=on
 # Desktop 3: Web
 bspc rule --add Chromium-*      desktop='^3' follow=on focus=on
 
-# Desktop 4: Media
-bspc rule --add Spotify         desktop='^4' follow=on focus=on
+# Desktop 4: Media Spotify has a blank WM_Class btw
+bspc rule --add ""             desktop='^4' follow=on focus=on state=fullscreen
 
 # Desktop 5: Chat
 bspc rule --add Caprine         desktop='^5' follow=on focus=on
 bspc rule --add Mattermost      desktop='^5' follow=on
+bspc rule --add Pidgin          desktop='^5' follow=on
 bspc rule --add 'Cisco Webex Meetings - Mozilla Firefox'      desktop='^5' follow=on focus=on #Used for Webex at work
 
 # Desktop 6: Design
@@ -98,7 +99,6 @@ bspc rule --add Gimp            desktop="^6"
 bspc rule --add gimp            desktop="^6"
 bspc rule --add Inkscape        desktop="^6"
 bspc rule --add Rawtherapee     desktop="^6"
-bspc rule --add Digikam         desktop="^6"
 bspc rule --add Shotwell        desktop="^6"
 
 # Desktop 7: Work
@@ -107,3 +107,4 @@ bspc rule --add 'Mail - CRABBE Kelly - Outlook - Mozilla Firefox'      desktop='
 
 # vim:filetype=sh
 bash "$HOME/.config/bspwm/bspwm_colors.sh" &
+# bash "$HOME/.config/bspwm/spotify-fix.sh" &
