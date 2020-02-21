@@ -24,12 +24,12 @@ error_prefix = '%{F' + args.color + '}\uf06a %{F-}'
 count_was = 0
 
 def print_count(count, is_odd=False):
-    tilde = '~' if is_odd else ''
-    output = ''
+    tilde = ' ~' if is_odd else ' '
+    output = ' '
     if count > 0:
         output = unread_prefix + tilde + str(count)
     else:
-        output = (args.prefix + ' ' + tilde).strip()
+        output = (' ' + args.prefix + ' ' + tilde).strip()
     print(output, flush=True)
 
 def update_count(count_was):

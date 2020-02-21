@@ -28,8 +28,9 @@ feh --bg-fill $WALLPAPER
 # Start Compositor
 picom -f --config ~/.config/picom.conf &
 
-# Start Network Manager Applet for tray
+# Start Tray Applets (network + pamac)
 nm-applet &
+pamac-tray &
 
 #setxkbmap -layout us -variant euro
 setxkbmap -layout us -variant altgr-intl
