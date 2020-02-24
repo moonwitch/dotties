@@ -50,7 +50,7 @@ width = 99%
 height = 25
 modules-left = bspwm
 modules-center = playerctl
-modules-right = gmail volume cpu memory date power
+modules-right = gmail alsa cpu memory date power
 module-margin-left = 1
 module-margin-right = 1
 
@@ -123,8 +123,8 @@ exec = ~/.local/bin/polybar_scripts/gmail/launch.py --nosound
 tail = true
 click-left = $BROWSER https://mail.google.com
 
-[module/volume]
-type = internal/volume
+[module/alsa]
+type = internal/alsa
 format-volume = <ramp-volume> <label-volume>
 format-volume-foreground = ${colors.green}
 format-volume-padding = 1

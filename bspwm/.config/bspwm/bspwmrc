@@ -81,12 +81,13 @@ bspc rule --add libreoffice-*   desktop='^1' follow=on focus=on
 # Desktop 2: Code
 bspc rule --add atom            desktop='^2' follow=on focus=on
 bspc rule --add code-oss        desktop='^2' follow=on focus=on
+bspc rule --add gedit           desktop='^2' follow=on focus=on
 
 # Desktop 3: Web
 bspc rule --add Chromium-*      desktop='^3' follow=on focus=on
 
 # Desktop 4: Media Spotify has a blank WM_Class btw
-bspc rule --add ""             desktop='^4' follow=on focus=on state=fullscreen
+# bspc rule --add ""             desktop='^4' follow=on focus=on state=fullscreen
 
 # Desktop 5: Chat
 bspc rule --add Caprine         desktop='^5' follow=on focus=on

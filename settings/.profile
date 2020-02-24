@@ -3,11 +3,11 @@ if [ -d "$HOME/bin" ] ; then
   PATH="$HOME/bin:$PATH"
 fi
 
+# Ruby
+export GEM_HOME=$HOME/.gem
+export GEM_PATH=$(ruby -e 'puts Gem.user_dir')
 export PATH=$HOME/.local/bin:$PATH
-
-export GEM_PATH="$HOME/.gem"
-export GEM_HOME="$HOME/.gem"
-export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
+export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
