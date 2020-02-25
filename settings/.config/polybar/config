@@ -21,26 +21,21 @@ cyan1 = ${xrdb:color14}
 white1 = ${xrdb:color15}
 background = ${xrdb:background}
 foreground = ${xrdb:foreground}
-ctransp = #00FFFFFF
+
+[global/wm]
+margin-bottom = 0
+margin-top = 0
 
 [section/base]
 top = true
-padding = 0
-spacing = 0
 border-size = 3
 foreground = ${colors.foreground}
 background = ${colors.background}
 border-color = ${colors.black1}
-font-0 = "Hasklig:style=Regular:size=11:antialias=true;2"
-font-1 = "FantasqueSansMono Nerd Font:style=Regular:size=12:antialias=true;2"
-font-2 = "icomoon\-feather:style=Regular:size=12:antialias=true;2"
+font-0 = "SauceCodePro Nerd Font:style=Regular:antialias=true:size=12;2"
+font-1 = "SauceCodePro Nerd Font Mono:style=Regular:size=18;4"
 wm-restack = bspwm
-fixed-center = true
 enable-ipc = true
-
-[global/wm]
-margin-top = 1
-margin-bottom = 1
 
 [bar/topbar]
 inherit = section/base
@@ -50,29 +45,33 @@ width = 99%
 height = 25
 modules-left = bspwm
 modules-center = playerctl
-modules-right = gmail alsa cpu memory date power
+modules-right = gmail alsa filesystem cpu memory date power
 module-margin-left = 1
 module-margin-right = 1
 
 tray-position = right
 tray-padding = 1
+tray-maxsize = 16
 
 [module/bspwm]
 type = internal/bspwm
-enable-click = true
-inline-mode = true
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
 
-format = <label-state> <label-mode>
-label-focused = %name%
+format = <label-state>
+
+label-focused = %icon%
 label-focused-padding = 1
+label-focused-font = 2
 label-focused-foreground = ${colors.black}
 label-focused-background = ${colors.blue1}
 
-label-occupied = %name%
+label-occupied = %icon%
 label-occupied-padding = 1
+label-occupied-font = 2
 label-occupied-foreground = ${colors.magenta}
 
-label-urgent = !!!
+label-urgent = "!!!"
 label-urgent-padding = 1
 label-urgent-background = ${colors.red}
 label-urgent-foreground = ${colors.red1}
@@ -82,20 +81,20 @@ label-empty-padding = 1
 label-empty-foreground = ${colors.black1}
 label-empty-background = ${colors.black}
 
-;order: house;</>;globe;music note;comment;palette
-ws-icon-0 = Main;
-ws-icon-1 = Code;
-ws-icon-2 = Web;
-ws-icon-3 = Media;
+ws-icon-0 = Main;
+ws-icon-1 = Code;
+ws-icon-2 = Web;
+ws-icon-3 = Media;
 ws-icon-4 = Social;
-ws-icon-5 = Design;
-ws-icon-6 = Work;
-ws-icon-default =
+ws-icon-5 = Design;
+ws-icon-6 = Work;
+ws-icon-default = 
 
 [module/playerctl]
 type = custom/script
 exec = echo "$(playerctl metadata artist) - $(playerctl metadata title)"
-format-prefix = " "
+format-prefix = " "
+format-prefix-font = 2
 format-prefix-foreground = ${colors.green1}
 format-foreground = ${colors.green1}
 interval = 1
@@ -107,19 +106,31 @@ double-click-middle = playerctl play-pause &
 type = internal/cpu
 format = <label>
 format-foreground = ${colors.magenta1}
-format-prefix = 
+format-prefix = 
+format-prefix-font = 2
 label = " %percentage%% "
 
 [module/memory]
 type = internal/memory
 format = <label>
 format-foreground = ${colors.magenta1}
-format-prefix = 
+format-prefix = 
+format-prefix-font = 2
 label = " %gb_used%"
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+mount-0 = /
+format-mounted-prefix = 
+format-mounted-prefix-font = 2
+label-mounted = %percentage_used:2%%
 
 [module/gmail]
 type = custom/script
 exec = ~/.local/bin/polybar_scripts/gmail/launch.py --nosound
+;format-prefix =
+format-prefix-font = 2
 tail = true
 click-left = $BROWSER https://mail.google.com
 
@@ -129,30 +140,54 @@ format-volume = <ramp-volume> <label-volume>
 format-volume-foreground = ${colors.green}
 format-volume-padding = 1
 format-muted = <label-muted>
+format-muted-prefix-font = 2
 format-muted-background = ${colors.red}
 format-muted-padding = 1
 label-muted = 婢
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 墳
-ramp-volume-3 = 
 click-right = pavucontrol &
 
 [module/date]
 type = internal/date
 interval = 5
+time-TZ = "Europe/Brussels"
 format = <label>
 format-foreground = ${colors.yellow}
 format-padding = 1
-label =  %date% %time%
+label = %{T-2}%{T-} %date% %{T-2}%{T-} %time%
 date = %a %d %b
-time = %l:%M %p
+time = %H:%M
 ;click-left = ruby ~/projects/gopolycal/gopolycal.rb
 
 [module/power]
-type = custom/text
-content = 襤
-content-padding = 1
-click-left = ~/.local/bin/power-menu
+type = custom/menu
+format-spacing = 1
+label-open = "%{T-2}襤%{T-}  "
+label-open-foreground = ${colors.red1}
+label-close = "%{T-2}襤%{T-} cancel"
+label-close-foreground = ${colors.yellow}
+label-separator = " "
+label-separator-foreground = ${colors.foreground}
+
+menu-0-0 = logout
+menu-0-0-exec = menu-open-1
+menu-0-1 = reboot
+menu-0-1-exec = menu-open-2
+menu-0-2 = "power off   "
+menu-0-2-exec = menu-open-3
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = "logout   "
+menu-1-1-exec = "pkill -U $USER"
+
+menu-2-0 = cancel
+menu-2-0-exec = menu-open-0
+menu-2-1 = "reboot   "
+menu-2-1-exec = "reboot"
+
+menu-3-0 = cancel
+menu-3-0-exec = menu-open-0
+menu-3-1 = "power off   "
+menu-3-1-exec = "poweroff"
 
 ;; vim:ft=dosini

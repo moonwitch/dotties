@@ -26,11 +26,12 @@ sxhkd &
 feh --bg-fill $WALLPAPER
 
 # Start Compositor
+killall picom
 picom -f --config ~/.config/picom.conf &
 
 # Start Tray Applets (network + pamac)
 nm-applet &
-pamac-tray &
+# pamac-tray &
 
 #setxkbmap -layout us -variant euro
 setxkbmap -layout us -variant altgr-intl
@@ -87,7 +88,7 @@ bspc rule --add gedit           desktop='^2' follow=on focus=on
 bspc rule --add Chromium-*      desktop='^3' follow=on focus=on
 
 # Desktop 4: Media Spotify has a blank WM_Class btw
-# bspc rule --add ""             desktop='^4' follow=on focus=on state=fullscreen
+bspc rule --add [Ss]potify      desktop='^4' follow=on focus=on state=fullscreen
 
 # Desktop 5: Chat
 bspc rule --add Caprine         desktop='^5' follow=on focus=on
@@ -108,5 +109,4 @@ bspc rule --add 'Mail - CRABBE Kelly - Outlook - Mozilla Firefox'      desktop='
 
 
 # vim:filetype=sh
-bash "$HOME/.config/bspwm/bspwm_colors.sh" &
-# bash "$HOME/.config/bspwm/spotify-fix.sh" &
+#bash "$HOME/.config/bspwm/bspwm_colors.sh" &

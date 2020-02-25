@@ -21,7 +21,7 @@
   spacing: 0;
   background-color: transparent;
 
-  font: "Hack Regular Nerd Font Complete 14";
+  font: "SauceCodePro Nerd Font 12";
   text-color: @text;
 }
 

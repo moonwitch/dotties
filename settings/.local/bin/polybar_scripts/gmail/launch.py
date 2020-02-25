@@ -11,7 +11,7 @@ from httplib2 import ServerNotFoundError
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-l', '--label', default='INBOX')
-parser.add_argument('-p', '--prefix', default='\uf0e0')
+parser.add_argument('-p', '--prefix', default='%{T-2}\uf0e0%{T-}')
 parser.add_argument('-c', '--color', default='#e06c75')
 parser.add_argument('-ns', '--nosound', action='store_true')
 args = parser.parse_args()

@@ -24,5 +24,3 @@ Step 4: Completely kill Chrome: Type killall chrome into a console.
 Step 5: Go to chrome://settings and enable Use hardware acceleration when available. By default it is off since version 43.
 
 ## Install Adobe CC
-pacman -Suy playonlinux
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/corbindavenport/creative-cloud-linux/master/creativecloud.sh)"

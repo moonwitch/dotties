@@ -6,11 +6,10 @@ rofi.modi:            run,drun,window,ssh
 
 ! Set the desired separator style
 rofi.separator-style: dash
-rofi.font:            Hack Nerd Font 12
 
 ! Terminal
 rofi.terminal:        urxvt
-rofi.ssh-command:	{terminal} -e "{ssh-client} {host}"
+rofi.ssh-command:	    {terminal} -e "{ssh-client} {host}"
 rofi.run-shell-command:	{terminal} -e "{cmd}"
 
 ! Fuzzy Searching
@@ -19,9 +18,9 @@ rofi.matching:        fuzzy
 rofi.sort:            true
 
 !Icons test
-rofi.show-icons:      true
+rofi.show-icons:      false
 
 !Theme
-rofi.theme:           ~/.local/share/rofi/themes/nord.rasi
+rofi.theme:           themes/nord.rasi
 
 ! vim: ft=xdefaults
