@@ -78,6 +78,7 @@ bspc rule --add Zathura state=tiled
 
 # Desktop 1: Main
 bspc rule --add libreoffice-*   desktop='^1' follow=on focus=on
+bspc rule --add [Vv]mrc         desktop='^1' follow=on focus=on
 
 # Desktop 2: Code
 bspc rule --add atom            desktop='^2' follow=on focus=on

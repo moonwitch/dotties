@@ -122,7 +122,7 @@ label = " %gb_used%"
 type = internal/fs
 interval = 25
 mount-0 = /
-format-mounted-prefix = 
+format-mounted-prefix = " "
 format-mounted-prefix-font = 2
 label-mounted = %percentage_used:2%%
 
@@ -136,7 +136,9 @@ click-left = $BROWSER https://mail.google.com
 
 [module/alsa]
 type = internal/alsa
-format-volume = <ramp-volume> <label-volume>
+;format-volume = <ramp-volume> <label-volume>
+label-volume = %percentage%%
+format-volume = <label-volume>
 format-volume-foreground = ${colors.green}
 format-volume-padding = 1
 format-muted = <label-muted>
