@@ -32,8 +32,8 @@ border-size = 3
 foreground = ${colors.foreground}
 background = ${colors.background}
 border-color = ${colors.black1}
-font-0 = "SauceCodePro Nerd Font:style=Regular:antialias=true:size=12;2"
-font-1 = "SauceCodePro Nerd Font Mono:style=Regular:size=18;4"
+font-0 = "JetBrainsMono Nerd Font Mono:style=Regular:antialias=true:size=12;2"
+;font-1 = "SauceCodePro Nerd Font Mono:style=Regular:size=18;4"
 wm-restack = bspwm
 enable-ipc = true
 
@@ -128,7 +128,7 @@ label-mounted = %percentage_used:2%%
 
 [module/gmail]
 type = custom/script
-exec = ~/.local/bin/polybar_scripts/gmail/launch.py --nosound
+exec = ~/bin/polybar_scripts/gmail/launch.py --nosound
 ;format-prefix =
 format-prefix-font = 2
 tail = true

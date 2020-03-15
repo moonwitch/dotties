@@ -3,8 +3,10 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export ZSH_CUSTOM="$HOME/.zsh_custom"
 
-ZSH_THEME="bullet-train"
+# ZSH_THEME="bullet-train"
+ZSH_THEME="oxide"
 
 BULLETTRAIN_PROMPT_ORDER=(
   git
@@ -37,9 +39,9 @@ else
   export EDITOR='mvim'
 fi
 
-if [ -n "$DESKTOP_SESSION" ];then
-    eval $(gnome-keyring-daemon --start)
-    export SSH_AUTH_SOCK
-fi
+#if [ -n "$DESKTOP_SESSION" ];then
+#    eval $(gnome-keyring-daemon --start)
+#    export SSH_AUTH_SOCK
+#fi
 
 # Aliasses

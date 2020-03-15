@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xbel version="1.0"
+      xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
+      xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
+>
+  <bookmark href="file:///home/kelly/dotties/install.sh" added="2020-03-15T18:11:22Z" modified="2020-03-15T19:11:52Z" visited="1969-12-31T23:59:59Z">
+    <desc>Charset: UTF-8</desc>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/x-shellscript"/>
+        <bookmark:groups>
+          <bookmark:group>Mousepad</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="Mousepad" exec="&apos;mousepad %u&apos;" modified="2020-03-15T18:45:28Z" count="2"/>
+          <bookmark:application name="electron4" exec="&apos;electron4 %u&apos;" modified="2020-03-15T19:11:52Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/kelly/.stalonetrayrc" added="2020-03-15T18:52:09Z" modified="2020-03-15T18:52:09Z" visited="1969-12-31T23:59:59Z">
+    <desc>Charset: UTF-8</desc>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:groups>
+          <bookmark:group>Mousepad</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="Mousepad" exec="&apos;mousepad %u&apos;" modified="2020-03-15T18:52:09Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/kelly/dotties/settings/.zshrc" added="2020-03-15T19:05:53Z" modified="2020-03-15T19:13:49Z" visited="1969-12-31T23:59:59Z">
+    <desc>Charset: UTF-8</desc>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:groups>
+          <bookmark:group>Mousepad</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="Mousepad" exec="&apos;mousepad %u&apos;" modified="2020-03-15T19:05:53Z" count="2"/>
+          <bookmark:application name="electron4" exec="&apos;electron4 %u&apos;" modified="2020-03-15T19:13:49Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/kelly/dotties/settings/.profile" added="2020-03-15T19:13:49Z" modified="2020-03-15T19:13:49Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="electron4" exec="&apos;electron4 %u&apos;" modified="2020-03-15T19:13:49Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/kelly/dotties/settings/.config/polybar/config" added="2020-03-15T19:14:10Z" modified="2020-03-15T19:14:10Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="electron4" exec="&apos;electron4 %u&apos;" modified="2020-03-15T19:14:10Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/kelly/dotties/settings/.Xresources" added="2020-03-15T19:26:54Z" modified="2020-03-15T19:26:54Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="electron4" exec="&apos;electron4 %u&apos;" modified="2020-03-15T19:26:54Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+</xbel>
