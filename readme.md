@@ -6,7 +6,9 @@ This is my public repo in which I save various dotfiles. I haven't gotten them v
 
 Simple; dead simple.
 
+```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/moonwitch/dotties/master/install.sh)"
+```
 
 # Notes
 
@@ -17,6 +19,7 @@ It's important to match both themes, otherwise it will look awful.
 
 ## Enable Lightroom Web
 For WebGL to work in Google Chrome (and Chromium), Here are the steps to enable WebGL in Google Chrome.
+
 1. Open Google Chrome
 2. Type [chrome://flags](chrome://flags) in the address bar
 3.Press Ctrl + f and type ” Rendering list “, “Override software rendering list” should come up, Now click on Enable and restart the browser.
