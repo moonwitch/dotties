@@ -20,11 +20,11 @@ It's important to match both themes, otherwise it will look awful.
 ## Enable Lightroom Web
 For WebGL to work in Google Chrome (and Chromium), Here are the steps to enable WebGL in Google Chrome.
 
-1. Open Google Chrome
-2. Type [chrome://flags](chrome://flags) in the address bar
-3.Press Ctrl + f and type ” Rendering list “, “Override software rendering list” should come up, Now click on Enable and restart the browser.
-4.Completely kill Chrome: Type `killall chrome` into a terminal.
-5.Go to [chrome://settings](chrome://settings) and enable Use hardware acceleration when available. By default it is off since version 43.
+  1. Open Google Chrome
+  2. Type [chrome://flags](chrome://flags) in the address bar
+  3.Press Ctrl + f and type ” Rendering list “, “Override software rendering list” should come up, Now click on Enable and restart the browser.
+  4.Completely kill Chrome: Type `killall chrome` into a terminal.
+  5.Go to [chrome://settings](chrome://settings) and enable Use hardware acceleration when available. By default it is off since version 43.
 
 ## Install Adobe CC
 This should be possible, but I have not been able to get this to run under Wine or PlayForLinux. Since I have a Win10 machine as well, I will stick to using that for Adobe CC.
