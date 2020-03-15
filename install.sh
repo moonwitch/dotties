@@ -36,6 +36,9 @@ curl -L https://raw.githubusercontent.com/dikiaap/dotfiles/master/.oh-my-zsh/the
 # Get ZoomVideo
 wget https://www.zoom.us/client/latest/zoom_x86_64.pkg.tar.xz
 
+# Get ZoomVideo
+curl https://www.zoom.us/client/latest/zoom_x86_64.pkg.tar.xz --output zoom.pkg.tar.xz
+
 # Requirements for Polybar scripts
 pip install --upgrade oauth2client google-api-python-client
 
