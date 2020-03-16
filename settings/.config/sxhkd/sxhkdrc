@@ -45,7 +45,7 @@ super + {_,shift + }Return
 	{$TERMINAL, xterm}
 
 super + shift + {e,w,t,f}
-	{$FILEMAN, $BROWSER, code-oss,firefox }
+	{$FILEMAN, $BROWSER,atom,firefox }
 
 # Utilities
 # -------------
