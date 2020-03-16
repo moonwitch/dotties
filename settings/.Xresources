@@ -1,5 +1,6 @@
 ! Color Scheme
-#include ".config/colors/nord.dark"
+#include ".config/colors/gruvbox.dark"
+#include ".config/colors/gruvbox-urxvt.xresources"
 
 ! URXVT Config
 URxvt.geometry:     72x18
@@ -12,7 +13,6 @@ URxvt.iso14755_52:  false
 
 URxvt.url-launcher:   /usr/bin/chromium
 URxvt.underlineURLs:  True
-URxvt.iconFile:       /usr/share/icons/hicolor/scalable/apps/Terminal.svg
 
 !TABS
 URxvt.perl-ext-common : default,tabbed,selection-to-clipboard
@@ -30,18 +30,3 @@ Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
 xterm*font:         xft:JetBrainsMono Nerd Font Mono:style=Regular:size=12:antialias=true
-
-! Rofi
-rofi.padding: 20
-rofi.line-padding: 2
-rofi.hide-scrollbar: true
-rofi.separator-style: solid
-rofi.width: 20
-rofi.lines: 6
-!Enable the extended coloring options
-rofi.color-enabled: true
-! Property Name     BG       Border   Separator
-rofi.color-window:  #3B4252, #8fbcbb, #8fbcbb
-! Property Name     BG       FG       BG-alt   Head-BG  Head-FG
-rofi.color-normal:  #3B4252, #E5E9F0, #3B4252, #3B4252, #8FBCBB
-rofi.font: Cascadia Code 12
