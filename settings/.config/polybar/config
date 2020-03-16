@@ -124,11 +124,11 @@ interval = 25
 mount-0 = /
 format-mounted-prefix = " "
 format-mounted-prefix-font = 2
-label-mounted = %percentage_used:2%%
+label-mounted = %mountpoint% %percentage_used:2%%
 
 [module/gmail]
 type = custom/script
-exec = ~/bin/polybar_scripts/gmail/launch.py --nosound
+exec = ~/.local/bin/gmail/launch.py --nosound
 ;format-prefix =
 format-prefix-font = 2
 tail = true

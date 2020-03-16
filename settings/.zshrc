@@ -5,8 +5,8 @@
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM="$HOME/.zsh_custom"
 
-# ZSH_THEME="bullet-train"
-ZSH_THEME="oxide"
+ZSH_THEME="bullet-train"
+# ZSH_THEME="oxide"
 
 BULLETTRAIN_PROMPT_ORDER=(
   git

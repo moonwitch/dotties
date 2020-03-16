@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if hash exiftool 2>/dev/null; then
+  local SOURCEDIR="$1"
+  exiftool '-Directory<CreateDate' -d /mnt/NAS/Photos/$USER/Imported/%y/%m/%y-%m-%d .NEF
+else
+  print "Exiftool not found; please install it first."
+fi
+
+exiftool '-Directory<CreateDate' -d /mnt/NAS/Photos/${USER^}/Imported/%Y/%m/%y%m%d -r /run/media/kelly/NIKON\ D5200/DCIM/100D5200
+
+-> Get 

@@ -29,6 +29,8 @@ Xft.autohint:  false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
+xterm*font:         xft:JetBrainsMono Nerd Font Mono:style=Regular:size=12:antialias=true
+
 ! Rofi
 rofi.padding: 20
 rofi.line-padding: 2

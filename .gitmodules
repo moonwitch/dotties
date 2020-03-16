@@ -10,6 +10,15 @@
 [submodule "themes/.themes/Nordic-Polar"]
 	path = themes/.themes/Nordic-Polar
 	url = https://github.com/EliverLara/Nordic-Polar
-[submodule "settings/.local/bin/polybar_scripts/spotify"]
-	path = settings/.local/bin/polybar_scripts/spotify
+[submodule "settings/bin/polybar_scripts/spotify"]
+	path = settings/bin/polybar_scripts/spotify
 	url = https://github.com/dietervanhoof/polybar-spotify-controls
+[submodule "settings/bin/gmail"]
+	path = settings/bin/gmail
+	url = https://github.com/vyachkonovalov/polybar-gmail
+[submodule "themes/.themes/Nordic"]
+	path = themes/.themes/Nordic
+	url = https://github.com/EliverLara/Nordic
+[submodule "themes/.themes/Juno"]
+	path = themes/.themes/Juno
+	url = https://github.com/EliverLara/Juno

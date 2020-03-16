@@ -28,8 +28,8 @@ super + {_,shift + }d
 alt + Tab
 	rofi -kb-accept-entry '!Alt-Tab' -kb-row-down Alt-Tab -show window
 
-super + shift + n
-	networkmanager_dmenu
+#super + shift + n
+#	nmcli
 
 # Bring up the help text for common keybindings
 super + {F1,Home}
@@ -44,14 +44,14 @@ super + {F1,Home}
 super + {_,shift + }Return
 	{$TERMINAL, xterm}
 
-super + shift + {e,w,g,f}
+super + shift + {e,w,t,f}
 	{$FILEMAN, $BROWSER, code-oss,firefox }
 
 # Utilities
 # -------------
 # Screenshots (requires `maim`).
 Print
-	maim -s $HOME/Pictures/Screenshots/$(date +%F-%T).png | xclip -selection clipboard -t image/png && notify-send "Screenshot saved to $HOME/Pictures/Screenshots"
+	maim -s -o $HOME/Pictures/Screenshots/$(date +%F-%T).png | xclip -selection clipboard -t image/png && notify-send "Screenshot saved to $HOME/Pictures/Screenshots"
 
 control + Print
 	maim -i $(xdotool getactivewindow) $HOME/Pictures/Screenshots/$(date +%F-%T).png | xclip -selection clipboard -t image/png && notify-send "Active window snap saved to $HOME/Pictures/Screenshots"
@@ -74,6 +74,10 @@ super + m
 # swap the current node and the biggest node
 super + g
 	bspc node --swap biggest
+
+# Rotate
+super + shift + g
+	bspc node @/ -R 90
 
 # set the window state
 super + ~{t,p,s,f}

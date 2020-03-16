@@ -1,7 +1,6 @@
 #!/bin/bash
 #baph --install --noview --noconfirm
 baph -inN pamac-aur \
-nordic-polar-theme-git \
 nerd-fonts-fantasque-sans-mono nerd-fonts-fira-code nerd-fonts-fira-mono nerd-fonts-jetbrains-mono \
 python-pip \
 spotifyd-full \
@@ -16,10 +15,12 @@ pidgin \
 exiftool \
 mattermost-desktop-bin \
 stow \
+conky \
+synology-cloud-station-drive \
 /
 # Install e-id stuff; this is Belgian users only
 
-baph --install --noview --noconfirm ccid pcsclite eid-mw acsccid
+baph -inN ccid pcsclite eid-mw acsccid
 sudo systemctl enable pcscd.socket
 sudo systemctl start pcscd.socket
 modutil -dbdir sql:.pki/nssdb/ -add "Belgium eID" -libfile /usr/lib/libbeidpkcs11.so
@@ -36,9 +37,6 @@ curl -L https://raw.githubusercontent.com/dikiaap/dotfiles/master/.oh-my-zsh/the
 # Get ZoomVideo
 wget https://www.zoom.us/client/latest/zoom_x86_64.pkg.tar.xz
 
-# Get ZoomVideo
-curl https://www.zoom.us/client/latest/zoom_x86_64.pkg.tar.xz --output zoom.pkg.tar.xz
-
 # Requirements for Polybar scripts
 pip install --upgrade oauth2client google-api-python-client
 
@@ -46,8 +44,8 @@ pip install --upgrade oauth2client google-api-python-client
 baph -inN lightdm-webkit-theme-litarvan
 
 #Install Icon themes after cloning them
-git clone https://github.com/horst3180/arc-icon-theme --depth 1
-mv arc-icon-theme/Arc ~/.icons/Arc
+git clone https://github.com/horst3180/arc-icon-theme --depth 1 ~/.icons/Arc
+git clone https://github.com/zayronxio/Zafiro-icons --depth 1 ~/.icons/zafiro
 
 #Fix Grub2
 echo "GRUB_GFXMODE=1920x1080x32" >> /etc/default/grub
