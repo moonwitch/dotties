@@ -18,9 +18,9 @@ rofi.matching:        fuzzy
 rofi.sort:            true
 
 !Icons test
-rofi.show-icons:      false
+rofi.show-icons:      true
 
 !Theme
-rofi.theme:           themes/nord.rasi
+rofi.theme:           themes/gruvbox-dark.rasi
 
 ! vim: ft=xdefaults
