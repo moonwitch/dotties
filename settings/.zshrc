@@ -36,7 +36,7 @@ test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='mvim'
+  export EDITOR='nvim'
 fi
 
 #if [ -n "$DESKTOP_SESSION" ];then
@@ -45,3 +45,4 @@ fi
 #fi
 
 # Aliasses
+alias g="git"

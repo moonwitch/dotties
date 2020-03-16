@@ -110,4 +110,5 @@ bspc rule --add 'Mail - CRABBE Kelly - Outlook - Mozilla Firefox'      desktop='
 
 
 # vim:filetype=sh
-#bash "$HOME/.config/bspwm/bspwm_colors.sh" &
+# Add my colors with Xresources
+bash "$HOME/.config/bspwm/bspwm_colors.sh" &
