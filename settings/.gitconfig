@@ -48,3 +48,5 @@
 	unstage = reset HEAD --
 	last = log -1 HEAD
 
+[cola]
+	spellcheck = false
