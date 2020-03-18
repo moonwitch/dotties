@@ -31,7 +31,7 @@ margin-top = 0
 
 [section/base]
 top = true
-border-size = 3
+border-size = 2
 foreground = ${colors.foreground}
 background = ${colors.background}
 border-color = ${colors.black1}
