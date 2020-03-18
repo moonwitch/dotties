@@ -14,7 +14,7 @@ if hash udiskie > /dev/null 2>&1 ; then
 fi
 
 # Lockscreen loading on inactivity
-xautolock -detectsleep -time 15 -locker "betterlockscreen --lock blur" -killtime 30 -killer "systemctl suspend" &
+xautolock -detectsleep -time 15 -locker "dm-tool lock" -killtime 30 -killer "systemctl suspend" &
 
 # Enable Numlock
 numlockx &
@@ -50,7 +50,7 @@ bspc config focus_follows_pointer true
 # Tiled
 # =====
 # Border width
-bspc config border_width 3
+bspc config border_width 2
 
 # Gap between windows
 bspc config window_gap 10
@@ -95,7 +95,6 @@ bspc rule --add [Ss]potify      desktop='^4' follow=on focus=on state=fullscreen
 bspc rule --add Caprine         desktop='^5' follow=on focus=on
 bspc rule --add Mattermost      desktop='^5' follow=on
 bspc rule --add Pidgin          desktop='^5' follow=on
-bspc rule --add 'Cisco Webex Meetings - Mozilla Firefox'      desktop='^5' follow=on focus=on #Used for Webex at work
 
 # Desktop 6: Design
 bspc rule --add Darktable       desktop="^6"
@@ -106,7 +105,7 @@ bspc rule --add Rawtherapee     desktop="^6"
 bspc rule --add Shotwell        desktop="^6"
 
 # Desktop 7: Work
-bspc rule --add 'Mail - CRABBE Kelly - Outlook - Mozilla Firefox'      desktop='^7' follow=on focus=on #Webmail
+bspc rule --add firefox         desktop='^7' follow=on focus=on #Webmail
 
 
 # vim:filetype=sh

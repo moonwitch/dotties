@@ -7,7 +7,7 @@ spotifyd-full \
 xautolock numlockx \
 zathura neofetch \
 dbus \
-mpris-ctl playerctl \
+playerctl \
 openconnect-networkmanager \
 chromium \
 rawtherapee \
@@ -17,9 +17,10 @@ mattermost-desktop-bin \
 stow \
 conky \
 synology-cloud-station-drive \
+gtk-engine-murrine \
 /
-# Install e-id stuff; this is Belgian users only
 
+# Install e-id stuff; this is Belgian users only
 baph -inN ccid pcsclite eid-mw acsccid
 sudo systemctl enable pcscd.socket
 sudo systemctl start pcscd.socket
@@ -43,9 +44,13 @@ pip install --upgrade oauth2client google-api-python-client
 #Install lightdm looker
 baph -inN lightdm-webkit-theme-litarvan
 
-#Install Icon themes after cloning them
-git clone https://github.com/horst3180/arc-icon-theme --depth 1 ~/.icons/Arc
+#Install themes after cloning them
+git clone https://github.com/horst3180/arc-icon-theme --depth 1 ~/.icons/ArcSrc
+mv ~/.icons/ArcSrc/Arc ~/.icons/Arc
+rm -rf ~/.icons/ArcSrc
 git clone https://github.com/zayronxio/Zafiro-icons --depth 1 ~/.icons/zafiro
+git clone https://github.com/heychrisd/Boston-Icons --depth 1 ~/.icons/boston-icons
+git clone https://github.com/horst3180/arc-theme
 
 #Fix Grub2
 echo "GRUB_GFXMODE=1920x1080x32" >> /etc/default/grub

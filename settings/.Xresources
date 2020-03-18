@@ -4,7 +4,7 @@
 
 ! URXVT Config
 URxvt.geometry:     72x18
-URxvt*font:         xft:JetBrainsMono Nerd Font Mono:style=Regular:size=12:antialias=true
+URxvt*font:         xft:Hack Nerd Font Mono:style=Regular:size=12:antialias=true
 URxvt*letterSpace:  0
 URxvt.scrollBar:    false
 URxvt.depth:        32s
@@ -29,4 +29,4 @@ Xft.autohint:  false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
-xterm*font:         xft:JetBrainsMono Nerd Font Mono:style=Regular:size=12:antialias=true
+xterm*font:         xft:Hack Nerd Font Mono:style=Regular:size=12:antialias=true
