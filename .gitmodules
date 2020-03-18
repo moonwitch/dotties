@@ -1,12 +1,15 @@
 [submodule "themes/.icons/boston-icons"]
 	path = themes/.icons/boston-icons
-	url = https://github.com/tonylambiris/boston-icons
+	url = https://github.com/heychrisd/Boston-Icons
 [submodule "themes/.icons/paper-icon-theme"]
 	path = themes/.icons/paper-icon-theme
 	url = https://github.com/snwh/paper-icon-theme
 [submodule "themes/.icons/Arc-icon-theme"]
 	path = themes/.icons/Arc-icon-theme
 	url = https://github.com/NicoHood/arc-icon-theme
+[submodule "themes/.icons/Zafiro-icons"]
+	path = themes/.icons/Zafiro-icons
+	url = https://github.com/zayronxio/Zafiro-icons
 [submodule "themes/.themes/Nordic-Polar"]
 	path = themes/.themes/Nordic-Polar
 	url = https://github.com/EliverLara/Nordic-Polar
@@ -22,3 +25,6 @@
 [submodule "settings/bin/gmail"]
 	path = settings/bin/gmail
 	url = https://github.com/vyachkonovalov/polybar-gmail
+[submodule "themes/.themes/ArcSrc"]
+	path = themes/.themes/ArcSrc
+	url = https://github.com/horst3180/arc-theme

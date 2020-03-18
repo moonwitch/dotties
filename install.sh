@@ -45,12 +45,14 @@ pip install --upgrade oauth2client google-api-python-client
 baph -inN lightdm-webkit-theme-litarvan
 
 #Install themes after cloning them
-git clone https://github.com/horst3180/arc-icon-theme --depth 1 ~/.icons/ArcSrc
-mv ~/.icons/ArcSrc/Arc ~/.icons/Arc
-rm -rf ~/.icons/ArcSrc
-git clone https://github.com/zayronxio/Zafiro-icons --depth 1 ~/.icons/zafiro
-git clone https://github.com/heychrisd/Boston-Icons --depth 1 ~/.icons/boston-icons
-git clone https://github.com/horst3180/arc-theme
+#git clone https://github.com/horst3180/arc-icon-theme --depth 1 ~/.icons/ArcSrc
+#mv ~/.icons/ArcSrc/Arc ~/.icons/Arc
+#rm -rf ~/.icons/ArcSrc
+#git clone https://github.com/zayronxio/Zafiro-icons --depth 1 ~/.icons/zafiro
+#git clone https://github.com/heychrisd/Boston-Icons --depth 1 ~/.icons/boston-icons
+git clone https://github.com/horst3180/arc-theme --depth 1 && cd arc-theme
+./autogen.sh --prefix=/usr --disable-cinnamon --disable-metacity --disable-unity --disable-xfwm --disable-gnome-shell --with-gnome=3.22
+sudo make install
 
 #Fix Grub2
 echo "GRUB_GFXMODE=1920x1080x32" >> /etc/default/grub
