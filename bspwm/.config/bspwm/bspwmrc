@@ -14,7 +14,7 @@ if hash udiskie > /dev/null 2>&1 ; then
 fi
 
 # Lockscreen loading on inactivity
-xautolock -detectsleep -time 15 -locker "dm-tool lock" -killtime 30 -killer "systemctl suspend" &
+xautolock -detectsleep -time 15 -locker "dm-tool lock" -killtime 30 -killer "systemctl suspend" -corners +-00 -cornerdelay 10 -cornerredelay 10 &
 
 # Enable Numlock
 numlockx &
@@ -50,10 +50,13 @@ bspc config focus_follows_pointer true
 # Tiled
 # =====
 # Border width
-bspc config border_width 2
-
+bspc config border_width 5
 # Gap between windows
 bspc config window_gap 10
+# bspc config top_padding           0
+# bspc config right_padding         0
+# bspc config bottom_padding        0
+# bspc config left_padding          0
 
 # Windows split ratio
 bspc config split_ratio 0.5

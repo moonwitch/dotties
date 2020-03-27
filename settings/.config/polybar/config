@@ -3,6 +3,8 @@ throttle-output = 5
 throttle-output-for = 10
 throttle-input-for = 30
 screenchange-reload = false
+dpi-x = 162
+dpi-y = 162
 
 
 [colors]
@@ -35,17 +37,17 @@ border-size = 2
 foreground = ${colors.foreground}
 background = ${colors.background}
 border-color = ${colors.black1}
-font-0 = "Hack Nerd Font Mono:style=Regular:antialias=true:size=12;3"
-font-1 = "Hack Nerd Font Mono:style=Regular:size=14;4"
+font-0 = "Hack Nerd Font Mono:style=Regular:antialias=true:size=10;3"
+font-1 = "Hack Nerd Font Mono:style=Regular:size=12;4"
 wm-restack = bspwm
 enable-ipc = true
 
 [bar/topbar]
 inherit = section/base
-offset-x = 10
-offset-y = 10
-width = 99%
-height = 25
+;offset-x = 10
+;offset-y = 10
+width = 100%
+height = 30
 modules-left = bspwm
 modules-center = playerctl
 modules-right = gmail alsa filesystem cpu memory date power

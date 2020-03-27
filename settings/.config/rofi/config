@@ -21,6 +21,6 @@ rofi.sort:            true
 rofi.show-icons:      true
 
 !Theme
-rofi.theme:           themes/gruvbox-dark.rasi
+rofi.theme:           themes/nord.rasi
 
 ! vim: ft=xdefaults

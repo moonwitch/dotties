@@ -16,7 +16,7 @@ exiftool \
 mattermost-desktop-bin \
 stow \
 conky \
-synology-cloud-station-drive \
+synology-drive-client \
 gtk-engine-murrine \
 /
 
@@ -62,9 +62,10 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 ssh-keygen -t rsa -b 4096 -C "kelly.crabbe@gmail.com"
 
 # Services
-systemctl --user start spotifyd.service
-systemctl --user enable spotifyd.service
+#systemctl --user start spotifyd.service
+#systemctl --user enable spotifyd.service
 
-#sudo mkdir -p /mnt/work/{home,buo,portimaprod,portimaqual,spotlight}
+sudo mkdir -p /mnt/work/{home,buo,portimaprod,portimaqual,spotlight}
+sudo mkdir -p /mnt/NAS/{media,photos,software} 
 #sudo mount.cifs -o username=intamv\\700320 //fci.fortis/amv/buo /mnt/work/buo
 #sudo mount -t cifs -o username=intamv\\700320 //fci.fortis/acidfs01/brulthome/700320 /mnt/work/home
