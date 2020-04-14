@@ -51,13 +51,13 @@ super + shift + {e,w,t,f}
 # -------------
 # Screenshots (requires `maim`).
 Print
-	maim -s -o $HOME/Pictures/Screenshots/$(date +%F-%T).png | xclip -selection clipboard -t image/png && notify-send "Screenshot saved to $HOME/Pictures/Screenshots"
+	maim -s -o $HOME/Pictures/screenshots/$(date +%F-%T).png | xclip -selection clipboard -t image/png && notify-send "Screenshot saved to $HOME/Pictures/screenshots"
 
 control + Print
-	maim -i $(xdotool getactivewindow) $HOME/Pictures/Screenshots/$(date +%F-%T).png | xclip -selection clipboard -t image/png && notify-send "Active window snap saved to $HOME/Pictures/Screenshots"
+	maim -i $(xdotool getactivewindow) $HOME/Pictures/screenshots/$(date +%F-%T).png | xclip -selection clipboard -t image/png && notify-send "Active window snap saved to $HOME/Pictures/screenshots"
 
 alt + Print
-	maim $HOME/Pictures/Screenshots/$(date +%F-%T).png | xclip -selection clipboard -t image/png && notify-send "Screenshot to $HOME/Pictures/Screenshots"
+	maim $HOME/Pictures/screenshots/$(date +%F-%T).png | xclip -selection clipboard -t image/png && notify-send "Screenshot to $HOME/Pictures/screenshots"
 
 # -------------
 # bspwm hotkeys
@@ -86,6 +86,8 @@ super + ~{t,p,s,f}
 # If ~ is present and the current state
 # matches the given state, then the argument is
 # interpreted as the last state.
+super + ~space
+    bspc node --state floating
 
 # set the node flags
 super + ctrl + ~{m,x,y,z}

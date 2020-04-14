@@ -9,15 +9,27 @@ export GEM_PATH=$(ruby -e 'puts Gem.user_dir')
 export PATH=$HOME/.local/bin:$PATH
 export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 
+# Set theme properly
 export QT_QPA_PLATFORMTHEME="qt5ct"
+# Enable HiDPI
+export QT_AUTO_SCREEN_SCALE_FACTOR=0 
+export QT_SCREEN_SCALE_FACTORS=2 
+export QT_SCALE_FACTOR=1
+#export GDK_SCALE=1
+#export GDK_DPI_SCALE=0.5
+
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
-export WALLPAPER=$HOME/.wallpapers/underwater.png
-export DEFAULT_FONT="Hack Nerd Font:style=Regular"
+export WALLPAPER=$HOME/.wallpapers/Trust-this-computer.jpg
+export DEFAULT_MONO_FONT="Hasklug Nerd Font Mono:style=Regular"
+export DEFAULT_FONT="Hasklug Nerd Font:style=Regular"
+
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # Default Applications
 export EDITOR=/usr/bin/xed
-# fix "xdg-open fork-bomb" export your preferred browser from here
-export BROWSER=/usr/bin/chromium
 export PDFVIEWER=/usr/bin/zathura
 export FILEMAN=/usr/bin/thunar
 export TERMINAL=/usr/bin/urxvt
+# fix "xdg-open fork-bomb" export your preferred browser from here
+export BROWSER=/usr/bin/chromium
+

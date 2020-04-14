@@ -7,6 +7,10 @@
 if [ -f /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 ] ; then
     /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 fi
+if [ -f /usr/lib/xfce-polkit/xfce-polkit ] ; then
+    /usr/lib/xfce-polkit/xfce-polkit &
+fi
+
 
 # USB/Multimedia Devices
 if hash udiskie > /dev/null 2>&1 ; then
@@ -14,7 +18,7 @@ if hash udiskie > /dev/null 2>&1 ; then
 fi
 
 # Lockscreen loading on inactivity
-xautolock -detectsleep -time 15 -locker "dm-tool lock" -killtime 30 -killer "systemctl suspend" -corners +-00 -cornerdelay 10 -cornerredelay 10 &
+xautolock -detectsleep -time 15 -locker "dm-tool lock" -killtime 30 -killer "sudo systemctl suspend" &
 
 # Enable Numlock
 numlockx &
@@ -33,12 +37,17 @@ picom -f --config ~/.config/picom.conf &
 nm-applet &
 # pamac-tray &
 
-#setxkbmap -layout us -variant euro
-setxkbmap -layout us -variant altgr-intl
+setxkbmap -layout us -variant euro
+#setxkbmap -layout us -variant altgr-intl
 
 # Starting polybar
 killall polybar
 polybar topbar -r &
+#polybar topbar -r 2>/home/kelly/poly.log &
+
+# Start Synology
+/usr/bin/synology-drive &
+
 
 # ==========
 # Workspaces
@@ -76,6 +85,7 @@ bspc config gapless_monocle false
 # ============
 bspc rule -r *:*
 bspc rule --add Pamac-manager state=floating
+bspc rule --add Pavucontrol state=floating
 bspc rule --add yad state=floating
 bspc rule --add Zathura state=tiled
 
@@ -97,7 +107,7 @@ bspc rule --add [Ss]potify      desktop='^4' follow=on focus=on state=fullscreen
 # Desktop 5: Chat
 bspc rule --add Caprine         desktop='^5' follow=on focus=on
 bspc rule --add Mattermost      desktop='^5' follow=on
-bspc rule --add Pidgin          desktop='^5' follow=on
+bspc rule --add Pidgin          desktop='^5' follow=on state=floating
 
 # Desktop 6: Design
 bspc rule --add Darktable       desktop="^6"

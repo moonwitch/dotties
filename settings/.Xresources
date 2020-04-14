@@ -1,21 +1,29 @@
+! __  __
+! \ \/ /_ _ ___ ___ ___ _  _ _ _ __ ___ ___
+!  >  <| '_/ -_|_-</ _ \ || | '_/ _/ -_|_-<
+! /_/\_\_| \___/__/\___/\_,_|_| \__\___/__/
+!
+! Author: Kelly Crabbé
+
 ! Color Scheme
-#include ".config/colors/nord.dark"
-! #include ".config/colors/gruvbox-urxvt.xresources"
-! #include ".config/colors/gruvbox-urxvt.xresources"
+! #include ".config/colors/nord.dark"
+#include ".config/colors/gruvbox.dark"
+#include ".config/colors/gruvbox-urxvt.xresources"
 
 ! URXVT Config
-URxvt.geometry:     72x18
-URxvt*font:         xft:Hack Nerd Font Mono:style=Regular:size=10:antialias=true
-URxvt*letterSpace:  0
+URxvt*font:             xft:Hasklug Nerd Font Mono:style=Regulars:size=10:antialias=true
+URxvt*internalBorder:   10
 URxvt.scrollBar:    false
 URxvt.depth:        32s
 URxvt.iso14755:     true
 URxvt.iso14755_52:  false
 
-URxvt.url-launcher:   /usr/bin/chromium
-URxvt.underlineURLs:  True
+! URL Matching
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
 
-!TABS
+
+! TABS
 URxvt.perl-ext-common : default,tabbed,selection-to-clipboard
 URxvt.tabbed.tabbar-fg: 2
 URxvt.tabbed.tabbar-bg: 0
@@ -23,15 +31,8 @@ URxvt.tabbed.tab-fg:    3
 URxvt.tabbed.tab-bg:    0
 
 Xft.dpi: 162
+*dpi: 162
 ! xdpyinfo | grep -B2 resolution
 ! 3840*2160 = 162*161 DPI
 
-! These might also be useful depending on your monitor and personal preference:
-Xft.autohint: 0
-Xft.lcdfilter:  lcddefault
-Xft.hintstyle:  hintfull
-Xft.hinting: 1
-Xft.antialias: 1
-Xft.rgba: rgb
-
-xterm*font:         xft:Hack Nerd Font Mono:style=Regular:size=10:antialias=true
+xterm*font:         xft:Hasklug Nerd Font Mono:style=Regular:size=10:antialias=true

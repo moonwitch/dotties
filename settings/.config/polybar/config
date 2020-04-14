@@ -1,62 +1,121 @@
+;  ___     _      _
+; | _ \___| |_  _| |__  __ _ _ _
+; |  _/ _ \ | || | '_ \/ _` | '_|
+; |_| \___/_|\_, |_.__/\__,_|_|
+;            |__/
+;
+; Author: Kelly Crabbe
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Vars
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[colors]
+background      = ${xrdb:background}
+foreground      = ${xrdb:foreground}
+
+black           = ${xrdb:color0}
+red             = ${xrdb:color1}
+green           = ${xrdb:color2}
+yellow          = ${xrdb:color3}
+blue            = ${xrdb:color4}
+magenta         = ${xrdb:color5}
+cyan            = ${xrdb:color6}
+white           = ${xrdb:color7}
+black1          = ${xrdb:color8}
+red1            = ${xrdb:color9}
+green1          = ${xrdb:color10}
+yellow1         = ${xrdb:color11}
+blue1           = ${xrdb:color12}
+magenta1        = ${xrdb:color13}
+cyan1           = ${xrdb:color14}
+white1          = ${xrdb:color15}
+
+bar-bg          =${xrdb:background}
+bar-fg          =${xrdb:foreground}
+module-bg       =${xrdb:color0}
+
+[layout]
+icon-font = 2
+icon-padding = 1
+module-padding = 1
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Global Polybar Settings
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 [settings]
-throttle-output = 5
-throttle-output-for = 10
-throttle-input-for = 30
-screenchange-reload = false
+screenchange-reload = true
 dpi-x = 162
 dpi-y = 162
 
-
-[colors]
-black = ${xrdb:color0}
-red = ${xrdb:color1}
-green = ${xrdb:color2}
-yellow = ${xrdb:color3}
-blue = ${xrdb:color4}
-magenta = ${xrdb:color5}
-cyan = ${xrdb:color6}
-white = ${xrdb:color7}
-black1 = ${xrdb:color8}
-red1 = ${xrdb:color9}
-green1 = ${xrdb:color10}
-yellow1 = ${xrdb:color11}
-blue1 = ${xrdb:color12}
-magenta1 = ${xrdb:color13}
-cyan1 = ${xrdb:color14}
-white1 = ${xrdb:color15}
-background = ${xrdb:background}
-foreground = ${xrdb:foreground}
-
-[global/wm]
-margin-bottom = 0
-margin-top = 0
-
-[section/base]
-top = true
+[common-bar]
+width = 100%
+height = 30
 border-size = 2
 foreground = ${colors.foreground}
 background = ${colors.background}
 border-color = ${colors.black1}
-font-0 = "Hack Nerd Font Mono:style=Regular:antialias=true:size=10;3"
-font-1 = "Hack Nerd Font Mono:style=Regular:size=12;4"
 wm-restack = bspwm
 enable-ipc = true
 
+;format-background = ${colors.module-bg}
+format-padding = ${layout.module-padding}
+
+; Size of under-/overlines
+line-size = 1
+
+; monospace is an aliased font name, see ~/.config/fontconfig/fonts.conf
+font-0 = "Hasklug Nerd Font Mono:style=Regular:size=18;3"
+font-1 = "Iosevka Nerd Font Mono:style=Regular:size=22;5"
+
+[common-prefix-format]
+format-prefix-font = ${layout.icon-font}
+format-prefix-foreground = ${colors.icon-fg}
+format-prefix-padding-right = ${layout.icon-padding}
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Bars
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 [bar/topbar]
-inherit = section/base
-;offset-x = 10
-;offset-y = 10
-width = 100%
-height = 30
-modules-left = bspwm
+inherit = common-bar
+top=true
+monitor =
+modules-left = bspwm temperature
 modules-center = playerctl
-modules-right = gmail alsa filesystem cpu memory date power
+modules-right = gmail volume filesystem cpu memory date power
 module-margin-left = 1
 module-margin-right = 1
 
+tray-background = ${colors.module-bg}
+tray-padding = ${layout.module-padding}
 tray-position = right
-tray-padding = 1
-tray-maxsize = 16
+; If true, the bar will not shift its
+; contents when the tray changes
+tray-detached = false
+
+[module/temperature]
+type = internal/temperature
+interval = 0.5
+
+; Thermal zone to use
+; To list all the zone types, run
+; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
+; Default: 0
+thermal-zone = 1
+
+; Full path of temperature sysfs path
+; Use `sensors` to find preferred temperature source, then run
+; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
+; to find path to desired file
+; Default reverts to thermal zone setting
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input
+
+base-temperature = 20
+warn-temperature = 60
+
+label = TEMP %temperature-c%
+
 
 [module/bspwm]
 type = internal/bspwm
@@ -66,23 +125,23 @@ scroll-down = bspwm-deskprev
 format = <label-state>
 
 label-focused = %icon%
-label-focused-padding = 1
+label-focused-padding = 2
 label-focused-font = 2
 label-focused-foreground = ${colors.black}
 label-focused-background = ${colors.blue1}
 
 label-occupied = %icon%
-label-occupied-padding = 1
+label-occupied-padding = 2
 label-occupied-font = 2
 label-occupied-foreground = ${colors.magenta}
 
-label-urgent = "!!!"
-label-urgent-padding = 1
+label-urgent = "!"
+label-urgent-padding = 2
 label-urgent-background = ${colors.red}
 label-urgent-foreground = ${colors.red1}
 
 label-empty = %index%
-label-empty-padding = 1
+label-empty-padding = 2
 label-empty-foreground = ${colors.black1}
 label-empty-background = ${colors.black}
 
@@ -97,62 +156,51 @@ ws-icon-default = 
 
 [module/playerctl]
 type = custom/script
-exec = echo "$(playerctl metadata --format '{{ artist }} - {{ title }}')"
-format-prefix = " "
-format-prefix-font = 2
-format-prefix-foreground = ${colors.green1}
+exec = echo "$(playerctl metadata --format ' {{ artist }} - {{ title }}')"
 format-foreground = ${colors.green1}
 label-maxlen=40
-interval = 1
-double-click-left = playerctl previous &
-double-click-right = playerctl next &
-double-click-middle = playerctl play-pause &
+click-left = playerctl previous &
+click-right = playerctl next &
+click-middle = playerctl play-pause &
 
 [module/cpu]
 type = internal/cpu
 format = <label>
 format-foreground = ${colors.magenta1}
-format-prefix = 
-format-prefix-font = 2
-label = " %percentage%% "
+label = "CPU %percentage%%"
 
 [module/memory]
 type = internal/memory
 format = <label>
 format-foreground = ${colors.magenta1}
-format-prefix = 
-format-prefix-font = 2
-label = " %gb_used%"
+label = "MEM %gb_used%"
 
 [module/filesystem]
 type = internal/fs
 interval = 25
 mount-0 = /
-format-mounted-prefix = " "
-format-mounted-prefix-font = 2
-label-mounted = %mountpoint% %percentage_used:2%%
+label-mounted = "FS %mountpoint% %percentage_used:2%%"
 
 [module/gmail]
 type = custom/script
-exec = ~/.local/bin/gmail/launch.py --nosound
-;format-prefix =
-format-prefix-font = 2
+exec = ~/.local/bin/gmail/launch.py --nosound --prefix "MSG"
 tail = true
 click-left = $BROWSER https://mail.google.com
 
-[module/alsa]
-type = internal/alsa
-;format-volume = <ramp-volume> <label-volume>
-label-volume = %percentage%%
+[module/volume]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_12_00.3.analog-stereo
+use-ui-max = false #100% is max
+
+label-volume = "%{A3:pavucontrol &:}VOL %percentage%%%{A}"
+label-muted = "MUTED"
 format-volume = <label-volume>
 format-volume-foreground = ${colors.green}
 format-volume-padding = 1
 format-muted = <label-muted>
-format-muted-prefix-font = 2
 format-muted-background = ${colors.red}
 format-muted-padding = 1
-label-muted = 婢
-click-right = pavucontrol &
+;click-right = pavucontrol &
 
 [module/date]
 type = internal/date
@@ -161,7 +209,7 @@ time-TZ = "Europe/Brussels"
 format = <label>
 format-foreground = ${colors.yellow}
 format-padding = 1
-label = %{T-2}%{T-} %date% %{T-2}%{T-} %time%
+label = %date% %time%
 date = %a %d %b
 time = %H:%M
 ;click-left = ruby ~/projects/gopolycal/gopolycal.rb
@@ -186,7 +234,7 @@ menu-0-2-exec = menu-open-3
 menu-1-0 = cancel
 menu-1-0-exec = menu-open-0
 menu-1-1 = "logout   "
-menu-1-1-exec = "pkill -U $USER"
+menu-1-1-exec = "bspc quit"
 
 menu-2-0 = cancel
 menu-2-0-exec = menu-open-0

@@ -14,8 +14,6 @@ rawtherapee \
 pidgin \
 exiftool \
 mattermost-desktop-bin \
-stow \
-conky \
 synology-drive-client \
 gtk-engine-murrine \
 /
@@ -35,14 +33,11 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 mkdir $HOME/.zsh_custom
 curl -L https://raw.githubusercontent.com/dikiaap/dotfiles/master/.oh-my-zsh/themes/oxide.zsh-theme > $HOME/.zsh_custom/oxide.zsh-theme
 
-# Get ZoomVideo
-wget https://www.zoom.us/client/latest/zoom_x86_64.pkg.tar.xz
-
 # Requirements for Polybar scripts
 pip install --upgrade oauth2client google-api-python-client
 
 #Install lightdm looker
-baph -inN lightdm-webkit-theme-litarvan
+baph -inN lightdm-webkit-theme-litarvan lightdm-webkit-theme-aether
 
 #Install themes after cloning them
 #git clone https://github.com/horst3180/arc-icon-theme --depth 1 ~/.icons/ArcSrc
@@ -55,15 +50,15 @@ git clone https://github.com/horst3180/arc-theme --depth 1 && cd arc-theme
 sudo make install
 
 #Fix Grub2
-echo "GRUB_GFXMODE=1920x1080x32" >> /etc/default/grub
+echo "GRUB_GFXMODE=3840x2160x32" >> /etc/default/grub
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # Generate my ssh key for github/bitbucket
 ssh-keygen -t rsa -b 4096 -C "kelly.crabbe@gmail.com"
 
 # Services
-#systemctl --user start spotifyd.service
-#systemctl --user enable spotifyd.service
+systemctl --user start spotifyd.service
+systemctl --user enable spotifyd.service
 
 sudo mkdir -p /mnt/work/{home,buo,portimaprod,portimaqual,spotlight}
 sudo mkdir -p /mnt/NAS/{media,photos,software} 

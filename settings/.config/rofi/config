@@ -2,7 +2,8 @@
 rofi.color-enabled:   true
 
 ! Enable modi
-rofi.modi:            run,drun,window,ssh
+rofi.combi-modi: drun,run
+rofi.modi: combi, calc:qalc +u8 -nocurrencies
 
 ! Set the desired separator style
 rofi.separator-style: dash
@@ -21,6 +22,6 @@ rofi.sort:            true
 rofi.show-icons:      true
 
 !Theme
-rofi.theme:           themes/nord.rasi
+rofi.theme:           themes/gruvbox-dark.rasi
 
-! vim: ft=xdefaults
+! vim: ft=css

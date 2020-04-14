@@ -1,0 +1,10 @@
+#!/bin/bash
+
+## Declare my array
+declare -a arr=(
+  "/mnt/work/buo"
+  "/mnt/work/home"
+  #"/mnt/work/portimaprod"
+  "/mnt/work/portimaqual"
+  #"/mnt/work/InterfaceFiles"
+)
