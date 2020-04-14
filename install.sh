@@ -16,6 +16,7 @@ exiftool \
 mattermost-desktop-bin \
 synology-drive-client \
 gtk-engine-murrine \
+wpgtk-git \
 /
 
 # Install e-id stuff; this is Belgian users only
@@ -61,6 +62,6 @@ systemctl --user start spotifyd.service
 systemctl --user enable spotifyd.service
 
 sudo mkdir -p /mnt/work/{home,buo,portimaprod,portimaqual,spotlight}
-sudo mkdir -p /mnt/NAS/{media,photos,software} 
+sudo mkdir -p /mnt/NAS/{media,photos,software}
 #sudo mount.cifs -o username=intamv\\700320 //fci.fortis/amv/buo /mnt/work/buo
 #sudo mount -t cifs -o username=intamv\\700320 //fci.fortis/acidfs01/brulthome/700320 /mnt/work/home

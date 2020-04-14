@@ -3,14 +3,15 @@
 # =========
 # Autostart
 # =========
+
+# monitor
+xrandr --dpi 162
+
 # Authentication Agent
-if [ -f /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 ] ; then
-    /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-fi
-if [ -f /usr/lib/xfce-polkit/xfce-polkit ] ; then
+if [ -f /usr/lib/xfce-polkit/xfce-polkit ]; then
+    killall xfce-polkit
     /usr/lib/xfce-polkit/xfce-polkit &
 fi
-
 
 # USB/Multimedia Devices
 if hash udiskie > /dev/null 2>&1 ; then
@@ -37,16 +38,20 @@ picom -f --config ~/.config/picom.conf &
 nm-applet &
 # pamac-tray &
 
-setxkbmap -layout us -variant euro
-#setxkbmap -layout us -variant altgr-intl
+#setxkbmap -layout us -variant euro
+setxkbmap -layout us -variant altgr-intl
 
 # Starting polybar
 killall polybar
-polybar topbar -r &
-#polybar topbar -r 2>/home/kelly/poly.log &
+#polybar topbar -r &
+polybar -r topbar 2>/home/kelly/poly.log &
 
 # Start Synology
 /usr/bin/synology-drive &
+
+# Start RedShift
+killall redshift
+redshift &
 
 
 # ==========
