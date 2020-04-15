@@ -1,10 +1,10 @@
 #!/bin/bash
 
 ## Declare my array
-declare -a arr=(
-  "/mnt/work/buo"
-  "/mnt/work/home"
-  #"/mnt/work/portimaprod"
-  "/mnt/work/portimaqual"
-  #"/mnt/work/InterfaceFiles"
-)
+IFACE=$(ifconfig | grep vpn | awk '{print $1}')
+
+if [ "$IFACE" = "vpn*" ]; then
+    echo "#1 %{u#55aa55}$(ifconfig vpn0 | grep inet | awk '{print $2}' | cut -f2 -d ':')%{u-}"
+else
+    echo "#1 %{F#FF0000}%{u#FF0000}VPN DISCONNECTED%{u-}%{F-}"
+fi

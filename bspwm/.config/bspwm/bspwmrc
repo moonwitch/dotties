@@ -38,7 +38,7 @@ picom -f --config ~/.config/picom.conf &
 nm-applet &
 # pamac-tray &
 
-#setxkbmap -layout us -variant euro
+# setxkbmap -layout us -variant euro
 setxkbmap -layout us -variant altgr-intl
 
 # Starting polybar
@@ -47,12 +47,21 @@ killall polybar
 polybar -r topbar 2>/home/kelly/poly.log &
 
 # Start Synology
-/usr/bin/synology-drive &
+if hash synology-drive > /dev/null 2>&1 ; then
+    /usr/bin/synology-drive &
+fi
 
 # Start RedShift
 killall redshift
 redshift &
 
+# ==========
+# Colors
+# ==========
+bspc config focused_border_color "$(xrdb -query | grep 'color4:'| awk '{print $NF}')"
+bspc config normal_border_color "$(xrdb -query | grep 'color0:'| awk '{print $NF}')"
+bspc config active_border_color "$(xrdb -query | grep 'color5:'| awk '{print $NF}')"
+bspc config presel_feedback_color "$(xrdb -query | grep 'color2:'| awk '{print $NF}')"
 
 # ==========
 # Workspaces
@@ -64,13 +73,15 @@ bspc config focus_follows_pointer true
 # Tiled
 # =====
 # Border width
-bspc config border_width 5
+bspc config border_width 1
+
 # Gap between windows
 bspc config window_gap 10
 # bspc config top_padding           0
 # bspc config right_padding         0
 # bspc config bottom_padding        0
 # bspc config left_padding          0
+
 
 # Windows split ratio
 bspc config split_ratio 0.5
@@ -127,5 +138,3 @@ bspc rule --add firefox         desktop='^7' follow=on focus=on #Webmail
 
 
 # vim:filetype=sh
-# Add my colors with Xresources
-bash "$HOME/.config/bspwm/bspwm_colors.sh" &

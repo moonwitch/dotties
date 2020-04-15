@@ -43,6 +43,7 @@ module-padding = 1
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Global Polybar Settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 [settings]
 screenchange-reload = true
 dpi-x = 162
@@ -79,11 +80,11 @@ format-prefix-padding-right = ${layout.icon-padding}
 
 [bar/topbar]
 inherit = common-bar
-top=true
+top = true
 monitor =
-modules-left = bspwm temperature
+modules-left = bspwm
 modules-center = playerctl
-modules-right = gmail volume filesystem cpu memory date power
+modules-right = gmail volume filesystem temperature cpu memory date power
 module-margin-left = 1
 module-margin-right = 1
 
@@ -93,6 +94,7 @@ tray-position = right
 ; If true, the bar will not shift its
 ; contents when the tray changes
 tray-detached = false
+tray-maxsize = 48
 
 [module/temperature]
 type = internal/temperature
