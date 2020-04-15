@@ -22,9 +22,6 @@
 [submodule "settings/bin/spotify"]
 	path = settings/bin/spotify
 	url = https://github.com/dietervanhoof/polybar-spotify-controls
-[submodule "themes/.themes/ArcSrc"]
-	path = themes/.themes/ArcSrc
-	url = https://github.com/horst3180/arc-theme
 [submodule "settings/bin/gmail"]
 	path = settings/bin/gmail
 	url = https://github.com/vyachkonovalov/polybar-gmail
