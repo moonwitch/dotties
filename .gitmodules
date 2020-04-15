@@ -1,0 +1,30 @@
+[submodule "themes/.icons/Zafiro-icons"]
+	path = themes/.icons/Zafiro-icons
+	url = https://github.com/zayronxio/Zafiro-icons
+[submodule "themes/.icons/boston-icons"]
+	path = themes/.icons/boston-icons
+	url = https://github.com/heychrisd/Boston-Icons.git
+[submodule "themes/.icons/paper-icon-theme"]
+	path = themes/.icons/paper-icon-theme
+	url = https://github.com/snwh/paper-icon-theme.git
+[submodule "themes/.icons/Arc-icon-theme"]
+	path = themes/.icons/Arc-icon-theme
+	url = https://github.com/NicoHood/arc-icon-theme.git
+[submodule "themes/.themes/Nordic-Polar"]
+	path = themes/.themes/Nordic-Polar
+	url = https://github.com/EliverLara/Nordic-Polar
+[submodule "themes/.themes/Nordic"]
+	path = themes/.themes/Nordic
+	url = https://github.com/EliverLara/Nordic
+[submodule "themes/.themes/Juno"]
+	path = themes/.themes/Juno
+	url = https://github.com/EliverLara/Juno
+[submodule "settings/bin/spotify"]
+	path = settings/bin/spotify
+	url = https://github.com/dietervanhoof/polybar-spotify-controls
+[submodule "themes/.themes/ArcSrc"]
+	path = themes/.themes/ArcSrc
+	url = https://github.com/horst3180/arc-theme
+[submodule "settings/bin/gmail"]
+	path = settings/bin/gmail
+	url = https://github.com/vyachkonovalov/polybar-gmail
