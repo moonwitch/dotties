@@ -187,7 +187,7 @@ label-mounted = "FS %mountpoint% %percentage_used:2%%"
 type = custom/script
 exec = ~/.local/bin/gmail/launch.py --nosound --prefix "MSG"
 tail = true
-click-left = $BROWSER https://mail.google.com
+click-left = xdg-open https://mail.google.com
 
 [module/volume]
 type = internal/pulseaudio

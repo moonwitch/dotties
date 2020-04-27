@@ -9,17 +9,18 @@ xrandr --dpi 162
 
 # Authentication Agent
 if [ -f /usr/lib/xfce-polkit/xfce-polkit ]; then
-    killall xfce-polkit
-    /usr/lib/xfce-polkit/xfce-polkit &
+  killall xfce-polkit
+  /usr/lib/xfce-polkit/xfce-polkit &
 fi
 
 # USB/Multimedia Devices
 if hash udiskie > /dev/null 2>&1 ; then
-    udiskie &
+  killall udiskie
+  udiskie --tray &
 fi
 
 # Lockscreen loading on inactivity
-xautolock -detectsleep -time 15 -locker "dm-tool lock" -killtime 30 -killer "sudo systemctl suspend" &
+xautolock -detectsleep -time 15 -locker "dm-tool lock" -killtime 30 -killer "systemctl suspend" &
 
 # Enable Numlock
 numlockx &
@@ -31,8 +32,8 @@ sxhkd &
 feh --bg-fill $WALLPAPER
 
 # Start Compositor
-killall picom
-picom -f --config ~/.config/picom.conf &
+killall -q picom
+picom --config ~/.config/picom.conf --log-level info --log-file ~/picom.log &
 
 # Start Tray Applets (network + pamac)
 nm-applet &
@@ -42,7 +43,7 @@ nm-applet &
 setxkbmap -layout us -variant altgr-intl
 
 # Starting polybar
-killall polybar
+killall -q polybar
 #polybar topbar -r &
 polybar -r topbar 2>/home/kelly/poly.log &
 

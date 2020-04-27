@@ -135,15 +135,8 @@ super + alt + shift + {h,j,k,l}
 #
 # Media keys
 #
-
-XF86AudioPrev
-	playerctl previous &
-
-XF86AudioNext
-	playerctl next &
-
-XF86AudioPlay
-	playerctl play-pause &
+XF86Audio{Prev,Play,Next}
+	playerctl {previous,play-pause,next} &
 
 XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
