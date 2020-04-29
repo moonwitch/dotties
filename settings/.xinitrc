@@ -40,4 +40,29 @@ if [ -x /usr/bin/numlockx ]; then
       /usr/bin/numlockx on
 fi
 
+# monitor
+xrandr --dpi 162
+
+# Lockscreen loading on inactivity
+# xautolock -detectsleep -time 15 -locker "dm-tool lock" -killtime 30 -killer "systemctl suspend" &
+
+# Start Compositor
+picom -b
+
+# Start Tray Applets (network + pamac)
+# nm-applet &
+# pamac-tray &
+
+# setxkbmap -layout us -variant euro
+setxkbmap -layout us -variant altgr-intl
+
+# Start Synology
+if hash synology-drive > /dev/null 2>&1 ; then
+    /usr/bin/synology-drive &
+fi
+
+# Start RedShift
+# killall redshift
+# redshift &
+
 exec bspwm
