@@ -1,22 +1,30 @@
 #!/bin/bash
 #baph --install --noview --noconfirm
-baph -inN pamac-aur \
-nerd-fonts-fantasque-sans-mono nerd-fonts-fira-code nerd-fonts-fira-mono nerd-fonts-jetbrains-mono \
+baph -inN pamac-aur pamac-zsh-completions \
+nerd-fonts-fantasque-sans-mono\
+nerd-fonts-fira-code \
+nerd-fonts-fira-mono \
+nerd-fonts-jetbrains-mono \
+ttf-comfortaa \
 python-pip \
-spotifyd-full \
 xautolock numlockx \
-zathura neofetch \
+zathura neofetch \ 
 dbus \
 playerctl \
-openconnect-networkmanager \
 chromium \
-rawtherapee \
-pidgin \
 exiftool \
-mattermost-desktop-bin \
 synology-drive-client \
 gtk-engine-murrine \
-wpgtk-git \
+spaceship-prompt-git \
+caprine \
+i3-agenda-git \
+/
+
+# Work installs
+baph -iNn networkmanager-openconnect \
+pidgin \
+mattermost-desktop-bin \
+lastpass-cli \
 /
 
 # Install e-id stuff; this is Belgian users only
@@ -37,8 +45,8 @@ curl -L https://raw.githubusercontent.com/dikiaap/dotfiles/master/.oh-my-zsh/the
 # Requirements for Polybar scripts
 pip install --upgrade oauth2client google-api-python-client
 
-#Install lightdm looker
-baph -inN lightdm-webkit-theme-litarvan lightdm-webkit-theme-aether
+# Install lightdm looker
+# baph -inN lightdm-webkit-theme-litarvan lightdm-webkit-theme-aether
 
 #Install themes after cloning them
 #git clone https://github.com/horst3180/arc-icon-theme --depth 1 ~/.icons/ArcSrc
@@ -50,7 +58,7 @@ git clone https://github.com/horst3180/arc-theme --depth 1 && cd arc-theme
 ./autogen.sh --prefix=/usr --disable-cinnamon --disable-metacity --disable-unity --disable-xfwm --disable-gnome-shell --with-gnome=3.22
 sudo make install
 
-#Fix Grub2
+# Fix Grub2
 echo "GRUB_GFXMODE=3840x2160x32" >> /etc/default/grub
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
