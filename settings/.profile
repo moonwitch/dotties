@@ -24,7 +24,7 @@ export QT_SCALE_FACTOR=1
 # export GDK_DPI_SCALE=0.5
 
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
-export WALLPAPER=$HOME/.wallpapers/Trust-this-computer.jpg
+export WALLPAPER=$HOME/.wallpapers/HazedGroot.jpg
 export DEFAULT_MONO_FONT="Hasklug Nerd Font Mono:style=Regular"
 export DEFAULT_FONT="Hasklug Nerd Font:style=Regular"
 
