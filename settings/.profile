@@ -3,6 +3,8 @@ if [ -d "$HOME/bin" ] ; then
   PATH="$HOME/bin:$PATH"
 fi
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # Ruby
 export GEM_HOME=$HOME/.gem
 export GEM_PATH=$(ruby -e 'puts Gem.user_dir')
@@ -10,7 +12,7 @@ export PATH=$HOME/.local/bin:$PATH
 export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 
 # Homebrew
-[ -d /home/linuxbrew/.linuxbrew ] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+# [ -d /home/linuxbrew/.linuxbrew ] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 # Set theme properly
 export QT_QPA_PLATFORMTHEME="qt5ct"
@@ -28,12 +30,10 @@ export WALLPAPER=$HOME/.wallpapers/HazedGroot.jpg
 export DEFAULT_MONO_FONT="Hasklug Nerd Font Mono:style=Regular"
 export DEFAULT_FONT="Hasklug Nerd Font:style=Regular"
 
-export XDG_CONFIG_HOME="$HOME/.config"
-
 # Default Applications
-export EDITOR=/usr/bin/xed
+export EDITOR=/usr/bin/atom
 export PDFVIEWER=/usr/bin/zathura
 export FILEMAN=/usr/bin/thunar
 export TERMINAL=/usr/bin/urxvt
 # fix "xdg-open fork-bomb" export your preferred browser from here
-export BROWSER=/usr/bin/brave
+export BROWSER=/usr/bin/chromium

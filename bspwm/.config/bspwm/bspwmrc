@@ -4,6 +4,9 @@
 # Autostart
 # =========
 
+# monitor
+xrandr --dpi 162
+
 # Authentication Agent
 if [ -f /usr/lib/xfce-polkit/xfce-polkit ]; then
   killall xfce-polkit
@@ -16,17 +19,31 @@ if hash udiskie > /dev/null 2>&1 ; then
   udiskie --tray &
 fi
 
-# Starting polybar
-killall -q polybar
-#polybar topbar -r &
-polybar -r topbar 2>/home/kelly/poly.log &
+# Lockscreen loading on inactivity
+# xautolock -detectsleep -time 15 -locker "dm-tool lock" -killtime 30 -killer "systemctl suspend" &
+
+# Enable Numlock
+numlockx &
 
 # Start Keybinds
-killall sxhkd
 sxhkd &
 
 # Set Wallpaper
 feh --bg-fill $WALLPAPER
+
+# Starting polybar
+killall -q polybar
+polybar -r topbar 2>/home/kelly/poly.log &
+
+# Start Synology
+if hash synology-drive > /dev/null 2>&1 ; then
+    /usr/bin/synology-drive &
+fi
+
+# Start RedShift
+# killall redshift
+# redshift &
+
 
 # ==========
 # Colors
@@ -77,6 +94,7 @@ bspc rule --add Pamac-manager state=floating
 bspc rule --add Pavucontrol state=floating
 bspc rule --add yad state=floating
 bspc rule --add Zathura state=tiled
+bspc rule --add nm-connection-editor state=floating
 
 # Desktop 1: Main
 bspc rule --add libreoffice-*   desktop='^1' follow=on focus=on

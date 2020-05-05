@@ -8,16 +8,19 @@ nerd-fonts-jetbrains-mono \
 ttf-comfortaa \
 python-pip \
 xautolock numlockx \
-zathura neofetch \ 
+zathura neofetch \
+sni-qt \
+stow \
 dbus \
 playerctl \
 chromium \
 exiftool \
-synology-drive-client \
+synology-drive \
 gtk-engine-murrine \
 spaceship-prompt-git \
 caprine \
 i3-agenda-git \
+udiskie udiskie-systemd-git udiskie-dmenu-git \
 /
 
 # Work installs

@@ -1,0 +1,64 @@
+configuration {
+  show-icons: false;
+}
+@import "colors.rasi"
+* {
+  /* Variables */
+  foreground:       #bbbbbb;
+  background-color: #00000000;
+  /* Settings */
+  font:             "SauceCodePro Nerd Font Mono 10";
+}
+#window {
+  width: 1366px;
+  height: 768px;
+  /*      top     right   bottom  left */
+padding: 219px      360px;
+}
+#listview {
+  spacing: 0px;
+}
+/* Input window */
+inputbar,
+prompt,
+textbox-prompt-colon,
+entry {
+  background-color: @background-light;
+  /*      top     right   bottom  left */
+  border: 0px     0px     2px     0px;
+  margin: 0px     0px     -2px    0px;
+  border-color: @background;
+}
+#inputbar {
+  children: [ prompt, textbox-prompt-colon, entry ];
+}
+#prompt {
+  /*       vertical   horizontal */
+  padding: 10px       20px;
+  background-color: @accent;
+  text-color: @background;
+}
+#textbox-prompt-colon {
+  expand: false;
+  str: " :: ";
+  padding: 10px;
+}
+#entry {
+  text-color: @accent;
+  /*       top     right   bottom  left */
+  padding: 10px   10px    10px    0px;
+}
+/* List of entries */
+#element {
+  padding: 8px;
+  /*      top     right   bottom  left */
+  border: 0px     0px     0px     8px;
+  background-color: @background;
+  border-color: @background;
+}
+#element.selected {
+  background-color: @background-focus;
+  text-color: @accent;
+  border-color: @accent;
+}
+

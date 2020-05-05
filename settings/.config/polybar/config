@@ -217,35 +217,15 @@ time = %H:%M
 ;click-left = ruby ~/projects/gopolycal/gopolycal.rb
 
 [module/power]
-type = custom/menu
+type = custom/text
+click-left = exec ~/.config/rofi/scripts/powermenu.sh
+click-right = exec ~/.config/rofi/scripts/powermenu.shs
 format-spacing = 1
-label-open = "%{T-2}襤%{T-}  "
-label-open-foreground = ${colors.red1}
-label-close = "%{T-2}襤%{T-} cancel"
-label-close-foreground = ${colors.yellow}
-label-separator = " "
-label-separator-foreground = ${colors.foreground}
+content = "%{T2}襤%{T-}  "
+content-foreground=${colors.red1}
 
-menu-0-0 = logout
-menu-0-0-exec = menu-open-1
-menu-0-1 = reboot
-menu-0-1-exec = menu-open-2
-menu-0-2 = "power off   "
-menu-0-2-exec = menu-open-3
 
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = "logout   "
-menu-1-1-exec = "bspc quit"
 
-menu-2-0 = cancel
-menu-2-0-exec = menu-open-0
-menu-2-1 = "reboot   "
-menu-2-1-exec = "reboot"
 
-menu-3-0 = cancel
-menu-3-0-exec = menu-open-0
-menu-3-1 = "power off   "
-menu-3-1-exec = "poweroff"
 
 ;; vim:ft=dosini
