@@ -32,6 +32,7 @@ URxvt.tabbed.tab-bg:    0
 
 Xft.dpi: 163
 *dpi: 163
+Xcursor.size: 32
 ! xdpyinfo | grep -B2 resolution
 ! 3840*2160 = 163*163s DPI
 ! These might also be useful depending on your monitor and personal preference:

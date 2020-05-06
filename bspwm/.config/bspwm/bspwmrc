@@ -4,9 +4,6 @@
 # Autostart
 # =========
 
-# monitor
-xrandr --dpi 162
-
 # Authentication Agent
 if [ -f /usr/lib/xfce-polkit/xfce-polkit ]; then
   killall xfce-polkit
