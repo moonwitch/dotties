@@ -11,7 +11,7 @@ if [ -f /usr/lib/xfce-polkit/xfce-polkit ]; then
 fi
 
 # USB/Multimedia Devices
-if hash udiskie > /dev/null 2>&1 ; then
+if hash udiskie > /dev/null 2>&1 ; thens
   killall udiskie
   udiskie --tray &
 fi
@@ -19,14 +19,8 @@ fi
 # Lockscreen loading on inactivity
 # xautolock -detectsleep -time 15 -locker "dm-tool lock" -killtime 30 -killer "systemctl suspend" &
 
-# Enable Numlock
-numlockx &
-
 # Start Keybinds
 sxhkd &
-
-# Set Wallpaper
-feh --bg-fill $WALLPAPER
 
 # Starting polybar
 killall -q polybar

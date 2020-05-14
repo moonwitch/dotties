@@ -1,54 +1,149 @@
+##################################################################
+# i3 config file (v4)
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+
+######################
+# Autostart setup
+######################
+exec --no-startup-id xrandr --dpi 163
+exec --no-startup-id feh --bg-fill $WALLPAPER
+exec --no-startup-id xsettingsd
+exec --no-startup-id dunst
+exec --no-startup-id picom -b
+exec --no-startup-id redshift
+# exec --no-startup-id polybar topbar -r
+exec --no-startup-id atom
+exec --no-startup-id chromium
+exec --no-startup-id URxvt
+
+######################
+# Looks setup
+######################
+# Gaps
+for_window [class=".*"] border pixel 2
+gaps outer 10
+gaps inner 10
+smart_gaps on
+smart_borders on
+#border_radius 4
+
+# Font for Windows titles and bar, unless otherwise specified
+font pango:Hasklug Nerd Font Mono 12
+
+# .Xresources-based colorscheme
+set_from_resource $foreground i3wm.foreground: #D8DEE9
+set_from_resource $background i3wm.background: #2E3440
+set_from_resource $color0 i3wm.color0: #3B4252
+set_from_resource $color1 i3wm.color1: #BF616A
+set_from_resource $color2 i3wm.color2: #A3BE8C
+set_from_resource $color3 i3wm.color3: #EBCB8B
+set_from_resource $color4 i3wm.color4: #5E81AC
+set_from_resource $color5 i3wm.color5: #B48EAD
+set_from_resource $color6 i3wm.color6: #88C0D0
+set_from_resource $color7 i3wm.color7: #E5E9F0
+set_from_resource $color8 i3wm.color8: #4C566A
+set_from_resource $color9 i3wm.color9: #D08770
+set_from_resource $color10 i3wm.color10: #A3BE8C
+set_from_resource $color11 i3wm.color11: #EBCB8B
+set_from_resource $color12 i3wm.color12: #81A1C1
+set_from_resource $color13 i3wm.color13: #B48EAD
+set_from_resource $color14 i3wm.color14: #8FBCBB
+set_from_resource $color15 i3wm.color15: #ECEFF4
+
+# Start i3blocks to display a workspace bar
+bar
+{
+    position top
+	  status_command i3blocks
+    i3bar_command i3bar
+    workspace_buttons      yes
+    colors {
+        background $background
+        separator  $foreground
+        statusline $foreground
+
+        # State             Border  BG      Text
+        focused_workspace   $color7 $color4 $background
+        active_workspace    $color7 $color3 $background
+        inactive_workspace  $color8 $color8 $foreground
+        urgent_workspace    $color1 $color9 $background
+        binding_mode        $background $color4 $background
+    }
+}
+
+# Basic color configuration using the Base16 variables for windows and borders.
+# Property Name         Border        BG          Text        Indicator   Child Border
+client.focused          $color7       $color4    $foreground $color11    $color9
+client.focused_inactive $color0       $color8     $foreground $color8     $color0
+client.unfocused        $color0       $background $foreground $color0     $color0
+client.urgent           $color6       $color1     $foreground $color6     $color6
+client.placeholder      $background   $background $foreground $background $background
+client.background       $color14
+
+######################
+# Keybind setup
+######################
 # set modifier
 set $super Mod4
 set $alt Mod1
 
-# set font
-font pango: Noto Sans 8
+# Use $super+Mouse to drag floating windows to their wanted position
+floating_modifier $super
+
+# Use pactl to adjust volume in PulseAudio.
+set $refresh_bar pkill -RTMIN+1 i3blocks
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_bar
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_bar
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_bar
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_bar
+
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioPause exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # Use Mouse+$super to drag floating windows to their wanted position
 floating_modifier $super
 
-#autostart
-exec --no-startup-id hsetroot -center ~/.wallpaper.png
-exec --no-startup-id xsettingsd &
-exec --no-startup-id compton -b
+# Screenshots (requires `maim`).
+bindsym Print exec "maim -s -o $HOME/Pictures/screenshots/$(date +%F-%T).png | xclip -selection clipboard -t image/png && notify-send 'Screenshot saved to $HOME/Pictures/screenshots'"
+bindsym Control+Print exec "maim -i $thunar(xdotool getactivewindow) $HOME/Pictures/screenshots/$(date +%F-%T).png | xclip -selection clipboard -t image/png && notify-send 'Active window snap saved to $HOME/Pictures/screenshots'"
+bindsym $alt+Print exec "maim $HOME/Pictures/screenshots/$(date +%F-%T).png | xclip -selection clipboard -t image/png && notify-send 'Screenshot to $HOME/Pictures/screenshots'"
 
-# start a terminal
-bindsym $super+Return exec i3-sensible-terminal
+# Commonly used Apps
+bindsym $super+Return exec $TERMINAL
+bindsym $super+Shift+w exec $BROWSER
+bindsym $super+Shift+n exec "nm-connection-editor"
+bindsym $super+Shift+e exec $FILEMAN
 
-# start dmenu (a program launcher)
-bindsym $super+Shift+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=8'"
-bindsym $super+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 8'
-
-# common apps keybinds
-bindsym Print exec scrot 'Cheese_%a-%d%b%y_%H.%M.png' -e 'viewnior ~/$f'
-bindsym $super+l exec i3lock -i ~/.wallpaper.png
-bindsym $super+Shift+w exec firefox
-bindsym $super+Shift+f exec thunar;workspace 3;focus
-bindsym $super+Shift+g exec geany
-
-#change volume
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
-bindsym XF86AudioMute exec amixer set Master toggle
-
-# music control
-bindsym XF86AudioNext exec mpc next
-bindsym XF86AudioPrev exec mpc prev
-bindsym XF86AudioPlay exec mpc toggle
-bindsym XF86AudioStop exec mpc stop
+# start rofis
+bindsym $super+space exec "rofi -no-lazy-grab -show drun -theme launchers-ribbon/ribbon_bottom.rasi"
+# Alt tab
+bindsym $alt+Tab	exec "rofi -kb-accept-entry '!Alt-Tab' -kb-row-down Alt-Tab -show window"
 
 # kill focused window
-bindsym $super+c kill
-bindsym $alt+F4 kill
+bindsym $super+Shift+q kill
 
 # change focus
+bindsym $super+j focus left
+bindsym $super+k focus down
+bindsym $super+l focus up
+bindsym $super+semicolon focus right
+
+# alternatively, you can use the cursor keys:
 bindsym $super+Left focus left
 bindsym $super+Down focus down
 bindsym $super+Up focus up
 bindsym $super+Right focus right
 
 # move focused window
+bindsym $super+Shift+j move left
+bindsym $super+Shift+k move down
+bindsym $super+Shift+l move up
+bindsym $super+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
 bindsym $super+Shift+Left move left
 bindsym $super+Shift+Down move down
 bindsym $super+Shift+Up move up
@@ -63,81 +158,153 @@ bindsym $super+v split v
 # enter fullscreen mode for the focused container
 bindsym $super+f fullscreen toggle
 
-# change container layout split
-bindsym $super+s layout toggle split
+# change container layout (stacked, tabbed, toggle split)
+bindsym $super+s layout stacking
+bindsym $super+w layout tabbed
+bindsym $super+e layout toggle split
 
 # toggle tiling / floating
-bindsym $super+space floating toggle
+bindsym $super+Shift+space floating toggle
 
-# change focus between tiling / floating windows
-bindsym $super+Shift+space focus mode_toggle
+# focus the parent container
+bindsym $super+a focus parent
 
-# switch to workspace
-bindsym $alt+Control+Right workspace next
-bindsym $alt+Control+Left workspace prev
-bindsym $super+1 workspace 1
-bindsym $super+2 workspace 2
-bindsym $super+3 workspace 3
-bindsym $super+4 workspace 4
-bindsym $super+5 workspace 5
-bindsym $super+6 workspace 6
+# Define names for default workspaces for which we configure key bindings later on.
+# Name the workspaces
+set $ws1 " 1:  "
+set $ws2 " 2:  "
+set $ws3 " 3:  "
+set $ws4 " 4:  "
+set $ws5 " 5:  "
+set $ws6 " 6:  "
+set $ws7 " 7: 華 "
+set $ws8 " 8:  "
+set $ws9 " 9:  "
 
-# move focused container to workspace
-bindsym $super+Shift+1 move container to workspace 1
-bindsym $super+Shift+2 move container to workspace 2
-bindsym $super+Shift+3 move container to workspace 3
-bindsym $super+Shift+4 move container to workspace 4
-bindsym $super+Shift+5 move container to workspace 5
-bindsym $super+Shift+6 move container to workspace 6
+# Switch to workspace
+bindsym $super+1 workspace $ws1
+bindsym $super+2 workspace $ws2
+bindsym $super+3 workspace $ws3
+bindsym $super+4 workspace $ws4
+bindsym $super+5 workspace $ws5
+bindsym $super+6 workspace $ws6
+bindsym $super+7 workspace $ws7
+bindsym $super+8 workspace $ws8
+bindsym $super+9 workspace $ws9
+
+# switch between workspaces
+bindsym $super+Tab workspace next
+bindsym $super+Shift+Tab workspace prev
+
+# Move focused container to workspace
+bindsym $super+Shift+1 move container to workspace $ws1
+bindsym $super+Shift+2 move container to workspace $ws2
+bindsym $super+Shift+3 move container to workspace $ws3
+bindsym $super+Shift+4 move container to workspace $ws4
+bindsym $super+Shift+5 move container to workspace $ws5
+bindsym $super+Shift+6 move container to workspace $ws6
+bindsym $super+Shift+7 move container to workspace $ws7
+bindsym $super+Shift+8 move container to workspace $ws8
+bindsym $super+Shift+9 move container to workspace $ws9
+
+# reload the configuration file
+bindsym $super+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $super+Shift+r restart
 
-# exit i3
-bindsym $super+q exec "i3-nagbar -t warning -m 'Really, exit?' -b 'Yes' 'i3-msg exit'"
+# exit i3 (logs you out of your X session)
+bindsym $super+Shift+End exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        bindsym Left resize shrink width 5 px or 5 ppt
-        bindsym Down resize grow height 5 px or 5 ppt
-        bindsym Up resize shrink height 5 px or 5 ppt
-        bindsym Right resize grow width 5 px or 5 ppt
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $super+r
         bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $super+r mode "default"
 }
+
 bindsym $super+r mode "resize"
 
-# panel
-bar {
-        colors {
-        background #2f343f
-        statusline #2f343f
-        separator #4b5262
+# Set shut down, restart and locking features
+bindsym $super+$alt+0 mode "$mode_system"
+set $mode_system (l)ock, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
 
-        # colour of border, background, and text
-        focused_workspace       #2f343f #bf616a #d8dee8
-        active_workspace        #2f343f #2f343f #d8dee8
-        inactive_workspace      #2f343f #2f343f #d8dee8
-        urgent_workspacei       #2f343f #ebcb8b #2f343f
-    }
-        status_command i3status
+    # exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
-# window rules, you can find the window class using xprop
-for_window [class=".*"] border pixel 4
-assign [class=URxvt] 1
-assign [class=Firefox|Transmission-gtk] 2
-assign [class=Thunar|File-roller] 3
-assign [class=Geany|Evince|Gucharmap|Soffice|libreoffice*] 4
-assign [class=Audacity|Vlc|mpv|Ghb|Xfburn|Gimp*|Inkscape] 5
-assign [class=Lxappearance|System-config-printer.py|Lxtask|GParted|Pavucontrol|Exo-helper*|Lxrandr|Arandr] 6
-for_window [class=Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol] floating enable
-for_window [class=URxvt|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity] focus
-for_window [class=Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
 
-# colour of border, background, text, indicator, and child_border
-client.focused              #bf616a #2f343f #d8dee8 #bf616a #d8dee8
-client.focused_inactive     #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.unfocused            #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.urgent               #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.background           #2f343f
+######################
+# Workspaces setup
+######################
+# switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
+
+# Syntax
+# assign <criteria> [→] [workspace] [number] <workspace>
+# for_window <criteria>
+for_window      [class=URxvt]               focus
+for_window      [class="^Pavucontrol$"]     focus
+
+assign          [class=Chromium|Chrome]     $ws1
+assign          [class=Atom|code-oss]       $ws2
+assign          [class=firefox|Navigator]   $ws7
+assign          [class=FreeOffice*]         $ws4
+# Spotify is an exception to rules
+for_window      [class=Spotify] move to workspace $ws8
+assign          [class=Caprine]             $ws7
+assign          [class=Mattermost]          $ws7
+assign          [class=Pidgin]              $ws7
+
+# Enable float for some windows
+for_window      [class="^Pavucontrol$"]                             floating enable
+for_window      [class="^Arandr$"]                                  floating enable
+for_window      [class="^Steam$" title="^Friends List$"]            floating enable
+for_window      [class="^Steam$" title="Steam - News"]              floating enable
+for_window      [class="^Steam$" title=".* - Chat"]                 floating enable
+for_window      [class="^Steam$" title="^Settings$"]                floating enable
+for_window      [class="^Steam$" title=".* - event started"]        floating enable
+for_window      [class="^Steam$" title=".* CD key"]                 floating enable
+for_window      [class="^Steam$" title="^Steam - Self Updater$"]    floating enable
+for_window      [class="^Steam$" title="^Screenshot Uploader$"]     floating enable
+for_window      [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
+for_window      [title="^Steam Keyboard$"]                          floating enable
+for_window      [class=Caprine]                                     floating enable
+for_window      [class=Mattermost]                                  floating enable
+for_window      [class=Pidgin]                                      floating enable
+for_window      [class=zathura]                                     floating enable
+for_window      [class=Viewnior]                                    floating enable
+for_window      [class=feh]                                         floating enable
+for_window      [class=Lxappearance]                                floating enable
+for_window      [class=Pamac-manager]                               floating enable
+for_window      [class=Nm-connection-editor|network.py]             floating enable
+for_window      [class="Simple-scan"]                               floating enable
+for_window      [class="Yad"]                                       floating enable
+
+
+# vim:filetype=sh

@@ -7,20 +7,21 @@ nerd-fonts-fira-mono \
 nerd-fonts-jetbrains-mono \
 ttf-comfortaa \
 python-pip \
-xautolock numlockx \
+numlockx \
 zathura neofetch \
 sni-qt \
 stow \
-dbus \
 playerctl \
 chromium \
 exiftool \
 synology-drive \
 gtk-engine-murrine \
-spaceship-prompt-git \
+gtk-engine-pixbuff \
 caprine \
 i3-agenda-git \
-udiskie udiskie-systemd-git udiskie-dmenu-git \
+udiskie \
+kakoune \
+spotify spicetify-cli spicetify-themes-git \
 /
 
 # Work installs
@@ -28,6 +29,7 @@ baph -iNn networkmanager-openconnect \
 pidgin \
 mattermost-desktop-bin \
 lastpass-cli \
+firefox \
 /
 
 # Install e-id stuff; this is Belgian users only
@@ -36,17 +38,16 @@ sudo systemctl enable pcscd.socket
 sudo systemctl start pcscd.socket
 modutil -dbdir sql:.pki/nssdb/ -add "Belgium eID" -libfile /usr/lib/libbeidpkcs11.so
 
-# Install neovim plugin manager
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-pip3 install --user neovim
+# Install Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 mkdir $HOME/.zsh_custom
 curl -L https://raw.githubusercontent.com/dikiaap/dotfiles/master/.oh-my-zsh/themes/oxide.zsh-theme > $HOME/.zsh_custom/oxide.zsh-theme
 
-# Requirements for Polybar scripts
-pip install --upgrade oauth2client google-api-python-client
+# Requirements for Gmail script
+pip install --global --upgrade oauth2client google-api-python-client
 
 # Install lightdm looker
 # baph -inN lightdm-webkit-theme-litarvan lightdm-webkit-theme-aether
@@ -58,12 +59,12 @@ pip install --upgrade oauth2client google-api-python-client
 #git clone https://github.com/zayronxio/Zafiro-icons --depth 1 ~/.icons/zafiro
 #git clone https://github.com/heychrisd/Boston-Icons --depth 1 ~/.icons/boston-icons
 git clone https://github.com/horst3180/arc-theme --depth 1 && cd arc-theme
-./autogen.sh --prefix=/usr --disable-cinnamon --disable-metacity --disable-unity --disable-xfwm --disable-gnome-shell --with-gnome=3.22
+./autogen.sh --prefix=/usr --disable-cinnamon --disable-metacity --disable-unity --disable-xfwm --with-gnome=3.22
 sudo make install
 
 # Fix Grub2
 echo "GRUB_GFXMODE=3840x2160x32" >> /etc/default/grub
-sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo grub-mkconfig -o /boot/grub/grub.cfgss
 
 # Generate my ssh key for github/bitbucket
 ssh-keygen -t rsa -b 4096 -C "kelly.crabbe@gmail.com"

@@ -6,21 +6,21 @@
 ! Author: Kelly Crabbé
 
 ! Color Scheme
-! #include ".config/colors/nord.dark"
+#include ".config/colors/nord.dark"
 ! #include ".config/colors/gruvbox.dark"
-#include ".config/colors/snazzy.dark"
+! #include ".config/colors/snazzy.dark"
 
 ! URXVT Config
 URxvt*font:             xft:Hasklug Nerd Font Mono:style=Regular:size=12:antialias=true
 URxvt*internalBorder:   10
-URxvt.scrollBar:    false
-URxvt.depth:        32
-URxvt.iso14755:     true
-URxvt.iso14755_52:  false
+URxvt.scrollBar:        false
+URxvt.depth:            32
+URxvt.iso14755:         true
+URxvt.iso14755_52:      false
 
 ! URL Matching
-URxvt.url-launcher: /usr/bin/xdg-open
-URxvt.matcher.button: 1
+URxvt.url-launcher:     /usr/bin/xdg-open
+URxvt.matcher.button:   1
 
 
 ! TABS
@@ -30,17 +30,18 @@ URxvt.tabbed.tabbar-bg: 0
 URxvt.tabbed.tab-fg:    3
 URxvt.tabbed.tab-bg:    0
 
-Xft.dpi: 163
-*dpi: 163
-Xcursor.size: 32
+Xft.dpi:        163
+*dpi:           163
+Xcursor.size:   32
+
 ! xdpyinfo | grep -B2 resolution
-! 3840*2160 = 163*163s DPI
-! These might also be useful depending on your monitor and personal preference:
-Xft.autohint: 0
+! 3840*2160 = 163*163 DPI
+
+Xft.autohint:   0
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintfull
-Xft.hinting: 1
-Xft.antialias: 1
-Xft.rgba: rgb
+Xft.hinting:    1
+Xft.antialias:  1
+Xft.rgba:       none
 
-xterm*font:         xft:Hasklug Nerd Font Mono:style=Regular:size=12:antialias=true
+xterm*font:     xft:Hasklug Nerd Font Mono:style=Regular:size=12:antialias=true
