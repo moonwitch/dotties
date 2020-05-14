@@ -20,8 +20,7 @@ udiskie --tray &
 setxkbmap us -variant altgr-intl
 
 # Power management
-xset dpms 600 900 1200
-xset r rate 350 60
+xset dpms 300 600 900
 
 # Ruby exports
 export GEM_HOME=$HOME/.gem
