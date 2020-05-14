@@ -187,7 +187,7 @@ label-mounted = "FS %mountpoint% %percentage_used:2%%"
 type = custom/script
 exec = ~/.local/bin/gmail/launch.py --nosound --prefix "MSG"
 tail = true
-click-left = xdg-open https://mail.google.com
+click-left = xdg-open https://mail.google.com &
 
 [module/volume]
 type = internal/pulseaudio
@@ -219,7 +219,7 @@ time = %H:%M
 [module/power]
 type = custom/text
 click-left = exec ~/.config/rofi/scripts/powermenu.sh
-click-right = exec ~/.config/rofi/scripts/powermenu.shs
+click-right = exec ~/.config/rofi/scripts/powermenu.sh
 format-spacing = 1
 content = "%{T2}襤%{T-}  "
 content-foreground=${colors.red1}
