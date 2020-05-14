@@ -28,4 +28,4 @@ For WebGL to work in Google Chrome (and Chromium), Here are the steps to enable 
 
 # Preview
 
-![Preview](2020-05-14-10:53:19.png)
+![Preview](screenshot.png)
