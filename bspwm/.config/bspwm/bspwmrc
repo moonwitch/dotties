@@ -32,8 +32,8 @@ if hash synology-drive > /dev/null 2>&1 ; then
 fi
 
 # Start RedShift
-# killall redshift
-# redshift &
+killall redshift
+redshift &
 
 
 # ==========
