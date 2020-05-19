@@ -7,14 +7,15 @@
 ######################
 exec --no-startup-id xrandr --dpi 163
 exec --no-startup-id feh --bg-fill $WALLPAPER
-exec_always --no-startup-id xautolock -detectsleep -time 5 -locker "i3lock -n -c 3bb9ea" -killtime 10 -killer "systemctl suspend" &
+exec_always --no-startup-id xautolock -detectsleep -time 5 -locker "i3lock-fancy -gp -- maim" -killtime 45 -killer "systemctl suspend" &
 exec --no-startup-id dunst
 exec --no-startup-id picom -b
 exec --no-startup-id redshift
 # exec --no-startup-id polybar topbar -r
 exec --no-startup-id atom
 exec --no-startup-id chromium
-exec --no-startup-id i3-sensible-terminal
+exec --no-startup-id URxvt
+exec --no-startup-id spotify --force-device-scale-factor=1.75
 
 ######################
 # Looks setup
@@ -107,9 +108,9 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 floating_modifier $super
 
 # Screenshots (requires `maim`).
-bindsym Print exec "maim -s -o $HOME/Pictures/screenshots/$(date +%F-%T).png | xclip -selection clipboard -t image/png && notify-send 'Screenshot saved to $HOME/Pictures/screenshots'"
-bindsym Control+Print exec "maim -i $(xdotool getactivewindow) $HOME/Pictures/screenshots/$(date +%F-%T).png | xclip -selection clipboard -t image/png && notify-send 'Active window snap saved to $HOME/Pictures/screenshots'"
-bindsym $alt+Print exec "maim $HOME/Pictures/screenshots/$(date +%F-%T).png | xclip -selection clipboard -t image/png && notify-send 'Screenshot to $HOME/Pictures/screenshots'"
+bindsym Print exec "maim -s -o $HOME/Pictures/screenshots/$(date +%F-%T).png | xclip -selection clipboard -t image/png -i && notify-send 'Screenshot saved to $HOME/Pictures/screenshots'"
+bindsym Control+Print exec "maim -i $(xdotool getactivewindow) $HOME/Pictures/screenshots/$(date +%F-%T).png | xclip -selection clipboard -t image/png -i && notify-send 'Active window snap saved to $HOME/Pictures/screenshots'"
+bindsym $alt+Print exec "maim $HOME/Pictures/screenshots/$(date +%F-%T).png | xclip -selection clipboard -t image/png -i && notify-send 'Screenshot to $HOME/Pictures/screenshots'"
 
 # Commonly used Apps
 bindsym $super+Return exec $TERMINAL
@@ -117,7 +118,7 @@ bindsym $super+Shift+w exec $BROWSER
 bindsym $super+Shift+n exec "nm-connection-editor"
 bindsym $super+Shift+e exec $FILEMAN
 
-# start rofis
+# start rofi
 bindsym $super+space exec "rofi -no-lazy-grab -show drun -theme launchers-ribbon/ribbon_bottom.rasi"
 # Alt tab
 bindsym $alt+Tab	exec "rofi -kb-accept-entry '!Alt-Tab' -kb-row-down Alt-Tab -show window"

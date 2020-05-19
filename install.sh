@@ -78,3 +78,4 @@ sudo mkdir -p /mnt/work/{home,buo,portimaprod,portimaqual,spotlight}
 sudo mkdir -p /mnt/NAS/{media,photos,software}
 #sudo mount.cifs -o username=intamv\\700320 //fci.fortis/amv/buo /mnt/work/buo
 #sudo mount -t cifs -o username=intamv\\700320 //fci.fortis/acidfs01/brulthome/700320 /mnt/work/home
+echo "UUID=$(lsblk -no UUID /dev/sdb1) /media/Storage $(lsblk -no FSTYPE /dev/sdb1) defaults,noatime 0 2" >> /etc/fstab

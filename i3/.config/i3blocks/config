@@ -1,21 +1,4 @@
 # For the benefit of emacs users: -*- shell-script -*-
-#
-# List of valid properties:
-#
-# align
-# color
-# command
-# full_text
-# instance
-# interval
-# label
-# min_width
-# name
-# separator
-# separator_block_width
-# short_text
-# signal
-# urgent
 
 align=center
 separator=false
@@ -28,7 +11,7 @@ interval=2
 label=<span color="#A3BE8C"> </span>
 
 [nm-vpn]
-command=nm-vpn
+command=/usr/lib/i3blocks/nm-vpn/nm-vpn
 init_color=#EBCB8B
 on_color=#A3BE8C
 label=<span color="#A3BE8C">旅 </span>

@@ -58,9 +58,9 @@ export DEFAULT_MONO_FONT="Hasklug Nerd Font Mono:style=Regular"
 export DEFAULT_FONT="Hasklug Nerd Font:style=Regular"
 
 # Default Applications
-export EDITOR=/usr/bin/atom
+export EDITOR=/usr/bin/kak
 export PDFVIEWER=/usr/bin/zathura
-export FILEMAN=/usr/bin/nautilus
+export FILEMAN=/usr/bin/thunar
 export TERMINAL=/usr/bin/urxvt
 # fix "xdg-open fork-bomb" export your preferred browser from here
 export BROWSER=/usr/bin/chromium
