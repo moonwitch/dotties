@@ -15,7 +15,7 @@ exec --no-startup-id redshift
 exec --no-startup-id atom
 exec --no-startup-id chromium
 exec --no-startup-id URxvt
-exec --no-startup-id spotify --force-device-scale-factor=1.75
+# exec --no-startup-id spotify --force-device-scale-factor=1.75
 
 ######################
 # Looks setup

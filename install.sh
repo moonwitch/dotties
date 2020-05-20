@@ -7,7 +7,7 @@ nerd-fonts-fira-mono \
 nerd-fonts-jetbrains-mono \
 ttf-comfortaa \
 python-pip \
-numlockx \
+numlockx xautolock \
 zathura neofetch \
 sni-qt \
 stow \
@@ -23,6 +23,13 @@ udiskie \
 kakoune \
 spotify spicetify-cli spicetify-themes-git \
 /
+
+echo "Installing icon themes"
+baph -inN zafiro-icon-theme-git \
+boston-icon-theme-git \
+arc-icon-theme-git \
+oranchello-icon-theme-git \
+paper-icon-theme-git \
 
 # Work installs
 baph -iNn networkmanager-openconnect \
@@ -52,26 +59,16 @@ pip install --global --upgrade oauth2client google-api-python-client
 # Install lightdm looker
 # baph -inN lightdm-webkit-theme-litarvan lightdm-webkit-theme-aether
 
-#Install themes after cloning them
-#git clone https://github.com/horst3180/arc-icon-theme --depth 1 ~/.icons/ArcSrc
-#mv ~/.icons/ArcSrc/Arc ~/.icons/Arc
-#rm -rf ~/.icons/ArcSrc
-#git clone https://github.com/zayronxio/Zafiro-icons --depth 1 ~/.icons/zafiro
-#git clone https://github.com/heychrisd/Boston-Icons --depth 1 ~/.icons/boston-icons
-git clone https://github.com/horst3180/arc-theme --depth 1 && cd arc-theme
-./autogen.sh --prefix=/usr --disable-cinnamon --disable-metacity --disable-unity --disable-xfwm --with-gnome=3.22
-sudo make install
-
 # Fix Grub2
 echo "GRUB_GFXMODE=3840x2160x32" >> /etc/default/grub
-sudo grub-mkconfig -o /boot/grub/grub.cfgss
+sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # Generate my ssh key for github/bitbucket
 ssh-keygen -t rsa -b 4096 -C "kelly.crabbe@gmail.com"
 
 # Services
-systemctl --user start spotifyd.service
-systemctl --user enable spotifyd.service
+# systemctl --user start spotifyd.service
+# systemctl --user enable spotifyd.service
 systemctl start systemd-timesyncd
 systemctl enable systemd-timesynd
 sudo mkdir -p /mnt/work/{home,buo,portimaprod,portimaqual,spotlight}
