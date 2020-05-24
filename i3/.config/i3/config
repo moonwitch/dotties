@@ -7,7 +7,7 @@
 ######################
 exec --no-startup-id xrandr --dpi 163
 exec --no-startup-id feh --bg-fill $WALLPAPER
-exec_always --no-startup-id xautolock -detectsleep -time 5 -locker "i3lock-fancy -gp -- maim" -killtime 45 -killer "systemctl suspend" &
+exec_always --no-startup-id xautolock -detectsleep -time 5 -locker "i3lock-fancy -np -- maim" -killtime 30 -killer "systemctl suspend" &
 exec --no-startup-id dunst
 exec --no-startup-id picom -b
 exec --no-startup-id redshift

@@ -12,6 +12,7 @@ if [ -f /usr/lib/xfce-polkit/xfce-polkit ]; then
   killall xfce-polkit
   /usr/lib/xfce-polkit/xfce-polkit &
 fi
+
 gnome-keyring-daemon --start --components=pkcs11,ssh &
 /usr/bin/synology-drive &
 udiskie --tray &
