@@ -2,13 +2,15 @@
 [ -d /home/linuxbrew/.linuxbrew ] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 export ZHOME="$HOME"
+export PATH="$HOME/bin/$:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM="$HOME/.zsh_custom"
 
-ZSH_THEME="bullet-train"
-# ZSH_THEME="oxide"
+#ZSH_THEME="bullet-train"
+#ZSH_THEME="oxide"
+ZSH_THEME='pygmalion'
 
 BULLETTRAIN_PROMPT_ORDER=(
   git
