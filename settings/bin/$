@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+#Ever pasted "$ somecommand" into the terminal from the internetz
+#and gotten '-bash: $: command not found
+
+#This fixes that.
+
+echo 'Quit pasting in commands from the internetz, you lazy f*ck.'
+"$@"
