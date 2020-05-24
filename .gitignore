@@ -1,4 +1,4 @@
+# Editors
 .vscode
-themes/.icons/Paper
-themes/.icons/Paper-Mono-Dark
-themes/.icons/Arc
+*.kak*
+
