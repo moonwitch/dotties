@@ -2,18 +2,20 @@
  * This theme is intended for a simple display of a 5
  * items list on a 1366x768 pixels resolution.
  */
-@import "colors.rasi"
+@import "colorschemes/nord.rasi"
+
+/* overriding some variables */
 * {
-  /* Variables */
-  foreground:       #bbbbbb;
-  /* Settings */
-  font:             "Comfortaa bold 12";
+  font:             "Comfortaa bold 14";
 }
+
+
 #window {
   width: 1366px;
   height: 768px;
+  height: 768px;
   /*       vertical   horizontal */
-  padding: 100px      100px;
+  padding: 219px      360px;
 }
 /* Input window */
 inputbar,

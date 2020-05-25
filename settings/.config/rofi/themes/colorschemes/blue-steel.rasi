@@ -1,6 +1,6 @@
 * {
   /* Variables */
-  accent:           #ffae42;
+  accent:           #728cbb;
   background:       #1c1c1c;
   background-focus: #282828;
   background-light: #1f1f1f;
@@ -10,3 +10,4 @@
   text-color:       @foreground;
   font:             "Hurmit Nerd Font Mono 60";
 }
+

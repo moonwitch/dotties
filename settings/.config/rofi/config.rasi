@@ -1,9 +1,13 @@
-/** Configured For Applets **/
+//----------------------
+// Configuration
+//----------------------
 
 configuration {
-  show-icons:         true;
-  icon-theme:         "Papirus";
-  location: 5;
-  yoffset: -50;
-  xoffset: -20;
+    show-icons:         true;
+    cycle:              true;
+    hide-scrollbar:     true;
+    disable-history:    false;
+    modi:               "drun,calc,ssh,run";
+    display-drun:       "apps";
+    show-match: 		    false;
 }

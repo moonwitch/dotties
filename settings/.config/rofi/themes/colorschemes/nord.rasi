@@ -1,108 +1,31 @@
-/*
- * ROFI Nord
- *
- */
-
-
 * {
-  black:      #3b4252;
-  red:        #bf616a;
-  green:      #a3be8c;
-  yellow:     #ebcb8b;
-  blue:       #81a1c1;
-  mangenta:   #b48ead;
-  cyan:       #88c0d0;
-  emphasis:   #4c566a;
-  text:       #e5e9f0;
-  text-alt:   #eceff4;
-  fg:         #d8dee9;
-  bg:         #2e3440;
+    nord0:			 #2E3440;
+    nord1: 			 #3B4252;
+    nord2: 			 #434C5E;
+    nord3: 			 #4C566A;
+    nord4: 			 #D8DEE9;
+    nord5:  		 #E5E9F0;
+    nord6:  		 #ECEFF4;
+    nord7: 			 #8FBCBB;
+    nord8:   		 #88C0D0;
+    nord9:  		 #81A1C1;
+    nord10: 		 #5E81AC;
+    nord11: 		 #BF616A;
+    nord12: 		 #D08770;
+    nord13: 		 #EBCB8B;
+    nord14: 		 #A3BE8C;
+    nord15: 		 #B48EAD;
 
-  spacing: 0;
-  background-color: transparent;
+    background:           @nord1;
+    foreground:           @nord5;
 
-  font: "SauceCodePro Nerd Font 12";
-  text-color: @text;
-}
+    background-light:     @nord2;
+    background-focus:     @nord3;
 
-window {
-  transparency: "real";
-  /*fullscreen: true;*/
-  background-color: @bg;
-  border:   1;
-  padding:  5;
-}
+    accent:               @nord10;
 
-mainbox {
-  padding: 0;
-  border:   0;
-}
-
-inputbar {
-  margin: 0px 0px 20px 0px;
-  children: [prompt, textbox-prompt-colon, entry, case-indicator];
-}
-
-prompt {
-  text-color: @blue;
-}
-
-textbox-prompt-colon {
-  expand: false;
-  str: ":";
-  margin:   0px 0.3em 0em 0em ;
-  text-color: @text-alt;
-}
-
-entry {
-  margin: 0px 10px;
-}
-
-listview {
-  spacing: 5px;
-  dynamic: true;
-  scrollbar: false;
-}
-
-element {
-  padding: 5px;
-  text-color: @text-alt;
-  highlight: bold #a3be8c; /* green */
-  border-radius: 3px;
-}
-
-element selected {
-  background-color: @black;
-  text-color: @text;
-}
-
-element urgent, element selected urgent {
-  text-color: @red;
-}
-
-element active, element selected active {
-  text-color: @magenta;
-}
-
-message {
-  padding: 5px;
-  border-radius: 3px;
-  background-color: @emphasis;
-  border: 2px 0px 0px ;
-  border-color: @cyan;
-}
-
-listview {
-    fixed-height: 0;
-    border:       2px dash 0px 0px ;
-    border-color: @black;
-    spacing:      2px ;
-    scrollbar:    true;
-    padding:      2px 0px 0px ;
-}
-
-button selected {
-  padding: 5px;
-  border-radius: 3px;
-  background-color: @emphasis;
+    /* Settings */
+    background-color:     @background;
+    text-color:           @foreground;
+    font:                 "Hurmit Nerd Font Mono 42";
 }
