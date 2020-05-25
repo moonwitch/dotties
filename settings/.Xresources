@@ -42,6 +42,6 @@ Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintfull
 Xft.hinting:    1
 Xft.antialias:  1
-Xft.rgba:       none
+Xft.rgba:       rgb
 
 xterm*font:     xft:Hasklug Nerd Font Mono:style=Regular:size=12:antialias=true

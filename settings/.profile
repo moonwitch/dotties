@@ -37,10 +37,8 @@ xrandr --dpi 163
 
 # Export variables
 # HiDPI in QT4 and QT5
-export QT_QPA_PLATFORMTHEME=qt5ct
-export QT_DEVICE_PIXEL_RATIO=2
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
-export QT_SCREEN_SCALE_FACTORS=1
+export QT_SCALE_FACTOR=1.75
 # HiDPI in GTK
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
