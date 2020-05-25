@@ -43,6 +43,10 @@ else
   export EDITOR='nvim'
 fi
 
+# Fix VTE error in Tilix
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+    source /etc/profile.d/vte.sh
+fi
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # Aliasses
