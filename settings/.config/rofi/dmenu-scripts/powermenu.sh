@@ -14,7 +14,7 @@ options="$lock\n$suspend\n$power_off\n$reboot\n$log_out"
 chosen="$(echo -e "$options" | $rofi_command -dmenu)"
 case $chosen in
   $lock)
-    dm-tool lock
+    xautolock -locknow
     ;;
   $suspend)
     systemctl suspend

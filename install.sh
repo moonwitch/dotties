@@ -7,7 +7,7 @@ nerd-fonts-fira-mono \
 nerd-fonts-jetbrains-mono \
 ttf-comfortaa \
 python-pip \
-numlockx xautolock \
+numlockx xidlehook \
 zathura neofetch \
 sni-qt \
 stow \
@@ -18,7 +18,6 @@ synology-drive \
 gtk-engine-murrine \
 gtk-engine-pixbuff \
 caprine \
-i3-agenda-git \
 udiskie \
 kakoune \
 spotify spicetify-cli spicetify-themes-git \
@@ -35,7 +34,7 @@ paper-icon-theme-git \
 baph -iNn networkmanager-openconnect \
 pidgin \
 mattermost-desktop-bin \
-lastpass-cli \
+bitwarden-bin-git \
 firefox \
 /
 
@@ -57,6 +56,7 @@ curl -L https://raw.githubusercontent.com/dikiaap/dotfiles/master/.oh-my-zsh/the
 pip install --global --upgrade oauth2client google-api-python-client
 
 # Install lightdm looker
+systemctl enable betterlockscreen@$USER
 # baph -inN lightdm-webkit-theme-litarvan lightdm-webkit-theme-aether
 
 # Fix Grub2

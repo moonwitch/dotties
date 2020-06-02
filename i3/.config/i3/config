@@ -7,14 +7,16 @@
 ######################
 exec --no-startup-id xrandr --dpi 163
 exec --no-startup-id feh --bg-fill $WALLPAPER
-exec_always --no-startup-id xautolock -detectsleep -time 5 -locker "i3lock-fancy -np -- maim" -killtime 30 -killer "systemctl suspend" &
 exec --no-startup-id dunst
 exec --no-startup-id picom -b
 exec --no-startup-id redshift
-# exec --no-startup-id polybar topbar -r
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id synology-drive
+exec --no-startup-id  udiskie --tray
 exec --no-startup-id atom
 exec --no-startup-id chromium
 # exec --no-startup-id spotify --force-device-scale-factor=1.75
+# exec --no-startup-id polybar topbar -r
 
 ######################
 # Looks setup
@@ -103,9 +105,6 @@ bindsym XF86AudioPause exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
-# Use Mouse+$super to drag floating windows to their wanted position
-floating_modifier $super
-
 # Screenshots (requires `maim`).
 bindsym Print exec "maim -s -o $HOME/Pictures/screenshots/$(date +%F-%T).png | xclip -selection clipboard -t image/png -i && notify-send 'Screenshot saved to $HOME/Pictures/screenshots'"
 bindsym Control+Print exec "maim -i $(xdotool getactivewindow) $HOME/Pictures/screenshots/$(date +%F-%T).png | xclip -selection clipboard -t image/png -i && notify-send 'Active window snap saved to $HOME/Pictures/screenshots'"
@@ -114,40 +113,35 @@ bindsym $alt+Print exec "maim $HOME/Pictures/screenshots/$(date +%F-%T).png | xc
 # Commonly used Apps
 bindsym $super+Return exec $TERMINAL
 bindsym $super+Shift+w exec $BROWSER
-bindsym $super+Shift+n exec "nm-connection-editor"
 bindsym $super+Shift+e exec $FILEMAN
+# Create a pretty network manager
+bindsym $super+Shift+n exec $TERMINAL --title="nmtui" -e nmtui-connect
+for_window [title="nmtui"] floating enable
+for_window [title="nmtui"] move absolute position 1600 41
+for_window [title="nmtui"] resize set width 800
+
+for_window [class="kakoune" instance="urxvt"] floating enable, resize set 890px 210px, move position 515px 22px, move scratchpad, sticky enable
 
 # start rofi
-#bindsym $super+space exec "rofi -no-lazy-grab -show drun -theme launchers-ribbon/ribbon_bottom.rasi"
 bindsym $super+space exec "rofi -show drun -theme themes/drun.rasi"
 # Alt tab
-bindsym $alt+Tab	exec "rofi -kb-accept-entry '!Alt-Tab' -kb-row-down Alt-Tab -show window"
+bindsym $alt+Tab	exec "rofi -kb-accept-entry '!Alt-Tab' -kb-row-down Alt-Tab -show window -theme themes/drun.rasi"
 
-# exit i3 (logs you out of your X session)
+# Exit binds
 bindsym $super+Shift+End exec --no-startup-id ~/.config/rofi/dmenu-scripts/powermenu.sh
+bindsym $super+l exec xautolock -locknow
+bindsym XF86Sleep exec systemctl suspend
 
 # kill focused window
 bindsym $super+Shift+q kill
 
-# change focus
-bindsym $super+j focus left
-bindsym $super+k focus down
-bindsym $super+l focus up
-bindsym $super+semicolon focus right
-
-# alternatively, you can use the cursor keys:
+# switch focused window
 bindsym $super+Left focus left
 bindsym $super+Down focus down
 bindsym $super+Up focus up
 bindsym $super+Right focus right
 
 # move focused window
-bindsym $super+Shift+j move left
-bindsym $super+Shift+k move down
-bindsym $super+Shift+l move up
-bindsym $super+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
 bindsym $super+Shift+Left move left
 bindsym $super+Shift+Down move down
 bindsym $super+Shift+Up move up
@@ -290,6 +284,5 @@ for_window      [class=Pamac-manager]                               floating ena
 for_window      [class=Nm-connection-editor|network.py]             floating enable
 for_window      [class="Simple-scan"]                               floating enable
 for_window      [class="Yad"]                                       floating enable
-
 
 # vim:filetype=sh

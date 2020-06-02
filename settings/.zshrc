@@ -57,3 +57,6 @@ PERL5LIB="/home/kelly/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB
 PERL_LOCAL_LIB_ROOT="/home/kelly/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/kelly/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/kelly/perl5"; export PERL_MM_OPT;
+
+# BitWarden
+export BW_SESSION="76nWA/7cswakfZJcxCyMVStbM62L5YCilwh8T17EoCYPT16R7EoYMiY/ifwdhiFB3+AfuFb6lOBxBM9oeu6FrA=="

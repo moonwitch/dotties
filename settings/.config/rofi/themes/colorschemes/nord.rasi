@@ -1,8 +1,8 @@
 * {
-    nord0:			 #2E3440;
-    nord1: 			 #3B4252;
-    nord2: 			 #434C5E;
-    nord3: 			 #4C566A;
+    nord0:			 rgba(47, 53, 65, 0.7);
+    nord1: 			 rgba(59, 66, 82, 0.7);
+    nord2: 			 rgba(67, 76, 94, 0.7);
+    nord3: 			 rgba(76, 86, 106, 0.7);
     nord4: 			 #D8DEE9;
     nord5:  		 #E5E9F0;
     nord6:  		 #ECEFF4;

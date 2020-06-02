@@ -1,0 +1,13 @@
+#!/bin/bash
+rofi_command="rofi"
+
+SOURCE=$(pactl list sources | grep "Name" | grep -v "monitor" | sed "s/^.*Name: //" | $rofi_command -dmenu -mesg Input)
+SINK=$(pactl list sinks | grep "Name" | sed "s/^.*Name: //" | $rofi_command -dmenu -mesg Output)
+
+if [ "$SINK" ] && [ "$SOURCE" ]; then
+	pactl set-default-sink $SINK
+	pactl set-default-source $SOURCE
+	notify-send "Sound sink/source update" "Sink: $SINK\nSource: $SOURCE"
+else
+	notify-send "Sound sink/source update" "Empty Sink or Source. No changes applied."
+fi

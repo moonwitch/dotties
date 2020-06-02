@@ -14,14 +14,38 @@ if [ -f /usr/lib/xfce-polkit/xfce-polkit ]; then
 fi
 
 gnome-keyring-daemon --start --components=pkcs11,ssh &
-/usr/bin/synology-drive &
-udiskie --tray &
 
 # Have some keyboard fun
 setxkbmap us -variant altgr-intl
 
 # Power management
 xset dpms 300 600 900
+# Trigger screensaver after 10 minutes of inactivity
+# xset s on
+# xset s 600
+# xautolock -detectsleep -time 5 -locker "betterlockscreen -l dim" -killtime 30 -killer "systemctl suspend" &
+
+# Only exported variables can be used within the timer's command.
+# export PRIMARY_DISPLAY="$(xrandr | awk '/ primary/{print $1}')"
+#
+# # Run xidlehook
+# xidlehook \
+#   `# Don't lock when there's a fullscreen application` \
+#   --not-when-fullscreen \
+#   `# Don't lock when there's audio playing` \
+#   --not-when-audio \
+#   `# Dim the screen after 60 seconds, undim if user becomes active` \
+#   --timer 60 \
+#     'xrandr --output "$PRIMARY_DISPLAY" --brightness .1' \
+#     'xrandr --output "$PRIMARY_DISPLAY" --brightness 1' \
+#   `# Undim & lock after 10 more seconds` \
+#   --timer 10 \
+#     'xrandr --output "$PRIMARY_DISPLAY" --brightness 1; i3lock' \
+#     '' \
+#   `# Finally, suspend an hour after it locks` \
+#   --timer 3600 \
+#     'systemctl suspend' \
+#     ''
 
 # Ruby exports
 export GEM_HOME=$HOME/.gem
@@ -38,7 +62,10 @@ xrandr --dpi 163
 # Export variables
 # HiDPI in QT4 and QT5
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
-export QT_SCALE_FACTOR=1.75
+# Qt 5.14 uses this.
+export QT_ENABLE_HIGHDPI_SCALING=1
+
+#export QT_SCALE_FACTOR=1.75
 # HiDPI in GTK
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
