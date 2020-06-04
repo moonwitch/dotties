@@ -1,32 +1,21 @@
 #!/bin/bash
 #baph --install --noview --noconfirm
 # First base requirements
-baph -inN base-devel git \
-gtk-engine-murrine \
-/
+baph -inN base-devel git stow
 
 baph -inN pamac-aur pamac-zsh-completions \
-nerd-fonts-fantasque-sans-mono \
-nerd-fonts-fira-code \
-nerd-fonts-fira-mono \
-nerd-fonts-jetbrains-mono \
+nerd-fonts-fantasque-sans-mono nerd-fonts-fira-code nerd-fonts-fira-mono nerd-fonts-jetbrains-mono \
 ttf-comfortaa \
-python-pip \
-numlockx \
-zathura neofetch \
-sni-qt \
-stow \
-playerctl \
-chromium \
-exiftool \
+python-pip numlockx zathura neofetch \
+chromium caprine \
 synology-drive \
-caprine \
 udiskie \
 kakoune \
+playerctl \
 spotify spicetify-cli spicetify-themes-git \
 /
 
-echo "Installing icon themes"
+echo "Installing themes and icons"
 baph -inN zafiro-icon-theme-git \
 boston-icon-theme-git \
 arc-icon-theme-git \
@@ -44,11 +33,18 @@ scdoc \
 sway-hidpi-git \
 /
 
+# Photography
+#! /bin/bash
+baph -inN perl-image-exiftool exiv2 pyexiftool-gui-git
+
+# Ruby for life
+baph -inN ruby
+
 # Work installs
 baph -iNn networkmanager-openconnect \
 pidgin \
 mattermost-desktop-bin \
-bitwarden-bin-git \
+bitwarden \
 rbw \
 firefox \
 /
@@ -75,7 +71,7 @@ pip install --global --upgrade oauth2client google-api-python-client
 baph -inN lightdm-webkit-theme-aether
 
 # Fix Grub2
-echo "GRUB_GFXMODE=3840x2160x24" >> /etc/default/grub
+sudo echo "GRUB_GFXMODE=3840x2160x24" >> /etc/default/grub
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # Generate my ssh key for github/bitbucket
@@ -84,8 +80,8 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 # Services
 # systemctl --user start spotifyd.service
 # systemctl --user enable spotifyd.service
-systemctl start systemd-timesyncd
-systemctl enable systemd-timesynd
+sudo systemctl start systemd-timesyncd
+sudo systemctl enable systemd-timesynd
 
 # Shares
 sudo mkdir -p /mnt/work/{home,buo,portimaprod,portimaqual,spotlight}
@@ -93,4 +89,4 @@ sudo mkdir -p /mnt/NAS/{media,photos,software}
 #sudo mount.cifs -o username=intamv\\700320 //fci.fortis/amv/buo /mnt/work/buo
 #sudo mount -t cifs -o username=intamv\\700320 //fci.fortis/acidfs01/brulthome/700320 /mnt/work/home
 sudo mkdir -p /mnt/storage
-echo "UUID=$(lsblk -no UUID /dev/sdb1) /mnt/storage $(lsblk -no FSTYPE /dev/sdb1) defaults,noatime 0 2" >> /etc/fstab
+sudo echo "UUID=$(lsblk -no UUID /dev/sdb1) /mnt/storage $(lsblk -no FSTYPE /dev/sdb1) defaults,noatime 0 2" >> /etc/fstab
