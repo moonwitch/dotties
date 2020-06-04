@@ -57,6 +57,8 @@ modutil -dbdir sql:.pki/nssdb/ -add "Belgium eID" -libfile /usr/lib/libbeidpkcs1
 
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+brew install gcc
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -71,8 +73,8 @@ pip install --global --upgrade oauth2client google-api-python-client
 baph -inN lightdm-webkit-theme-aether
 
 # Fix Grub2
-sudo echo "GRUB_GFXMODE=3840x2160x24" >> /etc/default/grub
-sudo grub-mkconfig -o /boot/grub/grub.cfg
+#sudo -s echo "GRUB_GFXMODE=3840x2160x24" >> /etc/default/grub
+#sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # Generate my ssh key for github/bitbucket
 # ssh-keygen -t rsa -b 4096 -C "kelly.crabbe@gmail.com"
@@ -81,7 +83,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 # systemctl --user start spotifyd.service
 # systemctl --user enable spotifyd.service
 sudo systemctl start systemd-timesyncd
-sudo systemctl enable systemd-timesynd
+sudo systemctl enable systemd-timesyncd
 
 # Shares
 sudo mkdir -p /mnt/work/{home,buo,portimaprod,portimaqual,spotlight}
