@@ -73,8 +73,8 @@ pip install --global --upgrade oauth2client google-api-python-client
 baph -inN lightdm-webkit-theme-aether
 
 # Fix Grub2
-#sudo -s echo "GRUB_GFXMODE=3840x2160x24" >> /etc/default/grub
-#sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo sh -c "echo "GRUB_GFXMODE=3840x2160x24,auto" >> /etc/default/grub"
+sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # Generate my ssh key for github/bitbucket
 # ssh-keygen -t rsa -b 4096 -C "kelly.crabbe@gmail.com"
@@ -91,4 +91,4 @@ sudo mkdir -p /mnt/NAS/{media,photos,software}
 #sudo mount.cifs -o username=intamv\\700320 //fci.fortis/amv/buo /mnt/work/buo
 #sudo mount -t cifs -o username=intamv\\700320 //fci.fortis/acidfs01/brulthome/700320 /mnt/work/home
 sudo mkdir -p /mnt/storage
-sudo echo "UUID=$(lsblk -no UUID /dev/sdb1) /mnt/storage $(lsblk -no FSTYPE /dev/sdb1) defaults,noatime 0 2" >> /etc/fstab
+sudo sh -c "echo "UUID=$(lsblk -no UUID /dev/sdb1) /mnt/storage $(lsblk -no FSTYPE /dev/sdb1) defaults,noatime 0 2" >> /etc/fstab"
