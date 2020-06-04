@@ -92,3 +92,13 @@ sudo mkdir -p /mnt/NAS/{media,photos,software}
 #sudo mount -t cifs -o username=intamv\\700320 //fci.fortis/acidfs01/brulthome/700320 /mnt/work/home
 sudo mkdir -p /mnt/storage
 sudo sh -c "echo "UUID=$(lsblk -no UUID /dev/sdb1) /mnt/storage $(lsblk -no FSTYPE /dev/sdb1) defaults,noatime 0 2" >> /etc/fstab"
+
+# pull it down
+mkdir -p ~/Projects/dotties && cd ~/Projects/dotties
+git clone https://github.com/moonwitch/dotties.git && rm -rf ~/Projects/dotties/.git
+git submodule init
+git submodele update
+
+# stow it
+stow -Rv settings themes
+stow -Rv i3
