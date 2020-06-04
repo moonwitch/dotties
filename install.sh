@@ -1,7 +1,12 @@
 #!/bin/bash
 #baph --install --noview --noconfirm
+# First base requirements
+baph -inN base-devel git \
+gtk-engine-murrine \
+/
+
 baph -inN pamac-aur pamac-zsh-completions \
-nerd-fonts-fantasque-sans-mono\
+nerd-fonts-fantasque-sans-mono \
 nerd-fonts-fira-code \
 nerd-fonts-fira-mono \
 nerd-fonts-jetbrains-mono \
@@ -15,8 +20,6 @@ playerctl \
 chromium \
 exiftool \
 synology-drive \
-gtk-engine-murrine \
-gtk-engine-pixbuff \
 caprine \
 udiskie \
 kakoune \
@@ -27,8 +30,18 @@ echo "Installing icon themes"
 baph -inN zafiro-icon-theme-git \
 boston-icon-theme-git \
 arc-icon-theme-git \
-oranchello-icon-theme-git \
+oranchelo-icon-theme-git \
 paper-icon-theme-git \
+/
+
+# i3 installs
+echo "Installing i3 requirements"
+baph -iNn i3-gaps i3blocks-git i3blocks-contrib-git \
+meson wlroots \
+wayland wayland-protocols pcre \
+json-c pango cairo gdk-pixbuf2 \
+scdoc \
+sway-hidpi-git \
 /
 
 # Work installs
