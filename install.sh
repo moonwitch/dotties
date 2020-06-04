@@ -22,7 +22,7 @@ baph -inN zafiro-icon-theme-git \
 boston-icon-theme-git \
 arc-icon-theme-git \
 oranchelo-icon-theme-git \
-paper-icon-theme-git \
+moka-icon-theme-git \
 /
 
 # i3 installs
