@@ -14,6 +14,7 @@ udiskie \
 kakoune \
 playerctl \
 spotify spicetify-cli spicetify-themes-git \
+xorg-xwininfo \
 /
 
 echo "Installing themes and icons"
