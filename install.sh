@@ -1,7 +1,7 @@
 #!/bin/bash
 #baph --install --noview --noconfirm
 # First base requirements
-baph -inN base-devel git stow
+baph -inN base-devel git stow 
 
 baph -inN pamac-aur pamac-zsh-completions \
 nerd-fonts-fantasque-sans-mono nerd-fonts-fira-code nerd-fonts-fira-mono nerd-fonts-jetbrains-mono \
@@ -9,6 +9,7 @@ ttf-comfortaa \
 python-pip numlockx zathura neofetch \
 chromium caprine \
 synology-drive \
+rofi-calc \
 udiskie \
 kakoune \
 playerctl \
@@ -47,7 +48,10 @@ mattermost-desktop-bin \
 bitwarden \
 rbw \
 firefox \
+vscodium-bin atom \
 /
+
+apm install sync-settings
 
 # Install e-id stuff; this is Belgian users only
 baph -inN ccid pcsclite eid-mw acsccid
