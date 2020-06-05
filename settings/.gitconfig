@@ -1,12 +1,12 @@
 # This is Git's per-user configuration file.
 [user]
 	name = Kelly Crabbé
-    email = kelly.crabbe@gmail.com
-	editor = vim
+  email = kelly.crabbe@gmail.com
+	editor = $EDITOR
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	excludesfile = ~/.gitignore
 [web]
-	browser = chromium
+	browser = $BROWSER
 [push]
 	default = matching
 [color]
@@ -47,10 +47,7 @@
 	la = "!git config -l | grep alias | cut -c 7-"
 	unstage = reset HEAD --
 	last = log -1 HEAD
-    update-submodules = submodule update --remote --merge
+  update-submodules = submodule update --remote --merge
 
-
-[cola]
-	spellcheck = false
 [pull]
 	rebase = false
