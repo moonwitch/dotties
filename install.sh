@@ -1,7 +1,7 @@
 #!/bin/bash
 #baph --install --noview --noconfirm
 # First base requirements
-baph -inN base-devel git stow 
+baph -inN base-devel git stow
 
 baph -inN pamac-aur pamac-zsh-completions \
 nerd-fonts-fantasque-sans-mono nerd-fonts-fira-code nerd-fonts-fira-mono nerd-fonts-jetbrains-mono \
@@ -15,6 +15,7 @@ kakoune \
 playerctl \
 spotify spicetify-cli spicetify-themes-git \
 xorg-xwininfo \
+xfce-polkit \
 /
 
 echo "Installing themes and icons"
