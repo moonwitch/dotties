@@ -9,10 +9,8 @@ exec --no-startup-id xrandr --dpi 163
 exec --no-startup-id feh --bg-fill $WALLPAPER
 exec --no-startup-id dunst
 exec --no-startup-id picom -b
-exec --no-startup-id redshift
-exec --no-startup-id xfce4-power-manager
 exec --no-startup-id synology-drive
-exec --no-startup-id udiskie --tray
+exec --no-startup-id udiskie --smart-tray
 exec --no-startup-id atom
 exec --no-startup-id chromium
 # exec --no-startup-id spotify --force-device-scale-factor=1.75

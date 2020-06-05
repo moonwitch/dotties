@@ -6,11 +6,14 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
-# Autostart some shit
+# Autostart WM agnostic applications
 numlockx &
 xfce4-power-manager &
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-gnome-keyring-daemon --start --components=pkcs11,ssh &
+redshift &
+#/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+/usr/lib/xfce-polkit/xfce-polkit &
+/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh &
+export SSH_AUTH_SOCK
 
 # Have some keyboard fun
 setxkbmap us -variant altgr-intl
@@ -54,7 +57,7 @@ export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 [ -d /home/linuxbrew/.linuxbrew ] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 # HiDPI
-xrandr --dpi 163
+# xrandr --dpi 163
 
 # Export variables
 # HiDPI in QT4 and QT5
@@ -62,18 +65,18 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=1
 # Qt 5.14 uses this.
 export QT_ENABLE_HIGHDPI_SCALING=1
 
-#export QT_SCALE_FACTOR=1.75
-# HiDPI in GTK
-export GDK_SCALE=2
-export GDK_DPI_SCALE=0.5
-export XCURSOR_SIZE=32
+# HiDPI in GTK -
+# According to ArchWiki; GTK3 should work fine with Xresources hack.
+# export GDK_SCALE=2
+# export GDK_DPI_SCALE=0.5
+# export XCURSOR_SIZE=48
 
 # Wayland
-export MOZ_ENABLE_WAYLAND=1
+#export MOZ_ENABLE_WAYLAND=1
 # Wayland and QT
-# QT_QPA_PLATFOR=wayland-egl
-# QT_WAYLAND_FORCE_DPI=physical
-# QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+#export QT_QPA_PLATFOR=wayland-egl
+#export QT_WAYLAND_FORCE_DPI=physical
+#export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export WALLPAPER=$HOME/.wallpapers/HazedGroot.jpg

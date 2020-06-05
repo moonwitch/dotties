@@ -34,7 +34,7 @@ URxvt.tabbed.tab-bg:    0
 
 Xft.dpi:        163
 *dpi:           163
-Xcursor.size:   48
+Xcursor.size:   32
 
 ! xdpyinfo | grep -B2 resolution
 ! 3840*2160 = 163*163 DPI
@@ -46,6 +46,6 @@ Xft.hinting:    1
 Xft.antialias:  1
 Xft.rgba:       rgb
 
-xterm*font:             xft:Hasklug Nerd Font Mono:style=Regular:size=12:antialias=true,\
-                        xft:symbola:size=10:minspace=False,\
-                        -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
+xterm*font:     xft:Hasklug Nerd Font Mono:style=Regular:size=12:antialias=true,\
+                xft:symbola:size=10:minspace=False,\
+                -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
