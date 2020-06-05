@@ -1,5 +1,13 @@
 # Editors
 .vscode
-*.kak*
+*kak*
 
 themes/.icons/default
+
+# Exclude Typora themes
+settings/.config/Typora/*
+!settings/.config/Typora/themes/*
+
+# Exclude Mattermost except config
+settings/.config/Mattermost/*
+!settings/.config/Mattermost/config.json
