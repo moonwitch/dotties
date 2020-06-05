@@ -5,7 +5,6 @@
 ######################
 # Autostart setup
 ######################
-exec --no-startup-id xrandr --dpi 163
 exec --no-startup-id feh --bg-fill $WALLPAPER
 exec --no-startup-id dunst
 exec --no-startup-id picom -b

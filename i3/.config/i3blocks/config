@@ -7,8 +7,8 @@ markup=pango
 command=/usr/lib/i3blocks/$BLOCK_NAME/$BLOCK_NAME
 
 [mediaplayer]
-command=playerctl metadata --format "{{ artist }} - {{ title }}"
 interval=2
+instance=spotify
 label=<span color="#A3BE8C"> </span>
 
 [nm-vpn]
@@ -18,7 +18,7 @@ label=<span color="#A3BE8C">旅 </span>
 interval=5
 
 [weather]
-command=curl -sS 'wttr.in/Neerlinter?format=2'
+command=weather
 interval=360
 
 [volume-pulseaudio]
