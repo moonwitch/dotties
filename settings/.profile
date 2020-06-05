@@ -5,13 +5,20 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
+# Ruby exports
+export GEM_HOME=$HOME/.gem
+export GEM_PATH=$(ruby -e 'puts Gem.user_dir')
+export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 
 # Autostart WM agnostic applications
 numlockx &
 xfce4-power-manager &
 redshift &
+if [ -f /usr/lib/xfce-polkit/xfce-polkit ]; then
+  killall xfce-polkit
+  /usr/lib/xfce-polkit/xfce-polkit &
+fi
 #/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-/usr/lib/xfce-polkit/xfce-polkit &
 /usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh &
 export SSH_AUTH_SOCK
 
@@ -47,17 +54,11 @@ xset dpms 300 600 900
 #     'systemctl suspend' \
 #     ''
 
-# Ruby exports
-export GEM_HOME=$HOME/.gem
-export GEM_PATH=$(ruby -e 'puts Gem.user_dir')
-export PATH=$HOME/.local/bin:$PATH
-export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
-
 # Homebrew
 [ -d /home/linuxbrew/.linuxbrew ] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 # HiDPI
-# xrandr --dpi 163
+xrandr --dpi 163
 
 # Export variables
 # HiDPI in QT4 and QT5
@@ -67,9 +68,9 @@ export QT_ENABLE_HIGHDPI_SCALING=1
 
 # HiDPI in GTK -
 # According to ArchWiki; GTK3 should work fine with Xresources hack.
-# export GDK_SCALE=2
-# export GDK_DPI_SCALE=0.5
-# export XCURSOR_SIZE=48
+export GDK_SCALE=2
+export GDK_DPI_SCALE=0.5
+export XCURSOR_SIZE=32
 
 # Wayland
 #export MOZ_ENABLE_WAYLAND=1
