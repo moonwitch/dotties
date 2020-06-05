@@ -4,6 +4,7 @@ align=center
 separator=false
 separator_block_width=20
 markup=pango
+command=/usr/lib/i3blocks/$BLOCK_NAME/$BLOCK_NAME
 
 [mediaplayer]
 command=playerctl metadata --format "{{ artist }} - {{ title }}"
@@ -11,35 +12,31 @@ interval=2
 label=<span color="#A3BE8C"> </span>
 
 [nm-vpn]
-command=/usr/lib/i3blocks/nm-vpn/nm-vpn
 init_color=#EBCB8B
 on_color=#A3BE8C
 label=<span color="#A3BE8C">旅 </span>
 interval=5
 
 [volume-pulseaudio]
-command=/usr/lib/i3blocks/volume-pulseaudio/volume-pulseaudio
+signal=9
 interval=persist
-USE_ALSA_NAME=1
 SUBSCRIBE=1
+USE_ALSA_NAME=1
 
 [memory]
 command=free -h --si | awk 'FNR==2{ print $0 }' | awk '{ print $7 }'
 interval=2
 label=<span color="#A3BE8C"> </span>
 
-[time]
-command=date '+%H:%M'
-interval=5
-label=<span color="#EBCB8B"> </span>
-
-[date]
-command=date '+%A %m/%d'
-interval=60
+[calendar]
+interval=1
+DATEFMT=+%H:%M
+# SHORTFMT=+%H:%M:%S
+HEIGHT=180
+WIDTH=220
 label=<span color="#5E81AC"> </span>
 
 [dunst]
-command=/usr/lib/i3blocks/dunst/dunst
 interval=once
 format=json
 markup=pango

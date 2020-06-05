@@ -8,11 +8,8 @@ export PATH="$HOME/bin:$PATH"
 
 # Autostart some shit
 numlockx &
-if [ -f /usr/lib/xfce-polkit/xfce-polkit ]; then
-  killall xfce-polkit
-  /usr/lib/xfce-polkit/xfce-polkit &
-fi
-
+xfce4-power-manager &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 gnome-keyring-daemon --start --components=pkcs11,ssh &
 
 # Have some keyboard fun

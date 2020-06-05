@@ -12,7 +12,7 @@ exec --no-startup-id picom -b
 exec --no-startup-id redshift
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id synology-drive
-exec --no-startup-id  udiskie --tray
+exec --no-startup-id udiskie --tray
 exec --no-startup-id atom
 exec --no-startup-id chromium
 # exec --no-startup-id spotify --force-device-scale-factor=1.75
@@ -56,7 +56,7 @@ set_from_resource $color15 i3wm.color15: #ECEFF4
 bar
 {
     position top
-	  status_command i3blocks
+	   status_command i3blocks
     i3bar_command i3bar
     workspace_buttons      yes
     colors {
@@ -93,7 +93,7 @@ set $alt Mod1
 floating_modifier $super
 
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_bar pkill -RTMIN+1 i3blocks
+set $refresh_bar pkill -RTMIN+9 i3blocks
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_bar
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_bar
