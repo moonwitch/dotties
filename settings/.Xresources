@@ -12,13 +12,13 @@
 
 ! URXVT Config
 URxvt*font:             xft:Hasklug Nerd Font Mono:style=Regular:size=12:antialias=true,\
-                        xft:symbola:size=10:minspace=False,\
                         -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
 URxvt*internalBorder:   10
 URxvt.scrollBar:        false
 URxvt.depth:            32
 URxvt.iso14755:         true
 URxvt.iso14755_52:      false
+URxvt.letterSpace:      0
 
 ! URL Matching
 URxvt.url-launcher:     /usr/bin/xdg-open
@@ -33,7 +33,6 @@ URxvt.tabbed.tab-fg:    3
 URxvt.tabbed.tab-bg:    0
 
 Xft.dpi:        163
-*dpi:           163
 Xcursor.size:   32
 
 ! xdpyinfo | grep -B2 resolution
@@ -47,5 +46,4 @@ Xft.antialias:  1
 Xft.rgba:       rgb
 
 xterm*font:     xft:Hasklug Nerd Font Mono:style=Regular:size=12:antialias=true,\
-                xft:symbola:size=10:minspace=False,\
                 -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*

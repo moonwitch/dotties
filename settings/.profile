@@ -12,13 +12,13 @@ export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 
 # Autostart WM agnostic applications
 numlockx &
-xfce4-power-manager &
-redshift &
-if [ -f /usr/lib/xfce-polkit/xfce-polkit ]; then
-  killall xfce-polkit
-  /usr/lib/xfce-polkit/xfce-polkit &
-fi
-#/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+# xfce4-power-manager &
+# if [ -f /usr/lib/xfce-polkit/xfce-polkit ]; then
+#   killall xfce-polkit
+#   /usr/lib/xfce-polkit/xfce-polkit &
+# fi
+
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 /usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh &
 export SSH_AUTH_SOCK
 
@@ -27,37 +27,14 @@ setxkbmap us -variant altgr-intl
 
 # Power management
 xset dpms 300 600 900
-# Trigger screensaver after 10 minutes of inactivity
-# xset s on
-# xset s 600
-# xautolock -detectsleep -time 5 -locker "betterlockscreen -l dim" -killtime 30 -killer "systemctl suspend" &
-
-# Only exported variables can be used within the timer's command.
-# export PRIMARY_DISPLAY="$(xrandr | awk '/ primary/{print $1}')"
-#
-# # Run xidlehook
-# xidlehook \
-#   `# Don't lock when there's a fullscreen application` \
-#   --not-when-fullscreen \
-#   `# Don't lock when there's audio playing` \
-#   --not-when-audio \
-#   `# Dim the screen after 60 seconds, undim if user becomes active` \
-#   --timer 60 \
-#     'xrandr --output "$PRIMARY_DISPLAY" --brightness .1' \
-#     'xrandr --output "$PRIMARY_DISPLAY" --brightness 1' \
-#   `# Undim & lock after 10 more seconds` \
-#   --timer 10 \
-#     'xrandr --output "$PRIMARY_DISPLAY" --brightness 1; i3lock' \
-#     '' \
-#   `# Finally, suspend an hour after it locks` \
-#   --timer 3600 \
-#     'systemctl suspend' \
-#     ''
+#xautolock -detectsleep -time 5 -locker "i3lock-fancy -p -- maim" -killtime 30 -killer "systemctl suspend" &
+xautolock -detectsleep -time 5 -locker "betterlockscreen -l dim" -killtime 30 -killer "systemctl suspend" &
 
 # Homebrew
 [ -d /home/linuxbrew/.linuxbrew ] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 # HiDPI
+xrandr --dpi 163
 xrandr --dpi 163
 
 # Export variables
@@ -73,11 +50,11 @@ export GDK_DPI_SCALE=0.5
 export XCURSOR_SIZE=32
 
 # Wayland
-#export MOZ_ENABLE_WAYLAND=1
+# export MOZ_ENABLE_WAYLAND=1
 # Wayland and QT
-#export QT_QPA_PLATFOR=wayland-egl
-#export QT_WAYLAND_FORCE_DPI=physical
-#export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+# export QT_QPA_PLATFORM=wayland-egl
+# export QT_WAYLAND_FORCE_DPI=physical
+# export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export WALLPAPER=$HOME/.wallpapers/HazedGroot.jpg
@@ -87,7 +64,7 @@ export DEFAULT_FONT="Hasklug Nerd Font:style=Regular"
 # Default Applications
 export EDITOR=/usr/bin/kak
 export PDFVIEWER=/usr/bin/zathura
-export FILEMAN=/usr/bin/thunar
+export FILEMAN=/usr/bin/nemo
 export TERMINAL=/usr/bin/urxvt
 # fix "xdg-open fork-bomb" export your preferred browser from here
 export BROWSER=/usr/bin/chromium
