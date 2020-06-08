@@ -6,15 +6,15 @@
 # Autostart setup
 ######################
 exec --no-startup-id feh --bg-fill $WALLPAPER
-exec --no-startup-id dunst
-exec --no-startup-id picom -b
-exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
-exec --no-startup-id redshift
+#exec --no-startup-id dunst
+exec --no-startup-id picom --experimental-backends --backend glx -b
+#exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
+#exec --no-startup-id redshift
 exec --no-startup-id synology-drive
 exec --no-startup-id udiskie --smart-tray
-exec --no-startup-id atom
+#exec --no-startup-id atom
 exec --no-startup-id chromium
-# exec --no-startup-id spotify --force-device-scale-factor=1.75
+exec --no-startup-id spotify --force-device-scale-factor=1.5 %U
 # exec --no-startup-id polybar topbar -r
 
 ######################
@@ -55,7 +55,7 @@ set_from_resource $color15 i3wm.color15: #ECEFF4
 bar
 {
     position top
-	   status_command i3blocks
+	  status_command i3blocks 2> ~/i3blocks.err
     i3bar_command i3bar
     workspace_buttons      yes
     colors {
@@ -92,12 +92,13 @@ set $alt Mod1
 floating_modifier $super
 
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_bar pkill -RTMIN+9 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+9 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 5%- && pkill -RTMIN+9 i3blocks
+bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse sset Master toggle && pkill -RTMIN+9 i3blocks
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_bar
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_bar
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_bar
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_bar
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+9 i3blocks
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+9 i3blocks
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+9 i3blocks
 
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioPause exec --no-startup-id playerctl play-pause
