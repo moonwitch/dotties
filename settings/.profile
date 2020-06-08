@@ -18,7 +18,11 @@ numlockx &
 #   /usr/lib/xfce-polkit/xfce-polkit &
 # fi
 
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+if [ -f /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 ]; then
+  killall polkit-gnome-authentication-agent-1
+  /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+fi
+
 /usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh &
 export SSH_AUTH_SOCK
 
@@ -62,9 +66,9 @@ export DEFAULT_MONO_FONT="Hasklug Nerd Font Mono:style=Regular"
 export DEFAULT_FONT="Hasklug Nerd Font:style=Regular"
 
 # Default Applications
-export EDITOR=/usr/bin/kak
+export EDITOR=/usr/bin/atom
 export PDFVIEWER=/usr/bin/zathura
-export FILEMAN=/usr/bin/nemo
+export FILEMAN=/usr/bin/pcmanfm
 export TERMINAL=/usr/bin/urxvt
 # fix "xdg-open fork-bomb" export your preferred browser from here
 export BROWSER=/usr/bin/chromium
