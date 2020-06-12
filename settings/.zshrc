@@ -36,13 +36,6 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-fi
-
 # Fix VTE error in Tilix
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
     source /etc/profile.d/vte.sh
