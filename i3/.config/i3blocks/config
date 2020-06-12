@@ -18,13 +18,17 @@ on_color=#A3BE8C
 label=<span color="#A3BE8C">旅 </span>
 interval=5
 
+[mattermost]
+command=/usr/local/bin/mmstatus
+separator=true
+interval=60
+signal=12
+
 [weather]
 command=weather
 interval=360
 
 [volume-pulseaudio]
-#interval=persist
-#SUBSCRIBE=1
 interval=once
 signal=9
 USE_ALSA_NAME=1
@@ -37,7 +41,7 @@ label=<span color="#A3BE8C"> </span>
 [calendar]
 interval=1
 datefmt=+%a %d.%m.%Y %H:%M
-# shortfmt=+%H:%M:%S
+# shortfmt=+%H:%M
 height=180
 width=220
 label=<span color="#5E81AC"> </span>
