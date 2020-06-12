@@ -66,9 +66,15 @@ export DEFAULT_MONO_FONT="Hasklug Nerd Font Mono:style=Regular"
 export DEFAULT_FONT="Hasklug Nerd Font:style=Regular"
 
 # Default Applications
-export EDITOR=/usr/bin/atom
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='codium'
+fi
+
 export PDFVIEWER=/usr/bin/zathura
-export FILEMAN=/usr/bin/pcmanfm
-export TERMINAL=/usr/bin/urxvt
+export FILEMAN=/usr/bin/thunar
+export TERMINAL=/usr/bin/alacritty
 # fix "xdg-open fork-bomb" export your preferred browser from here
 export BROWSER=/usr/bin/chromium
