@@ -51,9 +51,12 @@ bitwarden \
 rbw \
 firefox \
 vscodium-bin atom \
+pdk \
+gvfs-smb \
 /
 
 apm install sync-settings
+code --install-extension settings-sync
 
 # Install e-id stuff; this is Belgian users only
 baph -inN ccid pcsclite eid-mw acsccid
