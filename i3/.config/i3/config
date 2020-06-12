@@ -7,12 +7,13 @@
 ######################
 exec --no-startup-id feh --bg-fill $WALLPAPER
 #exec --no-startup-id dunst
-exec --no-startup-id picom --experimental-backends --backend glx -b
+exec --no-startup-id picom -b
 #exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 #exec --no-startup-id redshift
 exec --no-startup-id synology-drive
 exec --no-startup-id udiskie --smart-tray
-#exec --no-startup-id atom
+exec --no-startup-id clipit
+exec --no-startup-id codium
 exec --no-startup-id chromium
 exec --no-startup-id spotify --force-device-scale-factor=1.5 %U
 # exec --no-startup-id polybar topbar -r
@@ -52,11 +53,31 @@ set_from_resource $color14 i3wm.color14: #8FBCBB
 set_from_resource $color15 i3wm.color15: #ECEFF4
 
 # Start i3blocks to display a workspace bar
+# bar {
+#     workspace_buttons      yes
+#     colors {
+#         background $background
+#         separator  $foreground
+#         statusline $foreground
+#
+#         # State             Border  BG      Text
+#         focused_workspace   $color7 $color4 $background
+#         active_workspace    $color7 $color3 $background
+#         inactive_workspace  $color8 $color8 $foreground
+#         urgent_workspace    $color1 $color9 $background
+#         binding_mode        $background $color4 $background
+#     }
+#     position top
+#     status_command /usr/share/bumblebee-status/bumblebee-status -m nic \
+#         cpu memory date time pasink pasource spotify \
+#         -p memory.format="{percent:05.02f}%" nic.format="{intf} {state}" \
+#         time.format="%H:%M" date.format="%a, %b %d %Y" \
+#         -t nord-powerline
+# }
 bar
 {
     position top
-	  status_command i3blocks 2> ~/i3blocks.err
-    i3bar_command i3bar
+	status_command i3blocks
     workspace_buttons      yes
     colors {
         background $background
@@ -92,8 +113,8 @@ set $alt Mod1
 floating_modifier $super
 
 # Use pactl to adjust volume in PulseAudio.
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+9 i3blocks
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 5%- && pkill -RTMIN+9 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 2%+ && pkill -RTMIN+9 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 2%- && pkill -RTMIN+9 i3blocks
 bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse sset Master toggle && pkill -RTMIN+9 i3blocks
 
 # bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+9 i3blocks
@@ -105,27 +126,20 @@ bindsym XF86AudioPause exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
-# Screenshots (requires `maim`).
-bindsym Print exec "maim -s -o $HOME/Pictures/screenshots/$(date +%F-%T).png | xclip -selection clipboard -t image/png -i && notify-send 'Screenshot saved to $HOME/Pictures/screenshots'"
-bindsym Control+Print exec "maim -i $(xdotool getactivewindow) $HOME/Pictures/screenshots/$(date +%F-%T).png | xclip -selection clipboard -t image/png -i && notify-send 'Active window snap saved to $HOME/Pictures/screenshots'"
-bindsym $alt+Print exec "maim $HOME/Pictures/screenshots/$(date +%F-%T).png | xclip -selection clipboard -t image/png -i && notify-send 'Screenshot to $HOME/Pictures/screenshots'"
+# Screenshots (requires `maim`)
+bindsym Print exec "maim -s -o $HOME/Pictures/screenshots/$(date +%F-%T).png && xclip -selection clipboard -t image/png -i $HOME/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1` && notify-send 'Screenshotted!'"
+bindsym Control+Print exec "maim -i $(xdotool getactivewindow) $HOME/Pictures/screenshots/$(date +%F-%T).png && xclip -selection clipboard -t image/png -i $HOME/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1` && notify-send 'Screenshotted!'"
+bindsym $alt+Print exec "maim $HOME/Pictures/screenshots/$(date +%F-%T).png && xclip -selection clipboard -t image/png -i $HOME/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1` && notify-send 'Screenshotted!'"
 
 # Commonly used Apps
 bindsym $super+Return exec $TERMINAL
 bindsym $super+Shift+w exec $BROWSER
 bindsym $super+Shift+e exec $FILEMAN
-# Create a pretty network manager
-bindsym $super+Shift+n exec $TERMINAL --title="nmtui" -e nmtui-connect
-for_window [title="nmtui"] floating enable
-for_window [title="nmtui"] move absolute position 1600 41
-for_window [title="nmtui"] resize set width 800
-
-for_window [class="kakoune" instance="urxvt"] floating enable, resize set 890px 210px, move position 515px 22px, move scratchpad, sticky enable
 
 # start rofi
 bindsym $super+space exec "rofi -show drun -theme themes/drun.rasi"
 # Alt tab
-bindsym $alt+Tab	exec "rofi -kb-accept-entry '!Alt-Tab' -kb-row-down Alt-Tab -show window -theme themes/drun.rasi"
+bindsym $alt+Tab exec "rofi -kb-accept-entry '!Alt-Tab' -kb-row-down Alt-Tab -show window -theme themes/drun.rasi"
 
 # Exit binds
 bindsym $super+Shift+End exec --no-startup-id ~/.config/rofi/dmenu-scripts/powermenu.sh
@@ -177,7 +191,7 @@ set $ws5 " 5:  "
 set $ws6 " 6:  "
 set $ws7 " 7: 華 "
 set $ws8 " 8:  "
-set $ws9 " 9:  "
+set $ws9 " 9:  "
 
 # Switch to workspace
 bindsym $super+1 workspace $ws1
@@ -246,43 +260,39 @@ for_window [urgent=latest] focus
 
 # Syntax
 # assign <criteria> [→] [workspace] [number] <workspace>
-# for_window <criteria>
-for_window      [class=URxvt]               focus
-for_window      [class="^Pavucontrol$"]     focus
+for_window      [class=URxvt|Alacritty|termite] focus
 
-assign          [class=Chromium|Chrome]     $ws1
-assign          [class=Atom|code-oss]       $ws2
-assign          [class=firefox|Navigator]   $ws7
-assign          [class=FreeOffice*]         $ws4
-# Spotify is an exception to rules
-for_window      [class=Spotify] move to workspace $ws8
-assign          [class=Caprine]             $ws7
-assign          [class=Mattermost]          $ws7
-assign          [class=Pidgin]              $ws7
+# Base - Ws1
+assign          [class=Chromium|Chrome]         $ws1
+# Code - Ws2
+assign          [class=Atom|code-oss|VSCodium]      $ws2
+# Cmd - Ws3
+# FileManager - Ws4
+assign          [class=Thunar|Nemo|PCmanFM]     $ws4
+# Server - Ws5
+assign          [class=firefox|Navigator]       $ws5
+# Office/Work - Ws6
+assign          [class=FreeOffice*]             $ws6
+# Social - Ws7
+assign          [class=Caprine]                 $ws7
+assign          [class=Mattermost]              $ws7
+assign          [class=Pidgin]                  $ws7
+# Music - Ws8
+# Because Spotify is a bitch
+for_window [class="Spotify"] move to workspace $ws8
+# Games - Ws9
+assign          [class="^Steam"]               $ws9
+#assign         [class="^Steam"]    [class=Steam|steam_app_]           $ws9
 
-# Enable float for some windows
-for_window      [class="^Pavucontrol$"]                             floating enable
-for_window      [class="^Arandr$"]                                  floating enable
-for_window      [class="^Steam$" title="^Friends List$"]            floating enable
-for_window      [class="^Steam$" title="Steam - News"]              floating enable
-for_window      [class="^Steam$" title=".* - Chat"]                 floating enable
-for_window      [class="^Steam$" title="^Settings$"]                floating enable
-for_window      [class="^Steam$" title=".* - event started"]        floating enable
-for_window      [class="^Steam$" title=".* CD key"]                 floating enable
-for_window      [class="^Steam$" title="^Steam - Self Updater$"]    floating enable
-for_window      [class="^Steam$" title="^Screenshot Uploader$"]     floating enable
-for_window      [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
-for_window      [title="^Steam Keyboard$"]                          floating enable
-for_window      [class=Caprine]                                     floating enable
-for_window      [class=Mattermost]                                  floating enable
-for_window      [class=Pidgin]                                      floating enable
-for_window      [class=zathura]                                     floating enable
-for_window      [class=Viewnior]                                    floating enable
-for_window      [class=feh]                                         floating enable
-for_window      [class=Lxappearance]                                floating enable
-for_window      [class=Pamac-manager]                               floating enable
-for_window      [class=Nm-connection-editor|network.py]             floating enable
-for_window      [class="Simple-scan"]                               floating enable
-for_window      [class="Yad"]                                       floating enable
+# Enable float for some windows and if need be give them a size
+for_window      [class="^Pavucontrol$"]        floating enable, resize set 1500 750, focus
+for_window      [class="^Arandr$"]             floating enable
+for_window      [class=zathura]                floating enable
+for_window      [class=feh]                    floating enable
+for_window      [class=Lxappearance]           floating enable
+for_window      [class=Pamac-manager]          floating enable, resize set 1500 750
+for_window      [class="Simple-scan"]          floating enable
+for_window      [class="Yad|Zenity"]           floating enable
+for_window      [class="Pidgin" instance="Pidgin" title="Buddy List"] floating enable, resize set 500 850
 
 # vim:filetype=sh
