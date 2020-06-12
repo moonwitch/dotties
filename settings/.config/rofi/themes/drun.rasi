@@ -6,7 +6,7 @@
 
 /* overriding some variables */
 * {
-  font:             "Comfortaa bold 14";
+  font:             "Comfortaa bold 24";
 }
 
 
