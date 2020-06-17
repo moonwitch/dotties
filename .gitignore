@@ -11,3 +11,9 @@ settings/.config/Typora/*
 # Exclude Mattermost except config
 settings/.config/Mattermost/*
 !settings/.config/Mattermost/config.json
+
+# Exclude zettlr
+settings/.config/zettlr/*
+!settings/.config/zettlr/custom.css
+!settings/.config/zettlr/config.json
+
