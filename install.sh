@@ -1,4 +1,11 @@
 #!/bin/bash
+
+# Check for minimum needed software.
+if ! [ "$(command -v stow)" ] || ! [ "$(command -v git)" ]; then
+    printf '\e[31mYou need to have GNU stow and git installed.\nExiting...\n'
+    exit 1
+fi
+
 #baph --install --noview --noconfirm
 # First base requirements
 baph -inN base-devel git stow
@@ -96,11 +103,15 @@ sudo systemctl enable systemd-timesyncd
 
 # Shares
 sudo mkdir -p /mnt/work/{home,buo,portimaprod,portimaqual,spotlight}
-sudo mkdir -p /mnt/NAS/{media,photos,software}
+sudo mkdir -p /mnt/NAS/{media,photos}
 #sudo mount.cifs -o username=intamv\\700320 //fci.fortis/amv/buo /mnt/work/buo
 #sudo mount -t cifs -o username=intamv\\700320 //fci.fortis/acidfs01/brulthome/700320 /mnt/work/home
 sudo mkdir -p /mnt/storage
-sudo sh -c "echo "UUID=$(lsblk -no UUID /dev/sdb1) /mnt/storage $(lsblk -no FSTYPE /dev/sdb1) defaults,noatime 0 2" >> /etc/fstab"
+sudo sh -c 'echo "UUID=$(lsblk -no UUID /dev/sdb1) /mnt/storage $(lsblk -no FSTYPE /dev/sdb1) defaults,noatime 0 2" >> /etc/fstab'
+
+# Synology NAS
+#192.168.0.203:/volume1/photo 	/mnt/NAS/photos 	nfs 	nouser,rsize=8192,wsize=8192,atime,auto,rw,dev,exec,suid 	0 0
+#192.168.0.203:/volume/video 	/mnt/NAS/video 		nfs 	nouser,rsize=8192,wsize=8192,atime,auto,rw,dev,exec,suid 	0 0
 
 # pull it down
 mkdir -p ~/Projects/dotties && cd ~/Projects/dotties
