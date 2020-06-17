@@ -6,13 +6,14 @@
 # Autostart setup
 ######################
 exec --no-startup-id feh --bg-fill $WALLPAPER
-#exec --no-startup-id dunst
+exec --no-startup-id dunst
 exec --no-startup-id picom -b
 #exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 #exec --no-startup-id redshift
 exec --no-startup-id synology-drive
 exec --no-startup-id udiskie --smart-tray
 exec --no-startup-id clipit
+exec --no-startup-id caffeine-indicator
 exec --no-startup-id codium
 exec --no-startup-id chromium
 exec --no-startup-id spotify --force-device-scale-factor=1.5 %U
@@ -52,28 +53,6 @@ set_from_resource $color13 i3wm.color13: #B48EAD
 set_from_resource $color14 i3wm.color14: #8FBCBB
 set_from_resource $color15 i3wm.color15: #ECEFF4
 
-# Start i3blocks to display a workspace bar
-# bar {
-#     workspace_buttons      yes
-#     colors {
-#         background $background
-#         separator  $foreground
-#         statusline $foreground
-#
-#         # State             Border  BG      Text
-#         focused_workspace   $color7 $color4 $background
-#         active_workspace    $color7 $color3 $background
-#         inactive_workspace  $color8 $color8 $foreground
-#         urgent_workspace    $color1 $color9 $background
-#         binding_mode        $background $color4 $background
-#     }
-#     position top
-#     status_command /usr/share/bumblebee-status/bumblebee-status -m nic \
-#         cpu memory date time pasink pasource spotify \
-#         -p memory.format="{percent:05.02f}%" nic.format="{intf} {state}" \
-#         time.format="%H:%M" date.format="%a, %b %d %Y" \
-#         -t nord-powerline
-# }
 bar
 {
     position top
@@ -133,6 +112,7 @@ bindsym $alt+Print exec "maim $HOME/Pictures/screenshots/$(date +%F-%T).png && x
 
 # Commonly used Apps
 bindsym $super+Return exec $TERMINAL
+bindsym $super+Shift+Return exec URxvt
 bindsym $super+Shift+w exec $BROWSER
 bindsym $super+Shift+e exec $FILEMAN
 
