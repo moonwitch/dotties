@@ -10,4 +10,13 @@
 	<startup-notify/>
 	<directories/>
 </action>
+<action>
+	<icon>folder</icon>
+	<name>Send to New Folder</name>
+	<unique-id>1592235186751072-1</unique-id>
+	<command>feh %F</command>
+	<description></description>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
 </actions>
