@@ -570,12 +570,12 @@ span.glue-page-header__title-text {
 .progress-container .inner {
 	top: 0 !important;
 	margin-top: 0 !important;
-	height: 5px;
+	height: 10px;
 }
 
 .progress-container .progress-bar-wrapper {
 	top: 0 !important;
-	height: 5px;
+	height: 10px;
 }
 
 .progress-container {
