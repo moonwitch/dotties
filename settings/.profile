@@ -70,11 +70,11 @@ export DEFAULT_FONT="Hasklug Nerd Font:style=Regular"
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='codium'
+  export EDITOR='code'
 fi
 
 export PDFVIEWER=/usr/bin/zathura
-export FILEMAN=/usr/bin/thunar
+export FILEMAN=/usr/bin/polo
 export TERMINAL=/usr/bin/alacritty
 # fix "xdg-open fork-bomb" export your preferred browser from here
 export BROWSER=/usr/bin/chromium
