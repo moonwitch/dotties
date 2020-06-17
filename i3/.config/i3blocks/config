@@ -18,12 +18,6 @@ on_color=#A3BE8C
 label=<span color="#A3BE8C">旅 </span>
 interval=5
 
-[mattermost]
-command=/usr/local/bin/mmstatus
-separator=true
-interval=60
-signal=12
-
 [weather]
 command=weather
 interval=360
