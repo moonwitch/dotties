@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Encoding=UTF-8
+TryExec=postr
+Exec=feh %F
+Icon=postr
+Name=Flickr
+#MimeType=image/jpeg;image/jpg;
