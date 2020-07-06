@@ -5,19 +5,21 @@
 ######################
 # Autostart setup
 ######################
-exec --no-startup-id feh --bg-fill $WALLPAPER
+exec --no-startup-id feh --no-fehbg --bg-fill $WALLPAPER 
 exec --no-startup-id dunst
+exec --no-startup-id numlockx
 exec --no-startup-id picom -b
-#exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
-#exec --no-startup-id redshift
+exec --no-startup-id redshift -l 51.1:4.29 -t 6300:4000
 exec --no-startup-id synology-drive
 exec --no-startup-id udiskie --smart-tray
+#exec --no-startup-id xfce4-clipman
 exec --no-startup-id clipit
 exec --no-startup-id caffeine-indicator
-exec --no-startup-id codium
+exec --no-startup-id code-insiders
 exec --no-startup-id chromium
 exec --no-startup-id spotify --force-device-scale-factor=1.5 %U
-# exec --no-startup-id polybar topbar -r
+# exec --no-startup-id xed; move scratchpad
+# exec_always --no-startup-id polybar topbar -r
 
 ######################
 # Looks setup
@@ -30,33 +32,47 @@ smart_gaps on
 smart_borders on
 #border_radius 4
 
+# Few little adds
+default_orientation auto
+workspace_auto_back_and_forth yes
+popup_during_fullscreen smart
+force_focus_wrapping yes
+force_display_urgency_hint 500 ms
+
 # Font for Windows titles and bar, unless otherwise specified
 font pango:Hasklug Nerd Font Mono 12
 
 # .Xresources-based colorscheme
-set_from_resource $foreground i3wm.foreground: #D8DEE9
-set_from_resource $background i3wm.background: #2E3440
-set_from_resource $color0 i3wm.color0: #3B4252
-set_from_resource $color1 i3wm.color1: #BF616A
-set_from_resource $color2 i3wm.color2: #A3BE8C
-set_from_resource $color3 i3wm.color3: #EBCB8B
-set_from_resource $color4 i3wm.color4: #5E81AC
-set_from_resource $color5 i3wm.color5: #B48EAD
-set_from_resource $color6 i3wm.color6: #88C0D0
-set_from_resource $color7 i3wm.color7: #E5E9F0
-set_from_resource $color8 i3wm.color8: #4C566A
-set_from_resource $color9 i3wm.color9: #D08770
-set_from_resource $color10 i3wm.color10: #A3BE8C
-set_from_resource $color11 i3wm.color11: #EBCB8B
-set_from_resource $color12 i3wm.color12: #81A1C1
-set_from_resource $color13 i3wm.color13: #B48EAD
-set_from_resource $color14 i3wm.color14: #8FBCBB
-set_from_resource $color15 i3wm.color15: #ECEFF4
+set_from_resource $foreground i3wm.foreground #D8DEE9
+set_from_resource $background i3wm.background #282828
+set_from_resource $color0 i3wm.color0 #3B4252
+set_from_resource $color1 i3wm.color1 #BF616A
+set_from_resource $color2 i3wm.color2 #A3BE8C
+set_from_resource $color3 i3wm.color3 #EBCB8B
+set_from_resource $color4 i3wm.color4 #5E81AC
+set_from_resource $color5 i3wm.color5 #B48EAD
+set_from_resource $color6 i3wm.color6 #88C0D0
+set_from_resource $color7 i3wm.color7 #E5E9F0
+set_from_resource $color8 i3wm.color8 #4C566A
+set_from_resource $color9 i3wm.color9 #D08770
+set_from_resource $color10 i3wm.color10 #A3BE8C
+set_from_resource $color11 i3wm.color11 #EBCB8B
+set_from_resource $color12 i3wm.color12 #81A1C1
+set_from_resource $color13 i3wm.color13 #B48EAD
+set_from_resource $color14 i3wm.color14 #8FBCBB
+set_from_resource $color15 i3wm.color15 #ECEFF4
 
 bar
 {
     position top
 	status_command i3blocks
+    #status_command bumblebee-status \
+        # -m spotify vpn cpu memory pasink pasource date time caffeine \
+        # -p time.format="%H:%M" \
+        #     date.format="%a, %b %d %Y" \
+        #     pulseaudio.showbars=1 pulseaudio.limit=100 \
+        # -t nord-powerline \
+        # -a cpu memory #spotify
     workspace_buttons      yes
     colors {
         background $background
@@ -106,14 +122,15 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # Screenshots (requires `maim`)
-bindsym Print exec "maim -s -o $HOME/Pictures/screenshots/$(date +%F-%T).png && xclip -selection clipboard -t image/png -i $HOME/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1` && notify-send 'Screenshotted!'"
-bindsym Control+Print exec "maim -i $(xdotool getactivewindow) $HOME/Pictures/screenshots/$(date +%F-%T).png && xclip -selection clipboard -t image/png -i $HOME/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1` && notify-send 'Screenshotted!'"
-bindsym $alt+Print exec "maim $HOME/Pictures/screenshots/$(date +%F-%T).png && xclip -selection clipboard -t image/png -i $HOME/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1` && notify-send 'Screenshotted!'"
+bindsym Print exec "i3-shotter -s"
+bindsym Control+Print exec "i3-shotter -w"
+bindsym $alt+Print exec "i3-shotter -f"
 
 # Commonly used Apps
 bindsym $super+Return exec $TERMINAL
-bindsym $super+Shift+Return exec URxvt
+bindsym $super+Shift+Return exec $TERMINAL -e vifm
 bindsym $super+Shift+w exec $BROWSER
+bindsym $super+Control exec /usr/bin/firefox
 bindsym $super+Shift+e exec $FILEMAN
 
 # start rofi
@@ -123,7 +140,7 @@ bindsym $alt+Tab exec "rofi -kb-accept-entry '!Alt-Tab' -kb-row-down Alt-Tab -sh
 
 # Exit binds
 bindsym $super+Shift+End exec --no-startup-id ~/.config/rofi/dmenu-scripts/powermenu.sh
-bindsym $super+l exec xautolock -locknow
+bindsym $super+l exec betterlockscreen -l dim
 bindsym XF86Sleep exec systemctl suspend
 
 # kill focused window
@@ -207,52 +224,66 @@ bindsym $super+Shift+r restart
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+    # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym j resize shrink width 10 px or 10 ppt
+    bindsym k resize grow height 10 px or 10 ppt
+    bindsym l resize shrink height 10 px or 10 ppt
+    bindsym semicolon resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $super+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $super+r mode "default"
+    # back to normal: Enter or Escape or $super+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $super+r mode "default"
 }
 
 bindsym $super+r mode "resize"
 
 ######################
+# Scratchpad
+######################
+# Make the currently focused window a scratchpad
+bindsym $super+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $super+minus scratchpad show
+
+######################
 # Workspaces setup
 ######################
 # switch to workspace with urgent window automatically
-for_window [urgent=latest] focus
+#focus_on_window_activation smart
+for_window [urgent="latest" class="^Mattermost$"]   focus
+for_window [urgent="latest" class="^Chromium$"]     focus
+for_window [urgent="latest" class="^Firefox$"]      focus
 
 # Syntax
 # assign <criteria> [→] [workspace] [number] <workspace>
-for_window      [class=URxvt|Alacritty|termite] focus
+for_window      [class=URxvt|Alacritty|termite]     focus
 
 # Base - Ws1
 assign          [class=Chromium|Chrome]         $ws1
 # Code - Ws2
-assign          [class=Atom|code-oss|VSCodium]      $ws2
+assign          [class=Atom|code-oss|VSCodium]     $ws2
+assign          [class="Code - Insiders"]     $ws2
 # Cmd - Ws3
 # FileManager - Ws4
-assign          [class=Thunar|Nemo|PCmanFM]     $ws4
+assign          [class=Thunar|Nemo|PCmanFM|Polo-GTK]     $ws4
 # Server - Ws5
 assign          [class=firefox|Navigator]       $ws5
 # Office/Work - Ws6
-assign          [class=FreeOffice*]             $ws6
+assign          [class=FreeOffice*|LibreOffice*] $ws6
+assign          [class=Typora|zettlr]           $ws6
 # Social - Ws7
 assign          [class=Caprine]                 $ws7
 assign          [class=Mattermost]              $ws7
@@ -265,14 +296,23 @@ assign          [class="^Steam"]               $ws9
 #assign         [class="^Steam"]    [class=Steam|steam_app_]           $ws9
 
 # Enable float for some windows and if need be give them a size
-for_window      [class="^Pavucontrol$"]        floating enable, resize set 1500 750, focus
-for_window      [class="^Arandr$"]             floating enable
-for_window      [class=zathura]                floating enable
-for_window      [class=feh]                    floating enable
-for_window      [class=Lxappearance]           floating enable
-for_window      [class=Pamac-manager]          floating enable, resize set 1500 750
-for_window      [class="Simple-scan"]          floating enable
-for_window      [class="Yad|Zenity"]           floating enable
+for_window      [class="^Pavucontrol$"]         floating enable, resize set 1500 750, focus
+for_window      [class="^Arandr$"]              floating enable
+for_window      [class=zathura|mupdf]           floating enable
+for_window      [class=feh]                     floating enable
+for_window      [class=Lxappearance]            floating enable
+for_window      [class=Pamac-manager]           floating enable, resize set 1500 750
+for_window      [class="Simple-scan"]           floating enable
+for_window      [class="Yad|Zenity"]            floating enable
 for_window      [class="Pidgin" instance="Pidgin" title="Buddy List"] floating enable, resize set 500 850
+
+for_window      [window_role="pop-up"]          floating enable
+for_window      [window_role="bubble"]          floating enable 
+for_window      [window_role="task_dialog"]     floating enable
+for_window      [window_role="Preferences"]     floating enable
+for_window      [window_type="dialog"]          floating enable 
+for_window      [window_type="menu"]            floating enable
+
+show_marks yes
 
 # vim:filetype=sh

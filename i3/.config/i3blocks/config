@@ -1,49 +1,119 @@
 # For the benefit of emacs users: -*- shell-script -*-
 
-align=center
+#Grabbing colors from .Xresources
+# foreground=$(xrdb -query | grep 'foreground' | awk '{print $NF}')
+# background=$(xrdb -query | grep 'background' | awk '{print $NF}')
+# color0=$(xrdb -query | grep 'color0' | awk '{print $NF}')
+# color1=$(xrdb -query | grep 'color1' | awk '{print $NF}')
+# color2=$(xrdb -query | grep 'color2' | awk '{print $NF}')
+# color3=$(xrdb -query | grep 'color3' | awk '{print $NF}')
+# color4=$(xrdb -query | grep 'color4' | awk '{print $NF}')
+# color5=$(xrdb -query | grep 'color5' | awk '{print $NF}')
+# color6=$(xrdb -query | grep 'color6' | awk '{print $NF}')
+# color7=$(xrdb -query | grep 'color7' | awk '{print $NF}')
+# color8=$(xrdb -query | grep 'color8' | awk '{print $NF}')
+# color9=$(xrdb -query | grep 'color9' | awk '{print $NF}')
+# color10=$(xrdb -query | grep 'color10' | awk '{print $NF}')
+# color11=$(xrdb -query | grep 'color11' | awk '{print $NF}')
+# color12=$(xrdb -query | grep 'color12' | awk '{print $NF}')
+# color13=$(xrdb -query | grep 'color13' | awk '{print $NF}')
+# color14=$(xrdb -query | grep 'color14' | awk '{print $NF}')
+# color15=$(xrdb -query | grep 'color15' | awk '{print $NF}')
+# foreground=#D8DEE9
+# background=#2E3440
+
+# # black
+# color0=#3B4252
+# color8=#4C566A
+# # red
+# color1=#BF616A
+# color9=#D08770
+# # green
+# color2=#A3BE8C
+# color10=#A3BE8C
+# # yellow
+# color3=#EBCB8B
+# color11=#EBCB8B
+# # blue
+# color4=#5E81AC
+# color12=#81A1C1
+# # magenta
+# color5=#B48EAD
+# color13=#B48EAD
+# # cyan
+# color6=#88C0D0
+# color14=#8FBCBB
+# # white
+# color7=#E5E9F0
+# color15=#ECEFF4
+
+align=right
 separator=false
-separator_block_width=20
+separator_block_width=50
 markup=pango
 command=/usr/lib/i3blocks/$BLOCK_NAME/$BLOCK_NAME
 
 [mediaplayer]
+min_width=1000
+align=center
 interval=5
 signal=10
 instance=spotify
-label=<span color="#A3BE8C"> </span>
+#label=<span color=\'color2\'> </span>
+label=MSC:
 
 [nm-vpn]
 init_color=#EBCB8B
 on_color=#A3BE8C
-label=<span color="#A3BE8C">旅 </span>
+#label=<span color=\"$color11\">旅 </span>
+label=VPN:
 interval=5
 
 [weather]
-command=weather
-interval=360
+command=curl -s "v2n.wttr.in?format=%c+%f"
+interval=3600
+label=WTR:
 
 [volume-pulseaudio]
+command=/home/$USER/bin/i3-volume-pulseaudio
 interval=once
 signal=9
 USE_ALSA_NAME=1
+DEFAULT_COLOR=#D8DEE9
+MUTED_COLOR=#BF616A
 
 [memory]
 command=free -h --si | awk 'FNR==2{ print $0 }' | awk '{ print $7 }'
 interval=2
-label=<span color="#A3BE8C"> </span>
+#label=<span color="#f12711"> </span>
+label=MEM:
+
+[temperature]
+#label=<span color="#f12711"> </span>
+interval=10
+T_WARN=70
+T_CRIT=90
+#SENSOR_CHIP=""
+label=TMP:
 
 [calendar]
 interval=1
 datefmt=+%a %d.%m.%Y %H:%M
-# shortfmt=+%H:%M
+shortfmt=+%H:%M
 height=180
 width=220
-label=<span color="#5E81AC"> </span>
+#label=<span color="#f12711"> </span>
+
+# [gmail]
+# interval=60
+# full_text=/home/$USER/bin/gmail/launch.py -ns
+# website=http://www.gmail.com
+# command=xdg-open $website
+# color=#f12711
 
 [dunst]
 interval=once
 format=json
-markup=pango
 #min_width=50
 #align=center
 #dunst_mute=off

@@ -1,0 +1,85 @@
+#!/bin/sh
+# /$HOME/bin/i3-shotter
+#
+# simple screenshot-script using maim.
+
+_conf=$HOME/.config/i3/i3-shotter.conf
+
+if ! [ -f $_conf ]; then
+	echo "shotter_dir=$(xdg-user-dir PICTURES)/screenshots" > $_conf
+fi
+
+source $_conf
+
+if ! [ -d $shotter_dir ]; then
+	mkdir -p $shotter_dir
+fi
+
+if ! [[ -z "$2" ]]; then
+    cmd="maim -d $2"
+else
+    cmd='maim'
+fi
+
+case "$1" in
+	--fullscreen|-f|$NULL)
+	  	$cmd "$shotter_dir/$(date +%F-%T).png" &&
+        xclip -selection clipboard -t image/png -i $shotter_dir/`ls -1 -t $shotter_dir | head -1` &&
+		sleep 1 &&
+		notify-send "Screenshot has been saved in $shotter_dir" -a "i3-shotter"
+		;;
+	--window|-w)
+		$cmd -i $(xdotool getactivewindow) "$shotter_dir/$(date +%F-%T)-active.png" &&
+        xclip -selection clipboard -t image/png -i $shotter_dir/`ls -1 -t $shotter_dir | head -1` &&
+		sleep 1 &&
+		notify-send "Screenshot has been saved in $shotter_dir" -a "i3-shotter"
+		;;
+	--select|-s)
+		notify-send 'select an area for the screenshot' -a "i3-shotter" &
+		$cmd -s -o "$shotter_dir/$(date +%F-%T)-Selection.png" &&
+        xclip -selection clipboard -t image/png -i $shotter_dir/`ls -1 -t $shotter_dir | head -1` &&
+		sleep 1 && notify-send "Screenshot has been saved in $shotter_dir" -a "i3-shotter"
+		;;
+	--help|-h)
+		echo "
+available options:
+-f | --fullscreen    full screen
+-w | --window  active window
+-s | --select  selection
+-h | --help    display this information
+
+The -f or -w options can be used with a delay
+by adding the number of seconds, like for example:
+'i3-shotter -w 5'
+
+Default option is 'full screen'.
+
+The file destination can be set in ${_conf}.
+Default is $shotter_dir
+"
+		;;
+	*)
+		echo "
+== ! i3-shotter: missing or wrong argument ! ==
+
+available options:
+-f | --fullscreen    full screen
+-w | --window  active window
+-s | --select  selection
+-h | --help    display this information
+
+Default option is 'full screen'.
+
+The -f or -w options can be used with a delay
+by adding the number of seconds, like for example:
+'i3-shotter -w 5'
+
+Default option is 'full screen'.
+
+The file destination can be set in ${_conf}.
+Default is $shotter_dir
+"
+	exit 2
+esac
+
+exit 0
