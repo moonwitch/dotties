@@ -1,0 +1,14 @@
+#!/bin/bash
+
+foldername=$( echo `date +%Y-%m-%d`"-"`date +%H%M%S` )
+
+# Try to create a new folder with the current date and time
+errorString=$( mkdir "$foldername" 2>&1 )
+
+if [ -n "$errorString" ]; then 
+    zenity --error --title="$( echo $errorString | cut -d: -f3- )" --text="$( echo $errorString | cut -d: -f2- )"
+    exit
+fi
+
+# Move selected files to the new folder
+mv -t "${PWD}/${foldername}" "${@}"
