@@ -3,54 +3,37 @@
 #Grabbing colors from .Xresources
 # foreground=$(xrdb -query | grep 'foreground' | awk '{print $NF}')
 # background=$(xrdb -query | grep 'background' | awk '{print $NF}')
-# color0=$(xrdb -query | grep 'color0' | awk '{print $NF}')
-# color1=$(xrdb -query | grep 'color1' | awk '{print $NF}')
-# color2=$(xrdb -query | grep 'color2' | awk '{print $NF}')
-# color3=$(xrdb -query | grep 'color3' | awk '{print $NF}')
-# color4=$(xrdb -query | grep 'color4' | awk '{print $NF}')
-# color5=$(xrdb -query | grep 'color5' | awk '{print $NF}')
-# color6=$(xrdb -query | grep 'color6' | awk '{print $NF}')
-# color7=$(xrdb -query | grep 'color7' | awk '{print $NF}')
-# color8=$(xrdb -query | grep 'color8' | awk '{print $NF}')
-# color9=$(xrdb -query | grep 'color9' | awk '{print $NF}')
-# color10=$(xrdb -query | grep 'color10' | awk '{print $NF}')
-# color11=$(xrdb -query | grep 'color11' | awk '{print $NF}')
-# color12=$(xrdb -query | grep 'color12' | awk '{print $NF}')
-# color13=$(xrdb -query | grep 'color13' | awk '{print $NF}')
-# color14=$(xrdb -query | grep 'color14' | awk '{print $NF}')
-# color15=$(xrdb -query | grep 'color15' | awk '{print $NF}')
-# foreground=#D8DEE9
-# background=#2E3440
-
-# # black
-# color0=#3B4252
-# color8=#4C566A
+# black
+# color0=$(xgetres i3xrocks.color0) #3B4252
+# color8=$(xgetres i3xrocks.color8) #4C566A
 # # red
-# color1=#BF616A
-# color9=#D08770
+# color1=$(xgetres i3xrocks.color1) #BF616A
+# color9=$(xgetres i3xrocks.color9) #D08770
 # # green
-# color2=#A3BE8C
-# color10=#A3BE8C
+# color2=$(xgetres i3xrocks.color2) #A3BE8C
+# color10=$(xgetres i3xrocks.color10) #A3BE8C
 # # yellow
-# color3=#EBCB8B
-# color11=#EBCB8B
+# color3=$(xgetres i3xrocks.color3) #EBCB8B
+# color11=$(xgetres i3xrocks.color11) #EBCB8B
 # # blue
-# color4=#5E81AC
-# color12=#81A1C1
+# color4=$(xgetres i3xrocks.color4) #5E81AC
+# color12=$(xgetres i3xrocks.color12) #81A1C1
 # # magenta
-# color5=#B48EAD
-# color13=#B48EAD
+# color5=$(xgetres i3xrocks.color5) #B48EAD
+# color13=$(xgetres i3xrocks.color13) #B48EAD
 # # cyan
-# color6=#88C0D0
-# color14=#8FBCBB
+# color6=$(xgetres i3xrocks.color6) #88C0D0
+# color14=$(xgetres i3xrocks.color14) #8FBCBB
 # # white
-# color7=#E5E9F0
-# color15=#ECEFF4
+# color7=$(xgetres i3xrocks.color7) #E5E9F0
+# color15=$(xgetres i3xrocks.color15) #ECEFF4
+
+#ICON_SPAN="<span color=\"${LABEL_COLOR}\">$LABEL_ICON</span>"
+#VALUE_SPAN="<span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\"> $COUNT</span>"
 
 align=right
 separator=false
 separator_block_width=50
-markup=pango
 command=/usr/lib/i3blocks/$BLOCK_NAME/$BLOCK_NAME
 
 [mediaplayer]
@@ -59,20 +42,17 @@ align=center
 interval=5
 signal=10
 instance=spotify
-#label=<span color=\'color2\'> </span>
-label=MSC:
+# label=<span color="#A3BE8C"> </span>
 
 [nm-vpn]
 init_color=#EBCB8B
 on_color=#A3BE8C
-#label=<span color=\"$color11\">旅 </span>
-label=VPN:
+# label=<span color="#88C0D0">旅 </span>
 interval=5
 
 [weather]
-command=curl -s "v2n.wttr.in?format=%c+%f"
+command=weather
 interval=3600
-label=WTR:
 
 [volume-pulseaudio]
 command=/home/$USER/bin/i3-volume-pulseaudio
@@ -83,37 +63,30 @@ DEFAULT_COLOR=#D8DEE9
 MUTED_COLOR=#BF616A
 
 [memory]
-command=free -h --si | awk 'FNR==2{ print $0 }' | awk '{ print $7 }'
+markup=pango
+command=echo "`free -h --si | awk 'FNR==2{ print $0 }' | awk '{ print $7 }'`"; [[ -z "${BLOCK_BUTTON}" ]] || $TERMINAL -e bashtop &
 interval=2
-#label=<span color="#f12711"> </span>
-label=MEM:
+label=<span color="#BF616A"> </span>
 
 [temperature]
-#label=<span color="#f12711"> </span>
+markup=pango
+label=<span color="#88C0D0"> </span>
 interval=10
 T_WARN=70
 T_CRIT=90
-#SENSOR_CHIP=""
-label=TMP:
+SENSOR_CHIP=coretemp-isa-0000
 
-[calendar]
+[time]
+label=<span color="#B48EAD"> </span>
+command=echo "`date +'%a %d %b'` <b>`date +'%H:%M'`</b> "; [[ -z "${BLOCK_BUTTON}" ]] || gsimplecal &
 interval=1
-datefmt=+%a %d.%m.%Y %H:%M
-shortfmt=+%H:%M
-height=180
-width=220
-#label=<span color="#f12711"> </span>
-
-# [gmail]
-# interval=60
-# full_text=/home/$USER/bin/gmail/launch.py -ns
-# website=http://www.gmail.com
-# command=xdg-open $website
-# color=#f12711
+markup=pango
+separator_block_width=0
 
 [dunst]
 interval=once
 format=json
+markup=pango
 #min_width=50
 #align=center
 #dunst_mute=off

@@ -62,10 +62,12 @@ set_from_resource $color13 i3wm.color13 #B48EAD
 set_from_resource $color14 i3wm.color14 #8FBCBB
 set_from_resource $color15 i3wm.color15 #ECEFF4
 
+# remove Poky
+
 bar
 {
     position top
-	status_command i3blocks
+	status_command i3xrocks -c $HOME/.config/i3blocks/config
     #status_command bumblebee-status \
         # -m spotify vpn cpu memory pasink pasource date time caffeine \
         # -p time.format="%H:%M" \
