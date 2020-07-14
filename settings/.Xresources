@@ -7,13 +7,13 @@
 
 ! Color Scheme
 #include ".config/colors/nord.dark"
-! #include ".config/colors/gruvbox.dark"
-! #include ".config/colors/snazzy.dark"
+!#include ".config/colors/gruvbox.dark"
+!#include ".config/colors/snazzy.dark"
 
 ! URXVT Config
 URxvt*font:             xft:Hasklug Nerd Font Mono:style=Regular:size=12:antialias=true,\
                         -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
-URxvt*internalBorder:   10
+URxvt*internalBorder:   50
 URxvt.scrollBar:        false
 URxvt.depth:            32
 URxvt.iso14755:         true
