@@ -1,62 +1,129 @@
-/**
- * This theme is intended for a simple display of a 5
- * items list on a 1366x768 pixels resolution.
- */
 @import "colorschemes/nord.rasi"
 
-/* overriding some variables */
 * {
-  font:             "Comfortaa bold 24";
+    nord0:			 rgba(47, 53, 65, 0.7);
+    nord1: 			 rgba(59, 66, 82, 0.5);
+    nord2: 			 rgba(67, 76, 94, 0.7);
+    nord3: 			 rgba(76, 86, 106, 0.7);
+    nord4: 			 #D8DEE9;
+    nord5:  		 #E5E9F0;
+    nord6:  		 #ECEFF4;
+    nord7: 			 #8FBCBB;
+    nord8:   		 #88C0D0;
+    nord9:  		 #81A1C1;
+    nord10: 		 #5E81AC;
+    nord11: 		 #BF616A;
+    nord12: 		 #D08770;
+    nord13: 		 #EBCB8B;
+    nord14: 		 #A3BE8C;
+    nord15: 		 #B48EAD;
+
+    background:           @nord1;
+    foreground:           @nord5;
+
+    background-light:     @nord2;
+    background-focus:     @nord3;
+
+    accent:               @nord3;
+
+    /*nord10: #00BCD4;*/
+
+    spacing: 0;
+    background-color: transparent;
+
+    font: "Roboto Mono 13";
 }
 
+* {
+    background-color:     @background;
+    text-color:           @foreground;
+    /*font:                 "Hurmit Nerd Font Mono 42";*/
+    font:                 "Comfortaa 18";
+}
 
 #window {
-  width: 1366px;
-  height: 768px;
-  height: 768px;
-  /*       vertical   horizontal */
-  padding: 219px      360px;
+    transparency: "real";
+    /* fullscreen: true; */
 }
-/* Input window */
-inputbar,
-prompt,
-textbox-prompt-colon,
-entry {
-  background-color: @background-light;
+
+#mainbox {
+    children: [inputbar, message, mode-switcher, listview];
+    spacing: 30px;
+    /*margin: 20%;*/
+    padding: 30px 0;
+    border: 1px;
+    border-color: @accent;
 }
-#inputbar {
-  children: [ prompt, textbox-prompt-colon, entry ];
-  /*      vertical    horizontal */
-  margin: 4px         0px;
+
+inputbar {
+    padding: 0 30px;
+    children: [prompt, textbox-prompt-colon, entry, case-indicator];
 }
-#prompt {
-  /*       vertical   horizontal */
-  padding: 10px       20px;
-  background-color: @accent;
-  text-color: @background;
+
+textbox-prompt-colon {
+    expand: false;
+    str: ":";
+    margin: 0 1ch 0 0;
 }
-#textbox-prompt-colon {
-  expand: false;
-  str: "  : :  ";
-  padding: 10px;
+
+case-indicator {
+    text-color: @nord15;
 }
-#entry {
-  text-color: @accent;
-  /*       top    right   bottom  left */
-  padding: 10px   10px    10px    0px;
+
+mode-switcher, message {
+    border: 1px 0;
+    border-color: @nord10;
 }
-/* List of entries */
-#element {
-  padding: 12px;
-  /*      vertical    horizontal */
-  margin: 4px         0px;
-  /*      top     right   bottom  left */
-  border: 0px     0px     0px     8px;
-  background-color: @background-light;
-  border-color: @background-light;
+
+button, textbox {
+    background-color: @nord3;
+    text-color: @nord4;
+    padding: 5px;
 }
-#element.selected {
-  background-color: @background-focus;
-  text-color: @accent;
-  border-color: @accent;
+
+button selected {
+    background-color: @nord10;
+}
+
+listview {
+    scrollbar: true;
+    margin: 0 10px 0 30px;
+}
+
+scrollbar {
+    background-color: @nord3;
+    handle-color: @nord10;
+    handle-width: 10px;
+    border: 0 1px;
+    border-color: @nord10;
+    margin: 0 0 0 20px;
+}
+
+element {
+    padding: 5px;
+    highlight: bold underline;
+}
+
+element normal {
+    background-color: transparent;
+}
+
+element selected {
+    background-color: @nord10;
+}
+
+element alternate {
+    /*background-color: @nord3;*/
+}
+
+element normal normal, element selected normal, element alternate normal {
+    text-color: @nord4;
+}
+
+element normal urgent, element selected urgent, element alternate urgent {
+    text-color: @nord15;
+}
+
+element normal active, element selected active, element alternate active {
+    text-color: @nord11;
 }

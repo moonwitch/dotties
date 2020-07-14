@@ -1,6 +1,6 @@
 * {
     nord0:			 rgba(47, 53, 65, 0.7);
-    nord1: 			 rgba(59, 66, 82, 0.7);
+    nord1: 			 rgba(59, 66, 82, 0.5);
     nord2: 			 rgba(67, 76, 94, 0.7);
     nord3: 			 rgba(76, 86, 106, 0.7);
     nord4: 			 #D8DEE9;
@@ -23,9 +23,4 @@
     background-focus:     @nord3;
 
     accent:               @nord10;
-
-    /* Settings */
-    background-color:     @background;
-    text-color:           @foreground;
-    font:                 "Hurmit Nerd Font Mono 42";
 }

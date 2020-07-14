@@ -9,5 +9,5 @@ configuration {
     disable-history:    false;
     modi:               "drun,calc,ssh,run";
     display-drun:       "apps";
-    show-match: 		    false;
+    show-match: 		false;
 }

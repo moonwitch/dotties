@@ -17,8 +17,8 @@ if [ $? -eq 0 ]; then
         # Cable connected
         label+=""
     fi
-    # Checks for OpenVPN and Wireguard
-    if [ "$(pgrep openvpn)" ] || [ "$(pgrep wireguard)" ]; then
+    # Checks for VPN
+    if [ "$(pgrep openconnect)" ] || [ "$(pgrep wireguard)" ]; then
         # VPN is on
         label+="%{F#e2e2e2} 﫸"
     else

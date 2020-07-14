@@ -46,17 +46,17 @@ module-padding = 1
 
 [settings]
 screenchange-reload = true
-dpi-x = 162
-dpi-y = 162
+dpi-x = 0
+dpi-y = 0
 
 [common-bar]
 width = 100%
-height = 30
+height = 40
 border-size = 2
 foreground = ${colors.foreground}
 background = ${colors.background}
 border-color = ${colors.black1}
-wm-restack = bspwm
+wm-restack = i3
 enable-ipc = true
 
 ;format-background = ${colors.module-bg}
@@ -82,9 +82,9 @@ format-prefix-padding-right = ${layout.icon-padding}
 inherit = common-bar
 top = true
 monitor =
-modules-left = bspwm
+modules-left = bspwm i3
 modules-center = playerctl
-modules-right = gmail volume filesystem temperature cpu memory date power
+modules-right = gmail volume temperature cpu memory date power
 module-margin-left = 1
 module-margin-right = 1
 
@@ -118,6 +118,23 @@ warn-temperature = 60
 
 label = TEMP %temperature-c%
 
+[module/i3]
+type = internal/i3
+scroll-up = i3-desknext
+scroll-down = i3-deskprev
+pin-workspaces = true
+index-sort = true
+
+format = <label-state> <label-mode>
+
+label-focused-foreground = ${colors.black}
+label-focused-background = ${colors.blue1}
+
+label-occupied-padding = 2
+label-occupied-font = 2
+label-occupied-foreground = ${colors.magenta}
+label-urgent-background = ${colors.red}
+label-urgent-foreground = ${colors.red1}
 
 [module/bspwm]
 type = internal/bspwm
@@ -177,15 +194,9 @@ format = <label>
 format-foreground = ${colors.magenta1}
 label = "MEM %gb_used%"
 
-[module/filesystem]
-type = internal/fs
-interval = 25
-mount-0 = /
-label-mounted = "FS %mountpoint% %percentage_used:2%%"
-
 [module/gmail]
 type = custom/script
-exec = ~/.local/bin/gmail/launch.py --nosound --prefix "MSG"
+exec = ~/bin/gmail/launch.py --nosound --prefix "MSG"
 tail = true
 click-left = xdg-open https://mail.google.com &
 
@@ -218,8 +229,8 @@ time = %H:%M
 
 [module/power]
 type = custom/text
-click-left = exec ~/.config/rofi/scripts/powermenu.sh
-click-right = exec ~/.config/rofi/scripts/powermenu.sh
+click-left = exec ~/.config/rofi/dmenu-scripts/powermenu.sh
+click-right = exec ~/.config/rofi/dmenu-scripts/powermenu.sh
 format-spacing = 1
 content = "%{T2}襤%{T-}  "
 content-foreground=${colors.red1}

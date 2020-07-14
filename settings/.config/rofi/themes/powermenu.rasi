@@ -1,14 +1,10 @@
-/**
- * This theme is intended for a simple display of a 5
- * items list on a 1366x768 pixels resolution.
- */
 @import "colorschemes/nord.rasi"
 
 #window {
-  width: 1366px;
-  height: 768px;
-  /*       vertical   horizontal */
-  padding: 270px      88px;
+  width: 100%;
+  height: 100%;
+  padding: 20%;
+  location: center;
   children: [ horibox ];
 }
 #horibox {
@@ -16,14 +12,10 @@
 }
 #listview {
   layout: horizontal;
-  spacing: 56px;
+  spacing: 10px;
   lines: 5;
 }
 #element {
-  /**
-   * Values bellow are 'no-padding' ones, to which we add 70
-   *       top    right   bottom  left
-   *       -14px  0px     -14px   -93px */
   padding: 56px   70px    56px    -23px;
   background-color: @background-light;
 }
