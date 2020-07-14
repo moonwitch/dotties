@@ -84,41 +84,34 @@ frame_color = "#4c566a"
 [urgency_normal]
 background = "#3b4252"
 foreground = "#eceff4"
-timeout = 10
 
 [urgency_critical]
 background = "#3b4252"
 foreground = "#eceff4"
 frame_color = "#bf616a"
-timeout = 60
 
 [signed_on]
 appname = Pidgin
 summary = "*signed on*"
-urgency = low
 
 [signed_off]
 appname = Pidgin
 summary = *signed off*
-urgency = low
 
 [says]
 appname = Pidgin
 summary = *says*
-urgency = normal
 
 [gmail]
 desktop_entry = chromium.desktop
-urgency = critical
+action = /usr/bin/chromium -foreground https://gmail.com
 
 [workmail]
 appname = Firefox: Outlook
-action = /usr/bin/firefox
-urgency = critical
+action = /usr/bin/firefox -foreground
 
 [spotify]
 desktop_entry = spotify.desktop
-urgency = low
 #actions = 
 
 [mattermost]
