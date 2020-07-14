@@ -23,7 +23,7 @@ fi
 
 case "$1" in
 	--fullscreen|-f|$NULL)
-	  	$cmd "$shotter_dir/$(date +%F-%T).png" &&
+	  	$cmd "$shotter_dir/$(date +%F-%T).png" | magick convert -resize 50% &&
         xclip -selection clipboard -t image/png -i $shotter_dir/`ls -1 -t $shotter_dir | head -1` &&
 		sleep 1 &&
 		notify-send "Screenshot has been saved in $shotter_dir" -a "i3-shotter"
