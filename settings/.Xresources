@@ -5,35 +5,8 @@
 !
 ! Author: Kelly Crabbé
 
-! Color Scheme
-#include ".config/colors/nord.dark"
-!#include ".config/colors/gruvbox.dark"
-!#include ".config/colors/snazzy.dark"
-
-! URXVT Config
-URxvt*font:             xft:Hasklug Nerd Font Mono:style=Regular:size=12:antialias=true,\
-                        -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
-URxvt*internalBorder:   50
-URxvt.scrollBar:        false
-URxvt.depth:            32
-URxvt.iso14755:         true
-URxvt.iso14755_52:      false
-URxvt.letterSpace:      0
-
-! URL Matching
-URxvt.url-launcher:     /usr/bin/xdg-open
-URxvt.matcher.button:   1
-
-
-! TABS
-URxvt.perl-ext-common : default,tabbed,selection-to-clipboard
-URxvt.tabbed.tabbar-fg: 2
-URxvt.tabbed.tabbar-bg: 0
-URxvt.tabbed.tab-fg:    3
-URxvt.tabbed.tab-bg:    0
-
 Xft.dpi:        163
-Xcursor.size:   32
+Xcursor.size:   48
 
 ! xdpyinfo | grep -B2 resolution
 ! 3840*2160 = 163*163 DPI
@@ -45,5 +18,42 @@ Xft.hinting:    1
 Xft.antialias:  1
 Xft.rgba:       rgb
 
-xterm*font:     xft:Hasklug Nerd Font Mono:style=Regular:size=12:antialias=true,\
-                -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
+! Color Scheme
+#include ".config/colors/nord.dark"
+!#include ".config/colors/gruvbox.dark"
+!#include ".config/colors/snazzy.dark"
+
+! URXVT Config
+URxvt*termName:         rxvt-unicode-256color
+URxvt*buffered:         false
+URxvt*intensityStyles:  false
+URxvt*font:             xft:Hasklug Nerd Font Mono:style=Regular:size=12, \
+                        xft:Monospace:style=Medium:size=12   
+URxvt*saveLines:        2000
+URxvt*scrollBar:        false
+URxvt*internalBorder:   50
+URxvt.depth:            32
+URxvt.iso14755:         true
+URxvt.iso14755_52:      false
+URxvt.letterSpace:      0
+
+!! Extensions
+URxvt.perl-ext-common: default,matcher,clipboard,tabbed
+!! URL Matching
+URxvt.url-launcher:     /usr/bin/xdg-open
+URxvt.matcher.button:   1
+!! clipboard
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+!! tabbed config
+!! URxvt.perl-ext-common : default,tabbed,selection-to-clipboard
+URxvt.tabbed.tabbar-fg: 2
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg:    3
+URxvt.tabbed.tab-bg:    0
+
+
+!! XTerm
+xterm*font:     xft:Hasklug Nerd Font Mono:style=Regular:size=12, \
+                xft:Monospace:style=Medium:size=12 
+

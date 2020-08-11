@@ -19,16 +19,3 @@ application/x-synology-drive-doc=synology-drive-open-file.desktop
 application/x-synology-drive-sheet=synology-drive-open-file.desktop
 application/x-synology-drive-slides=synology-drive-open-file.desktop
 x-scheme-handler/mailto=chromium.desktop
-
-[Added Associations]
-image/jpeg=gimp.desktop;viewnior.desktop;gpicview.desktop;
-image/png=viewnior.desktop;gpicview.desktop;
-text/plain=xed.desktop;atom.desktop;
-application/xml=chromium.desktop;
-application/x-shellscript=xed.desktop;code-oss.desktop;
-text/x-scheme=xed.desktop;
-image/svg+xml=viewnior.desktop;
-application/pdf=org.pwmt.zathura.desktop;
-text/x-csrc=xed.desktop;
-application/x-sharedlib=nvim.desktop;geany.desktop;
-text/csv=xed.desktop;

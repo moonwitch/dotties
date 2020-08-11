@@ -17,7 +17,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'Shougo/neocomplcache'        " Depenency for Shougo/neosnippet
   Plug 'godlygeek/tabular'           " This must come before plasticboy/vim-markdown
 
-
   " General plugins
   Plug 'scrooloose/nerdtree'
   Plug 'terryma/vim-multiple-cursors'
@@ -26,7 +25,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'mattn/emmet-vim'
   Plug 'Valloric/YouCompleteMe'
-
+  "Plug 'wakatime/vim-wakatime'
+  Plug 'scrooloose/vim-slumlord'          " Previewing PluntUML
 
   " Syntax highlighting
   Plug 'aklt/plantuml-syntax'                    " PlantUML syntax highlighting
@@ -39,6 +39,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'dylanaraps/wal.vim'
   Plug 'arcticicestudio/nord-vim'
   Plug 'chriskempson/base16-vim'
+
+  " Actual functionality
+  Plug 'ryanoasis/vim-devicons'      " Icons for NerdTree
 call plug#end()
 
 colorscheme nord
@@ -81,11 +84,6 @@ endif
 "----------------------------------------------
 " Navigation
 "----------------------------------------------
-" Disable arrow keys
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
 nnoremap <C-y> "+y
 vnoremap <C-y> "+y
 nnoremap <C-p> "+gP
@@ -135,5 +133,19 @@ let g:multi_cursor_skip_key='<C-b>'
 "----------------------------------------------
 " Plugin: NerdTree
 "----------------------------------------------
-autocmd vimenter * NERDTree
+" Uncomment to autostart the NERDTree
+" autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeDirArrowExpandable = '►'
+let g:NERDTreeDirArrowCollapsible = '▼'
+let NERDTreeShowLineNumbers=1
+let NERDTreeShowHidden=1
+let NERDTreeMinimalUI = 1
+let g:NERDTreeWinSize=38
+
+" Open NERDTree if no file is opened
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
+

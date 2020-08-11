@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=WebeX
+Name=Webex
 GenericName=CiscoWebex
 Exec=/usr/bin/firefox  --new-tab http://msamlin.webex.com
 Icon=/home/kelly/.icons/Cisco_Webex.png

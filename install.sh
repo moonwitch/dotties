@@ -84,6 +84,9 @@ curl -L https://raw.githubusercontent.com/dikiaap/dotfiles/master/.oh-my-zsh/the
 # Requirements for Gmail script
 pip install --global --upgrade oauth2client google-api-python-client
 
+# HiDPI
+gsettings set org.gnome.desktop.interface scaling-factor 2
+
 # Install lightdm looker
 # systemctl enable betterlockscreen@$USER
 baph -inN lightdm-webkit-theme-aether

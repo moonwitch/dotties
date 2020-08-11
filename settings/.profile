@@ -19,6 +19,8 @@ export GEM_PATH=$(ruby -e 'puts Gem.user_dir')
 export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 # Rust
 export PATH="$PATH:$HOME/.cargo/bin"
+# Emacs
+export PATH="~/.emacs.d/bin:$PATH"
 
 # Ensuring SSH works
 # if [ -f /usr/lib/xfce-polkit/xfce-polkit ]; then
