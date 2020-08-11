@@ -62,5 +62,4 @@ fi
 ### RANDOM COLOR SCRIPT ###
 #/opt/shell-color-scripts/colorscript.sh random
 
-
 source /home/kelly/.config/broot/launcher/bash/br
