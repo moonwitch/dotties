@@ -18,8 +18,7 @@ exec --no-startup-id clipit
 exec --no-startup-id code-insiders
 exec --no-startup-id chromium
 exec --no-startup-id spotify --force-device-scale-factor=1.5 %U
-# exec --no-startup-id xed; move scratchpad
-# exec_always --no-startup-id polybar topbar -r
+#exec_always --no-startup-id polybar topbar -r
 
 ######################
 # Looks setup
@@ -61,8 +60,6 @@ set_from_resource $color12 i3wm.color12 #81A1C1
 set_from_resource $color13 i3wm.color13 #B48EAD
 set_from_resource $color14 i3wm.color14 #8FBCBB
 set_from_resource $color15 i3wm.color15 #ECEFF4
-
-# remove Poky
 
 bar
 {
@@ -132,7 +129,7 @@ bindsym $alt+Print exec "i3-shotter -f"
 bindsym $super+Return exec $TERMINAL
 bindsym $super+Shift+Return exec $TERMINAL -e vifm
 bindsym $super+Shift+w exec $BROWSER
-bindsym $super+Control exec /usr/bin/firefox
+bindsym $super+Control+w exec /usr/bin/firefox
 bindsym $super+Shift+e exec $FILEMAN
 
 # start rofi
@@ -141,7 +138,7 @@ bindsym $super+space exec "rofi -show drun -theme themes/drun.rasi"
 bindsym $alt+Tab exec "rofi -kb-accept-entry '!Alt-Tab' -kb-row-down Alt-Tab -show window -theme themes/drun.rasi"
 
 # Exit binds
-bindsym $super+Shift+End exec --no-startup-id ~/.config/rofi/dmenu-scripts/powermenu.sh
+bindsym $super+Shift+End exec --no-startup-id powermenu
 bindsym $super+l exec betterlockscreen -l dim
 bindsym XF86Sleep exec systemctl suspend
 
@@ -182,15 +179,15 @@ bindsym $super+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # Name the workspaces
-set $ws1 " 1:  "
-set $ws2 " 2:  "
-set $ws3 " 3:  "
-set $ws4 " 4:  "
-set $ws5 " 5:  "
-set $ws6 " 6:  "
-set $ws7 " 7: 華 "
-set $ws8 " 8:  "
-set $ws9 " 9:  "
+set $ws1 " 1  "
+set $ws2 " 2  "
+set $ws3 " 3  "
+set $ws4 " 4  "
+set $ws5 " 5  "
+set $ws6 " 6  "
+set $ws7 " 7 華 "
+set $ws8 " 8  "
+set $ws9 " 9  "
 
 # Switch to workspace
 bindsym $super+1 workspace $ws1
@@ -264,7 +261,7 @@ bindsym $super+minus scratchpad show
 # Workspaces setup
 ######################
 # switch to workspace with urgent window automatically
-#focus_on_window_activation smart
+focus_on_window_activation smart
 for_window [urgent="latest" class="^Mattermost$"]   focus
 for_window [urgent="latest" class="^Chromium$"]     focus
 for_window [urgent="latest" class="^Firefox$"]      focus
@@ -276,16 +273,16 @@ for_window      [class=URxvt|Alacritty|termite]     focus
 # Base - Ws1
 assign          [class=Chromium|Chrome]         $ws1
 # Code - Ws2
-assign          [class=Atom|code-oss|VSCodium]     $ws2
-assign          [class="Code - Insiders"]     $ws2
+assign          [class=Atom|code-oss|VSCodium]  $ws2
+assign          [class="Code - Insiders"]       $ws2
 # Cmd - Ws3
 # FileManager - Ws4
 assign          [class=Thunar|Nemo|PCmanFM|Polo-GTK]     $ws4
 # Server - Ws5
 assign          [class=firefox|Navigator]       $ws5
 # Office/Work - Ws6
-assign          [class=FreeOffice*|LibreOffice*] $ws6
-assign          [class=Typora|zettlr]           $ws6
+assign          [class=LibreOffice*]            $ws6
+assign          [class=Typora|zettlr|Joplin]    $ws6
 # Social - Ws7
 assign          [class=Caprine]                 $ws7
 assign          [class=Mattermost]              $ws7
