@@ -1,3 +1,5 @@
+/*-*- mode: css; -*-*/
+
 //----------------------
 // Configuration
 //----------------------
@@ -9,5 +11,9 @@ configuration {
     disable-history:    false;
     modi:               "drun,calc,ssh,run";
     display-drun:       "apps";
-    show-match: 		false;
+    show-match: 		    false;
+    columns:            2;
+    sidebar-mode:       true;
 }
+
+/* vim:ft=css */

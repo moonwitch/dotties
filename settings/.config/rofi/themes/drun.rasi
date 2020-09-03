@@ -1,129 +1,92 @@
-@import "colorschemes/nord.rasi"
+/*-*- mode: css; -*-*/
+ 
+@import "settings.rasi"
 
 * {
-    nord0:			 rgba(47, 53, 65, 0.7);
-    nord1: 			 rgba(59, 66, 82, 0.5);
-    nord2: 			 rgba(67, 76, 94, 0.7);
-    nord3: 			 rgba(76, 86, 106, 0.7);
-    nord4: 			 #D8DEE9;
-    nord5:  		 #E5E9F0;
-    nord6:  		 #ECEFF4;
-    nord7: 			 #8FBCBB;
-    nord8:   		 #88C0D0;
-    nord9:  		 #81A1C1;
-    nord10: 		 #5E81AC;
-    nord11: 		 #BF616A;
-    nord12: 		 #D08770;
-    nord13: 		 #EBCB8B;
-    nord14: 		 #A3BE8C;
-    nord15: 		 #B48EAD;
-
-    background:           @nord1;
-    foreground:           @nord5;
-
-    background-light:     @nord2;
-    background-focus:     @nord3;
-
-    accent:               @nord3;
-
-    /*nord10: #00BCD4;*/
-
-    spacing: 0;
-    background-color: transparent;
-
-    font: "Roboto Mono 13";
-}
-
-* {
-    background-color:     @background;
-    text-color:           @foreground;
-    /*font:                 "Hurmit Nerd Font Mono 42";*/
-    font:                 "Comfortaa 18";
+  background-color: @background;
+  text-color: @foreground-list;
+  font: "Hasklug Nerd Font 18";
 }
 
 #window {
-    transparency: "real";
-    /* fullscreen: true; */
+  width: 100%;
+  height: 100%;
+
+  padding: @list-8-window-padding;
+  transparency: "real";
+  /* fullscreen: true; */
+  border-color: @accent;
 }
 
-#mainbox {
-    children: [inputbar, message, mode-switcher, listview];
-    spacing: 30px;
-    /*margin: 20%;*/
-    padding: 30px 0;
-    border: 1px;
-    border-color: @accent;
+inputbar,
+prompt,
+textbox-prompt-colon,
+entry {
+  background-color: @background-light;
 }
 
-inputbar {
-    padding: 0 30px;
-    children: [prompt, textbox-prompt-colon, entry, case-indicator];
+#inputbar {
+  children: [prompt, textbox-prompt-colon, entry, case-indicator];
+  margin: @inputbar-margin;
 }
 
-textbox-prompt-colon {
-    expand: false;
-    str: ":";
-    margin: 0 1ch 0 0;
+#prompt {
+  padding: @prompt-padding;
+  background-color: @accent;
+  text-color: @background;
 }
 
-case-indicator {
-    text-color: @nord15;
+#textbox-prompt-colon {
+  expand: false;
+  str: " : ";
+  padding: @apps-textbox-prompt-colon-padding;
 }
 
+#entry {
+  text-color: @accent;
+  padding: @entry-padding;
+}
+#element {
+  padding: @list-element-padding;
+  margin: @list-element-margin;
+  border: @list-element-border;
+  background-color: @background-light;
+  border-color: @background-light;
+}
+#element.selected {
+  background-color: @background-focus;
+  text-color: @accent;
+  border-color: @accent;
+}
+
+/* next */
 mode-switcher, message {
-    border: 1px 0;
-    border-color: @nord10;
+  border: 1px 0;
+  border-color: @accent;
 }
 
 button, textbox {
-    background-color: @nord3;
-    text-color: @nord4;
-    padding: 5px;
+  background-color: @background-light;
+  text-color: @foreground-list;
+  padding: 5px;
 }
 
 button selected {
-    background-color: @nord10;
+  background-color: @accent;
 }
 
 listview {
-    scrollbar: true;
-    margin: 0 10px 0 30px;
+  scrollbar: true;
+  margin: 0 10px 0 30px;
 }
 
 scrollbar {
-    background-color: @nord3;
-    handle-color: @nord10;
-    handle-width: 10px;
-    border: 0 1px;
-    border-color: @nord10;
-    margin: 0 0 0 20px;
+  background-color: @background-light;
+  handle-color: @accent;
+  handle-width: 10px;
+  border: 0 1px;
+  border-color: @accent;
+  margin: 0 0 0 20px;
 }
 
-element {
-    padding: 5px;
-    highlight: bold underline;
-}
-
-element normal {
-    background-color: transparent;
-}
-
-element selected {
-    background-color: @nord10;
-}
-
-element alternate {
-    /*background-color: @nord3;*/
-}
-
-element normal normal, element selected normal, element alternate normal {
-    text-color: @nord4;
-}
-
-element normal urgent, element selected urgent, element alternate urgent {
-    text-color: @nord15;
-}
-
-element normal active, element selected active, element alternate active {
-    text-color: @nord11;
-}
+/* vim:ft=css */

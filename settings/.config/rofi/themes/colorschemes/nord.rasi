@@ -21,6 +21,11 @@
 
     background-light:     @nord2;
     background-focus:     @nord3;
+    
+    foreground-list:      @nord4;
 
-    accent:               @nord10;
+    accent:               @nord9;
+
+    on:                   @nord14;
+    off:                  @nord11;
 }

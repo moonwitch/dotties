@@ -1,25 +1,35 @@
-@import "colorschemes/nord.rasi"
+/*-*- mode: css; -*-*/
 
-#window {
-  width: 100%;
-  height: 100%;
-  padding: 20%;
-  location: center;
-  children: [ horibox ];
+@import "settings.rasi"
+
+window {
+  anchor:       center;
+  location:     center;
+  children:     [horibox]; /* So we have a blurry window */
 }
-#horibox {
-  children: [ listview ];
+
+horibox {
+  margin:       0.5em;
+  orientation:  horizontal;
+  children:     [listview]; /* Gets rid of dmenu header */
+  background-color: green;
 }
-#listview {
-  layout: horizontal;
-  spacing: 10px;
-  lines: 5;
+
+listview {
+  layout:       horizontal;
+  spacing:      0.25em;
+  fixed-height: 1;
+  background-color: purple;
 }
-#element {
-  padding: 56px   70px    56px    -23px;
-  background-color: @background-light;
+
+element {
+  padding: 0px;
+  background-color: pink;
 }
-#element.selected {
-  background-color: @accent;
+
+element selected {
   text-color: @background;
+  background-color: @on;
 }
+
+/* vim:ft=css */
