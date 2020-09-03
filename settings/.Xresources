@@ -20,9 +20,7 @@ Xft.antialias:  1
 Xft.rgba:       rgb
 
 ! Color Scheme
-#include ".config/colors/nord.dark"
-!#include ".config/colors/gruvbox.dark"
-!#include ".config/colors/snazzy.dark"
+#include ".config/colors/xresources/base16-eighties.xresources"
 
 ! URXVT Config
 URxvt*termName:         rxvt-unicode-256color

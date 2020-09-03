@@ -48,16 +48,23 @@ label_color=xresource:i3xrocks.color1
 [nm-vpn]
 init_color=xresource:i3xrocks.color3
 on_color=xresource:i3xrocks.color2
-label= 
+label= 
 interval=5
+
+[pomodoro]
+command=/home/$USER/bin/i3-pomodoro
+interval=1
+label=祥 
+color=xresource:i3xrocks.color3
 
 # [weather]
 # command=weather
-# interval=3600
+# interval=360
+# color=xresource:i3xrocks.color4
 
 [weather]
-command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
-interval=3600
+command=echo " `curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo`"
+interval=60
 color=xresource:i3xrocks.color4
 
 [volume-pulseaudio]
@@ -75,7 +82,7 @@ label=
 color=xresource:i3xrocks.color6
 
 [temperature]
-label= 
+label= 
 color=xresource:i3xrocks.color9
 interval=10
 T_WARN=70
@@ -83,7 +90,7 @@ T_CRIT=90
 SENSOR_CHIP=coretemp-isa-0000
 
 [time]
-label= 
+label= 
 color=xresource:i3xrocks.color5
 command=echo "`date +'%a %d %b'` <b>`date +'%H:%M'`</b> "; [[ -z "${BLOCK_BUTTON}" ]] || gsimplecal &
 interval=1

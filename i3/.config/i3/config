@@ -9,7 +9,7 @@ exec --no-startup-id feh --no-fehbg --bg-fill $WALLPAPER
 exec --no-startup-id dunst
 exec --no-startup-id numlockx
 exec --no-startup-id picom -b
-exec --no-startup-id redshift -l 51.1:4.29 -t 6300:4000
+#exec --no-startup-id redshift -l 51.1:4.29 -t 6300:4000
 exec --no-startup-id synology-drive
 exec --no-startup-id udiskie --smart-tray
 #exec --no-startup-id xfce4-clipman
@@ -65,13 +65,6 @@ bar
 {
     position top
 	status_command i3xrocks -c $HOME/.config/i3blocks/config
-    #status_command bumblebee-status \
-        # -m spotify vpn cpu memory pasink pasource date time caffeine \
-        # -p time.format="%H:%M" \
-        #     date.format="%a, %b %d %Y" \
-        #     pulseaudio.showbars=1 pulseaudio.limit=100 \
-        # -t nord-powerline \
-        # -a cpu memory #spotify
     workspace_buttons      yes
     colors {
         background $background
@@ -265,11 +258,14 @@ focus_on_window_activation smart
 for_window [urgent="latest" class="^Mattermost$"]   focus
 for_window [urgent="latest" class="^Chromium$"]     focus
 for_window [urgent="latest" class="^Firefox$"]      focus
+for_window [class=URxvt|Alacritty|termite]     focus
+
+# Change the default layout of specific workspaces
+for_window [workspace=$ws3] layout tabbed
+for_window [workspace=$ws8] layout tabbed
 
 # Syntax
 # assign <criteria> [→] [workspace] [number] <workspace>
-for_window      [class=URxvt|Alacritty|termite]     focus
-
 # Base - Ws1
 assign          [class=Chromium|Chrome]         $ws1
 # Code - Ws2
@@ -292,7 +288,6 @@ assign          [class=Pidgin]                  $ws7
 for_window [class="Spotify"] move to workspace $ws8
 # Games - Ws9
 assign          [class="^Steam"]               $ws9
-#assign         [class="^Steam"]    [class=Steam|steam_app_]           $ws9
 
 # Enable float for some windows and if need be give them a size
 for_window      [class="^Pavucontrol$"]         floating enable, resize set 1500 750, focus
@@ -304,6 +299,8 @@ for_window      [class=Pamac-manager]           floating enable, resize set 1500
 for_window      [class="Simple-scan"]           floating enable
 for_window      [class="Yad|Zenity"]            floating enable
 for_window      [class="Pidgin" instance="Pidgin" title="Buddy List"] floating enable, resize set 500 850
+for_window      [class="Peek"]                  floating enable
+for_window      [title="Floating Terminal"]     floating enable
 
 for_window      [window_role="pop-up"]          floating enable
 for_window      [window_role="bubble"]          floating enable 
@@ -311,7 +308,11 @@ for_window      [window_role="task_dialog"]     floating enable
 for_window      [window_role="Preferences"]     floating enable
 for_window      [window_type="dialog"]          floating enable 
 for_window      [window_type="menu"]            floating enable
+# Other specific
+for_window [title="feh.*/tmp/qr_code.png$"]     floating enable, sticky enable
+for_window [title="Notepad Terminal"]           floating enable, move right 600
+for_window [window_role="GtkFileChooserDialog"] resize set 900 600, move position center
 
 show_marks yes
 
-# vim:filetype=sh
+# vim:ft=i3config
