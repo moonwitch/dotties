@@ -30,27 +30,6 @@ l2
 r2
 
 # Left window history (oldest to newest):
-d/home/kelly
-	..
-0
-d/home
-	kelly
-1
-d/
-	home
-4
-d/home
-	kelly
-1
-d/home/kelly
-	Desktop
-1
-d/home/kelly/Desktop
-	Web Notifications API_files
-1
-d/home/kelly
-	Desktop
-1
 d/home/kelly/Desktop
 	Web Notifications API_files
 1
@@ -217,8 +196,140 @@ d/home/kelly/Projects/poc/etc/icinga2/zones.d
 	master
 2
 d/home/kelly/Projects/poc/etc/icinga2/zones.d/master
-	linux.conf
+	..
+0
+d/home/kelly/Projects/poc/etc/icinga2/zones.d
+	..
+0
+d/home/kelly/Projects/poc/etc/icinga2
+	..
+0
+d/home/kelly/Projects/poc/etc
+	..
+0
+d/home/kelly/Projects/poc
+	..
+0
+d/home/kelly/Projects
+	..
+0
+d/home/kelly
+	..
+0
+d/home
+	..
+0
+d/
+	mnt
+9
+d/mnt
+	NAS
+1
+d/mnt/NAS
+	photos
+3
+d/mnt/NAS/photos
+	..
+0
+d/mnt/NAS
+	media
+2
+d/mnt/NAS/media
+	..
+0
+d/mnt/NAS
+	media
+2
+d/mnt/NAS/media
+	..
+0
+d/mnt/NAS
+	media
+2
+d/mnt/NAS/media
+	series
+3
+d/mnt/NAS/media/series
+	The X Files
 6
+d/mnt/NAS/media/series/The X Files
+	The X-Files Season 1, 2, 3, 4, 5, 6, 7, 8 & 9 + Extras DVDRip HDTV TSV
+2
+d/mnt/NAS/media/series/The X Files/The X-Files Season 1, 2, 3, 4, 5, 6, 7, 8 & 9 + Extras DVDRip HDTV TSV
+	Season 01
+3
+d/mnt/NAS/media/series/The X Files/The X-Files Season 1, 2, 3, 4, 5, 6, 7, 8 & 9 + Extras DVDRip HDTV TSV/Season 01
+	The X-Files Season 01 Episode 04 - Conduit.avi
+28
+d/mnt/NAS/media/series/The X Files/The X-Files Season 1, 2, 3, 4, 5, 6, 7, 8 & 9 + Extras DVDRip HDTV TSV
+	TSV
+12
+d/mnt/NAS/media/series/The X Files/The X-Files Season 1, 2, 3, 4, 5, 6, 7, 8 & 9 + Extras DVDRip HDTV TSV/TSV
+	µTorrent Set Up Guide - uTorrent Set Up Guide
+1
+d/mnt/NAS/media/series/The X Files/The X-Files Season 1, 2, 3, 4, 5, 6, 7, 8 & 9 + Extras DVDRip HDTV TSV
+	Extras
+1
+d/mnt/NAS/media/series/The X Files/The X-Files Season 1, 2, 3, 4, 5, 6, 7, 8 & 9 + Extras DVDRip HDTV TSV/Extras
+	Season 01 Extras
+1
+d/mnt/NAS/media/series/The X Files/The X-Files Season 1, 2, 3, 4, 5, 6, 7, 8 & 9 + Extras DVDRip HDTV TSV/Extras/Season 01 Extras
+	Deleted Scenes
+4
+d/mnt/NAS/media/series/The X Files/The X-Files Season 1, 2, 3, 4, 5, 6, 7, 8 & 9 + Extras DVDRip HDTV TSV/Extras/Season 01 Extras/Deleted Scenes
+	..
+0
+d/mnt/NAS/media/series/The X Files/The X-Files Season 1, 2, 3, 4, 5, 6, 7, 8 & 9 + Extras DVDRip HDTV TSV/Extras/Season 01 Extras
+	@eaDir
+1
+d/home
+	kelly
+1
+d/home/kelly
+	.config
+8
+d/home/kelly/.config
+	rofi
+51
+d/home/kelly/.config/rofi
+	themes
+1
+d/home/kelly/.config/rofi/themes
+	..
+0
+d/home/kelly/.config/rofi
+	themes
+1
+d/home/kelly/.config/rofi/themes
+	..
+0
+d/home/kelly/.config/rofi
+	..
+0
+d/home/kelly/.config
+	vifm
+52
+d/home/kelly/.config/vifm
+	..
+0
+d/home/kelly/.config
+	..
+0
+d/home/kelly
+	Trolltech.conf
+50
+d/home
+	kelly
+1
+d/home/kelly
+	Trolltech.conf
+50
+d/home
+	kelly
+1
+d/home/kelly
+	.dir_colors
+29
 d
 
 # Right window history (oldest to newest):
@@ -235,8 +346,6 @@ D
 :options
 :hidden
 :showhidden
-:q
-:help
 :mkdir awesome
 :mkdir {freedesktop,lain,scripts,themes}
 :mkdir freedesktop
@@ -246,6 +355,11 @@ D
 :touch rc.lua
 :quit
 :d
+:goto /home/kelly
+:help
+:q
+:!code-insiders %c
+:delete
 
 # Search history (oldest to newest):
 
@@ -254,7 +368,7 @@ D
 # Local filter history (oldest to newest):
 
 # Registers:
-""/home/kelly/.local/share/vifm/Trash/000_conky.conf.png
+""/home/kelly/.local/share/vifm/Trash/000_.xsession-errors.old
 
 # Directory stack (oldest to newest):
 
@@ -293,6 +407,14 @@ t/home/kelly/.local/share/vifm/Trash/000_conky-da.png
 	/home/kelly/.config/conky/conky-da.png
 t/home/kelly/.local/share/vifm/Trash/000_conky.conf.png
 	/home/kelly/.config/conky/conky.conf.png
+t/mnt/NAS/media/.vifm-Trash-1000/000_TSV
+	/mnt/NAS/media/series/The X Files/The X-Files Season 1, 2, 3, 4, 5, 6, 7, 8 & 9 + Extras DVDRip HDTV TSV/TSV
+t/home/kelly/.local/share/vifm/Trash/000_elasticsearch-7.9.0-linux-x86_64.tar.gz
+	/home/kelly/elasticsearch-7.9.0-linux-x86_64.tar.gz
+t/home/kelly/.local/share/vifm/Trash/001_QtProject.conf
+	/home/kelly/QtProject.conf
+t/home/kelly/.local/share/vifm/Trash/000_.xsession-errors.old
+	/home/kelly/.xsession-errors.old
 
 # State:
 f

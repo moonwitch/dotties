@@ -23,33 +23,43 @@ font:
   normal:
     family: Hasklug Nerd Font Mono
     style: Regular
-draw_bold_text_with_bright_colors: true
 
+# Base16 Eighties - alacritty color config
+# Chris Kempson (http://chriskempson.com)
 colors:
+  # Default colors
   primary:
-    background: '0x2E3440'
-    foreground: '0xD8DEE9'
+    background: '0x2d2d2d'
+    foreground: '0xd3d0c8'
+
+  # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x2E3440'
-    cursor: '0xD8DEE9'
+    text: '0x2d2d2d'
+    cursor: '0xd3d0c8'
+
+  # Normal colors
   normal:
-    black: '0x3B4252'
-    red: '0xBF616A'
-    green: '0xA3BE8C'
-    yellow: '0xEBCB8B'
-    blue: '0x81A1C1'
-    magenta: '0xB48EAD'
-    cyan: '0x88C0D0'
-    white: '0xE5E9F0'
+    black:   '0x2d2d2d'
+    red:     '0xf2777a'
+    green:   '0x99cc99'
+    yellow:  '0xffcc66'
+    blue:    '0x6699cc'
+    magenta: '0xcc99cc'
+    cyan:    '0x66cccc'
+    white:   '0xd3d0c8'
+
+  # Bright colors
   bright:
-    black: '0x4C566A'
-    red: '0xBF616A'
-    green: '0xA3BE8C'
-    yellow: '0xEBCB8B'
-    blue: '0x81A1C1'
-    magenta: '0xB48EAD'
-    cyan: '0x8FBCBB'
-    white: '0xECEFF4'
+    black:   '0x747369'
+    red:     '0xf99157'
+    green:   '0x393939'
+    yellow:  '0x515151'
+    blue:    '0xa09f93'
+    magenta: '0xe8e6df'
+    cyan:    '0xd27b53'
+    white:   '0xf2f0ec'
+
+draw_bold_text_with_bright_colors: false
 
 background_opacity: 0.7
 
