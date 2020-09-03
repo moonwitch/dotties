@@ -22,15 +22,15 @@ ssh_loglevel=1
 ssh_parseconfig=true
 hide_toolbar=false
 small_toolbutton=false
-view_file_mode=0
+view_file_mode=1
 resolutions=640x480,800x600,1024x768,1152x864,1280x960,1400x1050
 keystrokes=Send hello world§hello world\\n
-main_width=934
-main_height=980
+main_width=1918
+main_height=1017
 main_maximize=false
 main_sort_column_id=1
 main_sort_order=0
-expanded_group=
+expanded_group=DR KCenter,Portima,Production KCenter
 toolbar_pin_down=false
 sshtunnel_port=4732
 ssh_tcp_keepidle=20
@@ -70,7 +70,7 @@ rdp_quality_9=80
 rdp_deviceScaleFactor=100
 rdp_desktopScaleFactor=100
 rdp_desktopOrientation=0
-recent_RDP=vsgewi051.fci.fortis,cyberark-psm-farm.onead.local
+recent_RDP=cyberark-psm-farm.onead.local,vsgewi051.fci.fortis
 
 [ssh_colors]
 background=rgb(213,204,186)
@@ -99,9 +99,9 @@ periodic_usage_stats_last_sent=0
 periodic_usage_stats_uuid_prefix=
 
 [remmina_news]
-periodic_news_permitted=true
-periodic_rmnews_last_get=1594198580
-periodic_rmnews_get_count=3
+periodic_news_permitted=false
+periodic_rmnews_last_get=0
+periodic_rmnews_get_count=1
 periodic_rmnews_uuid_prefix=O5Q5CII0NAB1FM
 
 [remmina]
