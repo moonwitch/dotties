@@ -16,3 +16,9 @@
 [submodule "themes/.themes/gruvbox-dark"]
 	path = themes/.themes/gruvbox-dark
 	url = https://github.com/jmattheis/gruvbox-dark-gtk
+[submodule "themes/.themes/FlatColor"]
+	path = themes/.themes/FlatColor
+	url = https://github.com/jasperro/FlatColor.git
+[submodule "settings/.zsh_custom/plugins/zsh-autosuggestions"]
+	path = settings/.zsh_custom/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git

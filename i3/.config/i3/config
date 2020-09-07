@@ -38,7 +38,7 @@ force_display_urgency_hint 500 ms
 # Font for Windows titles and bar, unless otherwise specified
 font pango:Hasklug Nerd Font Mono 12
 
-# .Xresources-based colorscheme
+# # .Xresources-based colorscheme
 set_from_resource $foreground i3wm.foreground
 set_from_resource $background i3wm.background
 set_from_resource $color0 i3wm.color0
@@ -77,7 +77,8 @@ bar
     }
 }
 
-# Basic color configuration using the Base16 variables for windows and borders.
+
+# Basic color configuration using the variables for windows and borders.
 # Property Name         Border        BG          Text        Indicator   Child Border
 client.focused          $color7       $color4    $foreground $color11    $color9
 client.focused_inactive $color0       $color8     $foreground $color8     $color0
