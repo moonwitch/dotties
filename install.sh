@@ -27,6 +27,7 @@ polkit-gnome \
 lm-sensors jq feh \
 xfce4-power-manager \
 alsa-utils shared-mime-info gdk-pixbuf2 \
+wpgtk-git \
 /
 
 echo "Installing themes and icons"

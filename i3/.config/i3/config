@@ -61,7 +61,8 @@ set_from_resource $color15 i3wm.color15
 bar
 {
     position top
-	status_command i3xrocks -c $HOME/.config/i3/blocks
+	status_command 2>/tmp/i3blocks.err i3xrocks -vvv -c $HOME/.config/i3/blocks | tee /tmp/i3blocks.out
+
     workspace_buttons      yes
     colors {
         background $background

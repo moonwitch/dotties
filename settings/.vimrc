@@ -24,7 +24,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline-themes'
   Plug 'tpope/vim-fugitive'
   Plug 'mattn/emmet-vim'
-  Plug 'Valloric/YouCompleteMe'
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
   "Plug 'wakatime/vim-wakatime'
   Plug 'scrooloose/vim-slumlord'          " Previewing PluntUML
 
@@ -38,12 +38,13 @@ call plug#begin('~/.vim/plugged')
   " Colorschemes
   Plug 'arcticicestudio/nord-vim'
   Plug 'chriskempson/base16-vim'
+  Plug 'morhetz/gruvbox'
 
   " Actual functionality
   Plug 'ryanoasis/vim-devicons'      " Icons for NerdTree
 call plug#end()
 
-colorscheme base16-eighties
+colorscheme gruvbox
 
 "----------------------------------------------
 " General settings
@@ -105,7 +106,7 @@ let g:airline#extensions#tabline#show_tabs = 1
 let g:airline_powerline_fonts = 1
 
 " theme for Airline
-"let g:airline_theme='base16_eighties'
+" let g:airline_theme='base16_eighties'
 
 " Explicitly define some symbols that did not work well for me in Linux.
 if !exists('g:airline_symbols')
