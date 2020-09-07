@@ -11,12 +11,12 @@ fi
 echo "Installing basic requirements"
 baph -inN base-devel git stow
 
-echo "Making my system look good"
+echo "Basic setup"
 baph -inN pamac-aur pamac-zsh-completions \
 nerd-fonts-fantasque-sans-mono nerd-fonts-fira-code \
 nerd-fonts-fira-mono ttf-comfortaa \
 python-pip numlockx evince neofetch \
-chromium \
+chromium vivaldi \
 synology-drive \
 rofi-calc \
 udiskie \
@@ -25,9 +25,8 @@ spotify spicetify-cli spicetify-themes-git \
 xorg-xwininfo \
 polkit-gnome \
 lm-sensors jq feh \
-xfce4-power-manager xfce4-settings \
-alsa-utils \
-shared-mime-info gdk-pixbuf2 \
+xfce4-power-manager \
+alsa-utils shared-mime-info gdk-pixbuf2 \
 /
 
 echo "Installing themes and icons"
@@ -45,7 +44,6 @@ sway-git wslroots-git \
 /
 
 # Photography
-#! /bin/bash
 baph -inN perl-image-exiftool exiv2 pyexiftool-gui-git
 
 # Ruby for life
@@ -58,7 +56,8 @@ bitwarden rbw \
 joplin \
 visual-studio-code-insiders \
 pdk \
-gvfs-smb \
+pcmanfm gvfs-smb \
+docker puppet-sdk
 /
 
 # Install e-id stuff; this is Belgian users only

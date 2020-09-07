@@ -1,6 +1,6 @@
 /*-*- mode: css; -*-*/
 
-@import "colorschemes/nord.rasi"
+@import "colorschemes/gruvbox.rasi"
 
 * {
   background-color: @background;
