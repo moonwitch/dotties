@@ -8,21 +8,26 @@ fi
 
 #baph --install --noview --noconfirm
 # First base requirements
+echo "Installing basic requirements"
 baph -inN base-devel git stow
 
+echo "Making my system look good"
 baph -inN pamac-aur pamac-zsh-completions \
-nerd-fonts-fantasque-sans-mono nerd-fonts-fira-code nerd-fonts-fira-mono nerd-fonts-jetbrains-mono \
-ttf-comfortaa \
-python-pip numlockx zathura neofetch \
-chromium caprine \
+nerd-fonts-fantasque-sans-mono nerd-fonts-fira-code \
+nerd-fonts-fira-mono ttf-comfortaa \
+python-pip numlockx evince neofetch \
+chromium \
 synology-drive \
 rofi-calc \
 udiskie \
-kakoune \
 playerctl \
 spotify spicetify-cli spicetify-themes-git \
 xorg-xwininfo \
 polkit-gnome \
+lm-sensors jq feh \
+xfce4-power-manager xfce4-settings \
+alsa-utils \
+shared-mime-info gdk-pixbuf2 \
 /
 
 echo "Installing themes and icons"
@@ -34,13 +39,9 @@ moka-icon-theme-git \
 /
 
 # i3 installs
-echo "Installing i3 requirements"
-baph -iNn i3-gaps i3blocks-git i3blocks-contrib-git \
-meson wlroots \
-wayland wayland-protocols pcre \
-json-c pango cairo gdk-pixbuf2 \
-scdoc \
-sway-hidpi-git \
+echo "Installing i3 and sway requirements"
+baph -iNn i3-gaps \
+sway-git wslroots-git \
 /
 
 # Photography
@@ -52,18 +53,13 @@ baph -inN ruby
 
 # Work installs
 baph -iNn networkmanager-openconnect \
-pidgin \
-mattermost-desktop-bin \
-bitwarden \
-rbw \
-firefox \
-vscodium-bin atom \
+pidgin mattermost-desktop-bin \
+bitwarden rbw \
+joplin \
+visual-studio-code-insiders \
 pdk \
 gvfs-smb \
 /
-
-apm install sync-settings
-code --install-extension settings-sync
 
 # Install e-id stuff; this is Belgian users only
 baph -inN ccid pcsclite eid-mw acsccid
@@ -72,7 +68,7 @@ sudo systemctl start pcscd.socket
 modutil -dbdir sql:.pki/nssdb/ -add "Belgium eID" -libfile /usr/lib/libbeidpkcs11.so
 
 # Install Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 brew install gcc
 
@@ -81,22 +77,26 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 mkdir $HOME/.zsh_custom
 curl -L https://raw.githubusercontent.com/dikiaap/dotfiles/master/.oh-my-zsh/themes/oxide.zsh-theme > $HOME/.zsh_custom/oxide.zsh-theme
 
+# Install oh-my-fish
+sh -c "$(curl -L https://get.oh-my.fish > install )"
+fish install --path=~/.local/share/omf --config=~/.config/omf
+omf install bobthefish  
+set -g theme_nerd_fonts yes
+
 # Requirements for Gmail script
 pip install --global --upgrade oauth2client google-api-python-client
 
 # HiDPI
 gsettings set org.gnome.desktop.interface scaling-factor 2
+gsettings set org.gnome.desktop.interface gtk-theme Pop
 
 # Install lightdm looker
 # systemctl enable betterlockscreen@$USER
-baph -inN lightdm-webkit-theme-aether
+# baph -inN lightdm-webkit-theme-aether
 
 # Fix Grub2
-sudo sh -c "echo "GRUB_GFXMODE=3840x2160x24,auto" >> /etc/default/grub"
-sudo grub-mkconfig -o /boot/grub/grub.cfg
-
-# Generate my ssh key for github/bitbucket
-# ssh-keygen -t rsa -b 4096 -C "kelly.crabbe@gmail.com"
+# sudo sh -c "echo "GRUB_GFXMODE=3840x2160x24,auto" >> /etc/default/grub"
+# sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # Services
 # systemctl --user start spotifyd.service
@@ -117,10 +117,10 @@ sudo sh -c 'echo "UUID=$(lsblk -no UUID /dev/sdb1) /mnt/storage $(lsblk -no FSTY
 #192.168.0.203:/volume/video 	/mnt/NAS/video 		nfs 	nouser,rsize=8192,wsize=8192,atime,auto,rw,dev,exec,suid 	0 0
 
 # pull it down
-mkdir -p ~/Projects/dotties && cd ~/Projects/dotties
-git clone https://github.com/moonwitch/dotties.git && rm -rf ~/Projects/dotties/.git
-git submodule init
-git submodele update
+# mkdir -p ~/Projects/dotties && cd ~/Projects/dotties
+# git clone https://github.com/moonwitch/dotties.git && rm -rf ~/Projects/dotties/.git
+# git submodule init
+# git submodele update
 
 # stow it
 stow -Rv settings themes

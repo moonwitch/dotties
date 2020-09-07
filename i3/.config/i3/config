@@ -9,12 +9,9 @@ exec --no-startup-id feh --no-fehbg --bg-fill $WALLPAPER
 exec --no-startup-id dunst
 exec --no-startup-id numlockx
 exec --no-startup-id picom -b
-#exec --no-startup-id redshift -l 51.1:4.29 -t 6300:4000
 exec --no-startup-id synology-drive
 exec --no-startup-id udiskie --smart-tray
-#exec --no-startup-id xfce4-clipman
 exec --no-startup-id clipit
-#exec --no-startup-id caffeine-indicator
 exec --no-startup-id code-insiders
 exec --no-startup-id chromium
 exec --no-startup-id spotify --force-device-scale-factor=1.5 %U
@@ -42,29 +39,29 @@ force_display_urgency_hint 500 ms
 font pango:Hasklug Nerd Font Mono 12
 
 # .Xresources-based colorscheme
-set_from_resource $foreground i3wm.foreground #D8DEE9
-set_from_resource $background i3wm.background #282828
-set_from_resource $color0 i3wm.color0 #3B4252
-set_from_resource $color1 i3wm.color1 #BF616A
-set_from_resource $color2 i3wm.color2 #A3BE8C
-set_from_resource $color3 i3wm.color3 #EBCB8B
-set_from_resource $color4 i3wm.color4 #5E81AC
-set_from_resource $color5 i3wm.color5 #B48EAD
-set_from_resource $color6 i3wm.color6 #88C0D0
-set_from_resource $color7 i3wm.color7 #E5E9F0
-set_from_resource $color8 i3wm.color8 #4C566A
-set_from_resource $color9 i3wm.color9 #D08770
-set_from_resource $color10 i3wm.color10 #A3BE8C
-set_from_resource $color11 i3wm.color11 #EBCB8B
-set_from_resource $color12 i3wm.color12 #81A1C1
-set_from_resource $color13 i3wm.color13 #B48EAD
-set_from_resource $color14 i3wm.color14 #8FBCBB
-set_from_resource $color15 i3wm.color15 #ECEFF4
+set_from_resource $foreground i3wm.foreground
+set_from_resource $background i3wm.background
+set_from_resource $color0 i3wm.color0
+set_from_resource $color1 i3wm.color1
+set_from_resource $color2 i3wm.color2
+set_from_resource $color3 i3wm.color3
+set_from_resource $color4 i3wm.color4
+set_from_resource $color5 i3wm.color5
+set_from_resource $color6 i3wm.color6
+set_from_resource $color7 i3wm.color7
+set_from_resource $color8 i3wm.color8
+set_from_resource $color9 i3wm.color9
+set_from_resource $color10 i3wm.color10
+set_from_resource $color11 i3wm.color11
+set_from_resource $color12 i3wm.color12
+set_from_resource $color13 i3wm.color13
+set_from_resource $color14 i3wm.color14
+set_from_resource $color15 i3wm.color15
 
 bar
 {
     position top
-	status_command i3xrocks -c $HOME/.config/i3blocks/config
+	status_command i3xrocks -c $HOME/.config/i3/blocks
     workspace_buttons      yes
     colors {
         background $background
@@ -100,13 +97,9 @@ set $alt Mod1
 floating_modifier $super
 
 # Use pactl to adjust volume in PulseAudio.
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 2%+ && pkill -RTMIN+9 i3blocks
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 2%- && pkill -RTMIN+9 i3blocks
-bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse sset Master toggle && pkill -RTMIN+9 i3blocks
-
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+9 i3blocks
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+9 i3blocks
-# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+9 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+9 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+9 i3blocks
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+9 i3blocks
 
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioPause exec --no-startup-id playerctl play-pause
@@ -122,7 +115,6 @@ bindsym $alt+Print exec "i3-shotter -f"
 bindsym $super+Return exec $TERMINAL
 bindsym $super+Shift+Return exec $TERMINAL -e vifm
 bindsym $super+Shift+w exec $BROWSER
-bindsym $super+Control+w exec /usr/bin/firefox
 bindsym $super+Shift+e exec $FILEMAN
 
 # start rofi

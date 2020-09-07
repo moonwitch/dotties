@@ -6,7 +6,7 @@
 ! Author: Kelly Crabbé
 
 Xft.dpi:        163
-!Xcursor.size:   48
+!Xcursor.size:   32
 !Xcursor.theme:  Adwaita
 
 ! xdpyinfo | grep -B2 resolution

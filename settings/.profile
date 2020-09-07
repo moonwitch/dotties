@@ -4,7 +4,7 @@
 # Exporting Base Variables
 ##################################################################
 export XDG_CONFIG_HOME="$HOME/.config"
-export WALLPAPER=$HOME/.wallpapers/dracula-arch.png
+export WALLPAPER=$HOME/.wallpapers/grootify.jpg
 #Colors
 xrdb ~/.Xresources
 
@@ -23,11 +23,6 @@ export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="~/.emacs.d/bin:$PATH"
 
 # Ensuring SSH works
-# if [ -f /usr/lib/xfce-polkit/xfce-polkit ]; then
-#   killall xfce-polkit
-#   /usr/lib/xfce-polkit/xfce-polkit &
-# fi
-
 if [ -f /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 ]; then
   killall polkit-gnome-authentication-agent-1
   /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
@@ -40,11 +35,6 @@ setxkbmap us -variant altgr-intl
 
 # Power management
 xset dpms 300 600 900
-#xidlehook \
-#  --not-when-audio \
-#  --not-when-fullscreen \
-#  --timer 300 "betterlockscreen -l dim" "" \
-#  --timer 1800 "systemctl suspend" "" &
 xfce4-power-manager &
 
 # Homebrew
@@ -64,7 +54,7 @@ export QT_FONT_DPI=96 vym
 # Qt 5.14 uses this.
 export QT_ENABLE_HIGHDPI_SCALING=1
 
-# HiDPI in GTK -
+# HiDPI in GTK
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
 export XCURSOR_SIZE=32
@@ -80,8 +70,9 @@ export XCURSOR_SIZE=32
 # Default Applications
 ##################################################################
 export PDFVIEWER=/usr/bin/zathura
-export FILEMAN=/usr/bin/thunar
+export FILEMAN=/usr/bin/nemo
 export TERMINAL=/usr/bin/alacritty
 # fix "xdg-open fork-bomb" export your preferred browser from here
 export BROWSER=/usr/bin/chromium
+export EDITOR=/usr/bin/code-insiders
 

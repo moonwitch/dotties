@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Version=1.0
-Encoding=UTF-8
-TryExec=/home/kelly/bin/copy-to-new-folder.sh
-Exec=/home/kelly/bin/copy-to-new-folder.sh %F
-Icon=/usr/share/icons/elementary-xfce/actions/48/folder-move.png
-Name=New Folder

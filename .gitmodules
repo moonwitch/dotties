@@ -13,3 +13,6 @@
 [submodule "settings/bin/gmail"]
 	path = settings/bin/gmail
 	url = https://github.com/vyachkonovalov/polybar-gmail
+[submodule "themes/.themes/gruvbox-dark"]
+	path = themes/.themes/gruvbox-dark
+	url = https://github.com/jmattheis/gruvbox-dark-gtk

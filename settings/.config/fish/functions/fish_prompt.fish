@@ -1,0 +1,1 @@
+/home/kelly/.local/share/omf/themes/pygmalion/fish_prompt.fish

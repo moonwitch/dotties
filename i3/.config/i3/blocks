@@ -1,0 +1,78 @@
+# For the benefit of emacs users: -*- shell-script -*-
+
+align=right
+separator=false
+separator_block_width=50
+markup=pango
+command=/usr/lib/i3blocks/$BLOCK_NAME/$BLOCK_NAME
+
+color=xresource:i3xrocks.background
+label_color=xresource:i3xrocks.color1
+
+# [mediaplayer]
+# min_width=1000
+# align=center
+# interval=5
+# signal=10
+# instance=spotify
+# label=<span color="#A3BE8C"> </span>
+
+[nm-vpn]
+init_color=xresource:i3xrocks.color3
+on_color=xresource:i3xrocks.color2
+label= 
+interval=5
+
+[pomodoro]
+command=/home/$USER/bin/i3-pomodoro
+interval=1
+label=祥 
+color=xresource:i3xrocks.color3
+
+# [weather]
+# command=weather
+# interval=360
+# color=xresource:i3xrocks.color4
+
+[weather]
+command=echo " `curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo`"
+interval=60
+color=xresource:i3xrocks.color4
+
+[volume-pulseaudio]
+command=/home/$USER/bin/i3-volume-pulseaudio
+interval=once
+signal=9
+USE_ALSA_NAME=1
+MUTED_COLOR=xresource:i3xrocks.color1
+DEFAULT_COLOR=xresource:i3xrocks.foreground
+
+[memory]
+command=echo "`free -h --si | awk 'FNR==2{ print $0 }' | awk '{ print $7 }'`"; [[ -z "${BLOCK_BUTTON}" ]] || $TERMINAL -e bashtop &
+interval=2
+label= 
+color=xresource:i3xrocks.color6
+
+[temperature]
+label= 
+color=xresource:i3xrocks.color9
+interval=10
+T_WARN=70
+T_CRIT=90
+SENSOR_CHIP=coretemp-isa-0000
+
+[time]
+label= 
+color=xresource:i3xrocks.color5
+command=echo "`date +'%a %d %b'` <b>`date +'%H:%M'`</b> "; [[ -z "${BLOCK_BUTTON}" ]] || gsimplecal &
+interval=1
+separator_block_width=0
+
+[dunst]
+interval=once
+format=json
+#min_width=50
+#align=center
+#dunst_mute=off
+
+# vim: syntax=dosini
