@@ -21,4 +21,4 @@ settings/.config/zettlr/*
 settings/.config/bashtop/error.log
 
 # Exclude shada
-settings/.local/share/nvim/shada
+settings/.local/share/nvim/shada/*
