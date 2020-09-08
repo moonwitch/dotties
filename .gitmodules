@@ -22,3 +22,6 @@
 [submodule "settings/.zsh_custom/plugins/zsh-autosuggestions"]
 	path = settings/.zsh_custom/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule "themes/.themes/arc-flatabulous"]
+	path = themes/.themes/arc-flatabulous
+	url = https://github.com/andreisergiu98/arc-flatabulous-theme
