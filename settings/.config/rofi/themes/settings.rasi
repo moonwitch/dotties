@@ -10,7 +10,7 @@
   /* General */
   text-font:                            "Comfortaa Bold 14";
   text-font-mono:                       "Hasklug Nerd Font 14";
-  icon-font:                            "Hurmit Nerd Font Mono 60";
+  icon-font:                            "Hurmit Nerd Font Mono 42";
   icon-font-small:                      "Hurmit Nerd Font Mono 24";
   inputbar-margin:                      4px 4px;
   prompt-padding:                       16px 20px;

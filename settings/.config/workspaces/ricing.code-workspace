@@ -1,10 +1,8 @@
 {
 	"folders": [
 		{
-			"path": ".."
-		},
-		{
-			"path": "../../bin"
+			"path": "../../dotties"
 		}
-	]
+	],
+	"settings": {}
 }

@@ -7,7 +7,7 @@ lock=" Lock"
 suspend="鈴 Suspend"
 power_off=" Shut down"
 reboot=" Reboot"
-log_out=" Exit"
+log_out=" Exit"
 # Variable passed to rofi
 options="$lock\n$suspend\n$power_off\n$reboot\n$log_out"
 
