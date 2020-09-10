@@ -23,5 +23,5 @@ settings/.config/bashtop/error.log
 # Exclude shada
 settings/.local/share/nvim/shada/*
 
-# Exclude Contrib in bin
-settings/bin/i3blocks-contrib/*
+# Exclude spicetify
+settings/.config/spicetify/Extracted/*
