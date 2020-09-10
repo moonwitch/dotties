@@ -48,6 +48,7 @@
 	unstage = reset HEAD --
 	last = log -1 HEAD
   update-submodules = submodule update --remote --merge
+	pushd = push -u origin HEAD
 
 [pull]
 	rebase = false

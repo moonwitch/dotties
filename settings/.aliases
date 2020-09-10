@@ -1,6 +1,11 @@
 # clear window
 alias c='clear'
 
+# trick to pass aliases with sudo/doas
+# https://wiki.archlinux.org/index.php/Sudo#Passing_aliases
+alias sudo='sudo '
+alias doas='doas '
+
 # reload / source .zshrc
 alias reload='source ~/.zshrc'
 

@@ -11,11 +11,12 @@ exec --no-startup-id numlockx
 exec --no-startup-id picom -b
 exec --no-startup-id synology-drive
 exec --no-startup-id udiskie --smart-tray
-exec --no-startup-id clipit
+#exec --no-startup-id clipit
 exec --no-startup-id code-insiders
 exec --no-startup-id chromium
 exec --no-startup-id spotify --force-device-scale-factor=1.5 %U
 #exec_always --no-startup-id polybar topbar -r
+exec --no-startup-id $TERM -t scratchterm -d 0 0     
 
 ######################
 # Looks setup
@@ -58,9 +59,8 @@ set_from_resource $color13 i3wm.color13
 set_from_resource $color14 i3wm.color14
 set_from_resource $color15 i3wm.color15
 
-bar
-{
-    position top
+bar {
+  position top
 	status_command 2>/tmp/i3blocks.err i3xrocks -vvv -c $HOME/.config/i3/blocks | tee /tmp/i3blocks.out
 
     workspace_buttons      yes
@@ -176,7 +176,7 @@ set $ws3 " 3  "
 set $ws4 " 4  "
 set $ws5 " 5  "
 set $ws6 " 6  "
-set $ws7 " 7 華 "
+set $ws7 " 7 華"
 set $ws8 " 8  "
 set $ws9 " 9  "
 

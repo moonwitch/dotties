@@ -53,6 +53,5 @@ URxvt.tabbed.tab-bg:    0
 
 
 !! XTerm
-xterm*font:     xft:Hasklug Nerd Font Mono:style=Regular:size=12, \
-                xft:Monospace:style=Medium:size=12 
+xterm*font:     xft:Hasklug Nerd Font Mono:style=Regular:size=12
 

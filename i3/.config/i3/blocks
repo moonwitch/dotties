@@ -4,8 +4,7 @@ align=right
 separator=false
 separator_block_width=50
 markup=pango
-command=/usr/lib/i3blocks/$BLOCK_NAME/$BLOCK_NAME
-
+command=/home/$USER/bin/i3-scripts/$BLOCK_NAME
 color=xresource:i3xrocks.background
 label_color=xresource:i3xrocks.color1
 
@@ -18,13 +17,13 @@ label_color=xresource:i3xrocks.color1
 # label=<span color="#A3BE8C"> </span>
 
 [nm-vpn]
+command=/home/$USER/bin/$BLOCK_NAME
 init_color=xresource:i3xrocks.color3
 on_color=xresource:i3xrocks.color2
 label= 
 interval=5
 
 [pomodoro]
-command=/home/$USER/bin/i3-pomodoro
 interval=1
 label=祥 
 color=xresource:i3xrocks.color3
@@ -40,7 +39,6 @@ interval=60
 color=xresource:i3xrocks.color4
 
 [volume-pulseaudio]
-command=/home/$USER/bin/i3-volume-pulseaudio
 interval=once
 signal=9
 USE_ALSA_NAME=1
@@ -48,7 +46,7 @@ MUTED_COLOR=xresource:i3xrocks.color1
 DEFAULT_COLOR=xresource:i3xrocks.foreground
 
 [memory]
-command=echo "`free -h --si | awk 'FNR==2{ print $0 }' | awk '{ print $7 }'`"; [[ -z "${BLOCK_BUTTON}" ]] || $TERMINAL -e bashtop &
+command=echo "`free -h --si | awk 'FNR==2{ print $0 }' | awk '{ print $7 }'`"; [[ -z "${BLOCK_BUTTON}" ]] || $TERMINAL -e htop &
 interval=2
 label= 
 color=xresource:i3xrocks.color6
