@@ -4,7 +4,8 @@
 # Exporting Base Variables
 ##################################################################
 export XDG_CONFIG_HOME="$HOME/.config"
-export WALLPAPER=$HOME/.wallpapers/grootify.jpg
+export WALLPAPER=$HOME/.wallpapers/coffee-gruvbox.png
+
 #Colors
 xrdb ~/.Xresources
 
@@ -19,8 +20,6 @@ export GEM_PATH=$(ruby -e 'puts Gem.user_dir')
 export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 # Rust
 export PATH="$PATH:$HOME/.cargo/bin"
-# Emacs
-export PATH="~/.emacs.d/bin:$PATH"
 
 # Ensuring SSH works
 if [ -f /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 ]; then
@@ -69,7 +68,7 @@ export XCURSOR_SIZE=32
 ##################################################################
 # Default Applications
 ##################################################################
-export PDFVIEWER=/usr/bin/zathura
+export PDFVIEWER=/usr/bin/evince
 export FILEMAN=/usr/bin/nemo
 export TERMINAL=/usr/bin/alacritty
 # fix "xdg-open fork-bomb" export your preferred browser from here

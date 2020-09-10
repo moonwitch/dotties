@@ -25,15 +25,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'mattn/emmet-vim'
   Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-  "Plug 'wakatime/vim-wakatime'
-  Plug 'scrooloose/vim-slumlord'          " Previewing PluntUML
-
-  " Syntax highlighting
-  Plug 'aklt/plantuml-syntax'                    " PlantUML syntax highlighting
-  Plug 'chr4/nginx.vim'                          " nginx syntax highlighting
-  Plug 'fishbullet/deoplete-ruby'                " Ruby auto completion
-  Plug 'plasticboy/vim-markdown'                 " Markdown syntax highlighting
-  Plug 'rodjek/vim-puppet'                       " Puppet syntax highlighting
+  Plug 'scrooloose/vim-slumlord'          " Previewing PlantUML
+  Plug 'frazrepo/vim-rainbow'
+  let g:rainbow_active = 1
+  
+  " Syntax highlighting all over man
+  Plug 'sheerun/vim-polyglot'
 
   " Colorschemes
   Plug 'arcticicestudio/nord-vim'
@@ -81,13 +78,23 @@ if has('mouse')
     set mouse=a
 endif
 
+" Automatically save the file notes when idle
+autocmd CursorHold .notes :write
+
 "----------------------------------------------
-" Navigation
+" Remaps
 "----------------------------------------------
 nnoremap <C-y> "+y
 vnoremap <C-y> "+y
 nnoremap <C-p> "+gP
 vnoremap <C-p> "+gP
+
+" Ctrl-C for yanking to register, Ctrl+P to paste from clipboard
+vnoremap <C-c> "*y :let @+=@*<CR>
+map <C-p> "+P
+
+" Use comma as leader
+let g:mapleader = ','
 
 "----------------------------------------------
 " Plugin: bling/vim-airline
@@ -135,7 +142,7 @@ let g:multi_cursor_skip_key='<C-b>'
 "----------------------------------------------
 " Uncomment to autostart the NERDTree
 " autocmd vimenter * NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <F7> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '►'
 let g:NERDTreeDirArrowCollapsible = '▼'
 let NERDTreeShowLineNumbers=1
@@ -147,5 +154,6 @@ let g:NERDTreeWinSize=38
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
 
 
