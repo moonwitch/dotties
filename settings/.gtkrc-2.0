@@ -2,8 +2,8 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/kelly/.gtkrc-2.0.mine"
-gtk-theme-name="Arc-Gruvbox"
-gtk-icon-theme-name="Oranchelo-Classic-Folders"
+gtk-theme-name="Crux"
+gtk-icon-theme-name="ArchLabs"
 gtk-font-name="Sans 10"
 gtk-cursor-theme-name="Adwaita"
 gtk-cursor-theme-size=32

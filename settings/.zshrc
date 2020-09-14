@@ -9,11 +9,12 @@ export ZHOME="$HOME"
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM="$HOME/.zsh_custom"
 
-#ZSH_THEME="bullet-train"
-ZSH_THEME="powerlevel10k/powerlevel10k"
-#ZSH_THEME='pygmalion'
-
+## Settings for plugins and themes
 BULLETTRAIN_PROMPT_ORDER=(git context dir time)
+
+#ZSH_THEME="bullet-train"
+#ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME='pygmalion'
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 DISABLE_MAGIC_FUNCTIONS=true
@@ -24,10 +25,7 @@ COMPLETION_WAITING_DOTS="true"
 ##
 # Completion
 ##
-autoload -U compinit
-compinit
-zmodload -i zsh/complist        
-setopt hash_list_all            # hash everything before completion
+autoload -U compinit && compinit
 setopt completealiases          # complete alisases
 setopt always_to_end            # when completing from the middle of a word, move the cursor to the end of the word    
 setopt complete_in_word         # allow completion from within a word/phrase
