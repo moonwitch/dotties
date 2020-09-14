@@ -39,6 +39,7 @@ call plug#begin('~/.vim/plugged')
 
   " Actual functionality
   Plug 'ryanoasis/vim-devicons'      " Icons for NerdTree
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 call plug#end()
 
 colorscheme gruvbox

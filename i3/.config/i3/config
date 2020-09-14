@@ -16,7 +16,7 @@ exec --no-startup-id code-insiders
 exec --no-startup-id chromium
 exec --no-startup-id spotify --force-device-scale-factor=1.5 %U
 #exec_always --no-startup-id polybar topbar -r
-exec --no-startup-id $TERM -t scratchterm -d 0 0     
+#exec --no-startup-id $TERM -t scratchterm -d 0 0     
 
 ######################
 # Looks setup

@@ -1,7 +1,7 @@
 # For the benefit of emacs users: -*- shell-script -*-
 
 align=right
-separator=false
+separator=true
 separator_block_width=50
 markup=pango
 command=/home/$USER/bin/i3-scripts/$BLOCK_NAME
@@ -17,7 +17,6 @@ label_color=xresource:i3xrocks.color1
 # label=<span color="#A3BE8C"> </span>
 
 [nm-vpn]
-command=/home/$USER/bin/$BLOCK_NAME
 init_color=xresource:i3xrocks.color3
 on_color=xresource:i3xrocks.color2
 label= 

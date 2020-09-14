@@ -36,9 +36,6 @@ setxkbmap us -variant altgr-intl
 xset dpms 300 600 900
 xfce4-power-manager &
 
-# Homebrew
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-
 ##################################################################
 # HiDPI
 ##################################################################

@@ -9,6 +9,9 @@ alias doas='doas '
 # reload / source .zshrc
 alias reload='source ~/.zshrc'
 
+# Ssh requires color
+alias ssh='ssh -t '
+
 # Editors
 alias v='nvim'
 alias vi='nvim'
