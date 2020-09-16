@@ -14,14 +14,12 @@ endif
 "Plugins
 call plug#begin('~/.vim/plugged')
   " Dependencies
-  Plug 'Shougo/neocomplcache'        " Depenency for Shougo/neosnippet
   Plug 'godlygeek/tabular'           " This must come before plasticboy/vim-markdown
 
   " General plugins
   Plug 'scrooloose/nerdtree'
-  Plug 'terryma/vim-multiple-cursors'
-  Plug 'bling/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
+  Plug 'itchyny/lightline.vim'
+  Plug 'mg979/vim-visual-multi', {'branch': 'master'}  
   Plug 'tpope/vim-fugitive'
   Plug 'mattn/emmet-vim'
   Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
@@ -43,6 +41,9 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 colorscheme gruvbox
+" Enable italics, Make sure this is immediately after colorscheme
+" https://stackoverflow.com/questions/3494434/vimrc-make-comments-italic
+highlight Comment cterm=italic gui=italic
 
 "----------------------------------------------
 " General settings
@@ -60,7 +61,9 @@ set ignorecase              " case insensitive matching
 set mouse=v                 " middle-click paste with mouse
 set hlsearch                " highlight search results
 set number                  " add line numbers
+set noshowmode              " hide -- MODE --
 set wildmode=longest,list   " get bash-like tab completions
+set termguicolors           " Enable true colors if available
 syntax on                   " syntax highlighting
 filetype plugin on
 
@@ -98,33 +101,29 @@ map <C-p> "+P
 let g:mapleader = ','
 
 "----------------------------------------------
-" Plugin: bling/vim-airline
+" Plugin: lightline
 "----------------------------------------------
-" Show status bar by default.
 set laststatus=2
 
-" Enable top tabline.
-let g:airline#extensions#tabline#enabled = 1
-
-" Disable showing tabs in the tabline. This will ensure that the buffers are
-" what is shown in the tabline at all times.
-let g:airline#extensions#tabline#show_tabs = 1
-
-" Enable powerline fonts.
-let g:airline_powerline_fonts = 1
-
-" theme for Airline
-" let g:airline_theme='base16_eighties'
-
-" Explicitly define some symbols that did not work well for me in Linux.
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
+if !has('gui_running')
+  set t_Co=256
 endif
-let g:airline_symbols.branch = ''
-let g:airline_symbols.maxlinenr = ''
+
+let g:lightline = {
+      \ 'colorscheme': 'seoul256',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+
+
 
 "----------------------------------------------
-" Plugin: plasticboy/vim-markdown
+" Plugin: vim-markdown
 "----------------------------------------------
 " Disable folding
 let g:vim_markdown_folding_disabled = 1
@@ -133,7 +132,7 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_toc_autofit = 1
 
 "----------------------------------------------
-" Plugin: 'terryma/vim-multiple-cursors'
+" Plugin: vim-multiple-cursors
 "----------------------------------------------
 let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_skip_key='<C-b>'

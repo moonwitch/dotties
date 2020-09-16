@@ -3,7 +3,7 @@
 #
 # simple screenshot-script using maim.
 
-_conf=$HOME/.config/i3/i3-shotter.conf
+_conf=$HOME/bin/i3-shotter.conf
 
 if ! [ -f $_conf ]; then
 	echo "shotter_dir=$(xdg-user-dir PICTURES)/screenshots" > $_conf

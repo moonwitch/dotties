@@ -1,15 +1,4 @@
-# Configuration for Alacritty, the GPU enhanced terminal emulator.
-
-# Any items in the `env` entry below will be added as
-# environment variables. Some entries may override variables
-# set by alacritty itself.
 env:
-  # TERM variable
-  #
-  # This value is used to set the `$TERM` environment variable for
-  # each instance of Alacritty. If it is not present, alacritty will
-  # check the local terminfo database and use `alacritty` if it is
-  # available, otherwise `xterm-256color` is used.
   TERM: xterm-256color
 
 window:
@@ -21,39 +10,95 @@ window:
 
 font:
   normal:
-    family: Hasklug Nerd Font Mono
+    family: monospace
     style: Regular
 
-# Colors (Gruvbox dark)
-colors:
-  # Default colors
-  primary:
-    # hard contrast: background = '#1d2021'
-    background: '#282828'
-    # soft contrast: background = '#32302f'
-    foreground: '#ebdbb2'
+  bold:
+    family: monospace
+    style: Bold
 
-  # Normal colors
-  normal:
-    black:   '#282828'
-    red:     '#cc241d'
-    green:   '#98971a'
-    yellow:  '#d79921'
-    blue:    '#458588'
-    magenta: '#b16286'
-    cyan:    '#689d6a'
-    white:   '#a89984'
+  italic:
+    family: monospace
+    style: Italic
 
-  # Bright colors
-  bright:
-    black:   '#928374'
-    red:     '#fb4934'
-    green:   '#b8bb26'
-    yellow:  '#fabd2f'
-    blue:    '#83a598'
-    magenta: '#d3869b'
-    cyan:    '#8ec07c'
-    white:   '#ebdbb2'
+  bold_italic:
+    family: monospace
+    style: Bold Italic
+
+  size: 11
+
+# Schemes 
+schemes:
+  gruvbox: &gruvbox
+    primary:
+      background: '#282828'
+      foreground: '#ebdbb2'
+    normal:
+      black:   '#282828'
+      red:     '#cc241d'
+      green:   '#98971a'
+      yellow:  '#d79921'
+      blue:    '#458588'
+      magenta: '#b16286'
+      cyan:    '#689d6a'
+      white:   '#a89984'
+    bright:
+      black:   '#928374'
+      red:     '#fb4934'
+      green:   '#b8bb26'
+      yellow:  '#fabd2f'
+      blue:    '#83a598'
+      magenta: '#d3869b'
+      cyan:    '#8ec07c'
+      white:   '#ebdbb2'
+
+  monokai: &monokai
+    primary:
+      background: '#2D2A2E'
+      foreground: '#FCFCFA'
+    normal:
+      black:   '#403E41'
+      red:     '#FF6188'
+      green:   '#A9DC76'
+      yellow:  '#FFD866'
+      blue:    '#FC9867'
+      magenta: '#AB9DF2'
+      cyan:    '#78DCE8'
+      white:   '#FCFCFA'
+    bright:
+      black:   '#727072'
+      red:     '#FF6188'
+      green:   '#A9DC76'
+      yellow:  '#FFD866'
+      blue:    '#FC9867'
+      magenta: '#AB9DF2'
+      cyan:    '#78DCE8'
+      white:   '#FCFCFA'
+
+  seoul256: &seoul
+    primary:
+      background: '#3a3a3a'
+      foreground: '#d0d0d0'
+    normal:
+      black:   '#4e4e4e'
+      red:     '#d68787'
+      green:   '#5f865f'
+      yellow:  '#d8af5f'
+      blue:    '#85add4'
+      magenta: '#d7afaf'
+      cyan:    '#87afaf'
+      white:   '#d0d0d0'
+    bright:
+      black:   '#626262'
+      red:     '#d75f87'
+      green:   '#87af87'
+      yellow:  '#ffd787'
+      blue:    '#add4fb'
+      magenta: '#ffafaf'
+      cyan:    '#87d7d7'
+      white:   '#e4e4e4'
+
+colors: *gruvbox
 
 background_opacity: 0.9
 

@@ -18,13 +18,13 @@
 	url = https://github.com/jmattheis/gruvbox-dark-gtk
 [submodule "themes/.themes/FlatColor"]
 	path = themes/.themes/FlatColor
-	url = https://github.com/jasperro/FlatColor.git
+	url = https://github.com/moonwitch/FlatColor.git
 [submodule "settings/.zsh_custom/plugins/zsh-autosuggestions"]
 	path = settings/.zsh_custom/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule "themes/.themes/arc-flatabulous"]
-	path = themes/.themes/arc-flatabulous
-	url = https://github.com/andreisergiu98/arc-flatabulous-theme
+[submodule "themes/.themes/FlatGruvyArc"]
+	path = themes/.themes/FlatGruvyArc
+	url = https://github.com/moonwitch/FlatGruvyArc-theme
 [submodule "settings/.zsh_custom/themes/powerlevel10k"]
 	path = settings/.zsh_custom/themes/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k

@@ -39,17 +39,24 @@ xfce4-power-manager &
 ##################################################################
 # HiDPI
 ##################################################################
-xrandr --dpi 163
-xrandr --dpi 163
+# xrandr --dpi 192
+# export GDK_SCALE=2
+# export GDK_DPI_SCALE=0.5
+# export QT_AUTO_SCREEN_SET_FACTOR=0
+# export QT_SCALE_FACTOR=2
+# export QT_FONT_DPI=96
+# xrandr --output DP-3 --scale '1.14x1.14'
 
-# Export variables
+xrandr --dpi 163
+xrandr --dpi 163
 # HiDPI in QT4 and QT5
-export QT_AUTO_SCREEN_SCALE_FACTOR=0
-export QT_SCALE_FACTOR=2
-export QT_FONT_DPI=96 vym
+export QT_AUTO_SCREEN_SCALE_FACTOR=0 #Has to be disabled, since my screen isn't 192 DPI
+export QT_SCREEN_SCALE_FACTORS=1.25
+# export QT_SCALE_FACTOR=2
+# export QT_FONT_DPI=96 vym
+export QT_FONT_DPI=163
 # Qt 5.14 uses this.
-export QT_ENABLE_HIGHDPI_SCALING=1
-
+export QT_ENABLE_HIGHDPI_SCALING=0
 # HiDPI in GTK
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5

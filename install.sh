@@ -16,12 +16,11 @@ baph -inN pamac-aur pamac-zsh-completions \
 nerd-fonts-fantasque-sans-mono nerd-fonts-fira-code \
 nerd-fonts-fira-mono ttf-comfortaa \
 python-pip numlockx evince neofetch \
-chromium vivaldi \
+chromium \
 synology-drive \
 rofi-calc \
 udiskie \
-playerctl \
-spotify spicetify-cli spicetify-themes-git \
+playerctl spotify spicetify-cli spicetify-themes-git \
 xorg-xwininfo \
 polkit-gnome \
 lm-sensors jq feh \
@@ -34,7 +33,6 @@ echo "Installing themes and icons"
 baph -inN zafiro-icon-theme-git \
 boston-icon-theme-git \
 arc-icon-theme-git \
-oranchelo-icon-theme-git \
 moka-icon-theme-git \
 /
 
@@ -56,9 +54,7 @@ pidgin mattermost-desktop-bin \
 bitwarden rbw \
 joplin \
 visual-studio-code-insiders \
-pdk \
-pcmanfm gvfs-smb \
-docker puppet-sdk
+pdk docker \
 /
 
 # Install e-id stuff; this is Belgian users only
