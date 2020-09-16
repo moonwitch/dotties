@@ -7,15 +7,6 @@
 [submodule "themes/.themes/Juno"]
 	path = themes/.themes/Juno
 	url = https://github.com/EliverLara/Juno
-[submodule "settings/bin/spotify"]
-	path = settings/bin/spotify
-	url = https://github.com/dietervanhoof/polybar-spotify-controls
-[submodule "settings/bin/gmail"]
-	path = settings/bin/gmail
-	url = https://github.com/vyachkonovalov/polybar-gmail
-[submodule "themes/.themes/gruvbox-dark"]
-	path = themes/.themes/gruvbox-dark
-	url = https://github.com/jmattheis/gruvbox-dark-gtk
 [submodule "themes/.themes/FlatColor"]
 	path = themes/.themes/FlatColor
 	url = https://github.com/moonwitch/FlatColor.git
