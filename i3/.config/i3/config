@@ -11,8 +11,8 @@ exec --no-startup-id numlockx
 exec --no-startup-id picom -b
 exec --no-startup-id synology-drive
 exec --no-startup-id udiskie --smart-tray
-exec --no-startup-id copyq
-exec --no-startup-id flameshot
+#exec --no-startup-id copyq
+#exec --no-startup-id flameshot
 exec --no-startup-id code-insiders
 exec --no-startup-id chromium
 #exec_always --no-startup-id polybar topbar -r

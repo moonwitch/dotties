@@ -4,24 +4,34 @@
 
 themes/.icons/default
 
-# Exclude Typora themes
+# Exclude Typora, but include themes and config
 settings/.config/Typora/*
 !settings/.config/Typora/themes/*
+!settings/.config/Typora/conf/*
+!settings/.config/Typora/Preferences
 
 # Exclude Mattermost except config
 settings/.config/Mattermost/*
 !settings/.config/Mattermost/config.json
+!settings/.config/Mattermost/Preferences
+
 
 # Exclude zettlr
 settings/.config/zettlr/*
 !settings/.config/zettlr/custom.css
 !settings/.config/zettlr/config.json
 
-# Exclude bashtop
-settings/.config/bashtop/error.log
-
-# Exclude shada
-settings/.local/share/nvim/shada/*
+# Exclude Joplin except 
+settings/.config/Joplin/*
+!settings/.config/Joplin/Preferences
+!settings/.config/Joplin/window-state-prod.json
+settings/.config/joplin-desktop/*
+!settings/.config/joplin-desktop/templates/*
+!settings/.config/joplin-desktop/user*
+
+# Exclude nvim plugs; will install on request 
+settings/.local/share/nvim/*
 
 # Exclude spicetify
-settings/.config/spicetify/Extracted/*
+settings/.config/spicetify/*
+!settings/.config/spicetify/config.ini

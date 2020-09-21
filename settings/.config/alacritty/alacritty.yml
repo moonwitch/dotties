@@ -10,19 +10,19 @@ window:
 
 font:
   normal:
-    family: monospace
+    family: Cascadia Mono PL
     style: Regular
 
   bold:
-    family: monospace
+    family: Cascadia Mono PL
     style: Bold
 
   italic:
-    family: monospace
+    family: Cascadia Mono PL
     style: Italic
 
   bold_italic:
-    family: monospace
+    family: Cascadia Mono PL
     style: Bold Italic
 
   size: 11
