@@ -1,13 +1,17 @@
 file:///home/kelly/Documents Documents
 file:///home/kelly/Downloads Downloads
 file:///home/kelly/Pictures Pictures
-file:///home/kelly/Videos Videos
 file:///home/kelly/Projects Projects
 file:///home/kelly/dotties dotties
 file:///home/kelly/.config .config
 file:///home/kelly/.config/workspaces workspaces
-file:///mnt/work/buo
-file:///mnt/work/home
-file:///mnt/work/portimaprod
-file:///mnt/work/portimaqual
-file:///mnt/work/raets
+file:///mnt/NAS/photos RAW
+file:///mnt/NAS/video Media
+file:///mnt/work/buo buo
+file:///mnt/work/home home
+smb://fci.fortis;700320@rm-hq-fp2.raetsmarine.local/data/ Raets
+smb://fci.fortis;700320@sfprfci001.fci.fortis/portimaqual/ PortimaQual
+smb://fci.fortis;700320@sfprfci001.fci.fortis/portimaprod/ PortimaProd
+smb://fci.fortis;700320@sfdr3pr0006.amlin.com/spotlight/ spotlight
+smb://fci.fortis;700320@sfdr3pr0006.amlin.com/filedata01$/ACI%20Interface%20Files/ ACI Interface Files
+smb://fci.fortis;700320@sfdr3pr0004.amlin.com/filedata03$/Systems%20Department Systems Department

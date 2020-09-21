@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 """
 A do-not-disturb button for muting Dunst notifications in i3 using i3blocks
 

@@ -16,43 +16,37 @@ baph -inN pamac-aur pamac-zsh-completions \
 nerd-fonts-fantasque-sans-mono nerd-fonts-fira-code \
 nerd-fonts-fira-mono ttf-comfortaa \
 python-pip numlockx evince neofetch \
-chromium \
-synology-drive \
+chromium synology-drive \
 rofi-calc \
 udiskie \
 playerctl spotify spicetify-cli spicetify-themes-git \
 xorg-xwininfo \
 polkit-gnome \
-lm-sensors jq feh \
-xfce4-power-manager \
+lm-sensors jq feh xfce4-power-manager \
 alsa-utils shared-mime-info gdk-pixbuf2 \
 wpgtk-git \
+flameshot copyq \
 /
 
 echo "Installing themes and icons"
-baph -inN zafiro-icon-theme-git \
-boston-icon-theme-git \
-arc-icon-theme-git \
-moka-icon-theme-git \
-/
+baph -inN zafiro-icon-theme-git boston-icon-theme-git arc-icon-theme-git newaita-icons-git 
 
 # i3 installs
 echo "Installing i3 and sway requirements"
-baph -iNn i3-gaps \
-sway-git wslroots-git \
-/
+baph -iNn i3-gaps sway-git wslroots-git
 
 # Photography
 baph -inN perl-image-exiftool exiv2 pyexiftool-gui-git
 
 # Ruby for life
 baph -inN ruby
+gem install jekyll
+gem install irb
 
 # Work installs
 baph -iNn networkmanager-openconnect \
 pidgin mattermost-desktop-bin \
-bitwarden rbw \
-joplin \
+bitwarden rbw joplin \
 visual-studio-code-insiders \
 pdk docker \
 /
@@ -60,7 +54,6 @@ pdk docker \
 # Install e-id stuff; this is Belgian users only
 baph -inN ccid pcsclite eid-mw acsccid
 sudo systemctl enable pcscd.socket
-sudo systemctl start pcscd.socket
 modutil -dbdir sql:.pki/nssdb/ -add "Belgium eID" -libfile /usr/lib/libbeidpkcs11.so
 
 # Install Homebrew
@@ -82,13 +75,9 @@ set -g theme_nerd_fonts yes
 # Requirements for Gmail script
 pip install --global --upgrade oauth2client google-api-python-client
 
-# HiDPI
-gsettings set org.gnome.desktop.interface scaling-factor 2
-gsettings set org.gnome.desktop.interface gtk-theme Pop
-
 # Install lightdm looker
 # systemctl enable betterlockscreen@$USER
-# baph -inN lightdm-webkit-theme-aether
+baph -inN lightdm-webkit-theme-aether
 
 # Fix Grub2
 # sudo sh -c "echo "GRUB_GFXMODE=3840x2160x24,auto" >> /etc/default/grub"
@@ -106,11 +95,11 @@ sudo mkdir -p /mnt/NAS/{media,photos}
 #sudo mount.cifs -o username=intamv\\700320 //fci.fortis/amv/buo /mnt/work/buo
 #sudo mount -t cifs -o username=intamv\\700320 //fci.fortis/acidfs01/brulthome/700320 /mnt/work/home
 sudo mkdir -p /mnt/storage
-sudo sh -c 'echo "UUID=$(lsblk -no UUID /dev/sdb1) /mnt/storage $(lsblk -no FSTYPE /dev/sdb1) defaults,noatime 0 2" >> /etc/fstab'
+sudo sh -c 'echo "UUID=$(lsblk -no UUID /dev/sdb1)      /mnt/storage        $(lsblk -no FSTYPE /dev/sdb1)       defaults,noatime    0 2" >> /etc/fstab'
 
 # Synology NAS
 #192.168.0.203:/volume1/photo 	/mnt/NAS/photos 	nfs 	nouser,rsize=8192,wsize=8192,atime,auto,rw,dev,exec,suid 	0 0
-#192.168.0.203:/volume/video 	/mnt/NAS/video 		nfs 	nouser,rsize=8192,wsize=8192,atime,auto,rw,dev,exec,suid 	0 0
+#192.168.0.203:/volume1/video 	/mnt/NAS/video 		nfs 	nouser,rsize=8192,wsize=8192,atime,auto,rw,dev,exec,suid 	0 0
 
 # pull it down
 # mkdir -p ~/Projects/dotties && cd ~/Projects/dotties

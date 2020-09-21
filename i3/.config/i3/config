@@ -11,10 +11,10 @@ exec --no-startup-id numlockx
 exec --no-startup-id picom -b
 exec --no-startup-id synology-drive
 exec --no-startup-id udiskie --smart-tray
-#exec --no-startup-id clipit
+exec --no-startup-id copyq
+exec --no-startup-id flameshot
 exec --no-startup-id code-insiders
 exec --no-startup-id chromium
-exec --no-startup-id spotify --force-device-scale-factor=1.5 %U
 #exec_always --no-startup-id polybar topbar -r
 exec --no-startup-id alacritty --title notepad -e vim ~/Documents/.notes
 for_window [title="^notepad$"] mark "notes"; move scratchpad

@@ -4,7 +4,7 @@
 # Exporting Base Variables
 ##################################################################
 export XDG_CONFIG_HOME="$HOME/.config"
-export WALLPAPER=$HOME/.wallpapers/coffee-gruvbox.png
+export WALLPAPER=$HOME/.wallpapers/Gruv-Mountain.jpg
 
 #Colors
 xrdb ~/.Xresources
@@ -51,7 +51,7 @@ xrandr --dpi 163
 xrandr --dpi 163
 # HiDPI in QT4 and QT5
 export QT_AUTO_SCREEN_SCALE_FACTOR=0 #Has to be disabled, since my screen isn't 192 DPI
-export QT_SCREEN_SCALE_FACTORS=1.25
+export QT_SCREEN_SCALE_FACTORS=1.5
 # export QT_SCALE_FACTOR=2
 # export QT_FONT_DPI=96 vym
 export QT_FONT_DPI=163

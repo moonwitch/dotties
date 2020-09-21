@@ -329,7 +329,7 @@ d/home
 1
 d/home/kelly
 	.dir_colors
-37
+31
 d
 
 # Right window history (oldest to newest):
@@ -356,10 +356,11 @@ D
 :quit
 :d
 :goto /home/kelly
-:help
-:q
 :!code-insiders %c
 :delete
+:open
+:help
+:q
 
 # Search history (oldest to newest):
 

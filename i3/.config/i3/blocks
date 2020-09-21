@@ -4,7 +4,8 @@ align=right
 separator=true
 separator_block_width=50
 markup=pango
-command=/home/$USER/bin/i3-scripts/$BLOCK_NAME
+# command=/home/$USER/bin/i3-scripts/$BLOCK_NAME
+command=/home/kelly/bin/i3-scripts/$BLOCK_NAME
 color=xresource:i3xrocks.background
 label_color=xresource:i3xrocks.color1
 
@@ -68,8 +69,11 @@ separator_block_width=0
 [dunst]
 interval=once
 format=json
+markup=pango
 #min_width=50
 #align=center
-#dunst_mute=off
+#DUNST_MUTE=off
+
+[shutdown_menu]
 
 # vim: syntax=dosini
