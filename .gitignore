@@ -28,7 +28,7 @@ settings/.config/Joplin/*
 settings/.config/joplin-desktop/*
 !settings/.config/joplin-desktop/templates/*
 !settings/.config/joplin-desktop/user*
-
+
 # Exclude nvim plugs; will install on request 
 settings/.local/share/nvim/*
 
