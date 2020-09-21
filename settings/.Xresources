@@ -27,7 +27,7 @@ Xft.rgba:       rgb
 URxvt*termName:         rxvt-unicode-256color
 URxvt*buffered:         false
 URxvt*intensityStyles:  false
-URxvt*font:             xft:Cascadia Mono PL:style=Regular:size=12, \
+URxvt*font:             xft:CaskaydiaCove Nerd Font Mono:style=Regular:size=12, \
                         xft:Monospace:style=Medium:size=12   
 URxvt*saveLines:        2000
 URxvt*scrollBar:        false
@@ -54,5 +54,5 @@ URxvt.tabbed.tab-bg:    0
 
 
 !! XTerm
-xterm*font:     xft:Cascadia Mono PL:style=Regular:size=12
+xterm*font:     xft:CaskaydiaCove Nerd Font Mono:style=Regular:size=12
 

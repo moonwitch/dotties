@@ -13,8 +13,8 @@ export ZSH_CUSTOM="$HOME/.zsh_custom"
 BULLETTRAIN_PROMPT_ORDER=(git context dir time)
 
 #ZSH_THEME="bullet-train"
-#ZSH_THEME="powerlevel10k/powerlevel10k"
-ZSH_THEME='pygmalion'
+ZSH_THEME="powerlevel10k/powerlevel10k"
+#ZSH_THEME='pygmalion'
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 DISABLE_MAGIC_FUNCTIONS=true

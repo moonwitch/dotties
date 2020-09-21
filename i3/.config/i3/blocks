@@ -1,11 +1,10 @@
 # For the benefit of emacs users: -*- shell-script -*-
 
 align=right
-separator=true
+separator=false
 separator_block_width=50
 markup=pango
-# command=/home/$USER/bin/i3-scripts/$BLOCK_NAME
-command=/home/kelly/bin/i3-scripts/$BLOCK_NAME
+command=/home/$USER/bin/i3-scripts/$BLOCK_NAME
 color=xresource:i3xrocks.background
 label_color=xresource:i3xrocks.color1
 

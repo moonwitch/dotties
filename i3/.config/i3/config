@@ -17,7 +17,7 @@ exec --no-startup-id code-insiders
 exec --no-startup-id chromium
 #exec_always --no-startup-id polybar topbar -r
 exec --no-startup-id alacritty --title notepad -e vim ~/Documents/.notes
-for_window [title="^notepad$"] mark "notes"; move scratchpad
+for_window [title="notepad"] move scratchpad
 
 ######################
 # Looks setup
@@ -38,7 +38,7 @@ force_focus_wrapping yes
 force_display_urgency_hint 500 ms
 
 # Font for Windows titles and bar, unless otherwise specified
-font pango:Hasklug Nerd Font Mono 12
+font pango:CaskaydiaCove Nerd Font Mono 12
 
 # # .Xresources-based colorscheme
 set_from_resource $foreground i3wm.foreground
@@ -61,8 +61,8 @@ set_from_resource $color14 i3wm.color14
 set_from_resource $color15 i3wm.color15
 
 bar {
-  position top
-	status_command i3xrocks -c $HOME/.config/i3/blocks
+    position top
+    status_command i3xrocks -c $HOME/.config/i3/blocks
 
     workspace_buttons      yes
     colors {

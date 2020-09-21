@@ -12,6 +12,7 @@ file:///mnt/work/home home
 smb://fci.fortis;700320@rm-hq-fp2.raetsmarine.local/data/ Raets
 smb://fci.fortis;700320@sfprfci001.fci.fortis/portimaqual/ PortimaQual
 smb://fci.fortis;700320@sfprfci001.fci.fortis/portimaprod/ PortimaProd
-smb://fci.fortis;700320@sfdr3pr0006.amlin.com/spotlight/ spotlight
-smb://fci.fortis;700320@sfdr3pr0006.amlin.com/filedata01$/ACI%20Interface%20Files/ ACI Interface Files
+smb://fci.fortis;700320@sfdr3pr0004.amlin.com/spotlight/ spotlight
+smb://fci.fortis;700320@sfdr3pr0004.amlin.com/filedata01$/ACI%20Interface%20Files ACI Interface Files
 smb://fci.fortis;700320@sfdr3pr0004.amlin.com/filedata03$/Systems%20Department Systems Department
+smb://fci.fortis;700320@sfdr3pr0004.amlin.com/installs$/ AmlinInstalls

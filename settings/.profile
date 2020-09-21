@@ -5,6 +5,7 @@
 ##################################################################
 export XDG_CONFIG_HOME="$HOME/.config"
 export WALLPAPER=$HOME/.wallpapers/Gruv-Mountain.jpg
+export FONT="CaskaydiaCove Nerd Font Mono"
 
 #Colors
 xrdb ~/.Xresources
@@ -75,7 +76,6 @@ export XCURSOR_SIZE=32
 export PDFVIEWER=/usr/bin/evince
 export FILEMAN=/usr/bin/nemo
 export TERMINAL=/usr/bin/alacritty
-# fix "xdg-open fork-bomb" export your preferred browser from here
 export BROWSER=/usr/bin/chromium
 export EDITOR=/usr/bin/code-insiders
 
