@@ -4,13 +4,13 @@
 			"path": "../../Documents/Docs"
 		},
 		{
-			"path": "../../Projects/perpetuum-live"
-		},
-		{
 			"path": "../../Projects/repetoque"
 		},
 		{
 			"path": "../../Projects/puppet-portima"
 		}
-	]
+	],
+	"settings": {
+		"powershell.codeFormatting.addWhitespaceAroundPipe": true
+	}
 }

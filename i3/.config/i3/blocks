@@ -22,18 +22,9 @@ on_color=xresource:i3xrocks.color2
 label= 
 interval=5
 
-[pomodoro]
-interval=1
-label=祥 
-color=xresource:i3xrocks.color3
-
-# [weather]
-# command=weather
-# interval=360
-# color=xresource:i3xrocks.color4
-
 [weather]
-command=echo " `curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo`"
+command=echo " `curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo`"; [[ -z "${BLOCK_BUTTON}" ]] || $TERMINAL -e curl https://wttr.in?Neerlinter &
+#interval=1
 interval=60
 color=xresource:i3xrocks.color4
 
@@ -63,7 +54,6 @@ label=
 color=xresource:i3xrocks.color5
 command=echo "`date +'%a %d %b'` <b>`date +'%H:%M'`</b> "; [[ -z "${BLOCK_BUTTON}" ]] || gsimplecal &
 interval=1
-separator_block_width=0
 
 [dunst]
 interval=once
@@ -72,7 +62,5 @@ markup=pango
 #min_width=50
 #align=center
 #DUNST_MUTE=off
-
-[shutdown_menu]
 
 # vim: syntax=dosini

@@ -13,8 +13,6 @@ baph -inN base-devel git stow
 
 echo "Basic setup"
 baph -inN pamac-aur pamac-zsh-completions \
-nerd-fonts-fantasque-sans-mono nerd-fonts-fira-code \
-nerd-fonts-fira-mono ttf-comfortaa \
 python-pip numlockx evince neofetch \
 chromium synology-drive \
 rofi-calc \
@@ -26,6 +24,15 @@ lm-sensors jq feh xfce4-power-manager \
 alsa-utils shared-mime-info gdk-pixbuf2 \
 wpgtk-git \
 flameshot copyq \
+/
+
+echo "Installing Fonts"
+baph -iNn nerd-fonts-fantasque-sans-mono nerd-fonts-fira-code \
+nerd-fonts-fira-mono ttf-comfortaa nerd-fonts-victor-mono \
+nerd-fonts-ubuntu-mono nerd-fonts-source-code-pro \
+otf-overpass nerd-fonts-iosevka otf-hasklig \
+nerd-fonts-fira-mono nerd-fonts-fira-code \
+nerd-fonts-fantasque-sans-mono nerd-fonts-cascadia-code \
 /
 
 echo "Installing themes and icons"

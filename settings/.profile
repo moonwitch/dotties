@@ -35,7 +35,16 @@ setxkbmap us -variant altgr-intl
 
 # Power management
 xset dpms 300 600 900
-xfce4-power-manager &
+xidlehook \
+  --not-when-fullscreen \
+  --not-when-audio \
+  --timer 600 \
+    'betterlockscreen -l dimblur' \
+    '' \
+  --timer 3600 \
+    'systemctl suspend' \
+    '' &
+#xfce4-power-manager &
 
 ##################################################################
 # HiDPI

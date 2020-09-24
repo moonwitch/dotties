@@ -16,8 +16,8 @@ exec --no-startup-id udiskie --smart-tray
 exec --no-startup-id code-insiders
 exec --no-startup-id chromium
 #exec_always --no-startup-id polybar topbar -r
-exec --no-startup-id alacritty --title notepad -e vim ~/Documents/.notes
-for_window [title="notepad"] move scratchpad
+exec --no-startup-id $TERMINAL -e 'nvim ~/Documents/.notes'
+for_window [title="nvim ~/Documents/.notes"] move scratchpad
 
 ######################
 # Looks setup
@@ -62,7 +62,7 @@ set_from_resource $color15 i3wm.color15
 
 bar {
     position top
-    status_command i3xrocks -c $HOME/.config/i3/blocks
+    status_command 2>/tmp/i3blocks.err i3xrocks -vvv -c $HOME/.config/i3/blocks | tee /tmp/i3blocks.out
 
     workspace_buttons      yes
     colors {
@@ -100,13 +100,13 @@ set $alt Mod1
 floating_modifier $super
 
 # Use pactl to adjust volume in PulseAudio.
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 2%+ && pkill -RTMIN+9 i3xrocks
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 2%- && pkill -RTMIN+9 i3xrocks
-bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse sset Master toggle && pkill -RTMIN+9 i3xrocks
+#bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 2%+ && pkill -RTMIN+9 i3xrocks
+#bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 2%- && pkill -RTMIN+9 i3xrocks
+#bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse sset Master toggle && pkill -RTMIN+9 i3xrocks
 
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+9 i3blocks
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+9 i3blocks
-# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+9 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+9 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+9 i3blocks
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+9 i3blocks
 
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioPause exec --no-startup-id playerctl play-pause
@@ -131,7 +131,7 @@ bindsym $alt+Tab exec "rofi -kb-accept-entry '!Alt-Tab' -kb-row-down Alt-Tab -sh
 
 # Exit binds
 bindsym $super+Shift+End exec --no-startup-id powermenu
-bindsym $super+l exec betterlockscreen -l dim
+bindsym $super+l exec betterlockscreen -l dimblur
 bindsym XF86Sleep exec systemctl suspend
 
 # kill focused window
