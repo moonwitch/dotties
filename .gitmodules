@@ -13,3 +13,6 @@
 [submodule "settings/.zsh_custom/themes/powerlevel10k"]
 	path = settings/.zsh_custom/themes/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k
+[submodule "themes/.themes/kripton"]
+	path = themes/.themes/kripton
+	url = https://github.com/EliverLara/Kripton

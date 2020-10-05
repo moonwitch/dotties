@@ -16,8 +16,8 @@ exec --no-startup-id udiskie --smart-tray
 exec --no-startup-id code-insiders
 exec --no-startup-id chromium
 #exec_always --no-startup-id polybar topbar -r
-exec --no-startup-id $TERMINAL -e 'nvim ~/Documents/.notes'
-for_window [title="nvim ~/Documents/.notes"] move scratchpad
+exec --no-startup-id joplin-desktop
+for_window [class=Joplin] move scratchpad
 
 ######################
 # Looks setup
@@ -38,7 +38,7 @@ force_focus_wrapping yes
 force_display_urgency_hint 500 ms
 
 # Font for Windows titles and bar, unless otherwise specified
-font pango:CaskaydiaCove Nerd Font Mono 12
+font pango:Overpass Mono 12
 
 # # .Xresources-based colorscheme
 set_from_resource $foreground i3wm.foreground
@@ -274,10 +274,11 @@ assign          [class="Code - Insiders"]       $ws2
 # FileManager - Ws4
 assign          [class=Thunar|Nemo|PCmanFM|Polo-GTK]     $ws4
 # Server - Ws5
-assign          [class=firefox|Navigator]       $ws5
+assign          [class=Vmrc]                    $ws5
+assign          [class="^Remmina$"]             $ws5
 # Office/Work - Ws6
 assign          [class=LibreOffice*]            $ws6
-assign          [class=Typora|zettlr|Joplin]    $ws6
+assign          [class=Typora|zettlr]           $ws6
 # Social - Ws7
 assign          [class=Caprine]                 $ws7
 assign          [class=Mattermost]              $ws7

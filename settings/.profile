@@ -5,7 +5,7 @@
 ##################################################################
 export XDG_CONFIG_HOME="$HOME/.config"
 export WALLPAPER=$HOME/.wallpapers/Gruv-Mountain.jpg
-export FONT="CaskaydiaCove Nerd Font Mono"
+export FONT="Overpass Mono"
 
 #Colors
 xrdb ~/.Xresources
@@ -31,7 +31,7 @@ fi
 export SSH_AUTH_SOCK
 
 # Set keyboard to behave
-setxkbmap us -variant altgr-intl
+setxkbmap -layout us -variant altgr-intl
 
 # Power management
 xset dpms 300 600 900
