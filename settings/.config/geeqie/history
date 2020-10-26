@@ -8,5 +8,14 @@
 
 [path_list]
 "/home/kelly/Downloads"
+"/home/kelly/Projects/Quasar-Perpet/quasar-weather/src/assets"
+"/home/kelly/.wallpapers"
+"/home/kelly/Pictures/2020/10/11"
+
+[bookmarks]
+".[path]/home/kelly/Pictures/2020/10/11"
+"Home[path]/home/kelly"
+"Desktop[path]/home/kelly/Desktop"
+"Collections[path]/home/kelly/.local/share/geeqie/collections"
 
 #end

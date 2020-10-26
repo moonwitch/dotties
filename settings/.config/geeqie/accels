@@ -164,7 +164,6 @@
 ; (gtk_accel_path "<Actions>/MenuActions/HistogramChanB" "")
 ; (gtk_accel_path "<Actions>/MenuActionsExternal/org.gnome.Evince.desktop" "")
 ; (gtk_accel_path "<Actions>/MenuActions/ExifWin" "<Primary>e")
-; (gtk_accel_path "<Actions>/MenuActionsExternal/yed.desktop" "")
 ; (gtk_accel_path "<Actions>/MenuActions/Zoom100" "z")
 ; (gtk_accel_path "<Actions>/MenuActions/OpenCollection" "o")
 ; (gtk_accel_path "<Actions>/MenuActions/HelpSearch" "")
