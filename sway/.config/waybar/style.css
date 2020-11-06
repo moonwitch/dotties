@@ -37,11 +37,43 @@
  * Styles
  * -------------------------------------------------------------------------- */
 
-/* Default colors */
-@define-color light #eceff4;
+/* COLORS */
+
+/* Nord */
+/*@define-color light #eceff4;
 @define-color dark #2e3440;
 @define-color warning #ebcb8b;
 @define-color critical #d08770;
+@define-color mode #4c566a;
+@define-color workspaces #5e81ac;
+@define-color workspacesfocused #81a1c1;
+@define-color sound #d8dee9;
+@define-color network #4c566a;
+@define-color memory #88c0d0;
+@define-color cpu #434c5e;
+@define-color temp #d8dee9;
+@define-color layout #5e81ac;
+@define-color battery #88c0d0;
+@define-color date #2e3440;
+@define-color time #eceff4;*/
+
+/* Gruvbox */
+@define-color light #ebdbb2;
+@define-color dark #282828;
+@define-color warning #fabd2f;
+@define-color critical #cc241d;
+@define-color mode #a89984;
+@define-color workspaces #458588;
+@define-color workspacesfocused #83a598;
+@define-color sound #d3869b;
+@define-color network #b16286;
+@define-color memory #8ec07c;
+@define-color cpu #98971a;
+@define-color temp #b8bb26;
+@define-color layout #689d6a;
+@define-color battery #fabd2f;
+@define-color date #282828;
+@define-color time #ebdbb2;
 
 /* Reset all styles */
 * {
@@ -54,12 +86,10 @@
 
 /* The whole bar */
 #waybar {
-    /*background: #2e3440;*/
-    /*background: rgba(46, 52, 64, 0.8);*/
     background: transparent;
-    color: #eceff4;
+    color: @light;
     font-family: Iosevka, xos4 Terminus, FiraCode, Noto Sans;
-    font-size: 13px;
+    font-size: 10pt;
     font-weight: bold;
 }
 
@@ -67,7 +97,7 @@
 #battery,
 #clock,
 #cpu,
-#custom-keyboard-layout,
+#custom-layout,
 #memory,
 #mode,
 #network,
@@ -124,88 +154,84 @@
 /* And now modules themselves in their respective order */
 
 #mode { /* Shown current Sway mode (resize etc.) */
-    color: @light;
-    background: #bf616a;
+	color: @light;
+	background: @mode;
 }
 
 /* Workspaces stuff */
 #workspaces button {
-    font-weight: bold; /* Somewhy the bar-wide setting is ignored*/
-    /* All these comments are here just for reference */
-    /*border-bottom: 3px solid transparent;
-    To compensate for the bottom border and still have vertical centering
-    padding-top: 3px;*/
-    padding-left: 5px;
-    padding-right: 5px;
-    color: @dark;
-    background: #5e81ac;
+	font-weight: bold; /* Somewhy the bar-wide setting is ignored*/
+	padding-left: 5px;
+	padding-right: 5px;
+	color: @dark;
+	background: @workspaces;
 }
 
 #workspaces button.focused {
-    background: #81a1c1;
+    background: @workspacesfocused;
 }
 
-#workspaces button.urgent { /* Not used at all, maybe I'll delete it soon */
-    border-color: #c9545d;
-    color: #c9545d;
-}
+/*#workspaces button.urgent {
+	border-color: #c9545d;
+	color: #c9545d;
+}*/
 
 #window {
-    margin-right: 40px;
-    margin-left: 40px;
+	margin-right: 40px;
+	margin-left: 40px;
 }
 
 #custom-alsa {
-    background: #d8dee9;
-    color: @dark;
+	background: @sound;
+	color: @dark;
 }
 
 #network {
-    background: #4c566a;
+    background: @network;
     color: @light;
 }
 
 #memory {
-    background: #88c0d0;
+    background: @memory;
     color: @dark;
 }
 
 #cpu {
-    background: #434c5e;
+    background: @cpu;
     color: @light;
 }
 
 #temperature {
-    background: #d8dee9;
+    background: @temp;
     color: @dark;
 }
 
-#custom-keyboard-layout {
-    background: #5e81ac;
+#custom-layout {
+    background: @layout;
     color: @light;
 }
 
 #battery {
-    background: #88c0d0;
+    background: @battery;
     color: @dark;
 }
 
 #tray {
-    background: #2e3440;
+    background: @date;
 }
 
 #clock.date {
-    background: #2e3440;
+    background: @date;
     color: @light;
 }
 
 #clock.time {
-    background: #eceff4;
+    background: @time;
     color: @dark;
 }
 
 #pulseaudio { /* Unsused but kept for those who needs it */
-    background: #d8dee9;
+    background: @sound;
     color: @dark
 }
 
@@ -215,60 +241,60 @@
 
 #custom-arrow1 {
     font-size: 16px;
-    color: #d8dee9;
+    color: @sound;
     background: transparent;
 }
 
 #custom-arrow2 {
     font-size: 16px;
-    color: #4c566a;
-    background: #d8dee9;
+    color: @network;
+    background: @sound;
 }
 
 #custom-arrow3 {
     font-size: 16px;
-    color: #88c0d0;
-    background: #4c566a;
+    color: @memory;
+    background: @network;
 }
 
 #custom-arrow4 {
     font-size: 16px;
-    color: #434c5e;
-    background: #88c0d0;
+    color: @cpu;
+    background: @memory;
 }
 
 #custom-arrow5 {
     font-size: 16px;
-    color: #d8dee9;
-    background: #434c5e;
+    color: @temp;
+    background: @cpu;
 }
 
 #custom-arrow6 {
     font-size: 16px;
-    color: #5e81ac;
-    background: #d8dee9;
+    color: @layout;
+    background: @temp;
 }
 
 #custom-arrow7 {
     font-size: 16px;
-    color: #88c0d0;
-    background: #5e81ac;
+    color: @battery;
+    background: @layout;
 }
 
 #custom-arrow8 {
     font-size: 16px;
-    color: #2e3440;
-    background: #88c0d0;
+    color: @date;
+    background: @battery;
 }
 
 #custom-arrow9 {
     font-size: 16px;
-    color: #eceff4;
-    background: #2e3440;
+    color: @time;
+    background: @date;
 }
 
 #custom-arrow10 {
     font-size: 16px;
-    color: #5e81ac;
+    color: @workspaces;
     background: transparent;
 }
