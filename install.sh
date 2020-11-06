@@ -15,7 +15,7 @@ echo "Basic setup"
 baph -inN pamac-aur pamac-zsh-completions \
 python-pip numlockx evince neofetch \
 chromium synology-drive \
-rofi-calc \
+rofi-calc bitwarden-rofi \
 udiskie \
 playerctl spotify spicetify-cli spicetify-themes-git \
 xorg-xwininfo \
@@ -40,10 +40,10 @@ baph -inN zafiro-icon-theme-git boston-icon-theme-git arc-icon-theme-git newaita
 
 # i3 installs
 echo "Installing i3 and sway requirements"
-baph -iNn i3-gaps sway-git wslroots-git
+baph -iNn i3-gaps sway wslroots waybar
 
 # Photography
-baph -inN perl-image-exiftool exiv2 pyexiftool-gui-git
+baph -inN perl-image-exiftool exiv2 pyexiftool-gui-git rawtherapee shotwell
 
 # Ruby for life
 baph -inN ruby
@@ -53,7 +53,7 @@ gem install irb
 # Work installs
 baph -iNn networkmanager-openconnect \
 pidgin mattermost-desktop-bin \
-bitwarden rbw joplin \
+bitwarden zettlr \
 visual-studio-code-insiders \
 pdk docker \
 /
@@ -62,11 +62,6 @@ pdk docker \
 baph -inN ccid pcsclite eid-mw acsccid
 sudo systemctl enable pcscd.socket
 modutil -dbdir sql:.pki/nssdb/ -add "Belgium eID" -libfile /usr/lib/libbeidpkcs11.so
-
-# Install Homebrew
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-brew install gcc
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

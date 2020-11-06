@@ -23,7 +23,7 @@ label=
 interval=5
 
 [weather]
-command=echo " `curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo`"; [[ -z "${BLOCK_BUTTON}" ]] || $TERMINAL -e curl https://wttr.in?Neerlinter &
+command=echo " `curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo`"; [[ -z "${BLOCK_BUTTON}" ]] || $TERMINAL -e curl https://wttr.in?Neerlinter 
 #interval=1
 interval=60
 color=xresource:i3xrocks.color4
@@ -34,6 +34,7 @@ signal=9
 USE_ALSA_NAME=1
 MUTED_COLOR=xresource:i3xrocks.color1
 DEFAULT_COLOR=xresource:i3xrocks.foreground
+LONG_FORMAT="${SYMB} ${VOL}% [${NAME}]"
 
 [memory]
 command=echo "`free -h --si | awk 'FNR==2{ print $0 }' | awk '{ print $7 }'`"; [[ -z "${BLOCK_BUTTON}" ]] || $TERMINAL -e htop &

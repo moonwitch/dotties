@@ -16,10 +16,7 @@ exec --no-startup-id udiskie --smart-tray
 exec --no-startup-id code-insiders
 exec --no-startup-id chromium
 #exec_always --no-startup-id polybar topbar -r
-#exec --no-startup-id joplin-desktop
-#for_window [class=Joplin] move scratchpad
-#for_window [class=Joplin] sticky enable border none
-exec --no-startup-id bitwarden-desktop
+exec --no-startup-id bitwarden
 for_window [class="Bitwarden"] sticky enable border none
 for_window [class="Bitwarden"] move scratchpad
 
