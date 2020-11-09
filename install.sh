@@ -13,7 +13,7 @@ baph -inN base-devel git stow
 
 echo "Basic setup"
 baph -inN pamac-aur pamac-zsh-completions \
-python-pip numlockx evince neofetch \
+python-pip evince neofetch \
 chromium synology-drive \
 rofi-calc \
 udiskie \
@@ -40,7 +40,7 @@ baph -inN zafiro-icon-theme-git boston-icon-theme-git arc-icon-theme-git newaita
 
 # i3 installs
 echo "Installing i3 and sway requirements"
-baph -iNn i3-gaps sway-git wslroots-git
+baph -iNn i3-gaps sway wslroots swaybg waybar 
 
 # Photography
 baph -inN perl-image-exiftool exiv2 pyexiftool-gui-git
@@ -53,8 +53,7 @@ gem install irb
 # Work installs
 baph -iNn networkmanager-openconnect \
 pidgin mattermost-desktop-bin \
-bitwarden rbw joplin \
-visual-studio-code-insiders \
+bitwarden visual-studio-code-insiders \
 pdk docker \
 /
 
@@ -62,11 +61,6 @@ pdk docker \
 baph -inN ccid pcsclite eid-mw acsccid
 sudo systemctl enable pcscd.socket
 modutil -dbdir sql:.pki/nssdb/ -add "Belgium eID" -libfile /usr/lib/libbeidpkcs11.so
-
-# Install Homebrew
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-brew install gcc
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -82,14 +76,6 @@ set -g theme_nerd_fonts yes
 # Requirements for Gmail script
 pip install --global --upgrade oauth2client google-api-python-client
 
-# Install lightdm looker
-# systemctl enable betterlockscreen@$USER
-baph -inN lightdm-webkit-theme-aether
-
-# Fix Grub2
-# sudo sh -c "echo "GRUB_GFXMODE=3840x2160x24,auto" >> /etc/default/grub"
-# sudo grub-mkconfig -o /boot/grub/grub.cfg
-
 # Services
 # systemctl --user start spotifyd.service
 # systemctl --user enable spotifyd.service
@@ -101,12 +87,10 @@ sudo mkdir -p /mnt/work/{home,buo,portimaprod,portimaqual,spotlight}
 sudo mkdir -p /mnt/NAS/{media,photos}
 #sudo mount.cifs -o username=intamv\\700320 //fci.fortis/amv/buo /mnt/work/buo
 #sudo mount -t cifs -o username=intamv\\700320 //fci.fortis/acidfs01/brulthome/700320 /mnt/work/home
-sudo mkdir -p /mnt/storage
-sudo sh -c 'echo "UUID=$(lsblk -no UUID /dev/sdb1)      /mnt/storage        $(lsblk -no FSTYPE /dev/sdb1)       defaults,noatime    0 2" >> /etc/fstab'
 
 # Synology NAS
-#192.168.0.203:/volume1/photo 	/mnt/NAS/photos 	nfs 	nouser,rsize=8192,wsize=8192,atime,auto,rw,dev,exec,suid 	0 0
-#192.168.0.203:/volume1/video 	/mnt/NAS/video 		nfs 	nouser,rsize=8192,wsize=8192,atime,auto,rw,dev,exec,suid 	0 0
+sudo sh -c 'echo "192.168.0.203:/volume1/photo 	/mnt/NAS/photos 	nfs 	nouser,rsize=8192,wsize=8192,atime,auto,rw,dev,exec,suid 	0 0" >> /etc/fstab'
+sudo sh -c 'echo "192.168.0.203:/volume1/video 	/mnt/NAS/media 		nfs 	nouser,rsize=8192,wsize=8192,atime,auto,rw,dev,exec,suid 	0 0" >> /etc/fstab'
 
 # pull it down
 # mkdir -p ~/Projects/dotties && cd ~/Projects/dotties
@@ -116,4 +100,4 @@ sudo sh -c 'echo "UUID=$(lsblk -no UUID /dev/sdb1)      /mnt/storage        $(ls
 
 # stow it
 stow -Rv settings themes
-stow -Rv i3
+stow -Rv sway

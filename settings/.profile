@@ -21,9 +21,6 @@ export GEM_PATH=$(ruby -e 'puts Gem.user_dir')
 export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 # Rust
 export PATH="$PATH:$HOME/.cargo/bin"
-# Android Studio
-export ANDROID_HOME="$HOME/Android/Sdk"
-export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
 # Java
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
 export PATH=$PATH:$JAVA_HOME/bin
@@ -40,49 +37,31 @@ export SSH_AUTH_SOCK
 setxkbmap -layout us -variant altgr-intl
 
 # Power management
-xset dpms 300 600 900
-# xidlehook \
-#   --not-when-fullscreen \
-#   --not-when-audio \
-#   --timer 600 \
-#     'betterlockscreen -l dimblur' \
-#     '' \
-#   --timer 3600 \
-#     'systemctl suspend' \
-#     '' &
 xfce4-power-manager &
 
 ##################################################################
 # HiDPI
 ##################################################################
-# xrandr --dpi 192
-# export GDK_SCALE=2
-# export GDK_DPI_SCALE=0.5
-# export QT_AUTO_SCREEN_SET_FACTOR=0
-# export QT_SCALE_FACTOR=2
-# export QT_FONT_DPI=96
-# xrandr --output DP-3 --scale '1.14x1.14'
-
-xrandr --dpi 163
-xrandr --dpi 163
-# HiDPI in QT4 and QT5
-export QT_AUTO_SCREEN_SCALE_FACTOR=0 #Has to be disabled, since my screen isn't 192 DPI
-export QT_SCREEN_SCALE_FACTORS=1.5
+xrandr --dpi 144
+xrandr --dpi 144
+# HiDPI in QT4 and QT5 
+#export QT_AUTO_SCREEN_SCALE_FACTOR=0 #Has to be disabled, since my screen isn't 192 DPI
+#export QT_SCREEN_SCALE_FACTORS=1.5
 # export QT_SCALE_FACTOR=2
 # export QT_FONT_DPI=96 vym
-export QT_FONT_DPI=163
+#export QT_FONT_DPI=163
 # Qt 5.14 uses this.
-export QT_ENABLE_HIGHDPI_SCALING=0
+#export QT_ENABLE_HIGHDPI_SCALING=0
 # HiDPI in GTK
-export GDK_SCALE=2
-export GDK_DPI_SCALE=0.5
-export XCURSOR_SIZE=32
+#export GDK_SCALE=2
+#export GDK_DPI_SCALE=0.5
+#export XCURSOR_SIZE=32
 
 # Wayland
-# export MOZ_ENABLE_WAYLAND=1
+export MOZ_ENABLE_WAYLAND=1
 # Wayland and QT
-# export QT_QPA_PLATFORM=wayland-egl
-# export QT_WAYLAND_FORCE_DPI=physical
+#export QT_QPA_PLATFORM=wayland-egl
+#export QT_WAYLAND_FORCE_DPI=physical
 # export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 
 ##################################################################
