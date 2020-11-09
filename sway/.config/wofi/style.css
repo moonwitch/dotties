@@ -1,6 +1,6 @@
 window {
     /*margin: 2px;*/
-	font-family: Iosevka;
+	font-family: 'Overpass Mono';
 	border: 2px solid @light;
 	background: @background;
 }
