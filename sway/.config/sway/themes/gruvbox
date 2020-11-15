@@ -10,11 +10,9 @@ set $c3 #99a2ea
 set $c4 #333142
 set $c5 #342f73
 
-
 set $white #f4f4f8
 set $dark #333333
 set $dim #666666
-
 
 set $focused_bgcolor $white
 set $focused_textcolor $dark
@@ -37,7 +35,6 @@ set $urgent_indicator $c3
 #
 
 # Set inner/outer gaps
-default_border normal 0
 gaps inner 5
 gaps outer 5
 
@@ -47,10 +44,8 @@ smart_gaps on
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 smart_borders on
 
-# Hide Title Bars
-for_window [app_id="^.*"] opacity 1
-default_border pixel 5 
-default_floating_border pixel 5
+default_border pixel 2
+default_floating_border pixel 2
 hide_edge_borders smart
 
 client.focused $focused_bgcolor $focused_bgcolor $focused_textcolor $focused_indicator $focused_bgcolor

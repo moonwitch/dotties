@@ -1,0 +1,138 @@
+######################
+# Keybind setup
+######################
+set $super Mod4
+set $alt Mod1
+
+floating_modifier $super
+
+### Audio
+bindsym --locked XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+9 i3xrocks
+bindsym --locked XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+9 i3xrocks
+bindsym --locked XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+9 i3xrocks
+
+bindsym --locked XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym --locked XF86AudioPause exec --no-startup-id playerctl play-pause
+bindsym --locked XF86AudioNext exec --no-startup-id playerctl next
+bindsym --locked XF86AudioPrev exec --no-startup-id playerctl previous
+
+### Screenshots (requires `maim`)
+# Fullscreen
+bindsym $alt+Print exec grim -t png $(xdg-user-dir PICTURES)/$(date +'%s_grim.png')- | wl-copy -t image/png
+# capture focus to clipboard    
+bindsym Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy  -t image/png
+# capture the specified screen area to clipboard    
+bindsym Print exec grim -g "$(slurp)" - | wl-copy -t image/png  
+
+### Commonly used Apps
+bindsym $super+Return exec $TERMINAL
+bindsym $super+Shift+w exec $BROWSER
+bindsym $super+Shift+e exec $FILEMAN
+
+# start rofi
+bindsym $super+space exec "wofi --show drun --allow-images"
+# Alt tab
+bindsym $alt+Tab exec "rofi -kb-accept-entry '!Alt-Tab' -kb-row-down Alt-Tab -show window -theme themes/drun.rasi"
+
+#brightness control
+bindsym XF86MonBrightnessDown exec brightnessctl set 15%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +15%
+
+# kill focused window
+bindsym $super+Shift+q kill
+
+# switch focused window
+bindsym $super+Left focus left
+bindsym $super+Down focus down
+bindsym $super+Up focus up
+bindsym $super+Right focus right
+
+# move focused window
+bindsym $super+Shift+Left move left
+bindsym $super+Shift+Down move down
+bindsym $super+Shift+Up move up
+bindsym $super+Shift+Right move right
+
+# split in horizontal/vertical orientation
+bindsym $super+h split h
+bindsym $super+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $super+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $super+s layout stacking
+bindsym $super+w layout tabbed
+bindsym $super+e layout toggle split
+
+# toggle tiling / floating
+bindsym $super+Shift+space floating toggle
+
+# focus the parent container
+bindsym $super+a focus parent
+
+### Workspaces
+# switch between workspaces
+bindsym $super+Tab workspace next
+bindsym $super+Shift+Tab workspace prev
+# switch to workspace
+bindsym $super+1 workspace 1
+bindsym $super+2 workspace 2
+bindsym $super+3 workspace 3
+bindsym $super+4 workspace 4
+bindsym $super+5 workspace 5
+bindsym $super+6 workspace 6
+bindsym $super+7 workspace 7
+bindsym $super+8 workspace 8
+bindsym $super+9 workspace 9
+bindsym $super+0 workspace 10
+# move focused container to workspace
+bindsym $super+Shift+1 move container to workspace 1
+bindsym $super+Shift+2 move container to workspace 2
+bindsym $super+Shift+3 move container to workspace 3
+bindsym $super+Shift+4 move container to workspace 4
+bindsym $super+Shift+5 move container to workspace 5
+bindsym $super+Shift+6 move container to workspace 6
+bindsym $super+Shift+7 move container to workspace 7
+bindsym $super+Shift+8 move container to workspace 8
+bindsym $super+Shift+9 move container to workspace 9
+bindsym $super+Shift+0 move container to workspace 10
+
+
+### Power Mode
+set $Pause  [L]ock, [E]xit, [S]uspend, [R]eboot, [END] Shutdown
+mode "$Pause" {
+    bindsym e       exec --no-startup-id swaymsg exit,          mode "default"
+    bindsym s       exec --no-startup-id systemctl suspend,     mode "default"
+    bindsym r       exec --no-startup-id systemctl reboot,      mode "default"
+    bindsym End     exec --no-startup-id systemctl poweroff -i, mode "default"
+    bindsym l       exec --no-startup-id $lock,                 mode "default"
+ 
+    bindsym Return  mode "default"
+    bindsym Escape  mode "default"
+}
+bindsym $super+Shift+End mode "$Pause" 
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+    # These bindings trigger as soon as you enter the resize mode
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+
+    # back to normal: Enter or Escape or $super+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $super+r mode "default"
+}
+
+bindsym $super+r mode "resize"
+
+######################
+# Scratchpad
+######################
+# Make the currently focused window a scratchpad
+bindsym $super+Shift+minus move scratchpad
+# Show the first scratchpad window
+bindsym $super+minus scratchpad show
