@@ -10,5 +10,11 @@
     <property name="general-notification" type="bool" value="true"/>
     <property name="brightness-switch-restore-on-exit" type="int" value="0"/>
     <property name="brightness-switch" type="int" value="0"/>
+    <property name="critical-power-action" type="uint" value="2"/>
+    <property name="critical-power-level" type="uint" value="15"/>
+    <property name="lid-action-on-battery" type="uint" value="1"/>
+    <property name="logind-handle-lid-switch" type="bool" value="true"/>
+    <property name="lid-action-on-ac" type="uint" value="1"/>
+    <property name="inactivity-sleep-mode-on-battery" type="uint" value="1"/>
   </property>
 </channel>

@@ -3,8 +3,8 @@ env:
 
 window:
   padding:
-    x: 35
-    y: 35
+    x: 25
+    y: 25
 
   dynamic_padding: true
 
@@ -24,8 +24,7 @@ font:
     family: Overpass Mono
     style: Bold Italic
 
-  size: 10
-
+    size: 12
 # Schemes 
 schemes:
   gruvbox: &gruvbox
