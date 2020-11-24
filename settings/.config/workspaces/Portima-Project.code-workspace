@@ -1,13 +1,16 @@
 {
 	"folders": [
 		{
-			"path": "../../Documents/Docs"
+			"path": "../../Documents/Docs/Portima"
 		},
 		{
 			"path": "../../Projects/repetoque"
 		},
 		{
-			"path": "../../Projects/perpetuum-live"
+			"path": "../../Projects/poc"
+		},
+		{
+			"path": "../../Projects/puppet-portima"
 		}
 	],
 	"settings": {
