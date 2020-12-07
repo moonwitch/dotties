@@ -1,14 +1,23 @@
 ### Autostart setup
 exec --no-startup-id mako
-exec --no-startup-id picom -b
 exec --no-startup-id synology-drive
 exec --no-startup-id udiskie --smart-tray
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id code-insiders
+exec --no-startup-id code
 exec --no-startup-id chromium
-exec --no-startup-id bitwarden-desktop
+exec --no-startup-id bitwarden
+
 for_window [class="Bitwarden"] sticky enable border none
 for_window [class="Bitwarden"] move scratchpad
+
+# Fix for some known issues
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+    dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec import-gsettings \
+    gtk-theme:gtk-theme-name \
+    icon-theme:gtk-icon-theme-name \
+    cursor-theme:gtk-cursor-theme-name
 
 # Few little adds
 default_orientation auto
@@ -24,41 +33,19 @@ font pango:Overpass Mono 12
 include ~/.config/sway/themes/gruvbox
 
 ### Variables
-# Preferred apps
-set $TERMINAL alacritty
-set $BROWSER chromium
-set $FILEMAN nemo
 # Lock
-set $locker swaylock --clock --fade-in 0.2 --image ~/.wallpapers/randall-mackey-mural2.jpg
+set $locker swaylock --clock --fade-in 0.2 --image $WALLPAPER
 
 ### Sway Idle
 exec swayidle -w \
-    timeout 300 'swaylock --clock --fade-in 0.2 --image ~/.wallpapers/randall-mackey-mural2.jpg' \
+    timeout 300 "$locker" \
     timeout 600 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock --clock --fade-in 0.2 --image ~/.wallpapers/randall-mackey-mural2.jpg'
+    before-sleep "$locker"
 
 # Dont idle on windows that are full screen
 for_window [class="^.*"] inhibit_idle fullscreen
 for_window [app_id="^.*"] inhibit_idle full
-
-# Lock to black
-set $lock swaylock --ignore-empty-password \
-    --daemonize \
-    --color 1d2021 \
-    --show-keyboard-layout \
-    --font Inconsolata \
-    --text-color 282828 \
-    --ring-color 689d6a \
-    --ring-clear-color 98971a \
-    --line-ver-color ebdbb2 \
-    --line-uses-ring \
-
-# Lock to black, stop sending output to monitor.
-set $locksoff swayidle -w  \
-    timeout 1 'swaylock -e -f -c 1d2021 -t' \
-    timeout 2 'swaymsg "output * dpms off"' \
-    resume 'swaymsg "output * dpms on"; pkill -nx swayidle'
 
 ### Key bindings
 #
@@ -68,17 +55,73 @@ include ~/.config/sway/bindings
 # Quick floating terminal [ MOD + Shift + Return ]
 for_window [app_id="Alacritty" title="Floating Terminal"] floating enable, show_marks no
 set $qterm alacritty -t "Floating Terminal"
-# start a quick floating terminal
+ # start a quick floating terminal
 bindsym $super+Shift+Return exec $qterm
 
 bar {
 	swaybar_command waybar
 }
 
-# Custom Window Treatment
-for_window [app_id="pavucontrol"] floating enable
-for_window [app_id="firefox-wayland"] opacity 1
-for_window [app_id="pamac-manager"] floating enable
+######################
+# Workspaces setup
+######################
+# switch to workspace with urgent window automatically
+focus_on_window_activation smart
+for_window [urgent="latest" class="^Mattermost$"]   focus
+for_window [urgent="latest" class="^Chromium$"]     focus
+for_window [urgent="latest" class="^Firefox$"]      focus
+for_window [class=URxvt|Alacritty|termite]          focus
+
+# Syntax
+# assign <criteria> [→] [workspace] [number] <workspace>
+# Base - Ws1
+assign          [class=Chromium|Chrome]         $ws1
+# Code - Ws2
+assign          [class=Atom|code-oss|VSCodium]  $ws2
+assign          [class="Code - Insiders"]       $ws2
+# Cmd - Ws3
+# FileManager - Ws4
+assign          [class=Thunar|Nemo|PCmanFM|Polo-GTK]     $ws4
+# Server - Ws5
+assign          [class=Vmrc]                    $ws5
+assign          [class="^Remmina$"]             $ws5
+# Office/Work - Ws6
+assign          [class=LibreOffice*]            $ws6
+assign          [class=Typora|zettlr]           $ws6
+# Social - Ws7
+assign          [class=Caprine]                 $ws7
+assign          [class=Mattermost]              $ws7
+assign          [class=Pidgin]                  $ws7
+# Music - Ws8
+# Because Spotify is a bitch
+for_window [class="Spotify"] move to workspace $ws8
+# Games - Ws9
+assign          [class="^Steam"]               $ws9
+
+# Enable float for some windows and if need be give them a size
+for_window      [class="^Pavucontrol$"]         floating enable, resize set 1500 750, focus
+for_window      [class="^Arandr$"]              floating enable
+for_window      [class=zathura|mupdf]           floating enable
+for_window      [class=feh]                     floating enable
+for_window      [class=Lxappearance]            floating enable
+for_window      [class=Pamac-manager]           floating enable, resize set 1500 750
+for_window      [class="Simple-scan"]           floating enable
+for_window      [class="Yad|Zenity"]            floating enable
+for_window      [class="Pidgin" instance="Pidgin" title="Buddy List"] floating enable, resize set 500 850
+for_window      [class="Peek"]                  floating enable
+for_window      [title="Floating Terminal"]     floating enable
+
+for_window      [window_role="pop-up"]          floating enable
+for_window      [window_role="bubble"]          floating enable 
+for_window      [window_role="task_dialog"]     floating enable
+for_window      [window_role="Preferences"]     floating enable
+for_window      [window_type="dialog"]          floating enable 
+for_window      [window_type="menu"]            floating enable
+# Other specific
+for_window [title="feh.*/tmp/qr_code.png$"]     floating enable, sticky enable
+for_window [title="Notepad Terminal"]           floating enable, move right 600
+for_window [window_role="GtkFileChooserDialog"] resize set 900 600, move position center
+
 
 ### Input configuration
 ##
@@ -88,8 +131,17 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
     natural_scroll enabled
     middle_emulation enabled
  }
+
+input * {
+  xkb_layout us
+  xkb_variant altgr-intl
+  xkb_numlock enabled
+}
+
 #swaymsg -t get_inputs
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
 include /etc/sway/config.d/*
+
+# vim:ft=i3config

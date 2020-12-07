@@ -4,7 +4,7 @@
 # Exporting Base Variables
 ##################################################################
 export XDG_CONFIG_HOME="$HOME/.config"
-export WALLPAPER=$HOME/.wallpapers/Gruv-Mountain.jpg
+export WALLPAPER=$HOME/.wallpapers/randall-mackey-mural2.jpg
 export FONT="Overpass Mono"
 
 #Colors
@@ -58,11 +58,12 @@ xrandr --dpi 144
 #export XCURSOR_SIZE=32
 
 # Wayland
-export MOZ_ENABLE_WAYLAND=1
-# Wayland and QT
-#export QT_QPA_PLATFORM=wayland-egl
-#export QT_WAYLAND_FORCE_DPI=physical
-# export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+#export MOZ_ENABLE_WAYLAND=1
+#export GDK_BACKEND=wayland
+#export CLUTTER_BACKEND=wayland
+#export QT_QPA_PLATFORM=wayland
+#export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+export SWAYSOCK=/run/user/$(id -u)/sway-ipc.$(id -u).$(pgrep -x sway).sock  
 
 ##################################################################
 # Default Applications
@@ -71,4 +72,4 @@ export PDFVIEWER=/usr/bin/evince
 export FILEMAN=/usr/bin/nemo
 export TERMINAL=/usr/bin/alacritty
 export BROWSER=/usr/bin/chromium
-export EDITOR=/usr/bin/code-insiders
+export EDITOR=/usr/bin/code
