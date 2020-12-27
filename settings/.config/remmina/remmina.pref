@@ -1,6 +1,6 @@
 [remmina_pref]
 secret=bGS+W3IXeqni9vDiV/BnEsIeSCSlUnSpp/KO+JJ+B/4=
-datadir_path=
+datadir_path=/home/kelly/.local/share/remmina
 remmina_file_name=%G_%P_%N_%h
 screenshot_path=/home/kelly/Pictures
 deny_screenshot_clipboard=true
@@ -25,12 +25,12 @@ small_toolbutton=false
 view_file_mode=1
 resolutions=640x480,800x600,1024x768,1152x864,1280x960,1400x1050
 keystrokes=Send hello world§hello world\\n
-main_width=934
-main_height=978
+main_width=628
+main_height=976
 main_maximize=false
 main_sort_column_id=1
 main_sort_order=0
-expanded_group=KCenter
+expanded_group=KCenter,KCenter/UAT,Thunderhead,Thunderhead/Pre-Prod and Integration,Utility,Utility/Production
 toolbar_pin_down=false
 sshtunnel_port=4732
 ssh_tcp_keepidle=20
@@ -71,6 +71,8 @@ rdp_deviceScaleFactor=100
 rdp_desktopScaleFactor=100
 rdp_desktopOrientation=0
 recent_RDP=cyberark-psm-farm.onead.local,vsgewi051.fci.fortis
+screenshot_name=remmina_%p_%h_%Y%m%d-%H%M%S
+trust_all=false
 
 [ssh_colors]
 background=rgb(213,204,186)

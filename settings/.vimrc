@@ -15,14 +15,18 @@ endif
 call plug#begin('~/.vim/plugged')
   " Dependencies
   Plug 'godlygeek/tabular'           " This must come before plasticboy/vim-markdown
-
+  Plug 'honza/vim-snippets'
   " General plugins
   Plug 'scrooloose/nerdtree'
   Plug 'itchyny/lightline.vim'
-  Plug 'mg979/vim-visual-multi', {'branch': 'master'}  
+  Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+  " Git plugins
   Plug 'tpope/vim-fugitive'
+  Plug 'airblade/vim-gitgutter'
+  " Wonderful completions
   Plug 'mattn/emmet-vim'
   Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+  
   Plug 'scrooloose/vim-slumlord'          " Previewing PlantUML
   Plug 'frazrepo/vim-rainbow'
   let g:rainbow_active = 1
@@ -34,13 +38,16 @@ call plug#begin('~/.vim/plugged')
   Plug 'arcticicestudio/nord-vim'
   Plug 'chriskempson/base16-vim'
   Plug 'morhetz/gruvbox'
+  Plug 'junegunn/seoul256.vim'
 
   " Actual functionality
   Plug 'ryanoasis/vim-devicons'      " Icons for NerdTree
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/goyo.vim' " Distraction Free
 call plug#end()
 
 colorscheme gruvbox
+" colorscheme seoul256
 " Enable italics, Make sure this is immediately after colorscheme
 " https://stackoverflow.com/questions/3494434/vimrc-make-comments-italic
 highlight Comment cterm=italic gui=italic

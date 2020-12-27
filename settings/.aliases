@@ -16,7 +16,7 @@ alias ssh='ssh -t '
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
-alias code='code-insiders'
+#alias code='code-insiders'
 
 # color=auto added to some
 alias ls='ls -FG --color=auto'    # add file type tips to ls command by default

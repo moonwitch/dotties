@@ -1,9 +1,9 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#fi
 
 export ZHOME="$HOME"
 export ZSH="$HOME/.oh-my-zsh"
@@ -13,14 +13,16 @@ export ZSH_CUSTOM="$HOME/.zsh_custom"
 BULLETTRAIN_PROMPT_ORDER=(git context dir time)
 
 #ZSH_THEME="bullet-train"
-ZSH_THEME="powerlevel10k/powerlevel10k"
+#ZSH_THEME="powerlevel10k/powerlevel10k"
 #ZSH_THEME='pygmalion'
 
-# Uncomment the following line if pasting URLs and other text is messed up.
 DISABLE_MAGIC_FUNCTIONS=true
-
-# Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
+
+# jira config
+JIRA_URL="http://jira.raetsmarine.local"
+JIRA_NAME=700320
+
 
 ##
 # Completion
@@ -33,7 +35,7 @@ setopt correct                  # spelling correction for commands
 setopt list_ambiguous           # complete as much of a completion until it gets ambiguous.
 
 # Plugins
-plugins=(zsh-autosuggestions)
+plugins=(zsh-autosuggestions jira)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -54,15 +56,6 @@ if [ -f ~/.aliases ]; then
   source ~/.aliases
 fi
 
-##
-# Pushd
-##
-setopt auto_pushd               # make cd push old dir in dir stack
-setopt pushd_ignore_dups        # no duplicates in dir stack
-setopt pushd_silent             # no dir stack after pushd or popd
-setopt pushd_to_home            # `pushd` = `pushd $HOME`
-#
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -78,3 +71,5 @@ compctl -K _dotnet_zsh_complete dotnet
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/kelly/.sdkman"
 [[ -s "/home/kelly/.sdkman/bin/sdkman-init.sh" ]] && source "/home/kelly/.sdkman/bin/sdkman-init.sh"
+
+eval "$(starship init zsh)"

@@ -12,10 +12,11 @@ exec --no-startup-id picom -b
 exec --no-startup-id synology-drive
 exec --no-startup-id udiskie --smart-tray
 #exec --no-startup-id caffeine
-#exec --no-startup-id flameshot
-exec --no-startup-id code-insiders
+exec --no-startup-id screengrab
+exec --no-startup-id nm-applet
+exec --no-startup-id code
 exec --no-startup-id chromium
-#exec_always --no-startup-id polybar topbar -r
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id bitwarden
 for_window [class="Bitwarden"] sticky enable border none
 for_window [class="Bitwarden"] move scratchpad
@@ -61,24 +62,24 @@ set_from_resource $color13 i3wm.color13
 set_from_resource $color14 i3wm.color14
 set_from_resource $color15 i3wm.color15
 
-bar {
-    position top
-    status_command i3xrocks -c $HOME/.config/i3/blocks
-
-    workspace_buttons      yes
-    colors {
-        background $background
-        separator  $foreground
-        statusline $foreground
-
-        # State             Border  BG      Text
-        focused_workspace   $color7 $color4 $background
-        active_workspace    $color7 $color3 $background
-        inactive_workspace  $color8 $color8 $foreground
-        urgent_workspace    $color1 $color9 $background
-        binding_mode        $background $color4 $background
-    }
-}
+#bar {
+#    position top
+#    status_command i3xrocks -c $HOME/.config/i3/blocks
+#
+#    workspace_buttons      yes
+#    colors {
+#        background $background
+#        separator  $foreground
+#        statusline $foreground
+#
+#        # State             Border  BG      Text
+#        focused_workspace   $color7 $color4 $background
+#        active_workspace    $color7 $color3 $background
+#        inactive_workspace  $color8 $color8 $foreground
+#        urgent_workspace    $color1 $color9 $background
+#        binding_mode        $background $color4 $background
+#    }
+#}
 
 
 # Basic color configuration using the variables for windows and borders.
@@ -100,11 +101,6 @@ set $alt Mod1
 # Use $super+Mouse to drag floating windows to their wanted position
 floating_modifier $super
 
-# Use pactl to adjust volume in PulseAudio.
-#bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 2%+ && pkill -RTMIN+9 i3xrocks
-#bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 2%- && pkill -RTMIN+9 i3xrocks
-#bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse sset Master toggle && pkill -RTMIN+9 i3xrocks
-
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+9 i3xrocks
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+9 i3xrocks
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+9 i3xrocks
@@ -115,9 +111,9 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # Screenshots (requires `maim`)
-bindsym Print exec "i3-shotter -s"
-bindsym Control+Print exec "i3-shotter -w"
-bindsym $alt+Print exec "i3-shotter -f"
+#bindsym Print exec "i3-shotter -s"
+#bindsym Control+Print exec "i3-shotter -w"
+#bindsym $alt+Print exec "i3-shotter -f"
 
 # Commonly used Apps
 bindsym $super+Return exec $TERMINAL
@@ -129,11 +125,6 @@ bindsym $super+Shift+e exec $FILEMAN
 bindsym $super+space exec "rofi -show drun -theme themes/drun.rasi"
 # Alt tab
 bindsym $alt+Tab exec "rofi -kb-accept-entry '!Alt-Tab' -kb-row-down Alt-Tab -show window -theme themes/drun.rasi"
-
-# Exit binds
-bindsym $super+Shift+End exec --no-startup-id powermenu
-bindsym $super+l exec betterlockscreen -l dimblur
-bindsym XF86Sleep exec systemctl suspend
 
 # kill focused window
 bindsym $super+Shift+q kill
@@ -172,13 +163,13 @@ bindsym $super+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # Name the workspaces
-set $ws1 " 1  "
+set $ws1 " 1  "
 set $ws2 " 2  "
 set $ws3 " 3  "
 set $ws4 " 4  "
 set $ws5 " 5  "
-set $ws6 " 6  "
-set $ws7 " 7 華 "
+set $ws6 " 6  "
+set $ws7 " 7  "
 set $ws8 " 8  "
 set $ws9 " 9  "
 
@@ -208,26 +199,35 @@ bindsym $super+Shift+7 move container to workspace $ws7
 bindsym $super+Shift+8 move container to workspace $ws8
 bindsym $super+Shift+9 move container to workspace $ws9
 
+##################
+### Power Mode ###
+##################
+set $Pause  [L]ock, [E]xit, [S]uspend, [R]eboot, [END] Shutdown
+mode "$Pause" {
+    bindsym e       exec --no-startup-id i3-msg exit,           mode "default"
+    bindsym s       exec --no-startup-id systemctl suspend,     mode "default"
+    bindsym r       exec --no-startup-id systemctl reboot,      mode "default"
+    bindsym End     exec --no-startup-id systemctl poweroff -i, mode "default"
+    bindsym l       exec betterlockscreen -l dimblur,           mode "default"
+
+    bindsym Return  mode "default"
+    bindsym Escape  mode "default"
+}
+bindsym $super+Shift+End mode "$Pause" 
+
+bindsym XF86Sleep exec systemctl suspend
+
 # reload the configuration file
 bindsym $super+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $super+Shift+r restart
 
-# resize window (you can also use the mouse for that)
+##############
+### Resize ###
+##############
 mode "resize" {
     # These bindings trigger as soon as you enter the resize mode
-
-    # Pressing left will shrink the window’s width.
-    # Pressing right will grow the window’s width.
-    # Pressing up will shrink the window’s height.
-    # Pressing down will grow the window’s height.
-    bindsym j resize shrink width 10 px or 10 ppt
-    bindsym k resize grow height 10 px or 10 ppt
-    bindsym l resize shrink height 10 px or 10 ppt
-    bindsym semicolon resize grow width 10 px or 10 ppt
-
-    # same bindings, but for the arrow keys
     bindsym Left resize shrink width 10 px or 10 ppt
     bindsym Down resize grow height 10 px or 10 ppt
     bindsym Up resize shrink height 10 px or 10 ppt
@@ -241,13 +241,11 @@ mode "resize" {
 
 bindsym $super+r mode "resize"
 
-######################
-# Scratchpad
-######################
+################
+# Scratchpad ###
+################
 # Make the currently focused window a scratchpad
 bindsym $super+Shift+minus move scratchpad
-bindsym $super+o [class="Bitwarden"] scratchpad show
-
 # Show the first scratchpad window
 bindsym $super+minus scratchpad show
 
@@ -270,8 +268,8 @@ for_window [workspace=$ws8] layout tabbed
 # Base - Ws1
 assign          [class=Chromium|Chrome]         $ws1
 # Code - Ws2
-assign          [class=Atom|code-oss|VSCodium]  $ws2
-assign          [class="Code - Insiders"]       $ws2
+assign          [class=Atom]                    $ws2
+assign          [class="^Code$"]                $ws2
 # Cmd - Ws3
 # FileManager - Ws4
 assign          [class=Thunar|Nemo|PCmanFM|Polo-GTK]     $ws4
@@ -314,7 +312,5 @@ for_window      [window_type="menu"]            floating enable
 for_window [title="feh.*/tmp/qr_code.png$"]     floating enable, sticky enable
 for_window [title="Notepad Terminal"]           floating enable, move right 600
 for_window [window_role="GtkFileChooserDialog"] resize set 900 600, move position center
-
-show_marks yes
 
 # vim:ft=i3config

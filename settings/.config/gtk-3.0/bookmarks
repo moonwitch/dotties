@@ -1,4 +1,5 @@
 file:///home/kelly/Documents Documents
+file:///home/kelly/Documents/Templates Templates
 file:///home/kelly/Downloads Downloads
 file:///home/kelly/Pictures Pictures
 file:///home/kelly/Projects Projects
@@ -15,3 +16,4 @@ smb://fci.fortis;700320@sfdr3pr0006.amlin.com/filedata01$/spotlight spotlight
 smb://fci.fortis;700320@sfdr3pr0004.amlin.com/aci%20interface%20files/ ACI Interface Files
 smb://fci.fortis;700320@sfdr3pr0004.amlin.com/filedata03$/Systems%20Department Systems Department
 smb://fci.fortis;700320@sfdr3pr0004.amlin.com/installs$/ AmlinInstalls
+smb://fci.fortis;700320@sfprfci001.fci.fortis/buo/ buo on sfprfci001.fci.fortis

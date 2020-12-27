@@ -36,6 +36,7 @@ bar-fg          =${xrdb:foreground}
 module-bg       =${xrdb:color0}
 
 [layout]
+text-font = 1
 icon-font = 2
 icon-padding = 1
 module-padding = 1
@@ -46,13 +47,12 @@ module-padding = 1
 
 [settings]
 screenchange-reload = true
-dpi-x = 0
-dpi-y = 0
+;dpi-x = 0
+;dpi-y = 0
 
 [common-bar]
 width = 100%
 height = 40
-border-size = 2
 foreground = ${colors.foreground}
 background = ${colors.background}
 border-color = ${colors.black1}
@@ -63,16 +63,11 @@ enable-ipc = true
 format-padding = ${layout.module-padding}
 
 ; Size of under-/overlines
-line-size = 1
+line-size = 3
 
 ; monospace is an aliased font name, see ~/.config/fontconfig/fonts.conf
-font-0 = "Hasklug Nerd Font Mono:style=Regular:size=18;3"
-font-1 = "Iosevka Nerd Font Mono:style=Regular:size=22;5"
-
-[common-prefix-format]
-format-prefix-font = ${layout.icon-font}
-format-prefix-foreground = ${colors.icon-fg}
-format-prefix-padding-right = ${layout.icon-padding}
+font-0 = "Hasklug Nerd Font Mono:style=Regular:size=18;5"
+font-1 = "Hasklug Nerd Font Mono:style=Regular:size=30;8"
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Bars
@@ -84,159 +79,190 @@ top = true
 monitor =
 modules-left = bspwm i3
 modules-center = playerctl
-modules-right = gmail volume temperature cpu memory date power
+modules-right = volume temperature cpu memory date
 module-margin-left = 1
 module-margin-right = 1
 
-tray-background = ${colors.module-bg}
+; Tray
+tray-background = ${colors.black}
 tray-padding = ${layout.module-padding}
 tray-position = right
 ; If true, the bar will not shift its
 ; contents when the tray changes
 tray-detached = false
 tray-maxsize = 48
+tray-scale = 0.9
 
-[module/temperature]
-type = internal/temperature
-interval = 0.5
-
-; Thermal zone to use
-; To list all the zone types, run
-; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
-; Default: 0
-thermal-zone = 1
-
-; Full path of temperature sysfs path
-; Use `sensors` to find preferred temperature source, then run
-; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
-; to find path to desired file
-; Default reverts to thermal zone setting
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input
-
-base-temperature = 20
-warn-temperature = 60
-
-label = TEMP %temperature-c%
-
-[module/i3]
-type = internal/i3
-scroll-up = i3-desknext
-scroll-down = i3-deskprev
-pin-workspaces = true
-index-sort = true
-
-format = <label-state> <label-mode>
-
-label-focused-foreground = ${colors.black}
-label-focused-background = ${colors.blue1}
-
-label-occupied-padding = 2
-label-occupied-font = 2
-label-occupied-foreground = ${colors.magenta}
-label-urgent-background = ${colors.red}
-label-urgent-foreground = ${colors.red1}
-
-[module/bspwm]
-type = internal/bspwm
-scroll-up = bspwm-desknext
-scroll-down = bspwm-deskprev
-
-format = <label-state>
-
-label-focused = %icon%
-label-focused-padding = 2
-label-focused-font = 2
-label-focused-foreground = ${colors.black}
-label-focused-background = ${colors.blue1}
-
-label-occupied = %icon%
-label-occupied-padding = 2
-label-occupied-font = 2
-label-occupied-foreground = ${colors.magenta}
-
-label-urgent = "!"
-label-urgent-padding = 2
-label-urgent-background = ${colors.red}
-label-urgent-foreground = ${colors.red1}
-
-label-empty = %index%
-label-empty-padding = 2
-label-empty-foreground = ${colors.black1}
-label-empty-background = ${colors.black}
-
-ws-icon-0 = Main;
-ws-icon-1 = Code;
-ws-icon-2 = Web;
-ws-icon-3 = Media;
-ws-icon-4 = Social;
-ws-icon-5 = Design;
-ws-icon-6 = Work;
-ws-icon-default = 
-
-[module/playerctl]
-type = custom/script
-exec = echo "$(playerctl metadata --format ' {{ artist }} - {{ title }}')"
-format-foreground = ${colors.green1}
-label-maxlen=40
-click-left = playerctl previous &
-click-right = playerctl next &
-click-middle = playerctl play-pause &
-
-[module/cpu]
-type = internal/cpu
-format = <label>
-format-foreground = ${colors.magenta1}
-label = "CPU %percentage%%"
-
-[module/memory]
-type = internal/memory
-format = <label>
-format-foreground = ${colors.magenta1}
-label = "MEM %gb_used%"
-
-[module/gmail]
-type = custom/script
-exec = ~/bin/gmail/launch.py --nosound --prefix "MSG"
-tail = true
-click-left = xdg-open https://mail.google.com &
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Modules
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 [module/volume]
 type = internal/pulseaudio
-sink = alsa_output.pci-0000_12_00.3.analog-stereo
+;sink = alsa_output.pci-0000_12_00.3.analog-stereo
 use-ui-max = false #100% is max
+interval = 5
 
-label-volume = "%{A3:pavucontrol &:}VOL %percentage%%%{A}"
-label-muted = "MUTED"
-format-volume = <label-volume>
-format-volume-foreground = ${colors.green}
-format-volume-padding = 1
+label-volume = "%{A2:pavucontrol &:}%{T3}墳%{T-} %percentage%%%{A}"
+label-muted = %{T3}ﱝ%{T-} MUTED
+
+format-volume = <label-volume> <bar-volume>
+format-volume-underline = ${colors.blue}
+format-volume-padding = ${layout.icon-padding}
+
 format-muted = <label-muted>
-format-muted-background = ${colors.red}
-format-muted-padding = 1
-;click-right = pavucontrol &
+format-muted-foreground = ${colors.red}
+format-muted-underline = ${colors.red}
+format-muted-padding = ${layout.icon-padding}
+
+bar-volume-width = 10
+bar-volume-foreground-0 = ${colors.blue}
+bar-volume-indicator = |
+bar-volume-fill = ─
+bar-volume-empty = ─
+bar-volume-empty-foreground = #444444
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 1
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input
+warn-temperature = 60
+
+format = <ramp> <label>
+format-padding = ${layout.icon-padding}
+format-underline = ${colors.red}
+
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${colors.red1}
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.red}
+
+ramp-0 =  
+ramp-0-foreground = ${colors.foreground} 
+ramp-1 = 
+ramp-1-foreground = ${colors.green1}
+ramp-2 = 
+ramp-2-foreground = ${colors.yellow1}
+ramp-3 = 
+ramp-3-foreground = ${colors.red1}
+ramp-4 = 
+ramp-4-foreground = ${colors.red}
+;ramp-foreground = ${colors.foreground}
+ramp-font = ${layout.text-font}
+
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+format = <label> <ramp-load>
+format-underline = ${colors.cyan}
+format-padding = ${layout.icon-padding}
+label = 
+label-font = ${layout.icon-font}
+
+ramp-load-0 = ▁
+ramp-load-0-foreground = ${colors.green}
+ramp-load-1 = ▂
+ramp-load-1-foreground = ${colors.green}
+ramp-load-2 = ▃
+ramp-load-2-foreground = ${colors.green1}
+ramp-load-3 = ▄
+ramp-load-3-foreground = ${colors.green1}
+ramp-load-4 = ▅
+ramp-load-4-foreground = ${colors.yellow}
+ramp-load-5 = ▆
+ramp-load-5-foreground = ${colors.yellow1}
+ramp-load-6 = ▇
+ramp-load-6-foreground = ${colors.red}
+ramp-load-7 = █
+ramp-load-7-foreground = ${colors.red1}
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/memory]
+type = internal/memory
+format = <label> <bar-used>
+format-underline = ${colors.magenta}
+format-padding = ${layout.icon-padding}
+label = 
+label-font = ${layout.icon-font}
+
+bar-used-width = 10
+bar-used-foreground-0 = #aaff77
+bar-used-foreground-1 = #aaff77
+bar-used-foreground-2 = #fba922
+bar-used-foreground-3 = #ff5555
+bar-used-indicator = |
+bar-used-indicator-foreground = #ff
+bar-used-fill = ─
+bar-used-empty = ─
+bar-used-empty-foreground = #444444
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 [module/date]
 type = internal/date
 interval = 5
 time-TZ = "Europe/Brussels"
 format = <label>
-format-foreground = ${colors.yellow}
-format-padding = 1
+format-prefix = " "
+format-prefix-font = ${layout.icon-font}
+format-underline = ${colors.white}
+format-padding = ${layout.icon-padding}
 label = %date% %time%
-date = %a %d %b
+date = %a %D
 time = %H:%M
 ;click-left = ruby ~/projects/gopolycal/gopolycal.rb
 
-[module/power]
-type = custom/text
-click-left = exec ~/.config/rofi/dmenu-scripts/powermenu.sh
-click-right = exec ~/.config/rofi/dmenu-scripts/powermenu.sh
-format-spacing = 1
-content = "%{T2}襤%{T-}  "
-content-foreground=${colors.red1}
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
+[module/i3]
+type = internal/i3
+index-sort = true
+wrapping-scroll = false
+pin-workspaces = false
+strip-wsnumbers = true
+scroll-up = i3-desknext
+scroll-down = i3-deskprev
 
+format = <label-state> <label-mode>
 
+label-focused = %icon%
+label-focused-padding = ${layout.icon-padding}
+label-focused-underline = ${colors.blue1}
+label-focused-font = ${layout.icon-font}
 
+label-active = %icon%
+
+label-unfocused = %icon%
+label-unfocused-padding = ${layout.icon-padding}
+label-unfocused-font = ${layout.icon-font}
+
+label-visible = %icon%
+label-visible-padding = ${layout.icon-padding}
+label-visible-font = ${layout.icon-font}
+label-visible-underline = #555555
+
+label-urgent = %icon%
+label-urgent-padding = ${layout.icon-padding}
+label-urgent-font = ${layout.icon-font}
+label-urgent-foreground = ${colors.background}
+label-urgent-background = ${colors.red}
+
+ws-icon-0 = " 1  ;"
+ws-icon-1 = " 2  ;"
+ws-icon-2 = " 3  ;"
+ws-icon-3 = " 4  ;"
+ws-icon-4 = " 5  ;"
+ws-icon-5 = " 6  ;"
+ws-icon-6 = " 7  ;"
+ws-icon-7 = " 8  ;"
+ws-icon-8 = " 9  ;"
 
 ;; vim:ft=dosini
