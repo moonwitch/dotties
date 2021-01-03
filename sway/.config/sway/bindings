@@ -40,7 +40,10 @@ bindsym $super+Shift+w exec $BROWSER
 bindsym $super+Shift+e exec $FILEMAN
 
 # start rofi
-bindsym $super+space exec "rofi --show drun -theme themes/drun.rasi | xargs swaymsg exec -- "
+#bindsym $super+space exec "rofi --show drun -theme themes/drun.rasi | xargs swaymsg exec -- "
+bindsym $super+space exec "wofi --show drun --allow-images"
+
+
 # | xargs swaymsg exec -- 
 # Alt tab
 bindsym $alt+Tab exec "rofi -kb-accept-entry '!Alt-Tab' -kb-row-down Alt-Tab -show window -theme themes/drun.rasi"

@@ -33,14 +33,13 @@ call plug#begin('~/.vim/plugged')
   " Colorschemes
   Plug 'arcticicestudio/nord-vim'
   Plug 'chriskempson/base16-vim'
-  Plug 'morhetz/gruvbox'
 
   " Actual functionality
   Plug 'ryanoasis/vim-devicons'      " Icons for NerdTree
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 call plug#end()
 
-colorscheme gruvbox
+colorscheme base16-gruvbox-dark-medium
 " Enable italics, Make sure this is immediately after colorscheme
 " https://stackoverflow.com/questions/3494434/vimrc-make-comments-italic
 highlight Comment cterm=italic gui=italic

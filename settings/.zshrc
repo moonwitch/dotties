@@ -13,8 +13,8 @@ export ZSH_CUSTOM="$HOME/.zsh_custom"
 BULLETTRAIN_PROMPT_ORDER=(git context dir time)
 
 #ZSH_THEME="bullet-train"
-ZSH_THEME="powerlevel10k/powerlevel10k"
-#ZSH_THEME='pygmalion'
+#ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME='spaceship'
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 DISABLE_MAGIC_FUNCTIONS=true
@@ -78,3 +78,4 @@ compctl -K _dotnet_zsh_complete dotnet
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/kelly/.sdkman"
 [[ -s "/home/kelly/.sdkman/bin/sdkman-init.sh" ]] && source "/home/kelly/.sdkman/bin/sdkman-init.sh"
+

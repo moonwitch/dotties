@@ -24,7 +24,7 @@ font:
     family: Overpass Mono
     style: Bold Italic
 
-    size: 12
+    size: 14
 # Schemes 
 schemes:
   gruvbox: &gruvbox

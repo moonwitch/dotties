@@ -10,23 +10,12 @@
     "sway/workspaces": {
         "disable-scroll": false,
         "all-outputs": true,
-        "format": "{icon}",
-        "format-icons": {
-            "1:web": "www",
-            "2:code": "",
-            "3:term": "",
-            "4:work": "",
-            "5:music": "",
-            "6:docs": "",
-            "urgent": "",
-            "focused": "",
-            "default": ""
-        },
-        "persistent_workspaces": {
-            "1": [],
-            "2": [],
-            "3": []
-        }
+        "format": "{name}: {icon}",
+        //"format-icons": {
+        //    "urgent": "",
+        //    "focused": "",
+        //    "default": ""
+        //}
     },
 
     // MODULES CENTER 

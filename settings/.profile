@@ -24,6 +24,8 @@ export PATH="$PATH:$HOME/.cargo/bin"
 # Java
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
 export PATH=$PATH:$JAVA_HOME/bin
+# NPM
+export PATH="$PATH:$HOME/.npm/bin"
 
 # Ensuring SSH works
 if [ -f /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 ]; then
@@ -42,8 +44,8 @@ xfce4-power-manager &
 ##################################################################
 # HiDPI
 ##################################################################
-xrandr --dpi 144
-xrandr --dpi 144
+#xrandr --dpi 144
+#xrandr --dpi 144
 # HiDPI in QT4 and QT5 
 #export QT_AUTO_SCREEN_SCALE_FACTOR=0 #Has to be disabled, since my screen isn't 192 DPI
 #export QT_SCREEN_SCALE_FACTORS=1.5
@@ -73,3 +75,6 @@ export FILEMAN=/usr/bin/nemo
 export TERMINAL=/usr/bin/alacritty
 export BROWSER=/usr/bin/chromium
 export EDITOR=/usr/bin/code
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

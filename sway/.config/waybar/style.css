@@ -1,7 +1,7 @@
 /* Gruvbox */
 @define-color light #ebdbb2;
 @define-color dark #282828;
-@define-color warning #fabd2f;
+@define-color warning #d79921;
 @define-color critical #cc241d;
 @define-color mode #a89984;
 @define-color workspaces #458588;

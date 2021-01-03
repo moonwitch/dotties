@@ -1,5 +1,5 @@
 show=drun
-location=top_right
+location=center
 width=300
 height=200
 allow_images=true
