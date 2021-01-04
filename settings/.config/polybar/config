@@ -31,9 +31,9 @@ magenta1        = ${xrdb:color13}
 cyan1           = ${xrdb:color14}
 white1          = ${xrdb:color15}
 
-bar-bg          =${xrdb:background}
-bar-fg          =${xrdb:foreground}
-module-bg       =${xrdb:color0}
+bar-bg          = ${xrdb:background}
+bar-fg          = ${xrdb:foreground}
+module-bg       = ${xrdb:color0}
 
 [layout]
 text-font = 1
@@ -52,7 +52,7 @@ screenchange-reload = true
 
 [common-bar]
 width = 100%
-height = 40
+height = 50
 foreground = ${colors.foreground}
 background = ${colors.background}
 border-color = ${colors.black1}
@@ -79,7 +79,7 @@ top = true
 monitor =
 modules-left = bspwm i3
 modules-center = playerctl
-modules-right = volume temperature cpu memory date
+modules-right = pulseaudio-control temperature cpu memory date
 module-margin-left = 1
 module-margin-right = 1
 
@@ -90,12 +90,24 @@ tray-position = right
 ; If true, the bar will not shift its
 ; contents when the tray changes
 tray-detached = false
-tray-maxsize = 48
-tray-scale = 0.9
+tray-maxsize = 35
+tray-scale = 1
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Modules
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[module/pulseaudio-control]
+type = custom/script
+tail = true
+format-underline = ${colors.cyan}
+label-padding = 2
+label-foreground = ${colors.foreground}
+exec = ~/bin/poly-scripts/pulseaudio-control --icons-volume " , " --icon-muted " " --sink-nicknames-from "device.description" --sink-nickname "alsa_output.pci-0000_00_1b.0.analog-stereo:  Speakers" --sink-nickname "alsa_output.usb-Cosair_Corsair_VOID_Surround_USB_Sound_Adaptor_00000000-00.analog-stereo:  Headphones" listen
+click-right = exec pavucontrol &
+click-left = pulseaudio-control togmute
+click-middle = pulseaudio-control next-sink
+scroll-up = pulseaudio-control --volume-max 130 up
+scroll-down = pulseaudio-control --volume-max 130 down
 
 [module/volume]
 type = internal/pulseaudio
@@ -103,7 +115,7 @@ type = internal/pulseaudio
 use-ui-max = false #100% is max
 interval = 5
 
-label-volume = "%{A2:pavucontrol &:}%{T3}墳%{T-} %percentage%%%{A}"
+label-volume = "%{A3:pavucontrol &:}%{T3}墳%{T-} %percentage%%%{A}"
 label-muted = %{T3}ﱝ%{T-} MUTED
 
 format-volume = <label-volume> <bar-volume>
@@ -208,7 +220,7 @@ bar-used-empty-foreground = #444444
 
 [module/date]
 type = internal/date
-interval = 5
+interval = 1.0
 time-TZ = "Europe/Brussels"
 format = <label>
 format-prefix = " "
@@ -220,13 +232,15 @@ date = %a %D
 time = %H:%M
 ;click-left = ruby ~/projects/gopolycal/gopolycal.rb
 
+
+
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 [module/i3]
 type = internal/i3
 index-sort = true
 wrapping-scroll = false
-pin-workspaces = false
+pin-workspaces = true
 strip-wsnumbers = true
 scroll-up = i3-desknext
 scroll-down = i3-deskprev

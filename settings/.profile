@@ -21,9 +21,6 @@ export GEM_PATH=$(ruby -e 'puts Gem.user_dir')
 export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 # Rust
 export PATH="$PATH:$HOME/.cargo/bin"
-# Android Studio
-export ANDROID_HOME="$HOME/Android/Sdk"
-export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
 # Java
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
 export PATH=$PATH:$JAVA_HOME/bin
@@ -41,15 +38,6 @@ setxkbmap -layout us -variant altgr-intl
 
 # Power management
 xset dpms 300 600 900
-# xidlehook \
-#   --not-when-fullscreen \
-#   --not-when-audio \
-#   --timer 600 \
-#     'betterlockscreen -l dimblur' \
-#     '' \
-#   --timer 3600 \
-#     'systemctl suspend' \
-#     '' &
 xfce4-power-manager &
 
 ##################################################################

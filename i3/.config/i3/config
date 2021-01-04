@@ -5,19 +5,18 @@
 ######################
 # Autostart setup
 ######################
+exec --no-startup-id picom -b
 exec --no-startup-id feh --no-fehbg --bg-fill $WALLPAPER 
 exec --no-startup-id dunst
 exec --no-startup-id numlockx
-exec --no-startup-id picom -b
 exec --no-startup-id synology-drive
 exec --no-startup-id udiskie --smart-tray
-#exec --no-startup-id caffeine
-exec --no-startup-id screengrab
+exec --no-startup-id shutter --min_at_startup
 exec --no-startup-id nm-applet
-exec --no-startup-id code
-exec --no-startup-id chromium
+# exec --no-startup-id code
+# exec --no-startup-id chromium
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id bitwarden
+# exec --no-startup-id bitwarden
 for_window [class="Bitwarden"] sticky enable border none
 for_window [class="Bitwarden"] move scratchpad
 
@@ -111,9 +110,11 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # Screenshots (requires `maim`)
-#bindsym Print exec "i3-shotter -s"
+# bindsym Print exec "i3-shotter -s"
+bindsym Print exec shutter --select
 #bindsym Control+Print exec "i3-shotter -w"
 #bindsym $alt+Print exec "i3-shotter -f"
+bindsym $alt+Print exec shutter --full
 
 # Commonly used Apps
 bindsym $super+Return exec $TERMINAL
