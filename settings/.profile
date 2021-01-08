@@ -80,4 +80,6 @@ export PDFVIEWER=/usr/bin/evince
 export FILEMAN=/usr/bin/nemo
 export TERMINAL=/usr/bin/alacritty
 export BROWSER=/usr/bin/chromium
-export EDITOR=/usr/bin/code-insiders
+export EDITOR=/usr/bin/code
+eval $(/bin/brew shellenv)
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)

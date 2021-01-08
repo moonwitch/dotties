@@ -31,10 +31,6 @@ magenta1        = ${xrdb:color13}
 cyan1           = ${xrdb:color14}
 white1          = ${xrdb:color15}
 
-bar-bg          = ${xrdb:background}
-bar-fg          = ${xrdb:foreground}
-module-bg       = ${xrdb:color0}
-
 [layout]
 text-font = 1
 icon-font = 2
@@ -55,15 +51,15 @@ width = 100%
 height = 50
 foreground = ${colors.foreground}
 background = ${colors.background}
-border-color = ${colors.black1}
+border-color = ${colors.foreground}
 wm-restack = i3
 enable-ipc = true
 
-;format-background = ${colors.module-bg}
+format-background = ${colors.background}
 format-padding = ${layout.module-padding}
 
 ; Size of under-/overlines
-line-size = 3
+line-size = 5
 
 ; monospace is an aliased font name, see ~/.config/fontconfig/fonts.conf
 font-0 = "Hasklug Nerd Font Mono:style=Regular:size=18;5"
@@ -84,7 +80,7 @@ module-margin-left = 1
 module-margin-right = 1
 
 ; Tray
-tray-background = ${colors.black}
+tray-background = ${colors.background}
 tray-padding = ${layout.module-padding}
 tray-position = right
 ; If true, the bar will not shift its
@@ -99,40 +95,15 @@ tray-scale = 1
 [module/pulseaudio-control]
 type = custom/script
 tail = true
-format-underline = ${colors.cyan}
+format-underline = ${colors.blue1}
 label-padding = 2
-label-foreground = ${colors.foreground}
-exec = ~/bin/poly-scripts/pulseaudio-control --icons-volume " , " --icon-muted " " --sink-nicknames-from "device.description" --sink-nickname "alsa_output.pci-0000_00_1b.0.analog-stereo:  Speakers" --sink-nickname "alsa_output.usb-Cosair_Corsair_VOID_Surround_USB_Sound_Adaptor_00000000-00.analog-stereo:  Headphones" listen
+;label-background = ${colors.blue}
+exec = ~/bin/poly-scripts/pulseaudio-control --icons-volume " , " --icon-muted " " --sink-nicknames-from "device.description" --sink-nickname "alsa_output.pci-0000_00_1b.0.analog-stereo:Speakers" --sink-nickname "alsa_output.usb-Cosair_Corsair_VOID_Surround_USB_Sound_Adaptor_00000000-00.analog-stereo:Headphones" listen
 click-right = exec pavucontrol &
 click-left = pulseaudio-control togmute
 click-middle = pulseaudio-control next-sink
-scroll-up = pulseaudio-control --volume-max 130 up
-scroll-down = pulseaudio-control --volume-max 130 down
-
-[module/volume]
-type = internal/pulseaudio
-;sink = alsa_output.pci-0000_12_00.3.analog-stereo
-use-ui-max = false #100% is max
-interval = 5
-
-label-volume = "%{A3:pavucontrol &:}%{T3}墳%{T-} %percentage%%%{A}"
-label-muted = %{T3}ﱝ%{T-} MUTED
-
-format-volume = <label-volume> <bar-volume>
-format-volume-underline = ${colors.blue}
-format-volume-padding = ${layout.icon-padding}
-
-format-muted = <label-muted>
-format-muted-foreground = ${colors.red}
-format-muted-underline = ${colors.red}
-format-muted-padding = ${layout.icon-padding}
-
-bar-volume-width = 10
-bar-volume-foreground-0 = ${colors.blue}
-bar-volume-indicator = |
-bar-volume-fill = ─
-bar-volume-empty = ─
-bar-volume-empty-foreground = #444444
+scroll-up = pulseaudio-control --volume-max 100 up
+scroll-down = pulseaudio-control --volume-max 100 down
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
@@ -144,14 +115,13 @@ warn-temperature = 60
 
 format = <ramp> <label>
 format-padding = ${layout.icon-padding}
+;format-background = ${colors.red}
 format-underline = ${colors.red}
 
 format-warn = <ramp> <label-warn>
-format-warn-underline = ${colors.red1}
 
 label = %temperature-c%
 label-warn = %temperature-c%
-label-warn-foreground = ${colors.red}
 
 ramp-0 =  
 ramp-0-foreground = ${colors.foreground} 
@@ -162,10 +132,7 @@ ramp-2-foreground = ${colors.yellow1}
 ramp-3 = 
 ramp-3-foreground = ${colors.red1}
 ramp-4 = 
-ramp-4-foreground = ${colors.red}
-;ramp-foreground = ${colors.foreground}
-ramp-font = ${layout.text-font}
-
+ramp-4-foreground = ${colors.red1}
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
@@ -174,47 +141,39 @@ type = internal/cpu
 interval = 0.5
 format = <label> <ramp-load>
 format-underline = ${colors.cyan}
+;format-background = ${colors.cyan}
 format-padding = ${layout.icon-padding}
 label = 
 label-font = ${layout.icon-font}
 
 ramp-load-0 = ▁
-ramp-load-0-foreground = ${colors.green}
 ramp-load-1 = ▂
-ramp-load-1-foreground = ${colors.green}
 ramp-load-2 = ▃
-ramp-load-2-foreground = ${colors.green1}
 ramp-load-3 = ▄
-ramp-load-3-foreground = ${colors.green1}
 ramp-load-4 = ▅
-ramp-load-4-foreground = ${colors.yellow}
 ramp-load-5 = ▆
-ramp-load-5-foreground = ${colors.yellow1}
 ramp-load-6 = ▇
-ramp-load-6-foreground = ${colors.red}
 ramp-load-7 = █
-ramp-load-7-foreground = ${colors.red1}
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 [module/memory]
 type = internal/memory
-format = <label> <bar-used>
+format = <label> <ramp-used>
 format-underline = ${colors.magenta}
+;;format-background = ${colors.magenta}
 format-padding = ${layout.icon-padding}
 label = 
 label-font = ${layout.icon-font}
 
-bar-used-width = 10
-bar-used-foreground-0 = #aaff77
-bar-used-foreground-1 = #aaff77
-bar-used-foreground-2 = #fba922
-bar-used-foreground-3 = #ff5555
-bar-used-indicator = |
-bar-used-indicator-foreground = #ff
-bar-used-fill = ─
-bar-used-empty = ─
-bar-used-empty-foreground = #444444
+ramp-used-0 = ▁
+ramp-used-1 = ▂
+ramp-used-2 = ▃
+ramp-used-3 = ▄
+ramp-used-4 = ▅
+ramp-used-5 = ▆
+ramp-used-6 = ▇
+ramp-used-7 = █
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
@@ -226,13 +185,12 @@ format = <label>
 format-prefix = " "
 format-prefix-font = ${layout.icon-font}
 format-underline = ${colors.white}
+;format-background = ${colors.white}
 format-padding = ${layout.icon-padding}
 label = %date% %time%
-date = %a %D
+date = %a, %b %d
 time = %H:%M
 ;click-left = ruby ~/projects/gopolycal/gopolycal.rb
-
-
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
@@ -267,7 +225,7 @@ label-urgent = %icon%
 label-urgent-padding = ${layout.icon-padding}
 label-urgent-font = ${layout.icon-font}
 label-urgent-foreground = ${colors.background}
-label-urgent-background = ${colors.red}
+label-urgent-background = ${colors.red1}
 
 ws-icon-0 = " 1  ;"
 ws-icon-1 = " 2  ;"

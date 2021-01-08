@@ -14,7 +14,6 @@ endif
 "Plugins
 call plug#begin('~/.vim/plugged')
   " Dependencies
-  Plug 'godlygeek/tabular'           " This must come before plasticboy/vim-markdown
   Plug 'honza/vim-snippets'
   " General plugins
   Plug 'scrooloose/nerdtree'
@@ -33,7 +32,9 @@ call plug#begin('~/.vim/plugged')
   
   " Syntax highlighting all over man
   Plug 'sheerun/vim-polyglot'
-
+  " Markdown
+  Plug 'vim-pandoc/vim-pandoc'
+  Plug 'vim-pandoc/vim-pandoc-syntax'
   " Colorschemes
   Plug 'arcticicestudio/nord-vim'
   Plug 'chriskempson/base16-vim'
@@ -47,7 +48,6 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 colorscheme gruvbox
-" colorscheme seoul256
 " Enable italics, Make sure this is immediately after colorscheme
 " https://stackoverflow.com/questions/3494434/vimrc-make-comments-italic
 highlight Comment cterm=italic gui=italic
@@ -71,6 +71,7 @@ set number                  " add line numbers
 set noshowmode              " hide -- MODE --
 set wildmode=longest,list   " get bash-like tab completions
 set termguicolors           " Enable true colors if available
+set background=dark         " Dark mode?
 syntax on                   " syntax highlighting
 filetype plugin on
 
@@ -117,7 +118,7 @@ if !has('gui_running')
 endif
 
 let g:lightline = {
-      \ 'colorscheme': 'seoul256',
+      \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]

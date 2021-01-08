@@ -10,10 +10,16 @@ configuration {
     hide-scrollbar:     true;
     disable-history:    false;
     modi:               "drun,calc,ssh,run";
-    display-drun:       "apps";
+    display-run:        "  ";
+    display-drun:       "  ";
+    display-window:     "  ";
+    display-calc:       "  ";
+    display-ssh:        "  ";
+    drun-display-format: "{name}";
     show-match: 		false;
     columns:            2;
     sidebar-mode:       true;
 }
 
 /* vim:ft=css */
+@import "~/.config/rofi/themes/FlatnGroovy.rasi"

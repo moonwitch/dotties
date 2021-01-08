@@ -73,3 +73,4 @@ export SDKMAN_DIR="/home/kelly/.sdkman"
 [[ -s "/home/kelly/.sdkman/bin/sdkman-init.sh" ]] && source "/home/kelly/.sdkman/bin/sdkman-init.sh"
 
 eval "$(starship init zsh)"
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
