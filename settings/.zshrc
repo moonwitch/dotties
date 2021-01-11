@@ -73,4 +73,13 @@ export SDKMAN_DIR="/home/kelly/.sdkman"
 [[ -s "/home/kelly/.sdkman/bin/sdkman-init.sh" ]] && source "/home/kelly/.sdkman/bin/sdkman-init.sh"
 
 eval "$(starship init zsh)"
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
+# NPM with no sudo
+NPM_PACKAGES="${HOME}/.npm-packages"
+
+export PATH="$PATH:$NPM_PACKAGES/bin"
+
+# Preserve MANPATH if you already defined it somewhere in your config.
+# Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
+export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
+
