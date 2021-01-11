@@ -55,15 +55,19 @@ border-color = ${colors.foreground}
 wm-restack = i3
 enable-ipc = true
 
-format-background = ${colors.background}
+; Padding part of the label for color
 format-padding = ${layout.module-padding}
+
+; Padding between modules
+module-margin-left = ${layout.module-padding}
+module-margin-right = ${layout.module-padding}
 
 ; Size of under-/overlines
 line-size = 5
 
 ; monospace is an aliased font name, see ~/.config/fontconfig/fonts.conf
 font-0 = "Hasklug Nerd Font Mono:style=Regular:size=18;5"
-font-1 = "Hasklug Nerd Font Mono:style=Regular:size=30;8"
+font-1 = "Hasklug Nerd Font Mono:style=Regular:size=32;6"
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Bars
@@ -72,12 +76,10 @@ font-1 = "Hasklug Nerd Font Mono:style=Regular:size=30;8"
 [bar/topbar]
 inherit = common-bar
 top = true
-monitor =
+monitor = 
 modules-left = bspwm i3
 modules-center = playerctl
 modules-right = pulseaudio-control temperature cpu memory date
-module-margin-left = 1
-module-margin-right = 1
 
 ; Tray
 tray-background = ${colors.background}
@@ -95,13 +97,12 @@ tray-scale = 1
 [module/pulseaudio-control]
 type = custom/script
 tail = true
+format-padding = ${layout.module-padding}
 format-underline = ${colors.blue1}
-label-padding = 2
-;label-background = ${colors.blue}
-exec = ~/bin/poly-scripts/pulseaudio-control --icons-volume " , " --icon-muted " " --sink-nicknames-from "device.description" --sink-nickname "alsa_output.pci-0000_00_1b.0.analog-stereo:Speakers" --sink-nickname "alsa_output.usb-Cosair_Corsair_VOID_Surround_USB_Sound_Adaptor_00000000-00.analog-stereo:Headphones" listen
+exec = ~/bin/poly-scripts/pulseaudio-control --icons-volume " , " --icon-muted " " --sink-nicknames-from "device.description" --sink-nickname "alsa_output.pci-0000_00_1b.0.analog-stereo:蓼" --sink-nickname "alsa_output.usb-Cosair_Corsair_VOID_Surround_USB_Sound_Adaptor_00000000-00.analog-stereo:" listen
 click-right = exec pavucontrol &
-click-left = pulseaudio-control togmute
-click-middle = pulseaudio-control next-sink
+click-middle = pulseaudio-control togmute
+click-left = pulseaudio-control next-sink
 scroll-up = pulseaudio-control --volume-max 100 up
 scroll-down = pulseaudio-control --volume-max 100 down
 
@@ -114,9 +115,8 @@ hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input
 warn-temperature = 60
 
 format = <ramp> <label>
-format-padding = ${layout.icon-padding}
-;format-background = ${colors.red}
 format-underline = ${colors.red}
+format-padding = ${layout.module-padding}
 
 format-warn = <ramp> <label-warn>
 
@@ -140,8 +140,8 @@ ramp-4-foreground = ${colors.red1}
 type = internal/cpu
 interval = 0.5
 format = <label> <ramp-load>
+;format = <ramp-load>
 format-underline = ${colors.cyan}
-;format-background = ${colors.cyan}
 format-padding = ${layout.icon-padding}
 label = 
 label-font = ${layout.icon-font}
@@ -155,13 +155,25 @@ ramp-load-5 = ▆
 ramp-load-6 = ▇
 ramp-load-7 = █
 
+;ramp-load-0 = %{T2}%{T-}
+;ramp-load-1 = %{T2}%{T-}
+;ramp-load-2 = %{T2}%{T-}
+;ramp-load-3 = %{T2}%{T-}
+;ramp-load-4 = %{T2}%{T-}
+
+ramp-load-0-foreground = ${colors.magenta}
+ramp-load-1-foreground = ${colors.cyan}
+ramp-load-2-foreground = ${colors.green}
+ramp-load-3-foreground = ${colors.yellow}
+ramp-load-4-foreground = ${colors.red}
+
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 [module/memory]
 type = internal/memory
 format = <label> <ramp-used>
+;format = <ramp-used>
 format-underline = ${colors.magenta}
-;;format-background = ${colors.magenta}
 format-padding = ${layout.icon-padding}
 label = 
 label-font = ${layout.icon-font}
@@ -174,6 +186,18 @@ ramp-used-4 = ▅
 ramp-used-5 = ▆
 ramp-used-6 = ▇
 ramp-used-7 = █
+
+;ramp-used-0 = %{T2}%{T-}
+;ramp-used-1 = %{T2}%{T-}
+;ramp-used-2 = %{T2}%{T-}
+;ramp-used-3 = %{T2}%{T-}
+;ramp-used-4 = %{T2}%{T-}
+
+ramp-used-0-foreground = ${colors.magenta}
+ramp-used-1-foreground = ${colors.cyan}
+ramp-used-2-foreground = ${colors.green}
+ramp-used-3-foreground = ${colors.yellow}
+ramp-used-4-foreground = ${colors.red}
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
