@@ -118,6 +118,7 @@ bindsym $super+Return exec $TERMINAL
 bindsym $super+Shift+Return exec $TERMINAL -e vifm
 bindsym $super+Shift+w exec $BROWSER
 bindsym $super+Shift+e exec $FILEMAN
+bindsym XF86Calculator exec --no-startup-id galculator
 
 # start rofi
 bindsym $super+space exec "rofi -show drun -theme themes/FlatnGroovy.rasi"
