@@ -48,7 +48,7 @@ screenchange-reload = true
 
 [common-bar]
 width = 100%
-height = 50
+height = 40
 foreground = ${colors.foreground}
 background = ${colors.background}
 border-color = ${colors.foreground}
@@ -59,11 +59,11 @@ format-background = ${colors.background}
 format-padding = ${layout.module-padding}
 
 ; Size of under-/overlines
-line-size = 5
+line-size = 3
 
 ; monospace is an aliased font name, see ~/.config/fontconfig/fonts.conf
-font-0 = "Hasklug Nerd Font Mono:style=Regular:size=18;5"
-font-1 = "Hasklug Nerd Font Mono:style=Regular:size=30;8"
+font-0 = "Hasklug Nerd Font Mono:style=Regular:size=14;5"
+font-1 = "Hasklug Nerd Font Mono:style=Regular:size=26;5"
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Bars
@@ -86,7 +86,7 @@ tray-position = right
 ; If true, the bar will not shift its
 ; contents when the tray changes
 tray-detached = false
-tray-maxsize = 35
+tray-maxsize = 20
 tray-scale = 1
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

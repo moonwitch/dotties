@@ -15,9 +15,6 @@ exec --no-startup-id nm-applet
 exec --no-startup-id code
 exec --no-startup-id chromium
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id bitwarden
-for_window [class="Bitwarden"] sticky enable border none
-for_window [class="Bitwarden"] move scratchpad
 
 ######################
 # Looks setup

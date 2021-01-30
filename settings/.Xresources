@@ -5,8 +5,7 @@
 !
 ! Author: Kelly Crabbé
 
-Xft.dpi:        163
-!Xft.dpi: 192
+Xft.dpi:         163
 !Xcursor.size:   32
 !Xcursor.theme:  Adwaita
 

@@ -13,10 +13,9 @@ alias reload='source ~/.zshrc'
 alias ssh='ssh -t '
 
 # Editors
-alias v='nvim'
-alias vi='nvim'
-alias vim='nvim'
-#alias code='code-insiders'
+alias v='vim'
+alias vi='vim'
+alias vim='vim'
 
 # color=auto added to some
 alias ls='ls -FG --color=auto'    # add file type tips to ls command by default
