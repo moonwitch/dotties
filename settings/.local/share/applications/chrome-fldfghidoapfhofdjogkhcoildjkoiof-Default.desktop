@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Hoppscotch
+Exec=chromium --profile-directory=Default --app-id=fldfghidoapfhofdjogkhcoildjkoiof
+Icon=chrome-fldfghidoapfhofdjogkhcoildjkoiof-Default
+StartupWMClass=crx_fldfghidoapfhofdjogkhcoildjkoiof

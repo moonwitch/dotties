@@ -1,8 +1,8 @@
 [Desktop Entry]
-Name=Webex
+Name=WebeX
 GenericName=CiscoWebex
-Exec=/usr/bin/firefox  --new-tab http://msamlin.webex.com
-Icon=/home/kelly/.icons/Cisco_Webex.png
+Exec=xdg-open http://msamlin.webex.com
+Icon=/home/$USER/.icons/webex.png
 Type=Application
 Categories=Application;Network;
 StartupWMClass=Webex
