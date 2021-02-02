@@ -43,14 +43,6 @@ xfce4-power-manager &
 ##################################################################
 # HiDPI
 ##################################################################
-# xrandr --dpi 192
-# export GDK_SCALE=2
-# export GDK_DPI_SCALE=0.5
-# export QT_AUTO_SCREEN_SET_FACTOR=0
-# export QT_SCALE_FACTOR=2
-# export QT_FONT_DPI=96
-# xrandr --output DP-3 --scale '1.14x1.14'
-
 xrandr --dpi 163
 xrandr --dpi 163
 # HiDPI in QT4 and QT5
@@ -66,13 +58,6 @@ export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
 export XCURSOR_SIZE=32
 
-# Wayland
-# export MOZ_ENABLE_WAYLAND=1
-# Wayland and QT
-# export QT_QPA_PLATFORM=wayland-egl
-# export QT_WAYLAND_FORCE_DPI=physical
-# export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-
 ##################################################################
 # Default Applications
 ##################################################################
@@ -81,5 +66,4 @@ export FILEMAN=/usr/bin/nemo
 export TERMINAL=/usr/bin/alacritty
 export BROWSER=/usr/bin/chromium
 export EDITOR=/usr/bin/code
-eval $(/bin/brew shellenv)
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+

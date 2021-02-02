@@ -20,8 +20,8 @@ DISABLE_MAGIC_FUNCTIONS=true
 COMPLETION_WAITING_DOTS="true"
 
 # jira config
-JIRA_URL="http://jira.raetsmarine.local"
-JIRA_NAME=700320
+JIRA_URL="https://msabs.atlassian.net"
+JIRA_NAME="kelly.crabbe@msamlin.com"
 
 
 ##
@@ -76,10 +76,5 @@ eval "$(starship init zsh)"
 
 # NPM with no sudo
 NPM_PACKAGES="${HOME}/.npm-packages"
-
 export PATH="$PATH:$NPM_PACKAGES/bin"
-
-# Preserve MANPATH if you already defined it somewhere in your config.
-# Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
-
