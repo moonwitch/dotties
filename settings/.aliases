@@ -13,10 +13,9 @@ alias reload='source ~/.zshrc'
 alias ssh='ssh -t '
 
 # Editors
-alias v='nvim'
-alias vi='nvim'
-alias vim='nvim'
-#alias code='code-insiders'
+alias v='vim'
+alias vi='vim'
+alias vim='vim'
 
 # color=auto added to some
 alias ls='ls -FG --color=auto'    # add file type tips to ls command by default
@@ -31,9 +30,6 @@ alias grep='grep --color=auto'
 #alias lt='exa -aT --color=always --group-directories-first' # tree listing
 
 alias cat='bat' 
-
-# make rm -rf shorter
-alias rmf='rm -rf'
 
 # filesystem usage, default human readable sizes
 alias df='df -h'
