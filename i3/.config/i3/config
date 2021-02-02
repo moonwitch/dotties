@@ -13,11 +13,9 @@ exec --no-startup-id synology-drive
 exec --no-startup-id udiskie --smart-tray
 exec --no-startup-id nm-applet
 exec --no-startup-id code
+exec --no-startup-id notable
 exec --no-startup-id chromium
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id bitwarden
-for_window [class="Bitwarden"] sticky enable border none
-for_window [class="Bitwarden"] move scratchpad
 
 ######################
 # Looks setup
@@ -277,11 +275,14 @@ assign          [class=Vmrc]                    $ws5
 assign          [class="^Remmina$"]             $ws5
 # Office/Work - Ws6
 assign          [class=LibreOffice*]            $ws6
-assign          [class=Typora|zettlr]           $ws6
+assign          [class=Typora|zettlr|Notable]   $ws6
 # Social - Ws7
 assign          [class=Caprine]                 $ws7
 assign          [class=Mattermost]              $ws7
 assign          [class=Pidgin]                  $ws7
+assign          [class=Skype]                   $ws7
+assign          [class=Discord]                 $ws7
+assign          [class=Teams]                   $ws7
 # Music - Ws8
 # Because Spotify is a bitch
 for_window [class="Spotify"] move to workspace $ws8
