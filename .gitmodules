@@ -10,9 +10,12 @@
 [submodule "settings/.zsh_custom/plugins/zsh-autosuggestions"]
 	path = settings/.zsh_custom/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule "settings/.zsh_custom/themes/powerlevel10k"]
-	path = settings/.zsh_custom/themes/powerlevel10k
-	url = https://github.com/romkatv/powerlevel10k
 [submodule "themes/.themes/kripton"]
 	path = themes/.themes/kripton
 	url = https://github.com/EliverLara/Kripton
+[submodule "settings/.zsh_custom/plugins/zsh-history-substring-search"]
+	path = settings/.zsh_custom/plugins/zsh-history-substring-search
+	url = https://github.com/zsh-users/zsh-history-substring-search
+[submodule "settings/.zsh_custom/plugins/zsh-syntax-highlighting"]
+	path = settings/.zsh_custom/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
