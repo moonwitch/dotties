@@ -16,3 +16,6 @@
 [submodule "settings/.zsh_custom/plugins/zsh-history-substring-search"]
 	path = settings/.zsh_custom/plugins/zsh-history-substring-search
 	url = https://github.com/zsh-users/zsh-history-substring-search
+[submodule "settings/.zsh_custom/plugins/fast-syntax-highlighting"]
+	path = settings/.zsh_custom/plugins/fast-syntax-highlighting
+	url = https://github.com/zdharma/fast-syntax-highlighting.git
