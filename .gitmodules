@@ -7,9 +7,6 @@
 [submodule "themes/.themes/Juno"]
 	path = themes/.themes/Juno
 	url = https://github.com/EliverLara/Juno
-[submodule "settings/.zsh_custom/plugins/zsh-autosuggestions"]
-	path = settings/.zsh_custom/plugins/zsh-autosuggestions
-	url = https://github.com/zsh-users/zsh-autosuggestions.git
 [submodule "themes/.themes/kripton"]
 	path = themes/.themes/kripton
 	url = https://github.com/EliverLara/Kripton
@@ -18,4 +15,7 @@
 	url = https://github.com/zsh-users/zsh-history-substring-search
 [submodule "settings/.zsh_custom/plugins/fast-syntax-highlighting"]
 	path = settings/.zsh_custom/plugins/fast-syntax-highlighting
-	url = https://github.com/zdharma/fast-syntax-highlighting.git
+	url = https://github.com/zdharma/fast-syntax-highlighting
+[submodule "settings/.zsh_custom/plugins/zsh-autosuggestions"]
+	path = settings/.zsh_custom/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions

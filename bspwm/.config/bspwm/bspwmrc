@@ -27,8 +27,8 @@ killall -q polybar
 polybar -r topbar 2>/home/kelly/poly.log &
 
 # Start Synology
-if hash synology-drive > /dev/null 2>&1 ; then
-    /usr/bin/synology-drive &
+if hash qnapsyncclient > /dev/null 2>&1 ; then
+    /usr/bin/qnapsyncclient &
 fi
 
 # Start RedShift

@@ -92,7 +92,6 @@ schemes:
       magenta: '#d3869b'
       cyan:    '#8ec07c'
       white:   '#ebdbb2'
-
   monokai: &monokai
     primary:
       background: '#2D2A2E'
@@ -115,7 +114,6 @@ schemes:
       magenta: '#AB9DF2'
       cyan:    '#78DCE8'
       white:   '#FCFCFA'
-
   seoul256: &seoul
     primary:
       background: '#3a3a3a'
@@ -139,7 +137,7 @@ schemes:
       cyan:    '#87d7d7'
       white:   '#e4e4e4'
 
-colors: *nord
+colors: *gruvbox
 
 background_opacity: 0.9
 

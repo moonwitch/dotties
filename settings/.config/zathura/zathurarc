@@ -1,4 +1,4 @@
-set recolor "true"
+set recolor "false"
 
 set completion-bg "#323d43"
 set completion-fg "#d8caac"

@@ -14,7 +14,7 @@ baph -inN base-devel git stow
 echo "Basic setup"
 baph -inN pamac-aur pamac-zsh-completions \
 python-pip numlockx evince neofetch \
-chromium synology-drive \
+chromium \
 rofi-calc bitwarden-rofi \
 udiskie \
 playerctl spotify spicetify-cli spicetify-themes-git \
@@ -77,17 +77,7 @@ set -g theme_nerd_fonts yes
 # Requirements for Gmail script
 pip install --global --upgrade oauth2client google-api-python-client
 
-# Install lightdm looker
-# systemctl enable betterlockscreen@$USER
-baph -inN lightdm-webkit-theme-aether
-
-# Fix Grub2
-# sudo sh -c "echo "GRUB_GFXMODE=3840x2160x24,auto" >> /etc/default/grub"
-# sudo grub-mkconfig -o /boot/grub/grub.cfg
-
 # Services
-# systemctl --user start spotifyd.service
-# systemctl --user enable spotifyd.service
 sudo systemctl start systemd-timesyncd
 sudo systemctl enable systemd-timesyncd
 
@@ -99,9 +89,9 @@ sudo mkdir -p /mnt/NAS/{media,photos}
 sudo mkdir -p /mnt/storage
 sudo sh -c 'echo "UUID=$(lsblk -no UUID /dev/sdb1)      /mnt/storage        $(lsblk -no FSTYPE /dev/sdb1)       defaults,noatime    0 2" >> /etc/fstab'
 
-# Synology NAS
-#192.168.0.203:/volume1/photo 	/mnt/NAS/photos 	nfs 	nouser,rsize=8192,wsize=8192,atime,auto,rw,dev,exec,suid 	0 0
-#192.168.0.203:/volume1/video 	/mnt/NAS/video 		nfs 	nouser,rsize=8192,wsize=8192,atime,auto,rw,dev,exec,suid 	0 0
+# QNAP
+#192.168.0.116:/DataVol1/Photos 	    /mnt/NAS/photos 	nfs 	nouser,rsize=8192,wsize=8192,atime,auto,rw,dev,exec,suid 	0 0
+#192.168.0.116:/DataVol1/Multimedia 	/mnt/NAS/media 		nfs 	nouser,rsize=8192,wsize=8192,atime,auto,rw,dev,exec,suid 	0 0
 
 # pull it down
 # mkdir -p ~/Projects/dotties && cd ~/Projects/dotties

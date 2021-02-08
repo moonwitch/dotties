@@ -47,7 +47,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/goyo.vim' " Distraction Free
 call plug#end()
 
-colorscheme nord
+colorscheme gruvbox
 " Enable italics, Make sure this is immediately after colorscheme
 " https://stackoverflow.com/questions/3494434/vimrc-make-comments-italic
 highlight Comment cterm=italic gui=italic

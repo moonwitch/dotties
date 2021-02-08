@@ -11,20 +11,6 @@
 	default = current
 [color]
 	ui = auto
-[color "branch"]
-	current = yellow bold
-	local = green bold
-	remote = cyan bold
-[color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
-[color "status"]
-	added = green bold
-	changed = yellow bold
-	untracked = red bold
 [diff]
 	tool = vimdiff
 [difftool]
@@ -49,8 +35,5 @@
 	last = log -1 HEAD
   update-submodules = submodule update --remote --merge
 	pushd = push -u origin HEAD
-
-[pull]
-	rebase = false
 [status]
 	submoduleSummary = true

@@ -52,7 +52,6 @@ fi
 _dotnet_zsh_complete()
 {
   local completions=("$(dotnet complete "$words")")
-
   reply=( "${(ps:\n:)completions}" )
 }
 
@@ -67,3 +66,6 @@ eval "$(starship init zsh)"
 NPM_PACKAGES="${HOME}/.npm-packages"
 export PATH="$PATH:$NPM_PACKAGES/bin"
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
+
+# Because I can't find the bastard
+unalias rd
