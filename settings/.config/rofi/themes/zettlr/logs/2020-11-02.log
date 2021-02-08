@@ -1,5 +1,0 @@
-[09:49:04] [Info] Cleaned up FSAL cache: Removed 12 remnants.
-[13:31:59] [Info] こんにちは！　Booting Zettlr at Mon Nov 02 2020 13:31:59 GMT+0100 (Central European Standard Time).
-[13:31:59] [Info] Electron reports ready state. Instantiating main process...
-[13:32:00] [Error] Could not open new root file /usr/lib/electron9/electron!
-[13:32:00] [Info] Loaded all roots in 0.21 seconds
