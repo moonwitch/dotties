@@ -9,7 +9,7 @@ exec --no-startup-id picom -b
 exec --no-startup-id feh --no-fehbg --bg-fill $WALLPAPER 
 exec --no-startup-id dunst
 exec --no-startup-id numlockx
-exec --no-startup-id synology-drive
+exec --no-startup-id /usr/local/bin/QNAP/QsyncClient/Qsync.sh
 exec --no-startup-id udiskie --smart-tray
 exec --no-startup-id nm-applet
 exec --no-startup-id code

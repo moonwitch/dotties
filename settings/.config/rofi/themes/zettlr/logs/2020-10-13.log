@@ -1,0 +1,9 @@
+[15:23:39] [Info] こんにちは！　Booting Zettlr at Tue Oct 13 2020 15:23:39 GMT+0200 (Central European Summer Time).
+[15:23:39] [Info] Electron reports ready state. Instantiating main process...
+[15:23:39] [Error] Could not open new root file /usr/lib/electron/electron!
+[15:23:39] [Info] Loaded all roots in 0.241 seconds
+[15:26:01] [Info] Cleaned up FSAL cache: Removed 10 remnants.
+[15:26:12] [Info] こんにちは！　Booting Zettlr at Tue Oct 13 2020 15:26:12 GMT+0200 (Central European Summer Time).
+[15:26:12] [Info] Electron reports ready state. Instantiating main process...
+[15:26:12] [Error] Could not open new root file /usr/lib/electron/electron!
+[15:26:12] [Info] Loaded all roots in 0.141 seconds

@@ -9,20 +9,12 @@ export ZHOME="$HOME"
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM="$HOME/.zsh_custom"
 
-## Settings for plugins and themes
-BULLETTRAIN_PROMPT_ORDER=(git context dir time)
-
-#ZSH_THEME="bullet-train"
-#ZSH_THEME="powerlevel10k/powerlevel10k"
-#ZSH_THEME='pygmalion'
-
 DISABLE_MAGIC_FUNCTIONS=true
 COMPLETION_WAITING_DOTS="true"
 
 # jira config
 JIRA_URL="https://msabs.atlassian.net"
 JIRA_NAME="kelly.crabbe@msamlin.com"
-
 
 ##
 # Completion
@@ -35,7 +27,7 @@ setopt correct                  # spelling correction for commands
 setopt list_ambiguous           # complete as much of a completion until it gets ambiguous.
 
 # Plugins
-plugins=(zsh-autosuggestions jira)
+plugins=(zsh-autosuggestions jira zsh-history-substring-search fast-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -55,9 +47,6 @@ get_recipe() {
 if [ -f ~/.aliases ]; then
   source ~/.aliases
 fi
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # zsh parameter completion for the dotnet CLI
 _dotnet_zsh_complete()

@@ -1,7 +1,7 @@
 /*-*- mode: css; -*-*/
  
 /* Import Colors */
-@import "colorschemes/gruvbox.rasi"
+@import "colorschemes/nord.rasi"
 
 * {
   /* Defining variables */  
