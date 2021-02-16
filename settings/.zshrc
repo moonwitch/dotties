@@ -12,10 +12,6 @@ export ZSH_CUSTOM="$HOME/.zsh_custom"
 DISABLE_MAGIC_FUNCTIONS=true
 COMPLETION_WAITING_DOTS="true"
 
-# jira config
-JIRA_URL="https://msabs.atlassian.net"
-JIRA_NAME="kelly.crabbe@msamlin.com"
-
 ##
 # Completion
 ##
