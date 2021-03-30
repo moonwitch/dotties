@@ -25,12 +25,12 @@ small_toolbutton=false
 view_file_mode=1
 resolutions=640x480,800x600,1024x768,1152x864,1280x960,1400x1050
 keystrokes=Send hello world§hello world\\n
-main_width=1883
-main_height=293
+main_width=468
+main_height=971
 main_maximize=false
 main_sort_column_id=1
 main_sort_order=0
-expanded_group=KCenter,KCenter/Production,Thunderhead,Thunderhead/Pre-Prod and Integration,Thunderhead/Production,Utility,Utility/Production
+expanded_group=
 toolbar_pin_down=false
 sshtunnel_port=4732
 ssh_tcp_keepidle=20
@@ -44,7 +44,7 @@ disable_tray_icon=false
 dark_tray_icon=false
 recent_maximum=10
 default_mode=0
-tab_mode=0
+tab_mode=2
 fullscreen_toolbar_visibility=0
 auto_scroll_step=10
 hostkey=65508
@@ -73,6 +73,10 @@ rdp_desktopOrientation=0
 recent_RDP=cyberark-psm-farm.onead.local,vsgewi051.fci.fortis
 screenshot_name=remmina_%p_%h_%Y%m%d-%H%M%S
 trust_all=false
+dark_theme=false
+shortcutkey_multimon=65365
+grab_color=#00ff00
+grab_color_switch=false
 
 [ssh_colors]
 background=rgb(213,204,186)
@@ -94,6 +98,11 @@ color12=rgb(66,106,121)
 color13=rgb(151,82,44)
 color14=rgb(152,154,156)
 color15=rgb(213,204,186)
+bold=#45373c
+cursor_foreground=rgb(213,204,186)
+highlight=rgb(69,55,60)
+highlight_foreground=rgb(213,204,186)
+colorBD=rgb(69,55,60)
 
 [usage_stats]
 periodic_usage_stats_permitted=false

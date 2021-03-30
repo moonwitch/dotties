@@ -13,8 +13,8 @@ exec --no-startup-id /usr/local/bin/QNAP/QsyncClient/Qsync.sh
 exec --no-startup-id udiskie --smart-tray
 exec --no-startup-id nm-applet
 exec --no-startup-id code
-exec --no-startup-id notable
-exec --no-startup-id chromium
+exec --no-startup-id joplin
+exec --no-startup-id google-chrome-stable
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 ######################

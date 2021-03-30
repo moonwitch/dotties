@@ -2,15 +2,15 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/kelly/.gtkrc-2.0.mine"
-gtk-theme-name="Crux"
-gtk-icon-theme-name="ArchLabs"
-gtk-font-name="Sans 10"
+gtk-theme-name="Base16-Gruvbox-Dark"
+gtk-icon-theme-name="Newaita-dark"
+gtk-font-name="Overpass 11"
 gtk-cursor-theme-name="Adwaita"
 gtk-cursor-theme-size=32
 gtk-toolbar-style=GTK_TOOLBAR_BOTH
 gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
-gtk-button-images=1
-gtk-menu-images=1
+gtk-button-images=0
+gtk-menu-images=0
 gtk-enable-event-sounds=1
 gtk-enable-input-feedback-sounds=1
 gtk-xft-antialias=1

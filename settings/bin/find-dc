@@ -1,0 +1,3 @@
+#!/bin/sh
+
+nslookup -query=SRV _ldap._tcp.dc._msdcs.${1}

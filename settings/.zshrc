@@ -23,7 +23,7 @@ setopt correct                  # spelling correction for commands
 setopt list_ambiguous           # complete as much of a completion until it gets ambiguous.
 
 # Plugins
-plugins=(zsh-autosuggestions jira zsh-history-substring-search fast-syntax-highlighting)
+plugins=(zsh-autosuggestions zsh-history-substring-search fast-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 

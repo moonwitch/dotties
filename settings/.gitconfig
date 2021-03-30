@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
 	name = Kelly Crabbé
-  email = kelly.crabbe@gmail.com
+	email = kelly.crabbe@gmail.com
 	editor = $EDITOR
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	excludesfile = ~/.gitignore
@@ -37,3 +37,7 @@
 	pushd = push -u origin HEAD
 [status]
 	submoduleSummary = true
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main

@@ -5,20 +5,26 @@
 
 [global]
     ### Display ###
-
     monitor = 0
     follow = keyboard
 
     geometry = "800x4-14+66"    
     indicate_hidden = yes
-    shrink = true
-    transparency = 0
+    shrink = false
+    transparency = 10
     notification_height = 0
     separator_height = 2
     padding = 44
     horizontal_padding = 44
     frame_width = 3
-    corner_radius = 12
+    corner_radius = 5
+    
+    # Turn on the progess bar
+    progress_bar = true
+    progress_bar_height = 10
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
 
     #frame_color = 
     separator_color = auto
@@ -26,7 +32,7 @@
     idle_threshold = 120
 
     ### Text ###
-    font = Hasklug Nerd Font, Font Awesome 5 Free Solid 12
+    font = CaskaydiaCove Nerd Font Mono 12
     line_height = 0
 
     markup = full
@@ -41,7 +47,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b>%a</b>\n%s\n%b"
+    format = "<b>%a</b>\n%s\n%b\n%p"
     alignment = left
     show_age_threshold = 60
     word_wrap = true
@@ -60,6 +66,18 @@
     sticky_history = yes
     history_length = 20
 
+    ### mouse
+    # Defines action of mouse event
+    # Possible values are:
+    # * none: Don't do anything.
+    # * do_action: If the notification has exactly one action, or one is marked as default,
+    #              invoke it. If there are multiple and no default, open the context menu.
+    # * close_current: Close current notification.
+    # * close_all: Close all notifications.
+    mouse_left_click = do_action
+    mouse_middle_click = close_all
+    mouse_right_click = close_current
+
     ### Misc/Advanced ###
     dmenu = /usr/bin/rofi -p dunst:
     browser = $BROWSER -new-tab
@@ -72,38 +90,10 @@
 [experimental]
     per_monitor_dpi = false
 
-[signed_on]
-   appname = Pidgin
-   summary = "*signed on*"
-   urgency = low
-
-[pomodoro]
-    summary = Pomodoro
-    new_icon = $HOME/.icons/Nord-Icon/48x48/apps/pomodoro-indicator.svg
-
-[slack]
-    desktop_entry = Slack
-    new_icon = $HOME/.icons/Nord-Icon/48x48/apps/slack.svg
-
-[dunst_icon]
-    appname = dunst
-    new_icon = $HOME/.icons/Nord-Icon/48x48/apps/bell.svg
-
-[gmail]
-    desktop_entry = chromium.desktop
-    action = /usr/bin/chromium -foreground https://gmail.com
-
-[spotify]
-    desktop_entry = spotify.desktop
-    #actions = 
-
-[mattermost]
-    desktop_entry = mattermost-desktop.desktop
-
 [shortcuts]
     close = ctrl+space
     close_all = ctrl+shift+space
-    #context = ctrl+shift+period
+    context = ctrl+shift+period
     history = ctrl+grave
 
 [urgency_low]
@@ -123,5 +113,40 @@
 	foreground = "#ebdbb2"
     frame_color = "#fb4934"
     timeout = 0
+
+## Pidgin
+[signed_on]
+    appname = Pidgin
+    summary = "*signed on*"
+
+[signed_off]
+    appname = Pidgin
+    summary = *signed off*
+
+[says]
+    appname = Pidgin
+    summary = *says*
+
+## Slack/Mattermost
+[slack]
+    desktop_entry = Slack
+    new_icon = $HOME/.icons/Nord-Icon/48x48/apps/slack.svg
+
+[mattermost]
+    desktop_entry = mattermost-desktop.desktop
+
+[dunst_icon]
+    appname = dunst
+    new_icon = $HOME/.icons/Nord-Icon/48x48/apps/bell.svg
+
+## Mail
+[gmail]
+    desktop_entry = chromium.desktop
+    action = /usr/bin/chromium -foreground https://gmail.com
+
+## Music
+[spotify]
+    desktop_entry = spotify.desktop
+    #actions = 
 
 # vim: ft=conf

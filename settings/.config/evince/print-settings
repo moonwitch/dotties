@@ -15,7 +15,7 @@ print-at-time=
 quality=normal
 cover-after=none
 print-at=now
-printer=ENVY_Photo_6200
+printer=HP-Envy-Photo-6200
 cups-Duplex=DuplexNoTumble
 cups-job-sheets=none,none
 

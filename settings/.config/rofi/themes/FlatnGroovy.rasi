@@ -6,8 +6,8 @@
 * {
   /* Defining variables */  
   /* General */
-  text-font:                            "Hasklug Nerd Font 20";
-  text-font-mono:                       "Hasklug Nerd Font Mono 14";
+  text-font:                            "CaskaydiaCove Nerd Font Mono 20";
+  text-font-mono:                       "CaskaydiaCove Nerd Font Mono 14";
   icon-font:                            "FontAwesome 42";
   icon-font-small:                      "FontAwesome 36";
   inputbar-margin:                      4px 4px;

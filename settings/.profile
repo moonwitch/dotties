@@ -65,6 +65,6 @@ export XCURSOR_SIZE=32
 export PDFVIEWER=/usr/bin/evince
 export FILEMAN=/usr/bin/nemo
 export TERMINAL=/usr/bin/alacritty
-export BROWSER=/usr/bin/chromium
+export BROWSER=/usr/bin/google-chrome-stable
 export EDITOR=/usr/bin/code
 

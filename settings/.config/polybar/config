@@ -78,7 +78,7 @@ inherit = common-bar
 top = true
 monitor = 
 modules-left = bspwm i3
-modules-center = playerctl
+modules-center = playerctl agenda timew
 modules-right = pulseaudio-control temperature cpu memory date
 
 ; Tray
@@ -215,6 +215,34 @@ label = %date% %time%
 date = %a, %b %d
 time = %H:%M
 ;click-left = ruby ~/projects/gopolycal/gopolycal.rb
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/timew]
+type = custom/script
+label = %output%
+tail = true
+interval = 1
+exec = timew
+exec-if = true
+format = <label>
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+format-prefix = "timew "
+format-padding = 4
+format-prefix-foreground = ${colors.white}
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/agenda]
+type = custom/script
+; Show the next event and forget cache automatically every 60 minutes
+exec = i3-agenda -c ~/.config/polybar/scripts/calendar-creds.json -ttl 60
+; left click to launch Google Calendar
+click-left = $BROWSER https://calendar.google.com/calendar/r/day
+; right click force update the cache, if for example you just added a new event
+click-right = notify-send "syncing..." && i3-agenda -c ~/.config/polybar/scripts/calendar-creds.json --update && notify-send -t 2000 "sync finished"
+interval = 60
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
