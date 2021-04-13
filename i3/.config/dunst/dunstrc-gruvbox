@@ -130,7 +130,6 @@
 ## Slack/Mattermost
 [slack]
     desktop_entry = Slack
-    new_icon = $HOME/.icons/Nord-Icon/48x48/apps/slack.svg
 
 [mattermost]
     desktop_entry = mattermost-desktop.desktop
@@ -141,8 +140,8 @@
 
 ## Mail
 [gmail]
-    desktop_entry = chromium.desktop
-    action = /usr/bin/chromium -foreground https://gmail.com
+    desktop_entry = google-chrome-stable.desktop
+    action = $BROWSER -foreground https://gmail.com
 
 ## Music
 [spotify]

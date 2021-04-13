@@ -5,12 +5,9 @@
 
 [global]
     ### Display ###
-
     monitor = 0
     follow = keyboard
 
-    #geometry = "262x5-829-46"
-    #geometry = "262x3-14+46"
     geometry = "800x4-14+66"    
     indicate_hidden = yes
     shrink = true
@@ -20,7 +17,14 @@
     padding = 44
     horizontal_padding = 44
     frame_width = 3
-    corner_radius = 12
+    corner_radius = 5
+
+    # Turn on progressbar
+    progress_bar = true
+    progress_bar_height = 10
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
 
     #frame_color = 
     separator_color = auto
@@ -28,7 +32,7 @@
     idle_threshold = 120
 
     ### Text ###
-    font = Hasklug Nerd Font, Font Awesome 5 Free Solid 12
+    font = CaskaydiaCove Nerd Font Mono 12
     line_height = 0
 
     markup = full
@@ -43,7 +47,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b>%a</b>\n%s\n%b"
+    format = "<b>%a</b>\n%s\n%b\n%p"
     alignment = left
     show_age_threshold = 60
     word_wrap = true
@@ -56,8 +60,7 @@
     ### Icons ###
     icon_position = left
     max_icon_size = 128
-    icon_path = /usr/share/icons/Nord-Icon/48x48/status/:/usr/share/icons/Nord-Icon/48x48/devices/:/usr/share/icons/Nord-Icon/48x48/apps
-
+    icon_path = /home/kelly/.icons/NordArc-Icons/48x48/status/:/home/kelly/.icons/NordArc-Icons/48x48/devices/:/home/kelly/.icons/NordArc-Icons/48x48/apps/
     ### History ###
     sticky_history = yes
     history_length = 20
@@ -73,33 +76,6 @@
 
 [experimental]
     per_monitor_dpi = false
-
-[qtile]
-    appname = Qtile
-    new_icon = /usr/share/icons/Nord-Icon/48x48/apps/python.svg
-
-[pomodoro]
-    summary = Pomodoro
-    new_icon = /usr/share/icons/Nord-Icon/48x48/apps/pomodoro-indicator.svg
-
-[slack]
-    desktop_entry = Slack
-    new_icon = /usr/share/icons/Nord-Icon/48x48/apps/slack.svg
-
-[dunst_icon]
-    appname = dunst
-    new_icon = /usr/share/icons/Nord-Icon/48x48/apps/bell.svg
-
-[gmail]
-    desktop_entry = chromium.desktop
-    action = /usr/bin/chromium -foreground https://gmail.com
-
-[spotify]
-    desktop_entry = spotify.desktop
-    #actions = 
-
-[mattermost]
-    desktop_entry = mattermost-desktop.desktop
 
 [shortcuts]
     close = ctrl+space
@@ -123,6 +99,37 @@
     background = colors.background
     foreground = "#bf616a"
     frame_color = "#3b4252"
+    timeout = 0
+
+[signed_on]
+    appname = Pidgin
+    summary = "*signed on*"
+    urgency = low
+
+[signed_off]
+    appname = Pidgin
+    summary = *signed off*
+    urgency = low
+
+[says]
+    appname = Pidgin
+    summary = *says*
+    urgency = critical
+
+
+# Applications
+[Discord]
+    appname = Discord
+    format = "Discord\n%s\n%b"
+
+[Spotify]
+    appname = Spotify
+    format = "Now Playing\n%s\n%b"
+    timeout = 0
+
+[Volume]
+    appname = Volume
+    format = "System Notification\n%s\n%b"
     timeout = 0
 
 # vim: ft=conf
