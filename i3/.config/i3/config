@@ -7,7 +7,7 @@
 ######################
 exec --no-startup-id picom -b
 exec --no-startup-id feh --no-fehbg --bg-fill $WALLPAPER 
-exec --no-startup-id dunst -config $HOME/.config/dunst/dunstrc-gruvbox
+exec --no-startup-id dunst -config $HOME/.config/dunst/dunstrc-nord
 exec --no-startup-id numlockx
 exec --no-startup-id /usr/local/bin/QNAP/QsyncClient/Qsync.sh
 exec --no-startup-id udiskie --smart-tray

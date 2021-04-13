@@ -4,8 +4,8 @@
 # Exporting Base Variables
 ##################################################################
 export XDG_CONFIG_HOME="$HOME/.config"
-export WALLPAPER=$HOME/.wallpapers/Gruv-Mountain.jpg
-#export WALLPAPER=$HOME/.wallpapers/dracula-arch.png
+#export WALLPAPER=$HOME/.wallpapers/Gruv-Mountain.jpg
+export WALLPAPER=$HOME/.wallpapers/foxy_nigh_wp_leksi_reppo_big.png
 export FONT="Overpass Mono"
 
 #Colors

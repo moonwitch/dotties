@@ -137,7 +137,7 @@ schemes:
       cyan:    '#87d7d7'
       white:   '#e4e4e4'
 
-colors: *gruvbox
+colors: *nord
 
 background_opacity: 0.9
 

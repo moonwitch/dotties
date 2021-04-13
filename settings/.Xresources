@@ -20,7 +20,8 @@ Xft.antialias:  1
 Xft.rgba:       rgb
 
 ! Color Scheme
-#include ".config/colors/xresources/gruvbox-dark.xresources"
+!#include ".config/colors/xresources/gruvbox-dark.xresources"
+#include ".config/colors/xresources/nord.xresources"
 
 ! URXVT Config
 URxvt*termName:         rxvt-unicode-256color
