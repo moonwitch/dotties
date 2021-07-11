@@ -5,9 +5,9 @@
 # =========
 
 # Authentication Agent
-if [ -f /usr/lib/xfce-polkit/xfce-polkit ]; then
-  killall xfce-polkit
-  /usr/lib/xfce-polkit/xfce-polkit &
+if [ -f /usr/bin/polkit-dumb-agent ]; then
+  killall polkit-dumb-agent
+  /usr/bin/polkit-dumb-agent &
 fi
 
 # USB/Multimedia Devices

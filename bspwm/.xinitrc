@@ -15,10 +15,5 @@ fi
 [ -r ~/.Xresources ] && xrdb -merge ~/.Xresources
 [ -r ~/.xprofile ] && . ~/.xprofile
 
-# monitor
-xrandr --dpi 163
-# Produces lag but is perfect size
-# xrandr --output DP-1 --scale '1.4x1.4'
-
 # launch the session, commands below this line will be ignored
 exec bspwm

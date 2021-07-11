@@ -6,14 +6,12 @@
 # Autostart setup
 ######################
 exec --no-startup-id picom -b
-exec --no-startup-id feh --no-fehbg --bg-fill $WALLPAPER 
+exec --no-startup-id feh --no-fehbg --bg-fill $WALLPAPER
 exec --no-startup-id dunst -config $HOME/.config/dunst/dunstrc-nord
-exec --no-startup-id numlockx
 exec --no-startup-id /usr/local/bin/QNAP/QsyncClient/Qsync.sh
 exec --no-startup-id udiskie --smart-tray
 exec --no-startup-id nm-applet
 exec --no-startup-id code
-exec --no-startup-id joplin
 exec --no-startup-id google-chrome-stable
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
@@ -210,7 +208,7 @@ mode "$Pause" {
     bindsym Return  mode "default"
     bindsym Escape  mode "default"
 }
-bindsym $super+Shift+End mode "$Pause" 
+bindsym $super+Shift+End mode "$Pause"
 
 bindsym XF86Sleep exec systemctl suspend
 
@@ -303,10 +301,10 @@ for_window      [class="Peek"]                  floating enable
 for_window      [title="Floating Terminal"]     floating enable
 
 for_window      [window_role="pop-up"]          floating enable
-for_window      [window_role="bubble"]          floating enable 
+for_window      [window_role="bubble"]          floating enable
 for_window      [window_role="task_dialog"]     floating enable
 for_window      [window_role="Preferences"]     floating enable
-for_window      [window_type="dialog"]          floating enable 
+for_window      [window_type="dialog"]          floating enable
 for_window      [window_type="menu"]            floating enable
 # Other specific
 for_window [title="feh.*/tmp/qr_code.png$"]     floating enable, sticky enable
