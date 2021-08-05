@@ -1,0 +1,33 @@
+# Base Requirements
+base-devel
+git
+stow
+bat
+vim
+neovim
+alacritty
+exa
+broot
+screen
+kakoune
+# Messaging
+pdigin
+franz-bin
+# Text
+evince
+zathura
+# Browsers
+google-chrome-stable
+min
+# Programming
+ruby
+gem
+# Required apps
+rofi
+wofi
+bitwarden-rofi
+bitwarden-cli
+playerctl
+spotify
+spicetify-cli
+spicetify-themes-git

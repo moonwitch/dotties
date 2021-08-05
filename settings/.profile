@@ -8,32 +8,47 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export WALLPAPER=$HOME/.wallpapers/foxy_nigh_wp_leksi_reppo_big.png
 export FONT="Overpass Mono"
 
-#Colors
+# Colors
 xrdb ~/.Xresources
 
 ##################################################################
 # Path Additions
 ##################################################################
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/bin:$PATH"
+if [ -d "$HOME/.bin" ] ;
+  then PATH="$HOME/.bin:$PATH"
+fi
+
+if [ -d "$HOME/.local/bin" ] ;
+  then PATH="$HOME/.local/bin:$PATH"
+fi
+
 # Ruby
-export GEM_HOME=$HOME/.gem
-export GEM_PATH=$(ruby -e 'puts Gem.user_dir')
-export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
+if [ -d "$HOME/.gem" ]; then
+  export GEM_HOME=$HOME/.gem
+  export GEM_PATH=$(ruby -e 'puts Gem.user_dir')
+  export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
+fi
+
 # Rust
-export PATH="$PATH:$HOME/.cargo/bin"
+if [ -d "$HOME/.cargo/bin" ];
+  then PATH="$HOME/.cargo/bin:$PATH"
+fi
+
 # Java
-export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
-export PATH=$PATH:$JAVA_HOME/bin
+if [ -d "/usr/lib/jvm" ]; then
+  export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
+  export PATH=$PATH:$JAVA_HOME/bin
+fi
 
 # Ensuring SSH works
 if [ -f /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 ]; then
   killall polkit-gnome-authentication-agent-1
   /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-elif [ -f /usr/bin/polkit-dumb-agent] ; then
+elif [ -f /usr/bin/polkit-dumb-agent ]; then
   killall polkit-dumb-agent
   /usr/bin/polkit-dumb-agent
 fi
+
 /usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh &
 export SSH_AUTH_SOCK
 
@@ -69,4 +84,6 @@ export PDFVIEWER=/usr/bin/evince
 export FILEMAN=/usr/bin/nemo
 export TERMINAL=/usr/bin/alacritty
 export BROWSER=/usr/bin/google-chrome-stable
-export EDITOR=/usr/bin/code
+export VISUAL='vim'
+export EDITOR="$VISUAL"
+export TERM="xterm-256color"
