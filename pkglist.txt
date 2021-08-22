@@ -1,7 +1,4 @@
 # Base Requirements
-base-devel
-git
-stow
 bat
 vim
 neovim
