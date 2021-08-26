@@ -13,7 +13,6 @@ exec --no-startup-id /usr/local/bin/QNAP/QsyncClient/Qsync.sh
 exec --no-startup-id udiskie --smart-tray
 exec --no-startup-id nm-applet
 exec --no-startup-id code
-exec --no-startup-id joplin
 exec --no-startup-id google-chrome-stable
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
@@ -273,6 +272,7 @@ assign          [class=Thunar|Nemo|PCmanFM|Polo-GTK]     $ws4
 # Server - Ws5
 assign          [class=Vmrc]                    $ws5
 assign          [class="^Remmina$"]             $ws5
+assign          [class=Wfica]                   $ws5
 # Office/Work - Ws6
 assign          [class=LibreOffice*]            $ws6
 assign          [class=Typora|zettlr|Notable]   $ws6
@@ -288,6 +288,7 @@ assign          [class=Teams]                   $ws7
 for_window [class="Spotify"] move to workspace $ws8
 # Games - Ws9
 assign          [class="^Steam"]               $ws9
+assign          [class=Lutris]                 $ws9
 
 # Enable float for some windows and if need be give them a size
 for_window      [class="^Pavucontrol$"]         floating enable, resize set 1500 750, focus

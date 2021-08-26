@@ -1,0 +1,7 @@
+
+[Desktop Entry]
+Type=Application
+Name=Blizzard Battle.net
+Icon=lutris_battlenet
+Exec=lutris lutris:rungameid/5
+Categories=Game

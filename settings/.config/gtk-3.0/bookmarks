@@ -1,16 +1,11 @@
 file:///home/kelly/Documents Documents
 file:///home/kelly/Downloads Downloads
 file:///home/kelly/Pictures Pictures
+file:///home/kelly/Videos Videos
 file:///home/kelly/Work Work
 file:///home/kelly/Projects Projects
 file:///home/kelly/dotties dotties
 file:///home/kelly/.config .config
 file:///mnt/NAS/photos RAW
 file:///mnt/NAS/video Media
-smb://gds;700320@sfprfci001.fci.fortis/brulthome/700320 HomeDir
-smb://gds;700320@rm-hq-fp2.raetsmarine.local/data/ Raets
-smb://gds;700320@sfprfci001.fci.fortis/portimaqual/ PortimaQual
-smb://gds;700320@sfprfci001.fci.fortis/portimaprod/ PortimaProd
-smb://gds;700320@sfdr3pr0004.amlin.com/aci%20interface%20files/ ACI Interface Files
-smb://gds;700320@sfdr3pr0004.amlin.com/filedata03$/Systems%20Department Systems Department
-smb://gds;700320@sfdr3pr0004.amlin.com/installs$/ AmlinInstalls
+davs://fs.lineas.net/owncloud/remote.php/webdav/FileSync FileSync

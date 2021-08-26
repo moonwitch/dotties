@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=A Wine application
+MimeType=text/vbscript;
+Exec=env WINEPREFIX="/home/kelly/Games/diablo-iii" /home/ubuntu/buildbot/runners/wine/lutris-6.0-x86_64/bin/wine start /ProgIDOpen VBSFile %f
+NoDisplay=true
+StartupNotify=true
