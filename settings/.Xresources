@@ -7,7 +7,7 @@
 
 Xft.dpi:         163
 !Xcursor.size:   32
-!Xcursor.theme:  Adwaita
+!Xcursor.theme:  Breeze
 
 ! xdpyinfo | grep -B2 resolution
 ! 3840*2160 = 163*163 DPI
@@ -20,8 +20,8 @@ Xft.antialias:  1
 Xft.rgba:       rgb
 
 ! Color Scheme
-!#include ".config/colors/xresources/gruvbox-dark.xresources"
-#include ".config/colors/xresources/nord.xresources"
+#include ".config/colors/xresources/gruvbox-dark.xresources"
+!#include ".config/colors/xresources/nord.xresources"
 
 ! URXVT Config
 URxvt*termName:         rxvt-unicode-256color
