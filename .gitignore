@@ -5,8 +5,7 @@
 themes/.icons/default
 
 # Exclude OneNet Desktops
-settings/.local/share/applications/*
-!settings/.local/share/applications/spotify.desktop
+settings/.local/share/applications/Citrix*
 
 # Exclude Typora, but include themes and config
 settings/.config/Typora/*
