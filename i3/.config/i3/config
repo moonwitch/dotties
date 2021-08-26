@@ -283,6 +283,7 @@ assign          [class=Pidgin]                  $ws7
 assign          [class=Skype]                   $ws7
 assign          [class=Discord]                 $ws7
 assign          [class=Teams]                   $ws7
+assign          [class=Slack]                   $ws7
 # Music - Ws8
 # Because Spotify is a bitch
 for_window [class="Spotify"] move to workspace $ws8
