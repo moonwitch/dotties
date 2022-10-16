@@ -1,0 +1,68 @@
+acsccid
+alacritty
+bat
+bitwarden-rofi
+brave-bin
+broot
+ccid
+duf
+eid-mw
+evince
+exa
+go
+google-chrome
+jq
+kakoune
+ncdu
+neofetch
+pcsclite
+pidgin
+playerctl
+python-pip
+rofi
+ruby
+screen
+slack-desktop
+spicetify-cli
+spicetify-themes-git
+spotify
+stow
+typora
+udiskie
+vim
+visual-studio-code-bin
+zathura
+zettlr
+.
+├── bspwm
+├── header.png
+├── i3
+├── install.sh
+├── packages.txt
+├── readme.md
+├── screenshot.png
+├── settings
+│   ├── bin
+│   │   ├── $
+│   │   ├── i3-scripts
+│   │   │   ├── docker
+│   │   │   ├── dunst
+│   │   │   ├── mediaplayer
+│   │   │   ├── memory
+│   │   │   ├── nm-vpn
+│   │   │   ├── sway-focusedwindow
+│   │   │   ├── temperature
+│   │   │   ├── time
+│   │   │   ├── usb
+│   │   │   ├── volume-pulseaudio
+│   │   │   └── weather
+│   │   ├── i3-shotter
+│   │   ├── i3-shotter.conf
+│   │   ├── import-images
+│   │   └── poly-scripts
+│   │       └── pipewire
+│   └── Trolltech.conf
+├── sway
+└── themes
+
+8 directories, 22 files
